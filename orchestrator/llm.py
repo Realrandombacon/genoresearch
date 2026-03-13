@@ -70,11 +70,10 @@ def build_system_prompt(context: str = "") -> dict:
         "  4. Log any novel or unexpected finding immediately.\n"
         "  5. Be systematic — don't repeat queries you've already done.\n"
         "  6. IMPORTANT — fetching sequences:\n"
-        "     - After ncbi_search in gene db, look for [accession: NM_XXXXX] in results.\n"
-        "     - Use that NM_ accession: TOOL: ncbi_fetch('NM_007294', db='nucleotide')\n"
-        "     - If no NM_ accession shown, search nucleotide db: ncbi_search('GENE_NAME', db='nucleotide')\n"
-        "     - NEVER use NC_ chromosome accessions — they download entire chromosomes.\n"
-        "     - NEVER invent or guess accession numbers. Only use IDs from search results.\n"
+        "     - To get a gene's mRNA: ncbi_search('GENE_NAME', db='nucleotide') → returns NM_ accessions.\n"
+        "     - Then fetch: TOOL: ncbi_fetch('NM_XXXXX', db='nucleotide')\n"
+        "     - Gene db results show chromosome accessions (NC_) — do NOT fetch those.\n"
+        "     - NEVER invent accession numbers. Only use accessions shown in search results.\n"
     )
     if context:
         base += f"\nCurrent research context:\n{context}\n"

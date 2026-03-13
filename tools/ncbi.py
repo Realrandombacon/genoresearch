@@ -24,10 +24,14 @@ def ncbi_search(query: str, db: str = "gene", max_results: int = 5) -> str:
     """
     max_results = min(max_results, 20)
 
-    # Add organism filter for gene db if not already specified
+    # Smart query filters by database
     term = query
     if db == "gene" and "homo sapiens" not in query.lower() and "[orgn]" not in query.lower():
         term = f"({query}) AND Homo sapiens[Organism]"
+    elif db == "nucleotide" and "[filter]" not in query.lower():
+        # Auto-add refseq + mRNA + human filters to get useful NM_ accessions
+        org_filter = "" if "homo sapiens" in query.lower() or "[orgn]" in query.lower() else " AND Homo sapiens[Organism]"
+        term = f"({query}){org_filter} AND refseq[filter] AND mRNA[filter]"
 
     # Step 1: esearch — get IDs
     params = {
@@ -137,33 +141,47 @@ def _fetch_summaries(ids: list[str], db: str) -> list[dict]:
     uids = data.get("result", {}).get("uids", ids)
     for uid in uids:
         info = data.get("result", {}).get(str(uid), {})
-        # For gene db, extract name + organism + accession links
-        name = info.get("name", info.get("title", str(uid)))
-        desc = info.get("description", info.get("summary", ""))
-        organism = info.get("organism", {}).get("scientificname", "") if isinstance(info.get("organism"), dict) else ""
-        # Extract mRNA accession (NM_) — prefer over chromosome accession (NC_)
-        accession = ""
-        # Check for RefSeq mRNA accessions in locationhist
-        locationhist = info.get("locationhist", [])
-        if locationhist and isinstance(locationhist, list):
-            for loc in locationhist:
-                acc = loc.get("chraccver", "")
-                if acc.startswith("NM_") or acc.startswith("NR_"):
-                    accession = acc
-                    break
-        # Fallback: check genomicinfo for chromosome accession
-        if not accession:
-            genomic = info.get("genomicinfo", [])
-            if genomic and isinstance(genomic, list):
-                chr_acc = genomic[0].get("chraccver", "")
-                # Only show chromosome if no mRNA found — but label it clearly
-                if chr_acc:
-                    accession = f"{chr_acc} (chromosome)"
 
-        results.append({
-            "id": uid,
-            "title": f"{name} — {desc}" if desc else name,
-            "description": f"Organism: {organism}" if organism else "",
-            "accession": accession,
-        })
+        if db in ("nucleotide", "protein"):
+            # Nucleotide/protein esummary: accession in caption/accessionversion
+            accession = info.get("accessionversion", info.get("caption", ""))
+            title = info.get("title", str(uid))
+            organism = info.get("organism", "")
+            slen = info.get("slen", "")
+            biomol = info.get("biomol", "")
+            desc = f"Organism: {organism}" if organism else ""
+            if slen:
+                desc += f" | Length: {slen} {'bp' if biomol != 'peptide' else 'aa'}"
+            results.append({
+                "id": uid,
+                "title": title,
+                "description": desc,
+                "accession": accession,
+            })
+        else:
+            # Gene db: extract name, description, organism, mRNA accession
+            name = info.get("name", info.get("title", str(uid)))
+            desc = info.get("description", info.get("summary", ""))
+            organism = info.get("organism", {}).get("scientificname", "") if isinstance(info.get("organism"), dict) else ""
+            # Extract mRNA accession (NM_) — prefer over chromosome accession (NC_)
+            accession = ""
+            locationhist = info.get("locationhist", [])
+            if locationhist and isinstance(locationhist, list):
+                for loc in locationhist:
+                    acc = loc.get("chraccver", "")
+                    if acc.startswith("NM_") or acc.startswith("NR_"):
+                        accession = acc
+                        break
+            if not accession:
+                genomic = info.get("genomicinfo", [])
+                if genomic and isinstance(genomic, list):
+                    chr_acc = genomic[0].get("chraccver", "")
+                    if chr_acc:
+                        accession = f"{chr_acc} (chromosome)"
+            results.append({
+                "id": uid,
+                "title": f"{name} — {desc}" if desc else name,
+                "description": f"Organism: {organism}" if organism else "",
+                "accession": accession,
+            })
     return results
