@@ -3,11 +3,12 @@ BLAST tool — sequence similarity search via NCBI BLAST API.
 Note: BLAST searches are async — submit, poll, then fetch results.
 """
 
+import os
 import time
 import logging
 import requests
 
-from config import NCBI_BLAST_URL, NCBI_API_KEY
+from config import NCBI_BLAST_URL, NCBI_API_KEY, SEQUENCES_DIR
 
 log = logging.getLogger("genoresearch.blast")
 
@@ -21,12 +22,17 @@ def blast_search(sequence: str, db: str = "nt", program: str = "blastn",
     Run BLAST search against NCBI.
 
     Args:
-        sequence: Nucleotide or protein sequence (raw, no header)
+        sequence: Raw sequence OR filepath to a .fasta file (e.g. 'NM_007294.4.fasta')
         db: Database — nt (nucleotide), nr (protein), refseq_rna, etc.
         program: blastn, blastp, blastx, tblastn, tblastx
         evalue: E-value threshold
         max_hits: Max alignments to return
     """
+    # If sequence looks like a filepath, read the FASTA file
+    sequence = _resolve_sequence(sequence)
+    if sequence.startswith("[ERROR]"):
+        return sequence
+
     if len(sequence) < 10:
         return "[ERROR] Sequence too short for BLAST (min 10 characters)"
 
@@ -69,6 +75,53 @@ def blast_search(sequence: str, db: str = "nt", program: str = "blastn",
 
     # Step 3: Parse and summarize
     return _summarize_blast(result_text, max_hits)
+
+
+def _resolve_sequence(sequence: str) -> str:
+    """If sequence is a filepath or filename, read the FASTA and return raw sequence."""
+    sequence = sequence.strip()
+
+    # Check if it's a filepath (absolute or relative) or just a filename like 'NM_007294.4.fasta'
+    is_path = (
+        os.sep in sequence
+        or "/" in sequence
+        or sequence.endswith(".fasta")
+        or sequence.endswith(".fa")
+    )
+    if not is_path:
+        return sequence  # raw sequence string
+
+    # Try the path as-is first, then look in SEQUENCES_DIR
+    candidates = [sequence]
+    if not os.path.isabs(sequence):
+        candidates.append(os.path.join(SEQUENCES_DIR, sequence))
+        # Also try just the basename in case they passed a partial path
+        candidates.append(os.path.join(SEQUENCES_DIR, os.path.basename(sequence)))
+
+    filepath = None
+    for c in candidates:
+        if os.path.isfile(c):
+            filepath = c
+            break
+
+    if not filepath:
+        return f"[ERROR] FASTA file not found: {sequence} (looked in {SEQUENCES_DIR})"
+
+    try:
+        with open(filepath, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+    except Exception as e:
+        return f"[ERROR] Could not read {filepath}: {e}"
+
+    # Strip FASTA header lines and join sequence
+    seq_lines = [l.strip() for l in lines if l.strip() and not l.startswith(">")]
+    raw = "".join(seq_lines)
+
+    if len(raw) < 10:
+        return f"[ERROR] Sequence in {os.path.basename(filepath)} too short ({len(raw)} chars)"
+
+    log.info("Resolved BLAST sequence from file: %s (%d bp/aa)", filepath, len(raw))
+    return raw
 
 
 def _looks_like_protein(seq: str) -> bool:

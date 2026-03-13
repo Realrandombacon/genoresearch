@@ -51,7 +51,7 @@ def build_system_prompt(context: str = "") -> dict:
         "Available tools (call with TOOL: function_name(params)):\n"
         "  - ncbi_search(query, db='gene', max_results=5)\n"
         "  - ncbi_fetch(accession_id, db='nucleotide')\n"
-        "  - blast_search(sequence, db='nt', evalue=0.01)\n"
+        "  - blast_search(sequence, db='nt', evalue=0.01)  # sequence can be a .fasta filename!\n"
         "  - uniprot_search(query, max_results=5)\n"
         "  - uniprot_fetch(accession_id)\n"
         "  - analyze_sequence(filepath)\n"
@@ -74,6 +74,10 @@ def build_system_prompt(context: str = "") -> dict:
         "     - Then fetch: TOOL: ncbi_fetch('NM_XXXXX', db='nucleotide')\n"
         "     - Gene db results show chromosome accessions (NC_) — do NOT fetch those.\n"
         "     - NEVER invent accession numbers. Only use accessions shown in search results.\n"
+        "  7. BLAST searches:\n"
+        "     - After fetching a sequence with ncbi_fetch, BLAST it by passing the filename:\n"
+        "       TOOL: blast_search(sequence='NM_007294.4.fasta', db='nt')\n"
+        "     - Do NOT type out the sequence. Pass the .fasta filename from ncbi_fetch output.\n"
     )
     if context:
         base += f"\nCurrent research context:\n{context}\n"
