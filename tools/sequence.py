@@ -24,6 +24,16 @@ def analyze_sequence(filepath: str) -> str:
     if not os.path.exists(filepath):
         return f"[ERROR] File not found: {filepath}"
 
+    # Guard against huge files (e.g. entire chromosomes)
+    file_size = os.path.getsize(filepath)
+    if file_size > 50_000_000:  # 50 MB
+        return (
+            f"[ERROR] File too large ({file_size / 1_000_000:.0f} MB): {os.path.basename(filepath)}\n"
+            "This looks like an entire chromosome. Fetch the specific gene's mRNA instead:\n"
+            "  1. Search: ncbi_search('GENE_NAME', db='nucleotide')\n"
+            "  2. Fetch: ncbi_fetch('NM_XXXXX', db='nucleotide')"
+        )
+
     header, sequence = _read_fasta(filepath)
     if not sequence:
         return f"[ERROR] Empty or invalid FASTA: {filepath}"
@@ -147,7 +157,9 @@ def _read_fasta(filepath: str) -> tuple[str, str]:
 
 def _detect_type(seq: str) -> str:
     """Detect if sequence is DNA, RNA, or Protein."""
-    unique = set(seq.upper())
+    # Sample first 10k chars for efficiency on large sequences
+    sample = seq[:10000].upper()
+    unique = set(sample)
     if unique <= set("ATCGN"):
         return "DNA"
     if unique <= set("AUCGN"):
