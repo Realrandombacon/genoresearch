@@ -44,6 +44,7 @@ class ToolRegistry:
         from tools.uniprot import uniprot_search, uniprot_fetch
         from tools.sequence import analyze_sequence, compare_sequences
         from tools.findings import save_finding, list_findings
+        from tools.memory_tools import query_memory, my_stats, list_unexplored
 
         self.register("ncbi_search", ncbi_search)
         self.register("ncbi_fetch", ncbi_fetch)
@@ -54,5 +55,8 @@ class ToolRegistry:
         self.register("compare_sequences", compare_sequences)
         self.register("save_finding", save_finding)
         self.register("list_findings", list_findings)
+        self.register("query_memory", query_memory)
+        self.register("my_stats", my_stats)
+        self.register("list_unexplored", list_unexplored)
 
         log.info("Registered %d tools", len(self._tools))
