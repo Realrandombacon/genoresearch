@@ -60,10 +60,21 @@ TOOL_STYLE = {
     "uniprot_fetch":      (C.UNIPROT,  "📥"),
     "analyze_sequence":   (C.SEQUENCE, "🔍"),
     "compare_sequences":  (C.COMPARE,  "🔀"),
+    "translate_sequence": (C.SEQUENCE, "🔄"),
+    "translate_sequences":(C.SEQUENCE, "🔄"),
     "save_finding":       (C.FINDINGS, "⭐"),
     "list_findings":      (C.MEMORY,   "📋"),
+    "read_finding":       (C.FINDINGS, "📖"),
+    "list_sequences":     (C.SEQUENCE, "📂"),
     "query_memory":       (C.MEMORY,   "🧠"),
     "my_stats":           (C.MEMORY,   "📊"),
+    "list_unexplored":    (C.MEMORY,   "🗺️"),
+    "note":               (C.MEMORY,   "📝"),
+    "mark_explored":      (C.MEMORY,   "✅"),
+    "mark_done":          (C.MEMORY,   "🏁"),
+    "dismiss":            (C.MEMORY,   "🚫"),
+    "pubmed_search":      (C.NCBI,     "📚"),
+    "gene_info":          (C.NCBI,     "🧬"),
     "lab_train":          (C.LAB,      "⚗️"),
     "lab_status":         (C.LAB,      "📈"),
 }
@@ -95,10 +106,17 @@ def log(level, message, **extra):
     }
     lc = level_colors.get(level, "")
 
-    # Special rendering for thoughts
+    # Special rendering for thoughts — full display
     if level == "THINK":
-        prefix = f"{C.THOUGHT}{C.ITALIC}💭 THOUGHT{C.RESET}"
-        console_msg = f"  {ts_str} {prefix} {C.THOUGHT_BG}{C.THOUGHT}{C.ITALIC} {message} {C.RESET}"
+        thought_lines = [l for l in message.split("\n") if l.strip()]
+        if not thought_lines:
+            thought_lines = ["(thinking...)"]
+        prefix = f"{C.THOUGHT}{C.ITALIC}💭{C.RESET}"
+        # First line with timestamp
+        console_msg = f"  {ts_str} {prefix} {C.THOUGHT}{C.ITALIC}{thought_lines[0].strip()}{C.RESET}"
+        # Remaining lines indented
+        for line in thought_lines[1:]:
+            console_msg += f"\n  {'':>8}   {C.THOUGHT}{C.ITALIC}{line.strip()}{C.RESET}"
 
     # Special rendering for tool calls
     elif level == "TOOL" and "|" in message:
@@ -140,10 +158,18 @@ def log(level, message, **extra):
     full_ts = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     try:
         with open(RESEARCH_LOG, "a", encoding="utf-8") as f:
-            f.write(f"[{full_ts}] [{level}] {message}")
-            if extra:
-                f.write(f" | {json.dumps(extra, default=str)}")
-            f.write("\n")
+            if level == "THINK":
+                # Log full thought as multi-line block but single entry
+                f.write(f"[{full_ts}] [THINK] --- BEGIN THOUGHT ---\n")
+                for tl in message.split("\n"):
+                    if tl.strip():
+                        f.write(f"  {tl.strip()}\n")
+                f.write(f"[{full_ts}] [THINK] --- END THOUGHT ---\n")
+            else:
+                f.write(f"[{full_ts}] [{level}] {message}")
+                if extra:
+                    f.write(f" | {json.dumps(extra, default=str)}")
+                f.write("\n")
     except Exception:
         pass
 

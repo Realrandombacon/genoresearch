@@ -39,12 +39,15 @@ class ToolRegistry:
 
     def _register_defaults(self):
         """Register all built-in genomics tools."""
-        from tools.ncbi import ncbi_search, ncbi_fetch
+        from tools.ncbi import ncbi_search, ncbi_fetch, pubmed_search, gene_info
         from tools.blast import blast_search
         from tools.uniprot import uniprot_search, uniprot_fetch
-        from tools.sequence import analyze_sequence, compare_sequences
-        from tools.findings import save_finding, list_findings
-        from tools.memory_tools import query_memory, my_stats, list_unexplored
+        from tools.sequence import analyze_sequence, compare_sequences, translate_sequence
+        from tools.findings import save_finding, list_findings, read_finding, list_sequences
+        from tools.memory_tools import (
+            query_memory, my_stats, list_unexplored,
+            note, mark_explored, mark_done, dismiss,
+        )
         from tools.lab_tools import lab_train, lab_status
 
         self.register("ncbi_search", ncbi_search)
@@ -56,10 +59,20 @@ class ToolRegistry:
         self.register("compare_sequences", compare_sequences)
         self.register("save_finding", save_finding)
         self.register("list_findings", list_findings)
+        self.register("read_finding", read_finding)
+        self.register("list_sequences", list_sequences)
         self.register("query_memory", query_memory)
         self.register("my_stats", my_stats)
         self.register("list_unexplored", list_unexplored)
+        self.register("note", note)
+        self.register("mark_explored", mark_explored)
+        self.register("mark_done", mark_done)
+        self.register("dismiss", dismiss)
         self.register("lab_train", lab_train)
         self.register("lab_status", lab_status)
+        self.register("translate_sequence", translate_sequence)
+        self.register("translate_sequences", translate_sequence)  # alias — Qwen uses plural
+        self.register("pubmed_search", pubmed_search)
+        self.register("gene_info", gene_info)
 
         log.info("Registered %d tools", len(self._tools))

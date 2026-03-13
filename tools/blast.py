@@ -16,8 +16,8 @@ MAX_WAIT_SECONDS = 300  # 5 min max wait for BLAST results
 POLL_INTERVAL = 15      # check every 15 seconds
 
 
-def blast_search(sequence: str, db: str = "nt", program: str = "blastn",
-                 evalue: float = 0.01, max_hits: int = 10) -> str:
+def blast_search(*args, sequence: str = "", db: str = "nt", program: str = "blastn",
+                 evalue: float = 0.01, max_hits: int = 10, **kwargs) -> str:
     """
     Run BLAST search against NCBI.
 
@@ -28,6 +28,21 @@ def blast_search(sequence: str, db: str = "nt", program: str = "blastn",
         evalue: E-value threshold
         max_hits: Max alignments to return
     """
+    # Handle Qwen's creative kwarg names: query=, seq=, input=, fasta=, etc.
+    if not sequence and args:
+        sequence = str(args[0])
+    if not sequence:
+        for key in ("query", "seq", "input", "fasta", "file", "filepath"):
+            if key in kwargs:
+                sequence = str(kwargs[key])
+                break
+    # Also absorb database= alias
+    if "database" in kwargs:
+        db = str(kwargs["database"])
+
+    if not sequence:
+        return "[ERROR] No sequence provided. Usage: blast_search('NM_007294.4.fasta', db='nt')"
+
     # If sequence looks like a filepath, read the FASTA file
     sequence = _resolve_sequence(sequence)
     if sequence.startswith("[ERROR]"):

@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genoresearch Dashboard</title>
+<script src="https://cdn.plot.ly/plotly-2.35.0.min.js"></script>
+<style>
+/* ================================================================
+   DARK BIO THEME — DNA / Genomics
+   ================================================================ */
+:root {
+    --bg-deep:     #040d12;
+    --bg-main:     #071018;
+    --bg-card:     #0c1a24;
+    --bg-card-alt: #112230;
+    --border:      #1a3040;
+    --border-glow: #254a5e;
+    --text:        #c0d8e8;
+    --text-dim:    #5a8a9e;
+    --text-bright: #e4f0f8;
+    --accent:      #00e5a0;
+    --accent-dim:  #00a070;
+    --purple:      #a855f7;
+    --purple-dim:  #7c3aed;
+    --green:       #22c55e;
+    --amber:       #f59e0b;
+    --red:         #ef4444;
+    --pink:        #ec4899;
+    --cyan:        #06d6d6;
+    --gold:        #eab308;
+    --dna-blue:    #3b82f6;
+    --dna-teal:    #14b8a6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: var(--bg-deep);
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', 'Cascadia Code', monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* DNA helix background effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background:
+        radial-gradient(1px 1px at 5% 15%, rgba(0,229,160,0.12), transparent),
+        radial-gradient(1px 1px at 25% 65%, rgba(0,229,160,0.08), transparent),
+        radial-gradient(1px 1px at 45% 35%, rgba(168,85,247,0.1), transparent),
+        radial-gradient(1px 1px at 65% 85%, rgba(59,130,246,0.08), transparent),
+        radial-gradient(1px 1px at 85% 25%, rgba(20,184,166,0.1), transparent),
+        radial-gradient(1.5px 1.5px at 15% 80%, rgba(0,229,160,0.15), transparent),
+        radial-gradient(1.5px 1.5px at 75% 10%, rgba(168,85,247,0.15), transparent),
+        radial-gradient(1px 1px at 35% 50%, rgba(59,130,246,0.08), transparent),
+        radial-gradient(1px 1px at 55% 90%, rgba(0,229,160,0.06), transparent),
+        radial-gradient(2px 2px at 95% 60%, rgba(20,184,166,0.12), transparent);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ================================================================
+   LAYOUT
+   ================================================================ */
+.dashboard {
+    position: relative;
+    z-index: 1;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-alt) 100%);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(0,229,160,0.05);
+}
+.header-left { display: flex; align-items: center; gap: 14px; }
+.header-logo { font-size: 32px; line-height: 1; }
+.header-title {
+    font-size: 20px; font-weight: 700;
+    color: var(--text-bright); letter-spacing: -0.5px;
+}
+.header-subtitle { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+.header-right { display: flex; align-items: center; gap: 16px; }
+
+.live-dot {
+    display: inline-block; width: 8px; height: 8px;
+    border-radius: 50%; background: var(--green);
+    animation: pulse 2s infinite; margin-right: 6px;
+}
+.live-dot.offline { background: var(--red); animation: none; }
+@keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34,197,94,0.7); }
+    50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+}
+.status-pill {
+    display: inline-flex; align-items: center;
+    padding: 4px 12px; border-radius: 20px;
+    font-size: 11px; font-weight: 600;
+    background: rgba(34,197,94,0.15);
+    color: var(--green); border: 1px solid rgba(34,197,94,0.3);
+}
+.status-pill.offline {
+    background: rgba(239,68,68,0.15);
+    color: var(--red); border-color: rgba(239,68,68,0.3);
+}
+.refresh-btn {
+    background: rgba(0,229,160,0.15); color: var(--accent);
+    border: 1px solid rgba(0,229,160,0.3); border-radius: 50%;
+    width: 32px; height: 32px; font-size: 18px;
+    cursor: pointer; display: inline-flex;
+    align-items: center; justify-content: center; transition: all 0.2s;
+}
+.refresh-btn:hover { background: rgba(0,229,160,0.3); transform: rotate(90deg); }
+.refresh-btn.spinning { animation: spin 0.6s linear; pointer-events: none; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.last-update { font-size: 11px; color: var(--text-dim); }
+
+/* STAT CARDS */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 12px;
+}
+.stat-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px 16px;
+    position: relative; overflow: hidden;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.stat-card:hover {
+    border-color: var(--border-glow);
+    box-shadow: 0 0 20px rgba(0,229,160,0.08);
+}
+.stat-card::after {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 100%; height: 3px; border-radius: 10px 10px 0 0;
+}
+.stat-card.teal::after   { background: var(--accent); }
+.stat-card.purple::after { background: var(--purple); }
+.stat-card.green::after  { background: var(--green); }
+.stat-card.amber::after  { background: var(--amber); }
+.stat-card.pink::after   { background: var(--pink); }
+.stat-card.gold::after   { background: var(--gold); }
+.stat-card.blue::after   { background: var(--dna-blue); }
+.stat-label {
+    font-size: 10px; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--text-dim); margin-bottom: 4px;
+}
+.stat-value { font-size: 26px; font-weight: 800; color: var(--text-bright); line-height: 1.1; }
+.stat-detail { font-size: 10px; color: var(--text-dim); margin-top: 4px; }
+
+/* MAIN GRID */
+.main-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+/* CARD */
+.card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 10px; overflow: hidden;
+}
+.card-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 16px; border-bottom: 1px solid var(--border);
+}
+.card-title {
+    font-size: 13px; font-weight: 700; color: var(--text-bright);
+    display: flex; align-items: center; gap: 8px;
+}
+.card-title .icon { font-size: 16px; }
+.card-badge {
+    font-size: 10px; padding: 2px 8px;
+    border-radius: 10px; font-weight: 600;
+}
+.card-body { padding: 12px 16px; }
+.card.full-width { grid-column: 1 / -1; }
+
+/* LIVE STATUS BAR */
+.live-bar {
+    display: flex; align-items: center; gap: 16px;
+    padding: 10px 16px;
+    background: linear-gradient(90deg, rgba(0,229,160,0.08) 0%, rgba(168,85,247,0.08) 100%);
+    border: 1px solid var(--border); border-radius: 10px; font-size: 12px;
+}
+.live-label { font-weight: 700; color: var(--accent); flex-shrink: 0; }
+.live-thought {
+    color: var(--purple); font-style: italic;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1;
+}
+.live-tool { color: var(--cyan); font-weight: 600; flex-shrink: 0; }
+
+/* FINDINGS TABLE */
+.findings-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+.findings-table th {
+    text-align: left; padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-dim); font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    position: sticky; top: 0; background: var(--bg-card);
+}
+.findings-table td {
+    padding: 7px 10px; border-bottom: 1px solid rgba(26,48,64,0.5);
+    vertical-align: top;
+}
+.findings-table tr:hover td { background: rgba(0,229,160,0.03); }
+.findings-scroll { max-height: 380px; overflow-y: auto; }
+.sig-badge {
+    display: inline-block; padding: 2px 8px; border-radius: 8px;
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
+}
+.sig-high   { background: rgba(239,68,68,0.2);  color: var(--red);   border: 1px solid rgba(239,68,68,0.4); }
+.sig-medium { background: rgba(245,158,11,0.2); color: var(--amber); border: 1px solid rgba(245,158,11,0.4); }
+.sig-low    { background: rgba(34,197,94,0.15); color: var(--green); border: 1px solid rgba(34,197,94,0.3); }
+
+/* SEQUENCE TABLE */
+.seq-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+.seq-table th {
+    text-align: left; padding: 6px 10px;
+    border-bottom: 1px solid var(--border); color: var(--text-dim);
+    font-size: 10px; text-transform: uppercase;
+}
+.seq-table td {
+    padding: 6px 10px; border-bottom: 1px solid rgba(26,48,64,0.4);
+}
+.seq-table tr:hover td { background: rgba(0,229,160,0.03); }
+.seq-scroll { max-height: 320px; overflow-y: auto; }
+.acc-badge {
+    display: inline-block; padding: 1px 6px; border-radius: 4px;
+    font-size: 10px; font-weight: 600; font-family: monospace;
+}
+.acc-nm  { background: rgba(0,229,160,0.15); color: var(--accent); border: 1px solid rgba(0,229,160,0.3); }
+.acc-nc  { background: rgba(239,68,68,0.15); color: var(--red);    border: 1px solid rgba(239,68,68,0.3); }
+.acc-p   { background: rgba(168,85,247,0.15); color: var(--purple); border: 1px solid rgba(168,85,247,0.3); }
+.acc-other { background: rgba(100,116,139,0.15); color: var(--text-dim); border: 1px solid rgba(100,116,139,0.3); }
+
+/* LOG PANEL */
+.log-panel {
+    max-height: 340px; overflow-y: auto;
+    padding: 8px 0; font-size: 11px; line-height: 1.6;
+}
+.log-line { padding: 1px 12px; white-space: pre-wrap; word-break: break-all; }
+.log-line:hover { background: rgba(0,229,160,0.03); }
+.log-ts { color: var(--text-dim); }
+.log-lvl-info  { color: var(--accent); }
+.log-lvl-ok    { color: var(--green); }
+.log-lvl-warn  { color: var(--amber); }
+.log-lvl-error { color: var(--red); }
+.log-lvl-tool  { color: var(--cyan); }
+.log-lvl-find  { color: var(--pink); }
+.log-lvl-think { color: var(--purple); font-style: italic; }
+.log-lvl-result { color: var(--dna-teal); }
+
+/* MEMORY PANEL */
+.mem-stat {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 0; border-bottom: 1px solid rgba(26,48,64,0.5);
+}
+.mem-stat:last-child { border-bottom: none; }
+.mem-icon { font-size: 16px; flex-shrink: 0; }
+.mem-label { font-size: 11px; color: var(--text-dim); flex: 1; }
+.mem-value { font-size: 14px; font-weight: 700; color: var(--text-bright); }
+
+/* GENE TAG */
+.gene-tag {
+    display: inline-block; padding: 2px 8px; border-radius: 12px;
+    font-size: 10px; font-weight: 700; margin: 2px;
+    background: rgba(20,184,166,0.15); color: var(--dna-teal);
+    border: 1px solid rgba(20,184,166,0.3);
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-card); }
+::-webkit-scrollbar-thumb { background: var(--border-glow); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-dim); }
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+    .stats-row { grid-template-columns: repeat(4, 1fr); }
+    .main-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .dashboard { padding: 10px; }
+}
+</style>
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-left">
+            <div class="header-logo">&#x1F9EC;</div>
+            <div>
+                <div class="header-title">Genoresearch Dashboard</div>
+                <div class="header-subtitle">Autonomous Genomics Research Agent &bull; Qwen 3.5 + NCBI/UniProt/BLAST</div>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="refresh-btn" id="refresh-btn" onclick="manualRefresh()" title="Refresh now">&#x21bb;</button>
+            <span class="last-update" id="last-update"></span>
+            <span class="status-pill" id="status-pill">
+                <span class="live-dot" id="live-dot"></span>
+                <span id="status-text">Connecting...</span>
+            </span>
+        </div>
+    </div>
+
+    <!-- LIVE STATUS BAR -->
+    <div class="live-bar" id="live-bar" style="display:none;">
+        <span class="live-label">&#x1F52C; LIVE</span>
+        <span class="live-tool" id="live-cycle"></span>
+        <span class="live-tool" id="live-tool"></span>
+        <span class="live-thought" id="live-thought"></span>
+    </div>
+
+    <!-- STAT CARDS -->
+    <div class="stats-row">
+        <div class="stat-card teal">
+            <div class="stat-label">Sessions</div>
+            <div class="stat-value" id="stat-sessions">-</div>
+            <div class="stat-detail" id="stat-session-detail">research sessions</div>
+        </div>
+        <div class="stat-card blue">
+            <div class="stat-label">Tool Calls</div>
+            <div class="stat-value" id="stat-calls">-</div>
+            <div class="stat-detail">total API calls</div>
+        </div>
+        <div class="stat-card green">
+            <div class="stat-label">Findings</div>
+            <div class="stat-value" id="stat-findings">-</div>
+            <div class="stat-detail" id="stat-findings-detail">discoveries</div>
+        </div>
+        <div class="stat-card purple">
+            <div class="stat-label">Sequences</div>
+            <div class="stat-value" id="stat-sequences">-</div>
+            <div class="stat-detail" id="stat-seq-detail">fetched</div>
+        </div>
+        <div class="stat-card amber">
+            <div class="stat-label">Genes Studied</div>
+            <div class="stat-value" id="stat-genes">-</div>
+            <div class="stat-detail" id="stat-genes-list"></div>
+        </div>
+        <div class="stat-card pink">
+            <div class="stat-label">Lab Runs</div>
+            <div class="stat-value" id="stat-lab">-</div>
+            <div class="stat-detail">ML experiments</div>
+        </div>
+        <div class="stat-card gold">
+            <div class="stat-label">Data Size</div>
+            <div class="stat-value" id="stat-data-size">-</div>
+            <div class="stat-detail">sequence data</div>
+        </div>
+    </div>
+
+    <!-- MAIN GRID -->
+    <div class="main-grid">
+
+        <!-- TOOL USAGE PIE + BAR (side by side) -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <span class="icon">&#x1F527;</span> Tool Usage Distribution
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="tool-pie-chart" style="width:100%;height:300px;"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <span class="icon">&#x1F4CA;</span> Tool Call Counts
+                </div>
+                <span class="card-badge" id="tool-total-badge"
+                      style="background:rgba(0,229,160,0.15);color:var(--accent);border:1px solid rgba(0,229,160,0.3);">-</span>
+            </div>
+            <div class="card-body">
+                <div id="tool-bar-chart" style="width:100%;height:300px;"></div>
+            </div>
+        </div>
+
+        <!-- CYCLE TIMELINE (full width) -->
+        <div class="card full-width">
+            <div class="card-header">
+                <div class="card-title">
+                    <span class="icon">&#x1F4C8;</span> Research Progress
+                </div>
+                <span class="card-badge" id="pace-badge"
+                      style="background:rgba(168,85,247,0.15);color:var(--purple);border:1px solid rgba(168,85,247,0.3);">-</span>
+            </div>
+            <div class="card-body">
+                <div id="pace-chart" style="width:100%;height:240px;"></div>
+            </div>
+        </div>
+
+        <!-- SEQUENCE INVENTORY (full width) -->
+        <div class="card full-width">
+            <div class="card-header">
+                <div class="card-title">
+                    <span class="icon">&#x1F9EC;</span> Sequence Inventory
+                </div>
+                <span class="card-badge" id="seq-badge"
+                      style="background:rgba(20,184,166,0.15);color:var(--dna-teal);border:1px solid rgba(20,184,166,0.3);">-</span>
+            </div>
+            <div class="seq-scroll">
+                <table class="seq-table">
+                    <thead>
+                        <tr>
+                            <th>Accession</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                            <th>Size</th>
+                            <th>Fetched</th>
+                        </tr>
+                    </thead>
+                    <tbody id="seq-body"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- SEQUENCE BREAKDOWN + TOOL TIMELINE -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <span class="icon">&#x1F4BE;</span> Sequence Types
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="seq-type-chart" style="width:100%;height:280px;"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <span class="icon">&#x1F3AF;</span> Tools per Cycle
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="tools-per-cycle-chart" style="width:100%;height:280px;"></div>
+            </div>
+        </div>
+
+        <!-- FINDINGS TABLE (full width) -->
+        <div class="card full-width">
+            <div class="card-header">
+                <div class="card-title">
+                    <span class="icon">&#x2B50;</span> Findings Log
+                </div>
+                <span class="card-badge" id="findings-badge"
+                      style="background:rgba(236,72,153,0.15);color:var(--pink);border:1px solid rgba(236,72,153,0.3);">0</span>
+            </div>
+            <div class="findings-scroll">
+                <table class="findings-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="findings-body"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- MEMORY OVERVIEW + AGENT STATS -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <span class="icon">&#x1F9E0;</span> Agent Memory
+                </div>
+            </div>
+            <div class="card-body" id="memory-body">
+                <div style="color:var(--text-dim);text-align:center;">Loading...</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <span class="icon">&#x1F4AC;</span> Genes Explored
+                </div>
+            </div>
+            <div class="card-body" id="genes-body">
+                <div style="color:var(--text-dim);text-align:center;">Loading...</div>
+            </div>
+        </div>
+
+        <!-- RESEARCH LOG (full width) -->
+        <div class="card full-width">
+            <div class="card-header">
+                <div class="card-title">
+                    <span class="icon">&#x1F4DC;</span> Research Log
+                </div>
+                <span class="card-badge"
+                      style="background:rgba(168,85,247,0.15);color:var(--purple);border:1px solid rgba(168,85,247,0.3);">Live</span>
+            </div>
+            <div class="log-panel" id="log-panel"></div>
+        </div>
+
+    </div><!-- /main-grid -->
+
+</div><!-- /dashboard -->
+
+<script>
+// ================================================================
+// DASHBOARD STATE & UPDATE LOGIC
+// ================================================================
+
+const REFRESH_INTERVAL = 12000; // 12s
+
+const _lastHash = {};
+function dataChanged(key, data) {
+    const h = JSON.stringify(data);
+    if (_lastHash[key] === h) return false;
+    _lastHash[key] = h;
+    return true;
+}
+
+// Plotly theme
+const PBG = '#071018';
+const PPAPER = '#0c1a24';
+const PGRID = '#1a3040';
+const PTEXT = '#5a8a9e';
+const PFONT = { family: 'SF Mono, Fira Code, monospace', size: 10, color: '#5a8a9e' };
+
+const TOOL_COLORS = {
+    ncbi_search:       '#00e5a0',
+    ncbi_fetch:        '#14b8a6',
+    blast_search:      '#ef4444',
+    uniprot_search:    '#a855f7',
+    uniprot_fetch:     '#8b5cf6',
+    analyze_sequence:  '#3b82f6',
+    compare_sequences: '#06d6d6',
+    save_finding:      '#ec4899',
+    list_findings:     '#f59e0b',
+    query_memory:      '#22c55e',
+    my_stats:          '#6366f1',
+    list_unexplored:   '#84cc16',
+    lab_train:         '#f43f5e',
+    lab_status:        '#fb923c',
+};
+
+async function fetchJSON(url) {
+    try { const r = await fetch(url); return await r.json(); }
+    catch (e) { console.error('Fetch error:', url, e); return null; }
+}
+
+function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+}
+
+// ================================================================
+// UPDATE FUNCTIONS
+// ================================================================
+
+async function updateStatus() {
+    const data = await fetchJSON('/api/status');
+    if (!data) return;
+
+    document.getElementById('stat-sessions').textContent = data.session_count;
+    document.getElementById('stat-calls').textContent = data.total_tool_calls;
+    document.getElementById('stat-findings').textContent = data.n_findings;
+    document.getElementById('stat-findings-detail').textContent =
+        `${data.n_explored} targets explored`;
+    document.getElementById('stat-sequences').textContent = data.n_sequences;
+    document.getElementById('stat-seq-detail').textContent = data.total_seq_size;
+    document.getElementById('stat-genes').textContent = data.n_genes;
+    document.getElementById('stat-lab').textContent = data.n_lab_runs;
+    document.getElementById('stat-data-size').textContent = data.total_seq_size;
+
+    // Gene tags
+    const genesList = document.getElementById('stat-genes-list');
+    if (data.genes_studied && data.genes_studied.length > 0) {
+        genesList.innerHTML = data.genes_studied.map(g =>
+            `<span class="gene-tag">${g}</span>`
+        ).join('');
+    }
+
+    // Live status
+    const live = data.live;
+    const isRunning = live && live.running;
+    const pill = document.getElementById('status-pill');
+    const dot = document.getElementById('live-dot');
+    const statusText = document.getElementById('status-text');
+    const liveBar = document.getElementById('live-bar');
+
+    if (isRunning) {
+        pill.className = 'status-pill';
+        dot.className = 'live-dot';
+        statusText.textContent = `Cycle ${live.cycle || '?'} — ${live.phase || 'running'}`;
+        liveBar.style.display = 'flex';
+        document.getElementById('live-cycle').textContent = `Cycle ${live.cycle || '?'}`;
+        document.getElementById('live-tool').textContent = live.current_tool ? `| ${live.current_tool}` : '';
+        document.getElementById('live-thought').textContent = live.last_thought || '';
+    } else {
+        pill.className = 'status-pill offline';
+        dot.className = 'live-dot offline';
+        statusText.textContent = 'Idle';
+        liveBar.style.display = 'none';
+    }
+
+    // Timestamp
+    if (live && live.timestamp) {
+        const d = new Date(live.timestamp);
+        const ago = Math.floor((Date.now() - d.getTime()) / 1000);
+        let agoStr = ago < 60 ? `${ago}s ago` : ago < 3600 ? `${Math.floor(ago/60)}m ago` : `${Math.floor(ago/3600)}h ago`;
+        document.getElementById('last-update').textContent = `Last activity ${agoStr}`;
+    }
+}
+
+
+async function updateToolPie() {
+    const stats = await fetchJSON('/api/tool-stats');
+    if (!stats) return;
+    if (!dataChanged('toolpie', stats)) return;
+
+    const names = Object.keys(stats);
+    const values = Object.values(stats);
+    const colors = names.map(t => TOOL_COLORS[t] || '#5a8a9e');
+
+    const trace = {
+        labels: names, values: values, type: 'pie', hole: 0.55,
+        marker: { colors, line: { color: PBG, width: 2 } },
+        textfont: { ...PFONT, size: 10, color: '#c0d8e8' },
+        textposition: 'inside',
+        hovertemplate: '<b>%{label}</b><br>Calls: %{value}<br>%{percent}<extra></extra>',
+        sort: false,
+    };
+
+    Plotly.react('tool-pie-chart', [trace], {
+        paper_bgcolor: PPAPER, plot_bgcolor: PBG, font: PFONT,
+        margin: { t: 10, b: 10, l: 10, r: 10 },
+        showlegend: true,
+        legend: { font: { ...PFONT, size: 9 }, bgcolor: 'rgba(0,0,0,0)', x: 1.05 },
+    }, { responsive: true, displayModeBar: false, staticPlot: true });
+}
+
+
+async function updateToolBar() {
+    const stats = await fetchJSON('/api/tool-stats');
+    if (!stats) return;
+    if (!dataChanged('toolbar', stats)) return;
+
+    const sorted = Object.entries(stats).sort((a, b) => b[1] - a[1]);
+    const names = sorted.map(s => s[0]);
+    const values = sorted.map(s => s[1]);
+    const colors = names.map(t => TOOL_COLORS[t] || '#5a8a9e');
+    const total = values.reduce((a, b) => a + b, 0);
+
+    document.getElementById('tool-total-badge').textContent = `${total} total`;
+
+    const trace = {
+        y: names.reverse(), x: values.reverse(), type: 'bar',
+        orientation: 'h',
+        marker: { color: colors.reverse(), line: { color: PBG, width: 1 } },
+        hovertemplate: '<b>%{y}</b>: %{x} calls<extra></extra>',
+    };
+
+    Plotly.react('tool-bar-chart', [trace], {
+        paper_bgcolor: PPAPER, plot_bgcolor: PBG, font: PFONT,
+        margin: { t: 10, b: 30, l: 120, r: 20 },
+        xaxis: { gridcolor: PGRID, tickfont: PFONT },
+        yaxis: { tickfont: { ...PFONT, size: 9 }, gridcolor: 'transparent' },
+    }, { responsive: true, displayModeBar: false, staticPlot: true });
+}
+
+
+async function updatePaceChart() {
+    const data = await fetchJSON('/api/cycle-timeline');
+    if (!data || data.cycles.length === 0) {
+        document.getElementById('pace-badge').textContent = 'No cycles yet';
+        return;
+    }
+    if (!dataChanged('pace', data)) return;
+
+    const lastTools = data.cum_tools[data.cum_tools.length - 1] || 0;
+    const lastFindings = data.cum_findings[data.cum_findings.length - 1] || 0;
+    document.getElementById('pace-badge').textContent =
+        `${data.cycles.length} cycles · ${lastTools} calls · ${lastFindings} findings`;
+
+    const traces = [
+        {
+            x: data.cycles, y: data.cum_tools, name: 'Cumulative Tools',
+            fill: 'tozeroy', line: { color: '#00e5a0', width: 2 },
+            fillcolor: 'rgba(0,229,160,0.1)',
+        },
+        {
+            x: data.cycles, y: data.cum_findings, name: 'Cumulative Findings',
+            fill: 'tozeroy', line: { color: '#ec4899', width: 2 },
+            fillcolor: 'rgba(236,72,153,0.1)',
+            yaxis: 'y2',
+        },
+        {
+            x: data.cycles, y: data.tools_per_cycle, name: 'Tools/Cycle',
+            type: 'bar',
+            marker: { color: 'rgba(59,130,246,0.4)', line: { color: '#3b82f6', width: 1 } },
+            yaxis: 'y3',
+            opacity: 0.6,
+        },
+    ];
+
+    Plotly.react('pace-chart', traces, {
+        paper_bgcolor: PPAPER, plot_bgcolor: PBG, font: PFONT,
+        margin: { t: 10, b: 40, l: 50, r: 50 },
+        barmode: 'overlay',
+        xaxis: { title: 'Cycle', gridcolor: PGRID, tickfont: PFONT },
+        yaxis: {
+            title: 'Cumulative Tools', titlefont: { color: '#00e5a0', ...PFONT },
+            gridcolor: PGRID, tickfont: { ...PFONT, color: '#00e5a0' },
+        },
+        yaxis2: {
+            title: 'Findings', titlefont: { color: '#ec4899', ...PFONT },
+            tickfont: { ...PFONT, color: '#ec4899' },
+            overlaying: 'y', side: 'right', gridcolor: 'transparent',
+        },
+        yaxis3: { overlaying: 'y', visible: false },
+        showlegend: true,
+        legend: { x: 0.01, y: 0.99, bgcolor: 'rgba(12,26,36,0.9)', bordercolor: PGRID, font: { ...PFONT, size: 10 } },
+    }, { responsive: true, displayModeBar: false, staticPlot: true });
+}
+
+
+async function updateSequences() {
+    const seqs = await fetchJSON('/api/sequences');
+    if (!seqs) return;
+
+    document.getElementById('seq-badge').textContent = `${seqs.length} sequences`;
+
+    const tbody = document.getElementById('seq-body');
+    tbody.innerHTML = seqs.map(s => {
+        let typeClass = 'acc-other';
+        let typeLabel = 'Other';
+        if (s.accession.startsWith('NM_')) { typeClass = 'acc-nm'; typeLabel = 'mRNA'; }
+        else if (s.accession.startsWith('NC_')) { typeClass = 'acc-nc'; typeLabel = 'Chromosome'; }
+        else if (s.accession.startsWith('NR_')) { typeClass = 'acc-nm'; typeLabel = 'ncRNA'; }
+        else if (/^[A-Z]\d+/.test(s.accession)) { typeClass = 'acc-p'; typeLabel = 'Protein'; }
+
+        const ts = s.modified || '';
+        const timeStr = ts.includes('T') ? ts.split('T')[1].split('.')[0] : ts;
+        const dateStr = ts.includes('T') ? ts.split('T')[0] : '';
+
+        return `<tr>
+            <td><span class="acc-badge ${typeClass}">${escapeHtml(s.accession)}</span></td>
+            <td><span class="acc-badge ${typeClass}">${typeLabel}</span></td>
+            <td style="max-width:400px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${escapeHtml(s.description)}</td>
+            <td style="color:var(--text-dim)">${s.size_human}</td>
+            <td style="color:var(--text-dim);font-size:10px">${dateStr} ${timeStr}</td>
+        </tr>`;
+    }).join('');
+}
+
+
+async function updateSeqTypeChart() {
+    const data = await fetchJSON('/api/sequence-stats');
+    if (!data || data.total === 0) return;
+    if (!dataChanged('seqtype', data)) return;
+
+    const labels = ['RefSeq mRNA', 'Chromosome', 'UniProt Protein', 'Other'];
+    const values = [data.refseq_mrna, data.refseq_chromo, data.uniprot_protein, data.other];
+    const colors = ['#00e5a0', '#ef4444', '#a855f7', '#5a8a9e'];
+
+    // Filter out zeros
+    const filtered = labels.map((l, i) => ({ l, v: values[i], c: colors[i] })).filter(x => x.v > 0);
+
+    const trace = {
+        labels: filtered.map(x => x.l), values: filtered.map(x => x.v),
+        type: 'pie', hole: 0.5,
+        marker: { colors: filtered.map(x => x.c), line: { color: PBG, width: 2 } },
+        textfont: { ...PFONT, size: 11, color: '#c0d8e8' },
+        hovertemplate: '<b>%{label}</b><br>Count: %{value}<extra></extra>',
+    };
+
+    Plotly.react('seq-type-chart', [trace], {
+        paper_bgcolor: PPAPER, plot_bgcolor: PBG, font: PFONT,
+        margin: { t: 10, b: 10, l: 10, r: 10 },
+        showlegend: true,
+        legend: { font: { ...PFONT, size: 10 }, bgcolor: 'rgba(0,0,0,0)' },
+        annotations: [{
+            text: `${data.total}<br><span style="font-size:9px">seqs</span>`,
+            showarrow: false, font: { size: 18, color: '#e4f0f8', family: PFONT.family },
+            x: 0.5, y: 0.5,
+        }],
+    }, { responsive: true, displayModeBar: false, staticPlot: true });
+}
+
+
+async function updateToolsPerCycle() {
+    const data = await fetchJSON('/api/cycle-timeline');
+    if (!data || data.cycles.length === 0) return;
+    if (!dataChanged('tpc', data)) return;
+
+    const trace = {
+        x: data.cycles, y: data.tools_per_cycle, type: 'bar',
+        marker: {
+            color: data.tools_per_cycle.map(v => v === 0 ? '#ef4444' : v === 1 ? '#f59e0b' : '#00e5a0'),
+            line: { color: PBG, width: 1 },
+        },
+        hovertemplate: 'Cycle %{x}: <b>%{y} tools</b><extra></extra>',
+    };
+
+    const avg = data.tools_per_cycle.reduce((a, b) => a + b, 0) / data.tools_per_cycle.length;
+
+    Plotly.react('tools-per-cycle-chart', [trace], {
+        paper_bgcolor: PPAPER, plot_bgcolor: PBG, font: PFONT,
+        margin: { t: 10, b: 40, l: 40, r: 10 },
+        xaxis: { title: 'Cycle', gridcolor: PGRID, tickfont: PFONT },
+        yaxis: { title: 'Tools Used', gridcolor: PGRID, tickfont: PFONT },
+        shapes: [{
+            type: 'line', x0: data.cycles[0], x1: data.cycles[data.cycles.length - 1],
+            y0: avg, y1: avg, line: { color: '#a855f7', width: 1, dash: 'dash' },
+        }],
+        annotations: [{
+            x: 0.98, y: 0.95, xref: 'paper', yref: 'paper',
+            text: `Avg: ${avg.toFixed(1)} tools/cycle`,
+            showarrow: false,
+            font: { ...PFONT, size: 11, color: '#c0d8e8' },
+            bgcolor: 'rgba(12,26,36,0.9)', bordercolor: PGRID,
+            borderwidth: 1, borderpad: 4,
+        }],
+    }, { responsive: true, displayModeBar: false, staticPlot: true });
+}
+
+
+async function updateFindings() {
+    const findings = await fetchJSON('/api/findings');
+    if (!findings) return;
+
+    document.getElementById('findings-badge').textContent = `${findings.length} findings`;
+
+    const tbody = document.getElementById('findings-body');
+    tbody.innerHTML = findings.map(f => {
+        const ts = f.timestamp || '';
+        const timeStr = ts.includes('T') ? ts.split('T')[1].split('.')[0] : ts;
+        const dateStr = ts.includes('T') ? ts.split('T')[0] : '';
+
+        return `<tr>
+            <td><span style="color:var(--text-dim);font-size:10px">${dateStr}</span> ${timeStr}</td>
+            <td style="color:var(--accent);font-weight:600;">${escapeHtml(f.title || '')}</td>
+            <td style="max-width:500px">${escapeHtml((f.description || '').slice(0, 250))}</td>
+        </tr>`;
+    }).join('');
+}
+
+
+async function updateMemory() {
+    const mem = await fetchJSON('/api/memory');
+    if (!mem) return;
+
+    const stats = mem.tool_stats || {};
+    const totalCalls = Object.values(stats).reduce((a, b) => a + b, 0);
+    const topTool = Object.entries(stats).sort((a, b) => b[1] - a[1])[0];
+
+    const body = document.getElementById('memory-body');
+    body.innerHTML = `
+        <div class="mem-stat">
+            <span class="mem-icon">&#x1F4CA;</span>
+            <span class="mem-label">Total Tool Calls</span>
+            <span class="mem-value">${totalCalls}</span>
+        </div>
+        <div class="mem-stat">
+            <span class="mem-icon">&#x1F947;</span>
+            <span class="mem-label">Most Used Tool</span>
+            <span class="mem-value" style="font-size:12px;color:var(--accent);">${topTool ? topTool[0] : '-'} (${topTool ? topTool[1] : 0})</span>
+        </div>
+        <div class="mem-stat">
+            <span class="mem-icon">&#x1F4DD;</span>
+            <span class="mem-label">Research Notes</span>
+            <span class="mem-value">${(mem.notes || []).length}</span>
+        </div>
+        <div class="mem-stat">
+            <span class="mem-icon">&#x1F50D;</span>
+            <span class="mem-label">Targets Explored</span>
+            <span class="mem-value">${(mem.explored || []).length}</span>
+        </div>
+        <div class="mem-stat">
+            <span class="mem-icon">&#x2705;</span>
+            <span class="mem-label">Exhausted Targets</span>
+            <span class="mem-value">${(mem.exhausted || []).length}</span>
+        </div>
+        <div class="mem-stat">
+            <span class="mem-icon">&#x274C;</span>
+            <span class="mem-label">Dismissed Leads</span>
+            <span class="mem-value">${(mem.dismissed || []).length}</span>
+        </div>
+        <div class="mem-stat">
+            <span class="mem-icon">&#x1F504;</span>
+            <span class="mem-label">Sessions</span>
+            <span class="mem-value">${mem.session_count || 0}</span>
+        </div>
+    `;
+}
+
+
+async function updateGenesPanel() {
+    const data = await fetchJSON('/api/status');
+    const seqs = await fetchJSON('/api/sequences');
+    if (!data || !seqs) return;
+
+    const body = document.getElementById('genes-body');
+
+    // Group sequences by gene
+    const geneMap = {};
+    for (const s of seqs) {
+        const desc = (s.description || '').toLowerCase();
+        const acc = s.accession;
+        let gene = 'Unknown';
+
+        // Try to extract gene name from description
+        const geneMatch = (s.description || '').match(/\(([A-Z0-9]+)\)/);
+        if (geneMatch) gene = geneMatch[1];
+        else if (desc.includes('brca1')) gene = 'BRCA1';
+        else if (desc.includes('brca2')) gene = 'BRCA2';
+        else if (desc.includes('tp53') || desc.includes('tumor protein p53')) gene = 'TP53';
+        else if (desc.includes('blvra') || desc.includes('biliverdin')) gene = 'BLVRA';
+        else if (desc.includes('egfr')) gene = 'EGFR';
+        else if (acc.startsWith('NC_')) gene = 'Chromosome';
+
+        if (!geneMap[gene]) geneMap[gene] = [];
+        geneMap[gene].push(s);
+    }
+
+    if (Object.keys(geneMap).length === 0) {
+        body.innerHTML = '<div style="color:var(--text-dim);text-align:center;padding:20px;">No genes studied yet</div>';
+        return;
+    }
+
+    body.innerHTML = Object.entries(geneMap).map(([gene, seqs]) => {
+        const types = seqs.map(s => {
+            if (s.accession.startsWith('NM_')) return 'mRNA';
+            if (s.accession.startsWith('NC_')) return 'chr';
+            if (/^[A-Z]\d+/.test(s.accession)) return 'protein';
+            return 'other';
+        });
+        const mrnaCt = types.filter(t => t === 'mRNA').length;
+        const protCt = types.filter(t => t === 'protein').length;
+
+        let detail = [];
+        if (mrnaCt > 0) detail.push(`${mrnaCt} mRNA`);
+        if (protCt > 0) detail.push(`${protCt} protein`);
+
+        return `
+        <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(26,48,64,0.5);">
+            <span class="gene-tag" style="font-size:12px;padding:4px 12px;">${gene}</span>
+            <span style="flex:1;font-size:11px;color:var(--text);">${seqs.length} sequence${seqs.length > 1 ? 's' : ''}</span>
+            <span style="font-size:10px;color:var(--text-dim);">${detail.join(' · ')}</span>
+        </div>`;
+    }).join('');
+}
+
+
+async function updateLog() {
+    const lines = await fetchJSON('/api/log?n=100');
+    if (!lines) return;
+
+    const panel = document.getElementById('log-panel');
+    const wasAtBottom = panel.scrollTop + panel.clientHeight >= panel.scrollHeight - 30;
+
+    panel.innerHTML = lines.map(line => {
+        const match = line.match(/^\[([^\]]+)\]\s*\[([^\]]+)\]\s*(.*)/);
+        if (!match) return `<div class="log-line">${escapeHtml(line)}</div>`;
+
+        const ts = match[1];
+        const level = match[2];
+        const msg = match[3];
+
+        const levelClass = {
+            'INFO': 'log-lvl-info', 'OK': 'log-lvl-ok',
+            'WARN': 'log-lvl-warn', 'ERROR': 'log-lvl-error',
+            'TOOL': 'log-lvl-tool', 'FIND': 'log-lvl-find',
+            'THINK': 'log-lvl-think', 'RESULT': 'log-lvl-result',
+        }[level] || 'log-lvl-info';
+
+        const time = ts.includes(' ') ? ts.split(' ')[1] : ts;
+
+        return `<div class="log-line"><span class="log-ts">${time}</span> <span class="${levelClass}">[${level}]</span> ${escapeHtml(msg)}</div>`;
+    }).join('');
+
+    if (wasAtBottom) panel.scrollTop = panel.scrollHeight;
+}
+
+
+// ================================================================
+// REFRESH LOOP
+// ================================================================
+
+async function refreshAll() {
+    await Promise.all([
+        updateStatus(),
+        updateToolPie(),
+        updateToolBar(),
+        updatePaceChart(),
+        updateSequences(),
+        updateSeqTypeChart(),
+        updateToolsPerCycle(),
+        updateFindings(),
+        updateMemory(),
+        updateGenesPanel(),
+        updateLog(),
+    ]);
+}
+
+async function manualRefresh() {
+    const btn = document.getElementById('refresh-btn');
+    btn.classList.add('spinning');
+    await refreshAll();
+    btn.classList.remove('spinning');
+}
+
+// Initial load + periodic
+refreshAll();
+setInterval(refreshAll, REFRESH_INTERVAL);
+</script>
+</body>
+</html>

@@ -1,4 +1,23 @@
+# =============================================
+# GenoResearch — Dependencies
+# =============================================
+
+# --- Core (agent + orchestrator + tools) ---
 requests>=2.31
-torch>=2.0
-# Optional — uncomment if needed:
+
+# --- Dashboard (Flask web UI) ---
+flask>=3.0
+
+# --- ML Lab (autonomous training experiments) ---
+# Uncomment when using lab_train / train_genomics.py:
+# torch>=2.0
+
+# --- Data Prep (prepare.py / train.py — autoresearch heritage) ---
+# These are only needed if running the karpathy-style training pipeline:
+# pyarrow>=14.0
+# rustbpe>=0.1
+# tiktoken>=0.5
+
+# --- Optional bioinformatics ---
+# Uncomment for enhanced sequence analysis:
 # biopython>=1.83

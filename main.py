@@ -25,8 +25,8 @@ def main():
     parser = argparse.ArgumentParser(description="GenoResearch — Autonomous Genomics Agent")
     parser.add_argument("--target", type=str, default=None,
                         help="Research target (e.g. 'BRCA1 mutations', 'p53 variants')")
-    parser.add_argument("--cycles", type=int, default=10,
-                        help="Max orchestrator cycles (0 = infinite)")
+    parser.add_argument("--cycles", type=int, default=0,
+                        help="Max orchestrator cycles (0 = infinite, default)")
     parser.add_argument("--model", type=str, default=None,
                         help="Ollama model override (default: qwen3.5:4b)")
     parser.add_argument("--plan", action="store_true",
