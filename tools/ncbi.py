@@ -59,7 +59,7 @@ def ncbi_search(query: str, db: str = "gene", max_results: int = 5) -> str:
     summaries = _fetch_summaries(ids, db)
 
     lines = [f"NCBI {db} search: '{query}' — {count} total, showing {len(ids)}"]
-    lines.append("  (Use the gene ID from brackets to fetch sequences, e.g. ncbi_fetch('GENE_ID', db='gene'))")
+    lines.append("  (To fetch sequences: use NM_ accessions with ncbi_fetch('NM_XXXXX', db='nucleotide'). If no NM_ shown, search nucleotide db first.)")
     for s in summaries:
         acc_info = f" [accession: {s['accession']}]" if s.get("accession") else ""
         lines.append(f"  [{s['id']}] {s['title']}{acc_info}")
@@ -76,6 +76,7 @@ def ncbi_fetch(accession_id: str, db: str = "nucleotide") -> str:
         accession_id: NCBI accession (e.g. "NM_007294", "NP_000537")
         db: Database — nucleotide or protein
     """
+    accession_id = str(accession_id)  # handle int IDs from parser
     params = {
         "db": db,
         "id": accession_id,
@@ -140,13 +141,24 @@ def _fetch_summaries(ids: list[str], db: str) -> list[dict]:
         name = info.get("name", info.get("title", str(uid)))
         desc = info.get("description", info.get("summary", ""))
         organism = info.get("organism", {}).get("scientificname", "") if isinstance(info.get("organism"), dict) else ""
-        # Gene db often includes NM_ accession in genomicinfo
+        # Extract mRNA accession (NM_) — prefer over chromosome accession (NC_)
         accession = ""
-        genomic = info.get("genomicinfo", [])
-        if genomic and isinstance(genomic, list):
-            accession = genomic[0].get("chraccver", "")
-        # Also check for mRNA accessions in locationhist
-        mRNA = info.get("mim", [])
+        # Check for RefSeq mRNA accessions in locationhist
+        locationhist = info.get("locationhist", [])
+        if locationhist and isinstance(locationhist, list):
+            for loc in locationhist:
+                acc = loc.get("chraccver", "")
+                if acc.startswith("NM_") or acc.startswith("NR_"):
+                    accession = acc
+                    break
+        # Fallback: check genomicinfo for chromosome accession
+        if not accession:
+            genomic = info.get("genomicinfo", [])
+            if genomic and isinstance(genomic, list):
+                chr_acc = genomic[0].get("chraccver", "")
+                # Only show chromosome if no mRNA found — but label it clearly
+                if chr_acc:
+                    accession = f"{chr_acc} (chromosome)"
 
         results.append({
             "id": uid,
