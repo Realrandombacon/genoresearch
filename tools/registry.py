@@ -45,6 +45,7 @@ class ToolRegistry:
         from tools.sequence import analyze_sequence, compare_sequences
         from tools.findings import save_finding, list_findings
         from tools.memory_tools import query_memory, my_stats, list_unexplored
+        from tools.lab_tools import lab_train, lab_status
 
         self.register("ncbi_search", ncbi_search)
         self.register("ncbi_fetch", ncbi_fetch)
@@ -58,5 +59,7 @@ class ToolRegistry:
         self.register("query_memory", query_memory)
         self.register("my_stats", my_stats)
         self.register("list_unexplored", list_unexplored)
+        self.register("lab_train", lab_train)
+        self.register("lab_status", lab_status)
 
         log.info("Registered %d tools", len(self._tools))
