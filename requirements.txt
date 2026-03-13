@@ -1,0 +1,4 @@
+requests>=2.31
+torch>=2.0
+# Optional — uncomment if needed:
+# biopython>=1.83
