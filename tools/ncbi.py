@@ -24,12 +24,18 @@ def ncbi_search(query: str, db: str = "gene", max_results: int = 5) -> str:
     """
     max_results = min(max_results, 20)
 
+    # Add organism filter for gene db if not already specified
+    term = query
+    if db == "gene" and "homo sapiens" not in query.lower() and "[orgn]" not in query.lower():
+        term = f"({query}) AND Homo sapiens[Organism]"
+
     # Step 1: esearch — get IDs
     params = {
         "db": db,
-        "term": query,
+        "term": term,
         "retmax": max_results,
         "retmode": "json",
+        "sort": "relevance",
         "usehistory": "y",
     }
     if NCBI_API_KEY:
@@ -53,8 +59,10 @@ def ncbi_search(query: str, db: str = "gene", max_results: int = 5) -> str:
     summaries = _fetch_summaries(ids, db)
 
     lines = [f"NCBI {db} search: '{query}' — {count} total, showing {len(ids)}"]
+    lines.append("  (Use the gene ID from brackets to fetch sequences, e.g. ncbi_fetch('GENE_ID', db='gene'))")
     for s in summaries:
-        lines.append(f"  [{s['id']}] {s['title']}")
+        acc_info = f" [accession: {s['accession']}]" if s.get("accession") else ""
+        lines.append(f"  [{s['id']}] {s['title']}{acc_info}")
         if s.get("description"):
             lines.append(f"    {s['description'][:150]}")
     return "\n".join(lines)
@@ -128,9 +136,22 @@ def _fetch_summaries(ids: list[str], db: str) -> list[dict]:
     uids = data.get("result", {}).get("uids", ids)
     for uid in uids:
         info = data.get("result", {}).get(str(uid), {})
+        # For gene db, extract name + organism + accession links
+        name = info.get("name", info.get("title", str(uid)))
+        desc = info.get("description", info.get("summary", ""))
+        organism = info.get("organism", {}).get("scientificname", "") if isinstance(info.get("organism"), dict) else ""
+        # Gene db often includes NM_ accession in genomicinfo
+        accession = ""
+        genomic = info.get("genomicinfo", [])
+        if genomic and isinstance(genomic, list):
+            accession = genomic[0].get("chraccver", "")
+        # Also check for mRNA accessions in locationhist
+        mRNA = info.get("mim", [])
+
         results.append({
             "id": uid,
-            "title": info.get("title", info.get("name", str(uid))),
-            "description": info.get("description", info.get("summary", "")),
+            "title": f"{name} — {desc}" if desc else name,
+            "description": f"Organism: {organism}" if organism else "",
+            "accession": accession,
         })
     return results
