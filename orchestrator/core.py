@@ -15,9 +15,10 @@ from agent.ui import (
     print_cycle_summary, print_completion,
 )
 
-# Pattern: TOOL: function_name(arg1, arg2, key=value)
-TOOL_PATTERN = re.compile(
-    r"TOOL:\s*(\w+)\(([^)]*)\)", re.IGNORECASE
+# Pattern: TOOL: function_name(...)
+# We only use regex to find the start, then manually parse balanced parens
+TOOL_START_PATTERN = re.compile(
+    r"TOOL:\s*(\w+)\(", re.IGNORECASE
 )
 
 
@@ -78,11 +79,8 @@ class Orchestrator:
         response = chat(self.messages, model=self.model)
         self.messages.append({"role": "assistant", "content": response})
 
-        # Show full thought — split into paragraphs for readability
-        for paragraph in response.split("\n"):
-            line = paragraph.strip()
-            if line:
-                ui_log("THINK", line)
+        # Show thought as compact block
+        ui_log("THINK", response)
 
         # 2. Parse tool call
         tool_call = self._parse_tool(response)
@@ -120,7 +118,11 @@ class Orchestrator:
             cycle_summary.append("No tool call — thinking only")
             self.messages.append({
                 "role": "user",
-                "content": "Continue. What's your next action?"
+                "content": (
+                    "You must call a tool now. Do NOT ask questions — you are autonomous. "
+                    "Pick the most logical next action and call a TOOL. "
+                    "If stuck, try: list_unexplored(), query_memory('summary'), or explore a new gene."
+                )
             })
 
         print_cycle_summary(self.cycle, cycle_summary)
@@ -130,12 +132,19 @@ class Orchestrator:
 
     def _parse_tool(self, text: str):
         """Extract TOOL: name(args) from LLM response. Returns (name, args, kwargs) or None."""
-        match = TOOL_PATTERN.search(text)
+        match = TOOL_START_PATTERN.search(text)
         if not match:
             return None
 
         name = match.group(1)
-        raw_args = match.group(2).strip()
+
+        # Find the matching closing paren, respecting quotes and nested parens
+        start = match.end()  # position right after the opening '('
+        raw_args = _extract_balanced_args(text, start)
+        if raw_args is None:
+            raw_args = ""
+
+        raw_args = raw_args.strip()
 
         if not raw_args:
             return name, [], {}
@@ -152,14 +161,46 @@ class Orchestrator:
 
         return name, args, kwargs
 
-    def _trim_messages(self, max_messages: int = 40):
-        """Keep conversation manageable — preserve system + last N messages."""
-        if len(self.messages) <= max_messages:
+    def _trim_messages(self, max_messages: int = 80):
+        """Keep conversation manageable — preserve system + last N messages.
+        Only trim when significantly over limit to avoid trimming every cycle.
+        """
+        # Only trim when 20% over to avoid constant trimming
+        if len(self.messages) <= int(max_messages * 1.2):
             return
         system = self.messages[0]
         recent = self.messages[-(max_messages - 1):]
+        trimmed_count = len(self.messages) - len(recent) - 1
         self.messages = [system] + recent
-        ui_log("INFO", f"Trimmed conversation to {len(self.messages)} messages")
+        ui_log("INFO", f"Context trimmed: dropped {trimmed_count} old messages, keeping {len(self.messages)}")
+
+
+def _extract_balanced_args(text: str, start: int) -> str:
+    """Extract content between balanced parentheses, respecting quoted strings.
+
+    `start` should point to the first char after the opening '('.
+    Returns the content between parens, or None if no balanced close found.
+    """
+    depth = 1
+    in_quote = None
+    i = start
+    while i < len(text):
+        ch = text[i]
+        if in_quote:
+            if ch == in_quote and (i == 0 or text[i-1] != "\\"):
+                in_quote = None
+        else:
+            if ch in ("'", '"'):
+                in_quote = ch
+            elif ch == "(":
+                depth += 1
+            elif ch == ")":
+                depth -= 1
+                if depth == 0:
+                    return text[start:i]
+        i += 1
+    # No balanced close found — return everything we have
+    return text[start:]
 
 
 def _split_args(raw: str) -> list[str]:

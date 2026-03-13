@@ -11,7 +11,7 @@ from config import UNIPROT_BASE_URL, SEQUENCES_DIR
 log = logging.getLogger("genoresearch.uniprot")
 
 
-def uniprot_search(query: str, max_results: int = 5) -> str:
+def uniprot_search(*args, query: str = "", max_results: int = 5, **kwargs) -> str:
     """
     Search UniProt for proteins.
 
@@ -19,6 +19,16 @@ def uniprot_search(query: str, max_results: int = 5) -> str:
         query: Search terms (e.g. "BRCA1 human", "kinase cancer")
         max_results: Number of results (max 25)
     """
+    # Handle Qwen's creative kwarg names
+    if not query and args:
+        query = str(args[0])
+    if not query:
+        for key in ("query", "term", "search", "q", "text", "protein", "gene", "name"):
+            if key in kwargs:
+                query = str(kwargs[key])
+                break
+    if not query:
+        return "[ERROR] No query provided. Usage: uniprot_search('BRCA1 human')"
     max_results = min(max_results, 25)
     params = {
         "query": query,
@@ -54,21 +64,47 @@ def uniprot_search(query: str, max_results: int = 5) -> str:
     return "\n".join(lines)
 
 
-def uniprot_fetch(accession_id: str) -> str:
+def uniprot_fetch(*args, accession_id: str = "", **kwargs) -> str:
     """
     Fetch protein details and FASTA sequence from UniProt.
 
     Args:
         accession_id: UniProt accession (e.g. "P38398", "Q9Y6K1")
+                      Also accepts NCBI protein accessions (NP_, XP_, WP_, YP_, AP_)
+                      which are automatically redirected to ncbi_fetch.
     """
-    # Fetch JSON details
+    # Handle Qwen's creative kwarg names
+    if not accession_id and args:
+        accession_id = str(args[0])
+    if not accession_id:
+        for key in ("accession_id", "accession", "id", "acc", "query", "protein_id"):
+            if key in kwargs:
+                accession_id = str(kwargs[key])
+                break
+    if not accession_id:
+        return "[ERROR] No accession ID provided. Usage: uniprot_fetch('P38398')"
+    accession_id = str(accession_id).strip()
+
+    # Detect NCBI protein accessions and redirect
+    ncbi_prefixes = ("NP_", "XP_", "WP_", "YP_", "AP_")
+    if accession_id.upper().startswith(ncbi_prefixes):
+        from tools.ncbi import ncbi_fetch
+        return ncbi_fetch(accession_id, db="protein")
+
+    # Detect NCBI nucleotide accessions sent here by mistake
+    ncbi_nuc_prefixes = ("NM_", "NR_", "NC_", "XM_", "XR_")
+    if accession_id.upper().startswith(ncbi_nuc_prefixes):
+        from tools.ncbi import ncbi_fetch
+        return ncbi_fetch(accession_id, db="nucleotide")
+
+    # Fetch JSON details from UniProt
     try:
         resp = requests.get(f"{UNIPROT_BASE_URL}/uniprotkb/{accession_id}.json",
                             timeout=30)
         resp.raise_for_status()
         data = resp.json()
     except Exception as e:
-        return f"[ERROR] UniProt fetch failed: {e}"
+        return f"[ERROR] UniProt fetch failed for '{accession_id}': {e}. Note: UniProt only accepts UniProt accessions (e.g. P38398, Q9Y6K1). For NCBI accessions (NP_, NM_), use ncbi_fetch instead."
 
     # Extract key info
     name = _get_protein_name(data)

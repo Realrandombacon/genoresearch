@@ -42,32 +42,118 @@ def save_memory(memory: dict):
 
 
 def update_memory(memory: dict, tool_name: str, result_snippet: str):
-    """Update tool stats and add context from latest tool call."""
+    """Update tool stats and auto-track explored targets from search results."""
     stats = memory.setdefault("tool_stats", {})
     stats[tool_name] = stats.get(tool_name, 0) + 1
+
+    # Auto-track genes/targets when search or fetch tools are used
+    if tool_name in ("ncbi_search", "ncbi_fetch", "uniprot_search", "uniprot_fetch",
+                     "gene_info", "blast_search", "analyze_sequence", "pubmed_search"):
+        _auto_track_targets(memory, tool_name, result_snippet)
+
+
+def _auto_track_targets(memory: dict, tool_name: str, result: str):
+    """Auto-detect and track gene/protein targets from tool results."""
+    import re
+    tracked = memory.setdefault("auto_tracked", {})  # {target: {tools, first_seen, last_seen}}
+
+    targets_found = set()
+
+    # Extract gene symbols from results (uppercase 2-8 char alphanumeric words)
+    # Common gene patterns: BRCA1, TP53, EGFR, KRAS, etc.
+    for word in result.split():
+        clean = word.strip(".,;:()[]'\"")
+        if (2 <= len(clean) <= 8 and clean[0].isalpha() and
+                clean.isupper() and clean.isalnum() and not clean.isdigit()):
+            targets_found.add(clean)
+
+    # Also extract from "Gene: NAME" pattern in gene_info results
+    gene_match = re.search(r"Gene:\s+(\w+)", result)
+    if gene_match:
+        targets_found.add(gene_match.group(1))
+
+    # Filter noise
+    noise = {"DNA", "RNA", "THE", "AND", "FOR", "NOT", "BUT", "FROM",
+             "TOOL", "WITH", "THIS", "THAT", "THEN", "ALSO", "LIKE",
+             "ERROR", "INFO", "WARN", "NOTE", "GENE", "USE",
+             "OS", "AA", "BP", "KB", "MB", "GB", "NCBI", "BLAST",
+             "FASTA", "UNIPROT", "PUBMED", "PMID", "FOUND", "SEARCH",
+             "TOTAL", "RESULTS", "SAVED", "FETCHED", "HEADER",
+             "LENGTH", "TYPE", "NAME", "ORGANISM", "FUNCTION"}
+    targets_found -= noise
+
+    ts = datetime.datetime.now().isoformat()
+    for target in targets_found:
+        if target in tracked:
+            tracked[target]["tools"].append(tool_name)
+            tracked[target]["last_seen"] = ts
+            tracked[target]["count"] = tracked[target].get("count", 1) + 1
+        else:
+            tracked[target] = {
+                "tools": [tool_name],
+                "first_seen": ts,
+                "last_seen": ts,
+                "count": 1,
+            }
 
 
 def summarize_memory(memory: dict) -> str:
     """Build a text summary of current memory state for the LLM."""
+    import os
+    from config import FINDINGS_DIR, SEQUENCES_DIR
+
     lines = []
     findings = memory.get("findings", [])
     explored = memory.get("explored", [])
     exhausted = memory.get("exhausted", [])
 
     lines.append(f"Sessions: {memory.get('session_count', 0)}")
-    lines.append(f"Findings: {len(findings)}")
     lines.append(f"Targets explored: {len(explored)}")
     lines.append(f"Exhausted targets: {len(exhausted)}")
 
-    if findings:
-        lines.append("\nRecent findings:")
-        for f in findings[-5:]:
-            lines.append(f"  - {f.get('title', '?')}: {f.get('description', '')[:100]}")
+    # Count actual finding files on disk (more reliable than memory)
+    finding_files = []
+    if os.path.isdir(FINDINGS_DIR):
+        finding_files = [f for f in os.listdir(FINDINGS_DIR) if f.endswith(".md")]
+    lines.append(f"Saved findings on disk: {len(finding_files)}")
+
+    # Count sequence files on disk
+    seq_files = []
+    if os.path.isdir(SEQUENCES_DIR):
+        seq_files = [f for f in os.listdir(SEQUENCES_DIR)
+                     if f.lower().endswith((".fasta", ".fa", ".fna"))]
+    lines.append(f"Downloaded sequences: {len(seq_files)}")
+
+    # Show finding titles from disk
+    if finding_files:
+        lines.append("\nPrevious findings (use read_finding(N) for details):")
+        for fname in sorted(finding_files)[:10]:
+            title = fname.replace(".md", "")
+            lines.append(f"  - {title}")
+
+    # Show sequence filenames
+    if seq_files:
+        lines.append(f"\nDownloaded sequences (use list_sequences() for details):")
+        for fname in sorted(seq_files)[:10]:
+            lines.append(f"  - {fname}")
+        if len(seq_files) > 10:
+            lines.append(f"  ... and {len(seq_files) - 10} more")
 
     if explored:
         lines.append("\nRecent targets:")
         for t in explored[-5:]:
             lines.append(f"  - {t.get('target', '?')} ({t.get('status', '?')})")
+
+    # Notes
+    notes = memory.get("notes", [])
+    if notes:
+        lines.append("\nResearch notes:")
+        for n in notes[-5:]:
+            lines.append(f"  - {n.get('note', '')[:120]}")
+
+    # Guidance
+    lines.append("\nIMPORTANT: Before starting new research, call list_findings() and "
+                 "list_sequences() to review what you've already done. Avoid duplicating work.")
 
     return "\n".join(lines)
 
