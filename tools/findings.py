@@ -171,6 +171,111 @@ def read_finding(*args, **kwargs) -> str:
     return f"No finding matching '{finding_id}'. Use list_findings() to see available findings."
 
 
+def review_findings(*args, **kwargs) -> str:
+    """
+    Read multiple findings at once. Supports ranges, keyword filtering, or both.
+
+    Args:
+        start: Start index (1-based), or keyword to filter by
+        end: End index (optional, for range queries)
+        focus: Keyword filter — only return findings matching this term
+    """
+    start = None
+    end = None
+    focus = ""
+
+    # Parse positional args
+    if args:
+        first = args[0]
+        if isinstance(first, (list, tuple)) and len(first) == 2:
+            start, end = int(first[0]), int(first[1])
+        elif isinstance(first, int) or (isinstance(first, str) and first.isdigit()):
+            start = int(first)
+        else:
+            focus = str(first)
+    if len(args) >= 2:
+        second = args[1]
+        if isinstance(second, int) or (isinstance(second, str) and second.isdigit()):
+            end = int(second)
+        else:
+            focus = str(second)
+
+    # Parse kwargs
+    if "start" in kwargs:
+        start = int(kwargs["start"])
+    if "end" in kwargs:
+        end = int(kwargs["end"])
+    for key in ("focus", "filter", "keyword", "query", "search", "topic"):
+        if key in kwargs:
+            focus = str(kwargs[key])
+            break
+    if "findings_range" in kwargs:
+        r = kwargs["findings_range"]
+        if isinstance(r, (list, tuple)) and len(r) == 2:
+            start, end = int(r[0]), int(r[1])
+
+    # Get all findings
+    if not os.path.isdir(FINDINGS_DIR):
+        return "No findings directory."
+
+    files = sorted(
+        [f for f in os.listdir(FINDINGS_DIR) if f.endswith(".md")],
+        key=lambda f: os.path.getmtime(os.path.join(FINDINGS_DIR, f)),
+        reverse=True,
+    )
+    if not files:
+        return "No findings yet."
+
+    # Apply keyword filter
+    if focus:
+        focus_lower = focus.lower()
+        filtered = []
+        for fname in files:
+            if focus_lower in fname.lower():
+                filtered.append(fname)
+                continue
+            # Also check content
+            try:
+                fpath = os.path.join(FINDINGS_DIR, fname)
+                with open(fpath, "r", encoding="utf-8") as f:
+                    content = f.read(2000)
+                if focus_lower in content.lower():
+                    filtered.append(fname)
+            except Exception:
+                pass
+        files = filtered
+
+    # Apply range
+    if start is not None:
+        s = max(0, start - 1)  # 1-indexed
+        e = end if end else s + 1
+        files = files[s:e]
+
+    if not files:
+        return f"No findings matched (focus='{focus}', range={start}-{end})."
+
+    # Build summary
+    results = []
+    total_chars = 0
+    for fname in files[:25]:  # cap at 25
+        fpath = os.path.join(FINDINGS_DIR, fname)
+        try:
+            with open(fpath, "r", encoding="utf-8") as f:
+                content = f.read(500)  # first 500 chars each
+            total_chars += len(content)
+            results.append(f"--- {fname.replace('.md', '')} ---\n{content.strip()}")
+        except Exception:
+            results.append(f"--- {fname.replace('.md', '')} --- [read error]")
+        if total_chars > 8000:
+            results.append(f"... truncated ({len(files) - len(results)} more)")
+            break
+
+    header = f"Showing {len(results)} of {len(files)} findings"
+    if focus:
+        header += f" matching '{focus}'"
+    return f"{header}\n\n" + "\n\n".join(results)
+
+
 def list_sequences() -> str:
     """
     List all downloaded sequence files (.fasta) with their descriptions.

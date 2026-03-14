@@ -43,7 +43,7 @@ class ToolRegistry:
         from tools.blast import blast_search
         from tools.uniprot import uniprot_search, uniprot_fetch
         from tools.sequence import analyze_sequence, compare_sequences, translate_sequence
-        from tools.findings import save_finding, list_findings, read_finding, list_sequences
+        from tools.findings import save_finding, list_findings, read_finding, review_findings, list_sequences
         from tools.memory_tools import (
             query_memory, my_stats, list_unexplored,
             note, mark_explored, mark_done, dismiss,
@@ -65,6 +65,7 @@ class ToolRegistry:
         self.register("save_finding", save_finding)
         self.register("list_findings", list_findings)
         self.register("read_finding", read_finding)
+        self.register("review_findings", review_findings)
         self.register("list_sequences", list_sequences)
         self.register("query_memory", query_memory)
         self.register("my_stats", my_stats)
@@ -88,5 +89,6 @@ class ToolRegistry:
         self.register("skip_gene", skip_gene)
         self.register("advance_seed", advance_seed)
         self.register("queue_status", queue_status)
+        self.register("search_database", ncbi_search)  # alias — Qwen invents this name
 
         log.info("Registered %d tools", len(self._tools))
