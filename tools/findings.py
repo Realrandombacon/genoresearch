@@ -15,6 +15,25 @@ from agent.memory import load_memory, save_memory, add_finding
 
 log = logging.getLogger("genoresearch.findings")
 
+# Common gene name patterns: LOC\d+, C\d+orf\d+, BRCA1, TP53, etc.
+_GENE_PATTERN = re.compile(
+    r'\b(LOC\d+|C\d+orf\d+|[A-Z][A-Z0-9]{1,10}(?:_[A-Z0-9]+)?)\b'
+)
+
+
+def _extract_gene_from_title(title: str) -> str:
+    """Extract the most likely gene name from a finding title.
+    Returns empty string if no gene pattern found."""
+    # Check common patterns
+    m = _GENE_PATTERN.search(title)
+    if m:
+        return m.group(1).upper()
+    # Fallback: first word if it looks gene-like (all caps, 2-15 chars)
+    first_word = title.split()[0] if title.split() else ""
+    if first_word.isupper() and 2 <= len(first_word) <= 15:
+        return first_word
+    return ""
+
 
 def save_finding(*args, title: str = "", description: str = "",
                   evidence: str = "", **kwargs) -> str:
@@ -79,17 +98,26 @@ def save_finding(*args, title: str = "", description: str = "",
             "Please provide a meaningful description of the discovery."
         )
 
-    # 3. Deduplication: check for similar existing titles (>80% match)
+    # 3. Deduplication: check for EXACT or near-exact duplicates only
+    #    Use gene-aware matching: extract gene name from title and compare
+    #    within same-gene findings only. Threshold 0.92 to avoid false positives
+    #    (e.g. "C8orf48 - Dark Gene" vs "G3WRF0 - Dark Gene" are NOT duplicates)
     if os.path.isdir(FINDINGS_DIR):
+        # Extract a gene identifier from the new title (first word or known pattern)
+        title_gene = _extract_gene_from_title(title)
         for fname in os.listdir(FINDINGS_DIR):
             if fname.endswith(".md"):
                 existing_title = fname.replace(".md", "")
+                existing_gene = _extract_gene_from_title(existing_title)
+                # Only compare within same gene (if gene detected in both)
+                if title_gene and existing_gene and title_gene != existing_gene:
+                    continue  # different genes — never a duplicate
                 similarity = SequenceMatcher(
                     None, title.lower(), existing_title.lower()
                 ).ratio()
-                if similarity > 0.80:
+                if similarity > 0.92:
                     return (
-                        f"[REJECTED] Similar finding already exists: '{existing_title}'. "
+                        f"[REJECTED] Near-duplicate finding already exists: '{existing_title}'. "
                         "Update the existing finding instead of creating a duplicate."
                     )
 

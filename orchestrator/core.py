@@ -29,7 +29,7 @@ class Orchestrator:
     """Main autonomous research loop with multi-turn inner loop."""
 
     # How many identical consecutive tool calls before we intervene
-    LOOP_THRESHOLD = 3
+    LOOP_THRESHOLD = 2
     # Max reflection turns per cycle (think → act → reflect → act → ...)
     MAX_TURNS = 5
 
@@ -246,10 +246,12 @@ class Orchestrator:
                 self.messages.append({
                     "role": "user",
                     "content": (
-                        "[orchestrator] No tool call detected. You MUST call a tool to proceed.\n"
-                        "Format: TOOL: function_name(arg1, arg2, key=value)\n"
-                        "Example: TOOL: ncbi_search('BRCA1', db='gene')\n"
-                        "Example: TOOL: next_gene()"
+                        "[orchestrator] No tool call detected. You MUST call a tool now.\n"
+                        "Pick ONE of these and call it:\n"
+                        "  TOOL: next_gene()\n"
+                        "  TOOL: ncbi_search('your_query', db='gene')\n"
+                        "  TOOL: list_sequences()\n"
+                        "  TOOL: list_findings()"
                     ),
                 })
                 break  # End cycle — next cycle will pick up with the nudge
@@ -300,11 +302,26 @@ class Orchestrator:
         return name, args, kwargs
 
     def _is_looping(self) -> bool:
-        """Check if the last N tool calls are identical (stuck in a loop)."""
+        """Check if the agent is stuck in a loop.
+
+        Two checks:
+        1. Last N calls are strictly identical (immediate loop)
+        2. Same call appears 3+ times in the last 10 calls (spread-out loop,
+           e.g. search → nudge → search → nudge → search)
+        """
         if len(self._recent_tool_calls) < self.LOOP_THRESHOLD:
             return False
+        # Check 1: strictly consecutive identical calls
         last_n = self._recent_tool_calls[-self.LOOP_THRESHOLD:]
-        return len(set(last_n)) == 1
+        if len(set(last_n)) == 1:
+            return True
+        # Check 2: same call appears 3+ times in last 10 (spread-out loop)
+        from collections import Counter
+        counts = Counter(self._recent_tool_calls[-10:])
+        for call, count in counts.items():
+            if call != "__NO_TOOL__" and count >= 3:
+                return True
+        return False
 
     def _break_loop(self, stuck_call: str):
         """Break out of a detected loop by trimming repeated context and
