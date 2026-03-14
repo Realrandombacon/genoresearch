@@ -1,12 +1,15 @@
 """
 Orchestrator core — the main research loop.
 LLM proposes actions → tools execute → results feed back → repeat.
+
+Multi-turn inner loop: each cycle allows up to MAX_TURNS of
+think → act → reflect before moving to the next cycle.
 """
 
 import re
 
 from config import OLLAMA_MODEL
-from orchestrator.llm import chat, build_system_prompt
+from orchestrator.llm import chat, recovery_reprompt, build_system_prompt
 from orchestrator.dashboard import write_status
 from tools.registry import ToolRegistry
 from agent.memory import load_memory, save_memory, update_memory, summarize_memory
@@ -23,10 +26,12 @@ TOOL_START_PATTERN = re.compile(
 
 
 class Orchestrator:
-    """Main autonomous research loop."""
+    """Main autonomous research loop with multi-turn inner loop."""
 
     # How many identical consecutive tool calls before we intervene
     LOOP_THRESHOLD = 3
+    # Max reflection turns per cycle (think → act → reflect → act → ...)
+    MAX_TURNS = 5
 
     def __init__(self, max_cycles: int = 10, model: str = None,
                  target: str = None):
@@ -73,93 +78,190 @@ class Orchestrator:
         return self.cycle < self.max_cycles
 
     def _run_cycle(self):
-        """Single think → act → observe cycle."""
+        """Multi-turn cycle: think -> act -> reflect -> act -> ... (up to MAX_TURNS).
+
+        Each turn:
+          1. LLM produces a response (possibly with a tool call)
+          2. If tool call: execute, feed result back via reflection prompt
+          3. If no tool call: attempt recovery reprompt, or end cycle
+          4. Loop until no more tool calls or MAX_TURNS reached
+        """
         print_cycle_header(self.cycle)
         write_status(running=True, cycle=self.cycle, phase="thinking")
         cycle_summary = []
 
-        # 1. LLM thinks
-        ui_log("INFO", f"Waiting for LLM response...")
-        response = chat(self.messages, model=self.model)
-        self.messages.append({"role": "assistant", "content": response})
+        for turn in range(1, self.MAX_TURNS + 1):
+            is_first_turn = (turn == 1)
 
-        # Show thought as compact block
-        ui_log("THINK", response)
+            ui_log("INFO", f"── Turn {turn}/{self.MAX_TURNS} ──")
 
-        # 2. Parse tool call
-        tool_call = self._parse_tool(response)
+            # --- Get LLM response ---
+            if is_first_turn:
+                ui_log("INFO", "Waiting for LLM response...")
+                response = chat(self.messages, model=self.model)
+            else:
+                # Reflection turns — the reflection prompt was already
+                # appended to self.messages by the previous iteration
+                ui_log("INFO", "Reflecting on results...")
+                write_status(running=True, cycle=self.cycle, phase="reflecting")
+                response = chat(self.messages, model=self.model)
 
-        if tool_call:
-            name, args, kwargs = tool_call
+            # Deduplicate repeated thought blocks (Qwen bug)
+            response, was_deduped = _deduplicate_response(response)
+            if was_deduped:
+                ui_log("WARN", "Deduplicated repeated THOUGHT blocks in response")
 
-            # Build a signature for loop detection
-            args_str = ", ".join([repr(a) for a in args] +
-                                [f"{k}={repr(v)}" for k, v in kwargs.items()])
-            call_sig = f"{name}({args_str})"
+            self.messages.append({"role": "assistant", "content": response})
 
-            # --- Loop detection ---
-            self._recent_tool_calls.append(call_sig)
-            if len(self._recent_tool_calls) > 10:
-                self._recent_tool_calls = self._recent_tool_calls[-10:]
+            # Show thought
+            ui_log("THINK", response)
 
-            if self._is_looping():
-                ui_log("WARN", f"LOOP DETECTED: '{call_sig}' repeated {self.LOOP_THRESHOLD}+ times — breaking out")
-                cycle_summary.append(f"LOOP on {name} — redirecting")
-                self._break_loop(call_sig)
-                return
+            # --- Parse tool call ---
+            tool_call = self._parse_tool(response)
 
-            write_status(running=True, cycle=self.cycle,
-                         phase="executing", current_tool=name)
+            if tool_call:
+                name, args, kwargs = tool_call
 
-            # Show tool call with args
-            ui_log("TOOL", f"{name}|{name}({args_str})")
+                # Build signature for loop detection
+                args_str = ", ".join(
+                    [repr(a) for a in args] +
+                    [f"{k}={repr(v)}" for k, v in kwargs.items()]
+                )
+                call_sig = f"{name}({args_str})"
 
-            # 3. Execute tool
-            result = self.tools.execute(name, *args, **kwargs)
-            result_str = str(result)[:3000]
+                # --- Loop detection ---
+                self._recent_tool_calls.append(call_sig)
+                if len(self._recent_tool_calls) > 10:
+                    self._recent_tool_calls = self._recent_tool_calls[-10:]
 
-            # Show result preview
-            result_preview = result_str.replace("\n", " │ ")[:250]
-            ui_log("RESULT", f"{name}|{result_preview}")
-            cycle_summary.append(f"{name}: {result_preview[:80]}")
+                if self._is_looping():
+                    ui_log("WARN", f"LOOP DETECTED: '{call_sig}' repeated {self.LOOP_THRESHOLD}+ times — breaking out")
+                    cycle_summary.append(f"LOOP on {name} — redirecting")
+                    self._break_loop(call_sig)
+                    break
 
-            # 4. Feed result back
-            self.messages.append({
-                "role": "user",
-                "content": f"[orchestrator] {name} returned:\n{result_str}"
-            })
+                write_status(running=True, cycle=self.cycle,
+                             phase="executing", current_tool=name)
 
-            # 5. Update memory
-            update_memory(self.memory, name, result_str)
-        else:
-            # No tool call — LLM is just thinking/summarizing
-            ui_log("WARN", "No tool call detected — nudging agent")
-            cycle_summary.append("No tool call — thinking only")
+                # Show tool call
+                ui_log("TOOL", f"{name}|{name}({args_str})")
 
-            # Track "no tool call" as a call for loop detection too
-            self._recent_tool_calls.append("__NO_TOOL__")
-            if len(self._recent_tool_calls) > 10:
-                self._recent_tool_calls = self._recent_tool_calls[-10:]
+                # --- Execute tool ---
+                result = self.tools.execute(name, *args, **kwargs)
+                result_str = str(result)[:3000]
 
-            if self._is_looping():
-                ui_log("WARN", "LOOP DETECTED: agent stuck thinking without acting — redirecting")
-                cycle_summary.append("LOOP — redirecting")
-                self._break_loop("__NO_TOOL__")
-                return
+                # Show result preview
+                result_preview = result_str.replace("\n", " | ")[:250]
+                ui_log("RESULT", f"{name}|{result_preview}")
+                cycle_summary.append(f"T{turn} {name}: {result_preview[:80]}")
 
-            self.messages.append({
-                "role": "user",
-                "content": (
-                    "[orchestrator] No tool call detected. You MUST call a tool to proceed.\n"
-                    "Format: TOOL: function_name(arg1, arg2, key=value)\n"
-                    "Example: TOOL: ncbi_search('BRCA1', db='gene')\n"
-                    "Example: TOOL: next_gene()"
-                ),
-            })
+                # Update memory
+                update_memory(self.memory, name, result_str)
+
+                # --- Reflection: if not last turn, send reflection prompt ---
+                if turn < self.MAX_TURNS:
+                    reflection = _build_reflection_prompt(
+                        name, result_str, turn, self.MAX_TURNS
+                    )
+                    self.messages.append({
+                        "role": "user",
+                        "content": reflection,
+                    })
+                    # Continue to next turn — LLM will see the reflection
+                    continue
+                else:
+                    # Last turn — just feed back the result normally
+                    self.messages.append({
+                        "role": "user",
+                        "content": f"[orchestrator] {name} returned:\n{result_str}"
+                    })
+                    ui_log("INFO", f"Max turns ({self.MAX_TURNS}) reached — ending cycle")
+                    break
+
+            else:
+                # No tool call detected
+                # --- Recovery reprompt (not on the final turn) ---
+                if turn < self.MAX_TURNS:
+                    ui_log("WARN", f"No tool call in turn {turn} — attempting recovery reprompt")
+                    recovered_response = recovery_reprompt(
+                        response, model=self.model
+                    )
+                    if recovered_response:
+                        recovered_call = self._parse_tool(recovered_response)
+                        if recovered_call:
+                            ui_log("OK", "Recovery reprompt yielded a tool call")
+                            # Replace the last assistant message with the recovered one
+                            self.messages[-1] = {
+                                "role": "assistant",
+                                "content": recovered_response,
+                            }
+                            # Re-parse and execute in-line (avoid extra turn cost)
+                            rname, rargs, rkwargs = recovered_call
+                            rargs_str = ", ".join(
+                                [repr(a) for a in rargs] +
+                                [f"{k}={repr(v)}" for k, v in rkwargs.items()]
+                            )
+                            ui_log("TOOL", f"{rname}|{rname}({rargs_str})")
+                            result = self.tools.execute(rname, *rargs, **rkwargs)
+                            result_str = str(result)[:3000]
+                            result_preview = result_str.replace("\n", " | ")[:250]
+                            ui_log("RESULT", f"{rname}|{result_preview}")
+                            cycle_summary.append(f"T{turn}R {rname}: {result_preview[:80]}")
+                            update_memory(self.memory, rname, result_str)
+
+                            # Send reflection for recovered result
+                            if turn < self.MAX_TURNS:
+                                reflection = _build_reflection_prompt(
+                                    rname, result_str, turn, self.MAX_TURNS
+                                )
+                                self.messages.append({
+                                    "role": "user",
+                                    "content": reflection,
+                                })
+                                continue
+                            else:
+                                self.messages.append({
+                                    "role": "user",
+                                    "content": f"[orchestrator] {rname} returned:\n{result_str}"
+                                })
+                                break
+
+                    # Recovery failed or produced no tool call — nudge and end
+                    ui_log("WARN", "Recovery failed — no tool call produced")
+
+                # No tool call and either final turn or recovery failed
+                cycle_summary.append(f"T{turn} no tool call — thinking only")
+
+                self._recent_tool_calls.append("__NO_TOOL__")
+                if len(self._recent_tool_calls) > 10:
+                    self._recent_tool_calls = self._recent_tool_calls[-10:]
+
+                if self._is_looping():
+                    ui_log("WARN", "LOOP DETECTED: agent stuck thinking without acting — redirecting")
+                    cycle_summary.append("LOOP — redirecting")
+                    self._break_loop("__NO_TOOL__")
+                    break
+
+                # Nudge for next cycle (not a reflection — just a nudge)
+                self.messages.append({
+                    "role": "user",
+                    "content": (
+                        "[orchestrator] No tool call detected. You MUST call a tool to proceed.\n"
+                        "Format: TOOL: function_name(arg1, arg2, key=value)\n"
+                        "Example: TOOL: ncbi_search('BRCA1', db='gene')\n"
+                        "Example: TOOL: next_gene()"
+                    ),
+                })
+                break  # End cycle — next cycle will pick up with the nudge
+
+        # --- End of turn loop ---
+        total_turns = min(turn, self.MAX_TURNS)
+        if total_turns > 1:
+            ui_log("OK", f"Cycle {self.cycle} completed in {total_turns} turn(s)")
 
         print_cycle_summary(self.cycle, cycle_summary)
 
-        # Save memory every 5 cycles to avoid data loss
+        # Save memory every 5 cycles
         if self.cycle % 5 == 0:
             save_memory(self.memory)
 
@@ -342,8 +444,9 @@ class Orchestrator:
                 i += 1
                 continue
 
-            # Drop nudge messages — they're noise in history
-            if role == "user" and "No tool call detected" in content:
+            # Drop nudge and reflection messages — they're noise in history
+            if role == "user" and ("No tool call detected" in content
+                                   or "— REFLECTION" in content):
                 i += 1
                 compressed_count += 1
                 continue
@@ -436,6 +539,80 @@ class Orchestrator:
 
         if compressed_count > 0:
             ui_log("INFO", f"Context managed: compressed {compressed_count} old messages, total now {len(self.messages)}")
+
+
+def _build_reflection_prompt(tool_name: str, result_str: str,
+                             turn: int, max_turns: int) -> str:
+    """Build a lightweight reflection prompt after a tool execution.
+
+    Sent as a user message so Qwen sees the result and decides what to do next
+    within the same cycle (multi-turn inner loop).
+    """
+    # Truncate result for the reflection prompt (keep it focused)
+    result_preview = result_str[:1500]
+    if len(result_str) > 1500:
+        result_preview += "\n... (truncated)"
+
+    return (
+        f"[orchestrator] Turn {turn}/{max_turns} — REFLECTION\n\n"
+        f"Tool result from {tool_name}:\n{result_preview}\n\n"
+        "Based on this result, what is your NEXT ACTION?\n"
+        "- Call another tool to continue investigating\n"
+        "- Call save_finding() if you've confirmed a discovery\n"
+        "- Call complete_step() to advance the pipeline\n"
+        "- If you're done with this gene, just explain your conclusion (no tool call needed)\n\n"
+        "Pipeline: discover -> profile -> analyze -> translate -> compare -> annotate -> hypothesize\n"
+        "Use TOOL: format for your next action."
+    )
+
+
+def _deduplicate_response(response: str) -> tuple[str, bool]:
+    """Detect and remove repeated THOUGHT blocks or repeated substantial lines.
+
+    Qwen sometimes repeats the same reasoning block multiple times in a single
+    response, consuming tokens without producing useful output. This detects
+    that pattern and keeps only the first occurrence of each substantial line,
+    while always preserving TOOL: lines.
+
+    Returns (cleaned_response, was_deduplicated).
+    """
+    lines = response.split("\n")
+
+    # Count occurrences of substantial lines
+    line_counts: dict[str, int] = {}
+    for line in lines:
+        stripped = line.strip()
+        if len(stripped) > 20:
+            line_counts[stripped] = line_counts.get(stripped, 0) + 1
+
+    # If no substantial line appears 3+ times, no dedup needed
+    max_repeats = max(line_counts.values()) if line_counts else 0
+    if max_repeats < 3:
+        return response, False
+
+    # Deduplicate: keep first occurrence, always keep TOOL: lines
+    seen: set[str] = set()
+    deduped: list[str] = []
+    was_deduped = False
+
+    for line in lines:
+        stripped = line.strip()
+        # Always keep TOOL: lines
+        if TOOL_START_PATTERN.search(stripped) or stripped.upper().startswith("TOOL:"):
+            deduped.append(line)
+            continue
+        # Keep short/empty lines
+        if len(stripped) <= 20:
+            deduped.append(line)
+            continue
+        # Deduplicate substantial repeated lines
+        if stripped in seen:
+            was_deduped = True
+            continue
+        seen.add(stripped)
+        deduped.append(line)
+
+    return "\n".join(deduped), was_deduped
 
 
 def _extract_balanced_args(text: str, start: int) -> str:

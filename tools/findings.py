@@ -5,8 +5,10 @@ Writes to both memory and TSV file.
 
 import os
 import csv
+import re
 import datetime
 import logging
+from difflib import SequenceMatcher
 
 from config import FINDINGS_FILE, FINDINGS_DIR, MEMORY_FILE
 from agent.memory import load_memory, save_memory, add_finding
@@ -58,6 +60,58 @@ def save_finding(*args, title: str = "", description: str = "",
                 break
     if not title:
         title = "Untitled Finding"
+
+    # --- Quality guards ---
+
+    # 1. Block error-as-finding: operational errors are not discoveries
+    error_phrases = ["file not found", "timed out", "error", "not found"]
+    for phrase in error_phrases:
+        if phrase in title.lower():
+            return (
+                f"[REJECTED] '{title}' looks like an operational error, not a research finding. "
+                "Do not log errors as findings — fix the issue and retry the tool."
+            )
+
+    # 2. Minimum content check
+    if not description or len(description.strip()) < 20:
+        return (
+            "[REJECTED] Finding description is too short (minimum 20 characters). "
+            "Please provide a meaningful description of the discovery."
+        )
+
+    # 3. Deduplication: check for similar existing titles (>80% match)
+    if os.path.isdir(FINDINGS_DIR):
+        for fname in os.listdir(FINDINGS_DIR):
+            if fname.endswith(".md"):
+                existing_title = fname.replace(".md", "")
+                similarity = SequenceMatcher(
+                    None, title.lower(), existing_title.lower()
+                ).ratio()
+                if similarity > 0.80:
+                    return (
+                        f"[REJECTED] Similar finding already exists: '{existing_title}'. "
+                        "Update the existing finding instead of creating a duplicate."
+                    )
+
+    # 4. Plausibility warning for low-identity claims between gene variants
+    warning_prefix = ""
+    identity_match = re.search(
+        r'(\d+(?:\.\d+)?)\s*%?\s*identity', description.lower()
+    )
+    if identity_match:
+        pct = float(identity_match.group(1))
+        # Normalize: if value looks like a fraction (0.XX) treat as percentage
+        if pct < 1.0:
+            pct = pct * 100
+        if pct < 40 and re.search(r'variant|transcript|isoform', description.lower()):
+            warning_prefix = (
+                "WARNING: This finding reports <40% identity between variants of "
+                "the same gene. This is near random chance for nucleotides and "
+                "likely a tool artifact (unaligned comparison). Verify with proper "
+                "alignment before trusting this result.\n\n"
+            )
+            description = warning_prefix + description
+
     ts = datetime.datetime.now().isoformat()
 
     # Save to memory

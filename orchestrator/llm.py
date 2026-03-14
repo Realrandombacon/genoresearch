@@ -70,6 +70,65 @@ def chat(messages: list[dict], model: str = None, temperature: float = 0.1,
         return f"[ERROR] {e}"
 
 
+def recovery_reprompt(thought_text: str, model: str = None,
+                      temperature: float = 0.5) -> str:
+    """When Qwen produces thinking but no tool call, do a short recovery
+    reprompt with minimal context demanding ONLY TOOL: lines.
+
+    Uses a small num_predict (500) so it cannot spiral into repetition.
+    Returns the raw response string (caller parses it), or empty string on failure.
+    """
+    model = model or OLLAMA_MODEL
+
+    # Extract a brief summary from the thought (strip [Reasoning] prefix)
+    summary = thought_text
+    if summary.startswith("[Reasoning]"):
+        summary = summary[len("[Reasoning]"):].strip()
+    summary = summary[:800]
+
+    recovery_prompt = (
+        f"You just analyzed data and concluded:\n{summary}\n\n"
+        "NOW respond with ONLY a TOOL: line. No explanations. No THOUGHT blocks.\n"
+        "Pick the most logical next step.\n\n"
+        "Examples:\n"
+        "TOOL: ncbi_search('BRCA1', db='gene')\n"
+        "TOOL: save_finding('title', 'description', 'evidence')\n"
+        "TOOL: next_gene()\n"
+        "TOOL: complete_step('analyze')\n"
+    )
+
+    system = "You are a genomics research agent. Respond with ONLY a TOOL: line. No other text."
+
+    payload = {
+        "model": model,
+        "messages": [
+            {"role": "system", "content": system},
+            {"role": "user", "content": recovery_prompt},
+        ],
+        "stream": False,
+        "think": False,
+        "options": {
+            "temperature": temperature,
+            "num_predict": 500,
+            "num_ctx": 4000,
+        },
+    }
+
+    try:
+        log.info("Recovery reprompt: demanding TOOL: lines from Qwen...")
+        resp = requests.post(OLLAMA_URL, json=payload, timeout=60)
+        resp.raise_for_status()
+        content = resp.json().get("message", {}).get("content", "").strip()
+        if not content:
+            log.warning("Recovery reprompt returned empty")
+            return ""
+        log.info("Recovery response: %d chars", len(content))
+        return content
+    except Exception as e:
+        log.error("Recovery reprompt failed: %s", e)
+        return ""
+
+
 def build_system_prompt(context: str = "") -> dict:
     """Build the system message for the genomics research agent."""
     base = (

@@ -6,6 +6,7 @@ No external dependencies beyond stdlib (BioPython optional).
 import os
 import logging
 from collections import Counter
+from difflib import SequenceMatcher
 
 from config import SEQUENCES_DIR
 
@@ -136,14 +137,20 @@ def compare_sequences(*args, file1: str = "", file2: str = "", **kwargs) -> str:
         f"  Length ratio: {min(len(s1), len(s2)) / max(len(s1), len(s2)):.2%}",
     ]
 
-    # Simple identity for same-length or aligned sequences
-    if abs(len(s1) - len(s2)) / max(len(s1), len(s2)) < 0.1:
-        min_len = min(len(s1), len(s2))
-        matches = sum(1 for a, b in zip(s1[:min_len], s2[:min_len]) if a == b)
-        identity = matches / min_len
-        lines.append(f"  Pairwise identity (ungapped): {identity:.1%}")
-    else:
-        lines.append("  Sequences differ too much in length for simple alignment")
+    # Alignment-based identity using SequenceMatcher (handles offsets and indels)
+    matcher = SequenceMatcher(None, s1, s2, autojunk=False)
+    matching_chars = sum(block.size for block in matcher.get_matching_blocks())
+    identity = matching_chars / max(len(s1), len(s2))
+    lines.append(f"  Pairwise identity (aligned): {identity:.1%}")
+
+    # Sanity check: <40% identity between same-organism sequences is suspicious
+    if identity < 0.40:
+        lines.append(
+            "  WARNING: Identity < 40% — this is near random chance for nucleotides."
+            " If these are variants of the same gene, the alignment may be"
+            " unreliable. Check that sequences are from the same strand/frame"
+            " and not reversed or offset."
+        )
 
     # Composition comparison
     c1 = Counter(s1)
