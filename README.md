@@ -52,7 +52,9 @@ python dashboard.py              # http://localhost:5555
 python dashboard.py --port 8080  # Custom port
 ```
 
-Shows live research status, findings, tool usage stats, and research logs.
+![GenoResearch Dashboard](docs/dashboard.png)
+
+Shows live research status, gene pipeline progress, tool usage distribution, error timeline, sequence inventory, findings log, and more — all updating in real time.
 
 ## Project Structure
 
