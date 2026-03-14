@@ -16,9 +16,9 @@ from agent.ui import (
 )
 
 # Pattern: TOOL: function_name(...)
-# We only use regex to find the start, then manually parse balanced parens
+# Also catches Qwen markdown variants like **Tool Call:** func(), **TOOL:** func(), etc.
 TOOL_START_PATTERN = re.compile(
-    r"TOOL:\s*(\w+)\(", re.IGNORECASE
+    r"(?:\*{0,2}Tool(?:\s*Call)?:?\*{0,2}|TOOL:)\s*(\w+)\(", re.IGNORECASE
 )
 
 
@@ -48,11 +48,11 @@ class Orchestrator:
 
         self.messages = [build_system_prompt(context)]
 
-        # Initial prompt
+        # Initial prompt — use "user" role (required by chat API) but frame as orchestrator
         if self.target:
-            user_msg = f"Begin researching: {self.target}. Start by searching relevant databases."
+            user_msg = f"[orchestrator] Research target: {self.target}"
         else:
-            user_msg = "Review your memory and propose the next research direction."
+            user_msg = "[orchestrator] Session started. Begin research."
         self.messages.append({"role": "user", "content": user_msg})
 
         while self._should_continue():
@@ -107,7 +107,7 @@ class Orchestrator:
             # 4. Feed result back
             self.messages.append({
                 "role": "user",
-                "content": f"Tool result for {name}:\n{result_str}"
+                "content": f"[orchestrator] {name} returned:\n{result_str}"
             })
 
             # 5. Update memory
@@ -118,11 +118,7 @@ class Orchestrator:
             cycle_summary.append("No tool call — thinking only")
             self.messages.append({
                 "role": "user",
-                "content": (
-                    "You must call a tool now. Do NOT ask questions — you are autonomous. "
-                    "Pick the most logical next action and call a TOOL. "
-                    "If stuck, try: list_unexplored(), query_memory('summary'), or explore a new gene."
-                )
+                "content": "[orchestrator] No tool call detected. Call a tool to proceed."
             })
 
         print_cycle_summary(self.cycle, cycle_summary)

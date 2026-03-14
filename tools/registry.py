@@ -49,6 +49,11 @@ class ToolRegistry:
             note, mark_explored, mark_done, dismiss,
         )
         from tools.lab_tools import lab_train, lab_status
+        from tools.file_tools import read_file
+        from tools.gene_queue import (
+            next_gene, add_to_queue, complete_step, complete_gene,
+            skip_gene, advance_seed, queue_status,
+        )
 
         self.register("ncbi_search", ncbi_search)
         self.register("ncbi_fetch", ncbi_fetch)
@@ -74,5 +79,14 @@ class ToolRegistry:
         self.register("translate_sequences", translate_sequence)  # alias — Qwen uses plural
         self.register("pubmed_search", pubmed_search)
         self.register("gene_info", gene_info)
+        self.register("read_file", read_file)
+        self.register("read", read_file)  # alias — Qwen may use short form
+        self.register("next_gene", next_gene)
+        self.register("add_to_queue", add_to_queue)
+        self.register("complete_step", complete_step)
+        self.register("complete_gene", complete_gene)
+        self.register("skip_gene", skip_gene)
+        self.register("advance_seed", advance_seed)
+        self.register("queue_status", queue_status)
 
         log.info("Registered %d tools", len(self._tools))
