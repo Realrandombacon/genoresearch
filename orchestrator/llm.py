@@ -27,6 +27,7 @@ def chat(messages: list[dict], model: str = None, temperature: float = 0.1,
             "temperature": temperature,
             "top_p": top_p,
             "num_predict": max_tokens,
+            "num_ctx": 16000,
         },
     }
 

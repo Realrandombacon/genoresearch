@@ -35,6 +35,12 @@ def ncbi_search(*args, query: str = "", db: str = "gene", max_results: int = 5, 
     # Absorb database= alias
     if "database" in kwargs:
         db = str(kwargs["database"])
+    # Absorb limit= alias for max_results
+    if "limit" in kwargs:
+        try:
+            max_results = int(kwargs["limit"])
+        except (ValueError, TypeError):
+            pass
 
     max_results = min(max_results, 20)
 
@@ -165,6 +171,12 @@ def pubmed_search(*args, query: str = "", max_results: int = 5, **kwargs) -> str
                 break
     if not query:
         return "[ERROR] No query provided. Usage: pubmed_search('BRCA1 cancer therapy')"
+    # Absorb limit= alias for max_results
+    if "limit" in kwargs:
+        try:
+            max_results = int(kwargs["limit"])
+        except (ValueError, TypeError):
+            pass
     max_results = min(max_results, 10)
 
     # Step 1: esearch on pubmed

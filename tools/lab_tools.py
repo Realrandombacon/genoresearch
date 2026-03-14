@@ -5,13 +5,23 @@ Lab tools — wrappers around LabTrainer for the orchestrator to call.
 from lab.trainer import LabTrainer
 
 
-def lab_train(config_name: str = "default") -> str:
+def lab_train(*args, config_name: str = "default", **kwargs) -> str:
     """
     Run an ML experiment with a named config.
 
     Args:
         config_name: Experiment config — 'default', 'large', 'small', or custom
     """
+    # Handle Qwen's creative calling
+    if not config_name and args:
+        config_name = str(args[0])
+    if not config_name:
+        for key in ("config", "name", "type", "size"):
+            if key in kwargs:
+                config_name = str(kwargs[key])
+                break
+    if not config_name:
+        config_name = "default"
     configs = {
         "default": {"hidden_size": 64, "num_layers": 2, "lr": 0.001, "epochs": 20},
         "small": {"hidden_size": 32, "num_layers": 1, "lr": 0.01, "epochs": 10},
@@ -35,7 +45,7 @@ def lab_train(config_name: str = "default") -> str:
     )
 
 
-def lab_status() -> str:
+def lab_status(*args, **kwargs) -> str:
     """Return current ML lab experiment status and history."""
     trainer = LabTrainer()
     return trainer.get_status()
