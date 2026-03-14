@@ -52,7 +52,7 @@ class ToolRegistry:
         from tools.file_tools import read_file
         from tools.gene_queue import (
             next_gene, add_to_queue, complete_step, complete_gene,
-            skip_gene, advance_seed, queue_status,
+            skip_gene, advance_seed, queue_status, hypothesize,
         )
 
         self.register("ncbi_search", ncbi_search)
@@ -89,6 +89,9 @@ class ToolRegistry:
         self.register("skip_gene", skip_gene)
         self.register("advance_seed", advance_seed)
         self.register("queue_status", queue_status)
+        self.register("hypothesize", hypothesize)
+        self.register("make_hypothesis", hypothesize)  # alias
+        self.register("hypothesis", hypothesize)  # alias
         self.register("search_database", ncbi_search)  # alias — Qwen invents this name
 
         log.info("Registered %d tools", len(self._tools))

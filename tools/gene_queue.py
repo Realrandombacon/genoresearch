@@ -230,7 +230,21 @@ def complete_step(*args, **kwargs) -> str:
     done = q["in_progress"].setdefault("steps_done", [])
 
     if step not in PIPELINE_STEPS:
-        return f"[ERROR] Unknown step '{step}'. Valid: {', '.join(PIPELINE_STEPS)}"
+        # Qwen sometimes passes gene name instead of step name — auto-detect
+        if q["in_progress"] and step == q["in_progress"]["gene"].lower():
+            remaining = [s for s in PIPELINE_STEPS if s not in done]
+            if remaining:
+                step = remaining[0]  # auto-pick next undone step
+            else:
+                return f"All steps already done for {gene}. Call complete_gene()."
+        else:
+            # Try fuzzy match (e.g. "profiling" → "profile", "analysis" → "analyze")
+            for ps in PIPELINE_STEPS:
+                if ps.startswith(step[:4]) or step.startswith(ps[:4]):
+                    step = ps
+                    break
+            else:
+                return f"[ERROR] Unknown step '{step}'. Valid: {', '.join(PIPELINE_STEPS)}"
 
     if step not in done:
         done.append(step)
@@ -376,6 +390,104 @@ def queue_status(*args, **kwargs) -> str:
     return "\n".join(lines)
 
 
+def hypothesize(*args, **kwargs) -> str:
+    """
+    Generate and save a function hypothesis for the current gene.
+    This is the final pipeline step — synthesize everything you learned
+    into a hypothesis about what this gene does.
+
+    Args:
+        hypothesis: Your hypothesis about the gene's function
+        evidence: Key evidence supporting it (BLAST hits, domains, motifs...)
+        confidence: low / medium / high
+    """
+    from tools.findings import save_finding
+
+    hypothesis = ""
+    if args:
+        hypothesis = str(args[0]).strip()
+    if not hypothesis:
+        for key in ("hypothesis", "description", "text", "title"):
+            if key in kwargs:
+                hypothesis = str(kwargs[key]).strip()
+                break
+
+    evidence = ""
+    if len(args) >= 2:
+        evidence = str(args[1]).strip()
+    elif "evidence" in kwargs:
+        evidence = str(kwargs["evidence"]).strip()
+
+    confidence = "medium"
+    if len(args) >= 3:
+        confidence = str(args[2]).strip().lower()
+    elif "confidence" in kwargs:
+        confidence = str(kwargs["confidence"]).strip().lower()
+
+    # Get current gene from queue
+    q = _load_queue()
+    gene = "unknown"
+    if q["in_progress"]:
+        gene = q["in_progress"]["gene"]
+
+    if not hypothesis:
+        return (
+            f"[ERROR] Usage: hypothesize('This gene likely functions as a membrane transporter', "
+            f"evidence='BLAST hits to SLC family, 7 TM domains found', confidence='medium')\n"
+            f"Current gene: {gene}"
+        )
+
+    # Save as a finding with hypothesis tag
+    title = f"{gene} - Function Hypothesis [{confidence}]"
+    description = f"HYPOTHESIS: {hypothesis}"
+    result = save_finding(title=title, description=description, evidence=evidence)
+
+    # Also mark hypothesize step as done
+    complete_step("hypothesize")
+
+    return f"{result}\nHypothesis recorded for {gene} (confidence: {confidence}).\nCall complete_gene() or next_gene() to continue."
+
+
 def _step_instructions(step: str, gene: str) -> str:
-    """Return a minimal hint for the next pipeline step."""
-    return f"→ {step} for {gene}"
+    """Return concrete tool call examples for each pipeline step."""
+    instructions = {
+        "discover": (
+            f"→ DISCOVER: Confirm {gene} is understudied.\n"
+            f"  TOOL: gene_info('{gene}')\n"
+            f"  If well-studied, call skip_gene('well-studied gene')."
+        ),
+        "profile": (
+            f"→ PROFILE: Fetch the mRNA/protein sequence.\n"
+            f"  TOOL: ncbi_search('{gene}', db='nucleotide', max_results=3)\n"
+            f"  Then: ncbi_fetch('NM_XXXXXX', db='nucleotide')\n"
+            f"  After: complete_step('profile')"
+        ),
+        "analyze": (
+            f"→ ANALYZE: Examine the sequence composition.\n"
+            f"  TOOL: analyze_sequence('{gene}')\n"
+            f"  After: complete_step('analyze')"
+        ),
+        "translate": (
+            f"→ TRANSLATE: Get the protein sequence.\n"
+            f"  TOOL: translate_sequence('{gene}')\n"
+            f"  Or: uniprot_fetch('{gene}')\n"
+            f"  After: complete_step('translate')"
+        ),
+        "compare": (
+            f"→ COMPARE: Find homologs via BLAST.\n"
+            f"  TOOL: blast_search('{gene}', db='nt', evalue=0.01)\n"
+            f"  After: complete_step('compare')"
+        ),
+        "annotate": (
+            f"→ ANNOTATE: Check UniProt for known domains/functions.\n"
+            f"  TOOL: uniprot_search('{gene}')\n"
+            f"  Then: save_finding(title='{gene} - Analysis', description='...', evidence='...')\n"
+            f"  After: complete_step('annotate')"
+        ),
+        "hypothesize": (
+            f"→ HYPOTHESIZE: What does this gene do? Synthesize all evidence.\n"
+            f"  TOOL: hypothesize('This gene likely functions as...', evidence='BLAST hits, domains, motifs...', confidence='medium')\n"
+            f"  This will auto-save the finding and complete the step."
+        ),
+    }
+    return instructions.get(step, f"→ {step} for {gene}")
