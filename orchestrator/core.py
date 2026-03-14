@@ -118,12 +118,21 @@ class Orchestrator:
             cycle_summary.append("No tool call — thinking only")
             self.messages.append({
                 "role": "user",
-                "content": "[orchestrator] No tool call detected. Call a tool to proceed."
+                "content": (
+                    "[orchestrator] No tool call detected. You MUST call a tool to proceed.\n"
+                    "Format: TOOL: function_name(arg1, arg2, key=value)\n"
+                    "Example: TOOL: ncbi_search('BRCA1', db='gene')\n"
+                    "Example: TOOL: next_gene()"
+                ),
             })
 
         print_cycle_summary(self.cycle, cycle_summary)
 
-        # Trim conversation if it gets too long
+        # Save memory every 5 cycles to avoid data loss
+        if self.cycle % 5 == 0:
+            save_memory(self.memory)
+
+        # Smart context compression every cycle
         self._trim_messages()
 
     def _parse_tool(self, text: str):
@@ -157,18 +166,122 @@ class Orchestrator:
 
         return name, args, kwargs
 
-    def _trim_messages(self, max_messages: int = 80):
-        """Keep conversation manageable — preserve system + last N messages.
-        Only trim when significantly over limit to avoid trimming every cycle.
+    def _trim_messages(self, keep_recent: int = 20, hard_limit: int = 60):
+        """Smart per-cycle context management.
+
+        Every cycle:
+        1. Messages within the last `keep_recent` are kept in full detail.
+        2. Older messages get compressed:
+           - Tool results (user msgs with "[orchestrator] X returned:") → truncated to ~150 chars
+           - Assistant thinking/reasoning → condensed to tool call + 1-line summary
+           - Nudge messages → dropped entirely (they add no value to history)
+        3. If total still exceeds `hard_limit`, oldest compressed messages are dropped.
+
+        This prevents Qwen from losing coherence after ~30 cycles by keeping
+        the context window focused on recent work while retaining a brief
+        history of what was already done.
         """
-        # Only trim when 20% over to avoid constant trimming
-        if len(self.messages) <= int(max_messages * 1.2):
+        if len(self.messages) <= keep_recent + 1:  # +1 for system prompt
             return
+
         system = self.messages[0]
-        recent = self.messages[-(max_messages - 1):]
-        trimmed_count = len(self.messages) - len(recent) - 1
-        self.messages = [system] + recent
-        ui_log("INFO", f"Context trimmed: dropped {trimmed_count} old messages, keeping {len(self.messages)}")
+        # Split into old vs recent
+        cutoff = len(self.messages) - keep_recent
+        old_messages = self.messages[1:cutoff]
+        recent_messages = self.messages[cutoff:]
+
+        compressed = []
+        compressed_count = 0
+
+        i = 0
+        while i < len(old_messages):
+            msg = old_messages[i]
+            role = msg.get("role", "")
+            content = msg.get("content", "")
+
+            # Drop empty messages
+            if not content.strip():
+                i += 1
+                continue
+
+            # Drop nudge messages — they're noise in history
+            if role == "user" and "No tool call detected" in content:
+                i += 1
+                compressed_count += 1
+                continue
+
+            # Compress tool results — keep tool name + first ~150 chars
+            if role == "user" and content.startswith("[orchestrator]") and "returned:" in content:
+                # Extract tool name and truncate result
+                lines = content.split("\n", 2)
+                header = lines[0]  # "[orchestrator] tool_name returned:"
+                # Get a brief snippet of the result
+                result_text = content[len(header):].strip()
+                snippet = result_text[:150].replace("\n", " ").strip()
+                if len(result_text) > 150:
+                    snippet += "..."
+                compressed.append({
+                    "role": "user",
+                    "content": f"{header}\n{snippet}"
+                })
+                compressed_count += 1
+                i += 1
+                continue
+
+            # Compress assistant messages — keep tool call line + brief summary
+            if role == "assistant":
+                # Check if it contains a tool call
+                tool_match = TOOL_START_PATTERN.search(content)
+                if tool_match:
+                    # Extract just the tool call line
+                    tool_line_start = content.rfind("\n", 0, tool_match.start())
+                    tool_line_end = content.find("\n", tool_match.end())
+                    if tool_line_end == -1:
+                        tool_line_end = len(content)
+                    tool_line = content[tool_line_start + 1:tool_line_end].strip()
+
+                    # Also grab first non-reasoning line as summary
+                    summary = ""
+                    for line in content.split("\n"):
+                        line = line.strip()
+                        if (line and not line.startswith("[Reasoning]")
+                                and not line.startswith("TOOL:")
+                                and "Tool Call" not in line
+                                and len(line) > 10):
+                            summary = line[:120]
+                            break
+
+                    condensed = tool_line
+                    if summary:
+                        condensed = f"{summary}\n{tool_line}"
+                    compressed.append({"role": "assistant", "content": condensed})
+                    compressed_count += 1
+                else:
+                    # Thinking-only message (no tool call) — keep brief
+                    brief = content[:200].replace("\n", " ").strip()
+                    if len(content) > 200:
+                        brief += "..."
+                    compressed.append({"role": "assistant", "content": brief})
+                    compressed_count += 1
+                i += 1
+                continue
+
+            # Keep other messages (e.g., initial user prompt) as-is
+            compressed.append(msg)
+            i += 1
+
+        # Rebuild messages: system + compressed old + full recent
+        self.messages = [system] + compressed + recent_messages
+
+        # Hard limit: if still too many, drop oldest compressed messages
+        if len(self.messages) > hard_limit:
+            excess = len(self.messages) - hard_limit
+            # Drop from position 1 (after system), keeping system + recent
+            self.messages = [system] + self.messages[1 + excess:]
+            compressed_count += excess
+
+        if compressed_count > 0:
+            ui_log("INFO", f"Context managed: compressed {compressed_count} old messages, total now {len(self.messages)}")
 
 
 def _extract_balanced_args(text: str, start: int) -> str:
