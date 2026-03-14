@@ -25,6 +25,9 @@ TOOL_START_PATTERN = re.compile(
 class Orchestrator:
     """Main autonomous research loop."""
 
+    # How many identical consecutive tool calls before we intervene
+    LOOP_THRESHOLD = 3
+
     def __init__(self, max_cycles: int = 10, model: str = None,
                  target: str = None):
         self.max_cycles = max_cycles
@@ -34,6 +37,7 @@ class Orchestrator:
         self.memory = load_memory()
         self.messages: list[dict] = []
         self.cycle = 0
+        self._recent_tool_calls: list[str] = []  # track for loop detection
 
     def run(self):
         """Execute the research loop."""
@@ -87,12 +91,27 @@ class Orchestrator:
 
         if tool_call:
             name, args, kwargs = tool_call
+
+            # Build a signature for loop detection
+            args_str = ", ".join([repr(a) for a in args] +
+                                [f"{k}={repr(v)}" for k, v in kwargs.items()])
+            call_sig = f"{name}({args_str})"
+
+            # --- Loop detection ---
+            self._recent_tool_calls.append(call_sig)
+            if len(self._recent_tool_calls) > 10:
+                self._recent_tool_calls = self._recent_tool_calls[-10:]
+
+            if self._is_looping():
+                ui_log("WARN", f"LOOP DETECTED: '{call_sig}' repeated {self.LOOP_THRESHOLD}+ times — breaking out")
+                cycle_summary.append(f"LOOP on {name} — redirecting")
+                self._break_loop(call_sig)
+                return
+
             write_status(running=True, cycle=self.cycle,
                          phase="executing", current_tool=name)
 
             # Show tool call with args
-            args_str = ", ".join([repr(a) for a in args] +
-                                [f"{k}={repr(v)}" for k, v in kwargs.items()])
             ui_log("TOOL", f"{name}|{name}({args_str})")
 
             # 3. Execute tool
@@ -116,6 +135,18 @@ class Orchestrator:
             # No tool call — LLM is just thinking/summarizing
             ui_log("WARN", "No tool call detected — nudging agent")
             cycle_summary.append("No tool call — thinking only")
+
+            # Track "no tool call" as a call for loop detection too
+            self._recent_tool_calls.append("__NO_TOOL__")
+            if len(self._recent_tool_calls) > 10:
+                self._recent_tool_calls = self._recent_tool_calls[-10:]
+
+            if self._is_looping():
+                ui_log("WARN", "LOOP DETECTED: agent stuck thinking without acting — redirecting")
+                cycle_summary.append("LOOP — redirecting")
+                self._break_loop("__NO_TOOL__")
+                return
+
             self.messages.append({
                 "role": "user",
                 "content": (
@@ -165,6 +196,113 @@ class Orchestrator:
                 args.append(_cast(part))
 
         return name, args, kwargs
+
+    def _is_looping(self) -> bool:
+        """Check if the last N tool calls are identical (stuck in a loop)."""
+        if len(self._recent_tool_calls) < self.LOOP_THRESHOLD:
+            return False
+        last_n = self._recent_tool_calls[-self.LOOP_THRESHOLD:]
+        return len(set(last_n)) == 1
+
+    def _break_loop(self, stuck_call: str):
+        """Break out of a detected loop by trimming repeated context and
+        suggesting the logical next step based on what tool was being repeated.
+
+        Strategy:
+        1. Keep system prompt + strip all the repeated messages
+        2. Analyze the stuck tool call to suggest the right next action
+        3. Inject a specific directive with the exact tool to call next
+        4. Reset the tool call tracker
+        """
+        system = self.messages[0]
+
+        # Keep only system + last 4 non-duplicate messages
+        # (the loop fills context with identical copies — purge them)
+        unique = []
+        seen = set()
+        for msg in reversed(self.messages[1:]):
+            fp = msg.get("content", "")[:200]
+            if fp not in seen:
+                seen.add(fp)
+                unique.append(msg)
+            if len(unique) >= 4:
+                break
+        unique.reverse()
+        self.messages = [system] + unique
+
+        # Figure out what the next logical step is based on the stuck call
+        hint = self._suggest_next_step(stuck_call)
+
+        self.messages.append({
+            "role": "user",
+            "content": (
+                f"[orchestrator] LOOP DETECTED: You repeated '{stuck_call}' "
+                f"{self.LOOP_THRESHOLD}+ times without making progress. "
+                f"You already have the results from that search.\n\n"
+                f"DO SOMETHING DIFFERENT NOW. {hint}\n\n"
+                "Pipeline reminder: discover → profile → analyze → translate → compare → annotate → hypothesize.\n"
+                "If you are stuck on a gene, call skip_gene('reason') to move on."
+            ),
+        })
+
+        # Reset loop tracker
+        self._recent_tool_calls.clear()
+        ui_log("INFO", f"Loop broken — suggested next step: {hint[:100]}")
+
+    @staticmethod
+    def _suggest_next_step(stuck_call: str) -> str:
+        """Given the tool call that was looping, suggest what to do next."""
+        call_lower = stuck_call.lower()
+
+        if stuck_call == "__NO_TOOL__":
+            return ("You must call a tool. Try: TOOL: next_gene() to get a target, "
+                    "or TOOL: list_sequences() to see what data you have.")
+
+        if "ncbi_search" in call_lower:
+            return ("You already have search results. Now USE them: "
+                    "pick an accession ID from the results and call "
+                    "TOOL: ncbi_fetch('ACCESSION_ID', db='nucleotide') to download the sequence, "
+                    "or TOOL: gene_info('GENE_NAME') to get detailed info.")
+
+        if "ncbi_fetch" in call_lower:
+            return ("You already fetched this sequence. Now analyze it: "
+                    "TOOL: analyze_sequence('FILENAME.fasta') to check composition, "
+                    "or TOOL: translate_sequence('FILENAME.fasta') for protein translation.")
+
+        if "gene_info" in call_lower:
+            return ("You already have gene info. Move to sequence analysis: "
+                    "TOOL: ncbi_fetch('ACCESSION', db='nucleotide') to get the sequence, "
+                    "or TOOL: uniprot_search('GENE_NAME') to find protein data.")
+
+        if "analyze_sequence" in call_lower:
+            return ("Analysis done. Next steps: "
+                    "TOOL: translate_sequence('FILE') for protein translation, "
+                    "TOOL: blast_search('FILE') for homology search, "
+                    "or TOOL: save_finding('title', 'description', 'evidence') to record results.")
+
+        if "uniprot" in call_lower:
+            return ("You have UniProt results. Try: "
+                    "TOOL: analyze_sequence('FILE') on a downloaded sequence, "
+                    "or TOOL: save_finding('title', 'description', 'evidence') to record what you found.")
+
+        if "blast" in call_lower:
+            return ("BLAST is done. Record your findings: "
+                    "TOOL: save_finding('title', 'description', 'evidence'), "
+                    "then TOOL: complete_step('compare') and move to annotation.")
+
+        if "pubmed" in call_lower:
+            return ("Literature search done. Use results to form hypotheses: "
+                    "TOOL: save_finding('title', 'description', 'evidence'), "
+                    "or search for a different angle with a new query.")
+
+        if "save_finding" in call_lower:
+            return ("Finding saved. Move to the next step in the pipeline: "
+                    "TOOL: complete_step('STEP_NAME') or TOOL: next_gene() for a new target.")
+
+        # Generic fallback
+        return ("Try a DIFFERENT tool than the one you were repeating. "
+                "Options: gene_info(), ncbi_fetch(), analyze_sequence(), "
+                "save_finding(), next_gene(), list_sequences().")
 
     def _trim_messages(self, keep_recent: int = 20, hard_limit: int = 60):
         """Smart per-cycle context management.
@@ -269,6 +407,22 @@ class Orchestrator:
             # Keep other messages (e.g., initial user prompt) as-is
             compressed.append(msg)
             i += 1
+
+        # Deduplicate compressed messages — if the same tool call or result
+        # appears multiple times (early loop that wasn't caught), keep only the last
+        deduped = []
+        seen_content = set()
+        for msg in reversed(compressed):
+            # Use a short fingerprint for dedup
+            content = msg.get("content", "")
+            fingerprint = content[:200]
+            if fingerprint in seen_content:
+                compressed_count += 1  # count as compressed/dropped
+                continue
+            seen_content.add(fingerprint)
+            deduped.append(msg)
+        deduped.reverse()
+        compressed = deduped
 
         # Rebuild messages: system + compressed old + full recent
         self.messages = [system] + compressed + recent_messages
