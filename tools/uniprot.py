@@ -29,6 +29,14 @@ def uniprot_search(*args, query: str = "", max_results: int = 5, **kwargs) -> st
                 break
     if not query:
         return "[ERROR] No query provided. Usage: uniprot_search('BRCA1 human')"
+    # Absorb limit= alias for max_results
+    if "limit" in kwargs:
+        try:
+            max_results = int(kwargs["limit"])
+        except (ValueError, TypeError):
+            pass
+    # Absorb db= (Qwen sometimes adds db= to uniprot functions — just ignore it)
+    kwargs.pop("db", None)
     max_results = min(max_results, 25)
     params = {
         "query": query,

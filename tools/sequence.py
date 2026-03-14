@@ -23,12 +23,16 @@ def analyze_sequence(*args, filepath: str = "", **kwargs) -> str:
     if not filepath and args:
         filepath = str(args[0])
     if not filepath:
-        for key in ("filepath", "file", "path", "fasta", "sequence", "input", "filename"):
+        for key in ("filepath", "file", "path", "fasta", "sequence", "input",
+                     "filename", "file_path", "file_name", "seq"):
             if key in kwargs:
                 filepath = str(kwargs[key])
                 break
     if not filepath:
-        return "[ERROR] No filepath provided. Usage: analyze_sequence('NM_007294.4.fasta')"
+        # Auto-pick the most recently downloaded sequence
+        filepath = _latest_sequence()
+        if not filepath:
+            return "[ERROR] No filepath provided. Usage: analyze_sequence('NM_007294.4.fasta')"
     filepath = _resolve_path(filepath)
 
     if not os.path.exists(filepath):
@@ -96,12 +100,14 @@ def compare_sequences(*args, file1: str = "", file2: str = "", **kwargs) -> str:
         elif len(args) == 1:
             file1 = str(args[0])
     if not file1:
-        for key in ("file1", "seq1", "sequence1", "first", "input1"):
+        for key in ("file1", "seq1", "sequence1", "first", "input1",
+                     "filepath", "file_path", "filepath1", "file"):
             if key in kwargs:
                 file1 = str(kwargs[key])
                 break
     if not file2:
-        for key in ("file2", "seq2", "sequence2", "second", "input2"):
+        for key in ("file2", "seq2", "sequence2", "second", "input2",
+                     "filepath2", "file_path2"):
             if key in kwargs:
                 file2 = str(kwargs[key])
                 break
@@ -163,9 +169,33 @@ def compare_sequences(*args, file1: str = "", file2: str = "", **kwargs) -> str:
 
 def _resolve_path(filepath: str) -> str:
     """Resolve relative paths against sequences directory."""
+    filepath = filepath.strip().strip("'\"")
     if os.path.sep not in filepath and "/" not in filepath:
-        return os.path.join(SEQUENCES_DIR, filepath)
+        candidate = os.path.join(SEQUENCES_DIR, filepath)
+        if os.path.exists(candidate):
+            return candidate
+        # Try adding .fasta extension
+        if not filepath.lower().endswith((".fasta", ".fa", ".fna")):
+            candidate2 = os.path.join(SEQUENCES_DIR, filepath + ".fasta")
+            if os.path.exists(candidate2):
+                return candidate2
+        return candidate  # return even if doesn't exist — let caller handle error
     return filepath
+
+
+def _latest_sequence() -> str:
+    """Return path to the most recently modified .fasta file, or '' if none."""
+    if not os.path.isdir(SEQUENCES_DIR):
+        return ""
+    fastas = []
+    for f in os.listdir(SEQUENCES_DIR):
+        if f.lower().endswith((".fasta", ".fa", ".fna")):
+            fp = os.path.join(SEQUENCES_DIR, f)
+            fastas.append((os.path.getmtime(fp), fp))
+    if not fastas:
+        return ""
+    fastas.sort(reverse=True)
+    return fastas[0][1]
 
 
 def _read_fasta(filepath: str) -> tuple[str, str]:

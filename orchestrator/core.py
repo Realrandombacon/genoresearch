@@ -22,6 +22,119 @@ TOOL_START_PATTERN = re.compile(
 )
 
 
+# ---------------------------------------------------------------------------
+# Response deduplication (ported from auto-research)
+# ---------------------------------------------------------------------------
+
+def _deduplicate_response(response: str) -> tuple[str, bool]:
+    """Detect and remove repeated blocks from Qwen output.
+
+    When Qwen loops, it repeats THOUGHT blocks many times, consuming all
+    num_predict tokens without ever emitting TOOL: lines. This detects
+    that pattern and truncates.
+    """
+    lines = response.split("\n")
+
+    # Count all non-empty line occurrences
+    line_counts: dict[str, int] = {}
+    for line in lines:
+        stripped = line.strip()
+        if len(stripped) > 20:  # Only count substantial lines
+            line_counts[stripped] = line_counts.get(stripped, 0) + 1
+
+    # If any substantial line appears 3+ times, we have a repetition loop
+    max_repeats = max(line_counts.values()) if line_counts else 0
+    if max_repeats < 3:
+        return response, False
+
+    # Deduplicate: keep first occurrence of each line, always keep TOOL lines
+    seen_lines: set[str] = set()
+    deduped_lines = []
+    repeated = False
+
+    for line in lines:
+        stripped = line.strip()
+        # Always keep TOOL: lines (never deduplicate actions)
+        if stripped.upper().startswith("TOOL:"):
+            deduped_lines.append(line)
+            continue
+        # Keep short lines (empty, separators, etc.)
+        if len(stripped) <= 20:
+            deduped_lines.append(line)
+            continue
+        # Deduplicate substantial repeated lines
+        if stripped in seen_lines:
+            repeated = True
+            continue
+        seen_lines.add(stripped)
+        deduped_lines.append(line)
+
+    return "\n".join(deduped_lines), repeated
+
+
+# ---------------------------------------------------------------------------
+# Centralized parameter normalization (ported from auto-research)
+# ---------------------------------------------------------------------------
+
+# Common parameter aliases Qwen invents → correct name
+_PARAM_ALIASES = {
+    "file_path": "filepath",
+    "file_name": "filepath",
+    "filename": "filepath",
+    "file": "filepath",
+    "path": "filepath",
+    "fasta": "filepath",
+    "input": "filepath",
+    "seq": "filepath",
+    "accession": "accession_id",
+    "acc": "accession_id",
+    "seq_id": "accession_id",
+    "protein_id": "accession_id",
+    "limit": "max_results",
+    "num_results": "max_results",
+    "count": "max_results",
+    "gene": "gene_name",
+    "symbol": "gene_name",
+    "gene_symbol": "gene_name",
+    "database": "db",
+    "content": "description",
+    "details": "description",
+    "result": "description",
+    "body": "description",
+    "source": "evidence",
+    "reference": "evidence",
+    "ref": "evidence",
+    "question": "query",
+    "term": "query",
+    "search": "query",
+    "q": "query",
+    "text": "query",
+}
+
+# Per-tool overrides: for tools where the "canonical" name differs
+# e.g. query_memory uses "question" not "query" as final name
+_TOOL_PARAM_MAP = {
+    "query_memory": {"query": "question"},
+    "note": {"query": "text"},
+    "save_finding": {"query": "title"},
+    "analyze_sequence": {"query": "filepath"},
+    "blast_search": {"filepath": "sequence"},
+}
+
+
+def _normalize_params(tool_name: str, args: list, kwargs: dict) -> tuple[list, dict]:
+    """Normalize parameter names using central alias table."""
+    normalized = {}
+    for key, val in kwargs.items():
+        # Apply global aliases
+        canonical = _PARAM_ALIASES.get(key, key)
+        # Apply per-tool overrides
+        tool_map = _TOOL_PARAM_MAP.get(tool_name, {})
+        canonical = tool_map.get(canonical, canonical)
+        normalized[canonical] = val
+    return args, normalized
+
+
 class Orchestrator:
     """Main autonomous research loop."""
 
@@ -75,50 +188,66 @@ class Orchestrator:
         cycle_summary = []
 
         # 1. LLM thinks
-        ui_log("INFO", f"Waiting for LLM response...")
+        ui_log("INFO", "Waiting for LLM response...")
         response = chat(self.messages, model=self.model)
+
+        # 1b. Deduplicate repeated blocks (Qwen loop detection)
+        response, was_deduped = _deduplicate_response(response)
+        if was_deduped:
+            ui_log("WARN", "Repetition detected in response — deduplicated")
+
         self.messages.append({"role": "assistant", "content": response})
 
         # Show thought as compact block
         ui_log("THINK", response)
 
-        # 2. Parse tool call
-        tool_call = self._parse_tool(response)
+        # 2. Parse tool calls
+        tool_calls = self._parse_all_tools(response)
 
-        if tool_call:
-            name, args, kwargs = tool_call
-            write_status(running=True, cycle=self.cycle,
-                         phase="executing", current_tool=name)
+        if tool_calls:
+            # Execute each tool call (auto-research supports multiple per cycle)
+            for name, args, kwargs in tool_calls:
+                # 2b. Centralized param normalization
+                args, kwargs = _normalize_params(name, args, kwargs)
 
-            # Show tool call with args
-            args_str = ", ".join([repr(a) for a in args] +
-                                [f"{k}={repr(v)}" for k, v in kwargs.items()])
-            ui_log("TOOL", f"{name}|{name}({args_str})")
+                write_status(running=True, cycle=self.cycle,
+                             phase="executing", current_tool=name)
 
-            # 3. Execute tool
-            result = self.tools.execute(name, *args, **kwargs)
-            result_str = str(result)[:3000]
+                # Show tool call with args
+                args_str = ", ".join([repr(a) for a in args] +
+                                    [f"{k}={repr(v)}" for k, v in kwargs.items()])
+                ui_log("TOOL", f"{name}|{name}({args_str})")
 
-            # Show result preview
-            result_preview = result_str.replace("\n", " │ ")[:250]
-            ui_log("RESULT", f"{name}|{result_preview}")
-            cycle_summary.append(f"{name}: {result_preview[:80]}")
+                # 3. Execute tool
+                result = self.tools.execute(name, *args, **kwargs)
+                result_str = str(result)[:3000]
 
-            # 4. Feed result back
-            self.messages.append({
-                "role": "user",
-                "content": f"[orchestrator] {name} returned:\n{result_str}"
-            })
+                # Show result preview
+                result_preview = result_str.replace("\n", " │ ")[:250]
+                ui_log("RESULT", f"{name}|{result_preview}")
+                cycle_summary.append(f"{name}: {result_preview[:80]}")
 
-            # 5. Update memory
-            update_memory(self.memory, name, result_str)
+                # 4. Feed result back
+                self.messages.append({
+                    "role": "user",
+                    "content": f"[orchestrator] {name} returned:\n{result_str}"
+                })
+
+                # 5. Update memory
+                update_memory(self.memory, name, result_str)
         else:
             # No tool call — LLM is just thinking/summarizing
             ui_log("WARN", "No tool call detected — nudging agent")
             cycle_summary.append("No tool call — thinking only")
             self.messages.append({
                 "role": "user",
-                "content": "[orchestrator] No tool call detected. Call a tool to proceed."
+                "content": (
+                    "[orchestrator] No tool call detected. You MUST call a tool to proceed.\n"
+                    "Format: TOOL: function_name(key=value, key2=value2)\n"
+                    "Example: TOOL: ncbi_search(query='BRCA1', db='gene')\n"
+                    "Example: TOOL: analyze_sequence(filepath='NM_007294.fasta')\n"
+                    "Example: TOOL: next_gene()"
+                )
             })
 
         print_cycle_summary(self.cycle, cycle_summary)
@@ -126,36 +255,41 @@ class Orchestrator:
         # Trim conversation if it gets too long
         self._trim_messages()
 
-    def _parse_tool(self, text: str):
-        """Extract TOOL: name(args) from LLM response. Returns (name, args, kwargs) or None."""
-        match = TOOL_START_PATTERN.search(text)
-        if not match:
-            return None
+    def _parse_all_tools(self, text: str) -> list[tuple]:
+        """Extract ALL TOOL: name(args) from LLM response.
 
-        name = match.group(1)
+        Returns list of (name, args, kwargs) tuples.
+        Unlike _parse_tool which only finds the first match,
+        this finds all tool calls in the response.
+        """
+        results = []
+        for match in TOOL_START_PATTERN.finditer(text):
+            name = match.group(1)
 
-        # Find the matching closing paren, respecting quotes and nested parens
-        start = match.end()  # position right after the opening '('
-        raw_args = _extract_balanced_args(text, start)
-        if raw_args is None:
-            raw_args = ""
+            # Find the matching closing paren
+            start = match.end()
+            raw_args = _extract_balanced_args(text, start)
+            if raw_args is None:
+                raw_args = ""
+            raw_args = raw_args.strip()
 
-        raw_args = raw_args.strip()
+            if not raw_args:
+                results.append((name, [], {}))
+                continue
 
-        if not raw_args:
-            return name, [], {}
+            args = []
+            kwargs = {}
+            for part in _split_args(raw_args):
+                part = part.strip()
+                if "=" in part and not part.startswith(("'", '"')):
+                    key, val = part.split("=", 1)
+                    kwargs[key.strip().lower()] = _cast(val.strip())
+                else:
+                    args.append(_cast(part))
 
-        args = []
-        kwargs = {}
-        for part in _split_args(raw_args):
-            part = part.strip()
-            if "=" in part and not part.startswith(("'", '"')):
-                key, val = part.split("=", 1)
-                kwargs[key.strip()] = _cast(val.strip())
-            else:
-                args.append(_cast(part))
+            results.append((name, args, kwargs))
 
-        return name, args, kwargs
+        return results
 
     def _trim_messages(self, max_messages: int = 80):
         """Keep conversation manageable — preserve system + last N messages.

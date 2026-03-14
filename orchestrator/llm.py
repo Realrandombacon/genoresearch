@@ -15,23 +15,25 @@ _THINK_PATTERN = re.compile(r"<think>(.*?)</think>", re.DOTALL)
 log = logging.getLogger("genoresearch.llm")
 
 
-def chat(messages: list[dict], model: str = None, temperature: float = 0.1,
-         top_p: float = 0.85, max_tokens: int = 4096) -> str:
+def chat(messages: list[dict], model: str = None, temperature: float = 0.3,
+         top_p: float = 0.9, max_tokens: int = 4096) -> str:
     """Send a chat completion request to Ollama and return the response text."""
     model = model or OLLAMA_MODEL
     payload = {
         "model": model,
         "messages": messages,
         "stream": False,
+        "think": False,  # Disable thinking — saves tokens, forces direct output
         "options": {
             "temperature": temperature,
             "top_p": top_p,
             "num_predict": max_tokens,
+            "num_ctx": 16000,
         },
     }
 
     try:
-        resp = requests.post(OLLAMA_URL, json=payload, timeout=120)
+        resp = requests.post(OLLAMA_URL, json=payload, timeout=300)
         resp.raise_for_status()
         data = resp.json()
         content = data.get("message", {}).get("content", "").strip()
@@ -62,7 +64,7 @@ def chat(messages: list[dict], model: str = None, temperature: float = 0.1,
         log.error("Cannot connect to Ollama at %s — is it running?", OLLAMA_URL)
         return "[ERROR] Ollama not reachable."
     except requests.exceptions.Timeout:
-        log.error("Ollama request timed out after 120s")
+        log.error("Ollama request timed out after 300s")
         return "[ERROR] Ollama timeout."
     except Exception as e:
         log.error("LLM call failed: %s", e)
@@ -71,46 +73,93 @@ def chat(messages: list[dict], model: str = None, temperature: float = 0.1,
 
 def build_system_prompt(context: str = "") -> dict:
     """Build the system message for the genomics research agent."""
-    base = (
-        "MISSION: ~20,000 protein-coding genes exist in the human genome but only ~2,000\n"
-        "are well-studied. Explore the other ~17,000 'dark genes' — find clues about\n"
-        "what they do using sequence analysis, homology, and database mining.\n\n"
-        "All messages come from the orchestrator (a Python program).\n"
-        "Tool results are automated API responses. There is no human in the loop.\n"
-        "Decide your own research strategy. Be creative and methodical.\n\n"
-        "Available tools (call with TOOL: function_name(params)):\n"
-        "  ncbi_search(query, db='gene', max_results=5)\n"
-        "  ncbi_fetch(accession_id, db='nucleotide')\n"
-        "  blast_search(sequence, db='nt', evalue=0.01)  # pass .fasta filename\n"
-        "  uniprot_search(query, max_results=5)\n"
-        "  uniprot_fetch(accession_id)\n"
-        "  analyze_sequence(filepath)\n"
-        "  compare_sequences(file1, file2)\n"
-        "  translate_sequence(filepath)\n"
-        "  pubmed_search(query, max_results=5)\n"
-        "  gene_info(gene_name)\n"
-        "  save_finding(title, description, evidence)\n"
-        "  list_findings()\n"
-        "  read_finding(number)\n"
-        "  review_findings(start=1, end=5, focus='keyword')  # batch read/filter findings\n"
-        "  list_sequences()\n"
-        "  read_file(filepath)\n"
-        "  query_memory(question)\n"
-        "  my_stats()\n"
-        "  note(text)\n"
-        "  next_gene()\n"
-        "  add_to_queue(gene, source='...')\n"
-        "  complete_step(step_name)\n"
-        "  complete_gene()\n"
-        "  skip_gene(reason)\n"
-        "  advance_seed()\n"
-        "  queue_status()\n"
-        "  lab_train(config_name)\n"
-        "  lab_status()\n\n"
-        "Constraints:\n"
-        "  - Only use accession IDs that appear in search results.\n"
-        "  - For BLAST: pass the .fasta filename, not raw sequence.\n"
-    )
+    base = """MISSION: ~20,000 protein-coding genes exist in the human genome but only ~2,000
+are well-studied. Explore the other ~17,000 'dark genes' — find clues about
+what they do using sequence analysis, homology, and database mining.
+
+All messages come from the orchestrator (a Python program).
+Tool results are automated API responses. There is no human in the loop.
+Decide your own research strategy. Be creative and methodical.
+
+Available tools (ALWAYS use key=value format for parameters):
+
+  Database search:
+  - ncbi_search(query='BRCA1', db='gene', max_results=5)
+  - ncbi_fetch(accession_id='NM_007294', db='nucleotide')
+  - uniprot_search(query='BRCA1 human', max_results=5)
+  - uniprot_fetch(accession_id='P38398')
+  - pubmed_search(query='BRCA1 cancer therapy', max_results=5)
+  - gene_info(gene_name='BRCA1')
+
+  Sequence analysis:
+  - analyze_sequence(filepath='NM_007294.fasta')
+  - compare_sequences(file1='seq1.fasta', file2='seq2.fasta')
+  - translate_sequence(filepath='NM_007294.fasta')
+  - blast_search(sequence='NM_007294.fasta', db='nt', evalue=0.01)
+
+  Research tracking:
+  - save_finding(title='Discovery X', description='Details...', evidence='NM_007294')
+  - list_findings()
+  - read_finding(finding_id=1)
+  - review_findings(start=1, end=5, focus='keyword')
+  - list_sequences()
+  - read_file(filepath='filename')
+
+  Memory & progress:
+  - query_memory(question='What genes have I studied?')
+  - my_stats()
+  - note(text='Observation about gene X')
+  - mark_explored(target='GENE1')
+  - mark_done(target='GENE1')
+  - dismiss(target='GENE1', reason='Not a dark gene')
+  - list_unexplored()
+
+  Gene queue:
+  - next_gene()
+  - add_to_queue(gene='LOC12345', source='NCBI search')
+  - complete_step(step='sequence_analysis')
+  - complete_gene()
+  - skip_gene(reason='Withdrawn from NCBI')
+  - advance_seed()
+  - queue_status()
+
+  ML lab:
+  - lab_train(config_name='default')
+  - lab_status()
+
+How to investigate a gene — example workflow:
+
+  Cycle 1 — Get gene info:
+    TOOL: gene_info(gene_name='LOC12345')
+    TOOL: ncbi_search(query='LOC12345', db='nucleotide')
+
+  Cycle 2 — Fetch and analyze sequence:
+    TOOL: ncbi_fetch(accession_id='NM_XXXXX', db='nucleotide')
+
+  Cycle 3 — Analyze:
+    TOOL: analyze_sequence(filepath='NM_XXXXX.fasta')
+    TOOL: translate_sequence(filepath='NM_XXXXX.fasta')
+
+  Cycle 4 — Homology search:
+    TOOL: blast_search(sequence='NM_XXXXX.fasta', db='nt')
+    TOOL: uniprot_search(query='LOC12345 human')
+
+  Cycle 5 — Record findings:
+    TOOL: save_finding(title='LOC12345 analysis', description='Found X...', evidence='NM_XXXXX')
+    TOOL: complete_gene()
+
+Format (MUST use parentheses and key=value):
+  TOOL: ncbi_search(query='TP53', db='gene')
+  TOOL: analyze_sequence(filepath='NM_007294.fasta')
+  TOOL: save_finding(title='Discovery', description='Details', evidence='Source')
+
+Constraints:
+  - ALWAYS use key=value format: TOOL: func(key='value', key2='value2')
+  - Only use accession IDs that appear in search results.
+  - For BLAST: pass the .fasta filename, not raw sequence.
+  - For analyze_sequence: just pass the filename (e.g. 'NM_007294.fasta'), not the full path.
+  - Call ONE tool per TOOL: line. You can call multiple tools per response.
+"""
     if context:
         base += f"\nCurrent research context:\n{context}\n"
     return {"role": "system", "content": base}
