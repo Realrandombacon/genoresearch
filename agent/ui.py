@@ -65,6 +65,7 @@ TOOL_STYLE = {
     "save_finding":       (C.FINDINGS, "⭐"),
     "list_findings":      (C.MEMORY,   "📋"),
     "read_finding":       (C.FINDINGS, "📖"),
+    "review_findings":    (C.FINDINGS, "📖"),
     "list_sequences":     (C.SEQUENCE, "📂"),
     "query_memory":       (C.MEMORY,   "🧠"),
     "my_stats":           (C.MEMORY,   "📊"),
