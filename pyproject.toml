@@ -1,0 +1,22 @@
+[project]
+name = "genoresearch"
+version = "0.1.0"
+description = "Autonomous genomics research agent — hybrid orchestrator + autoresearch"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.31",
+    "torch>=2.0",
+]
+
+[project.optional-dependencies]
+bio = [
+    "biopython>=1.83",
+]
+dev = [
+    "ruff",
+    "pytest",
+]
+
+[tool.ruff]
+line-length = 100
