@@ -215,7 +215,7 @@ def complete_step(*args, **kwargs) -> str:
     if args:
         step = str(args[0]).strip().lower()
     if not step:
-        for key in ("step", "name", "phase"):
+        for key in ("step", "step_name", "name", "phase"):
             if key in kwargs:
                 step = str(kwargs[key]).strip().lower()
                 break

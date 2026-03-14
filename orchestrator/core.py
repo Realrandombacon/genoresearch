@@ -158,6 +158,9 @@ class Orchestrator:
                 # Update memory
                 update_memory(self.memory, name, result_str)
 
+                # Auto-complete pipeline steps when the right tool is used
+                _auto_complete_step(name, result_str)
+
                 # --- Reflection: if not last turn, send reflection prompt ---
                 if turn < self.MAX_TURNS:
                     reflection = _build_reflection_prompt(
@@ -556,6 +559,50 @@ class Orchestrator:
 
         if compressed_count > 0:
             ui_log("INFO", f"Context managed: compressed {compressed_count} old messages, total now {len(self.messages)}")
+
+
+# Map tools to the pipeline step they naturally complete
+_TOOL_STEP_MAP = {
+    "gene_info": "discover",
+    "ncbi_fetch": "profile",
+    "analyze_sequence": "analyze",
+    "translate_sequence": "translate",
+    "uniprot_fetch": "translate",
+    "blast_search": "compare",
+    "compare_sequences": "compare",
+    "uniprot_search": "annotate",
+    "hypothesize": "hypothesize",
+}
+
+
+def _auto_complete_step(tool_name: str, result_str: str):
+    """Auto-mark pipeline steps done when the corresponding tool succeeds.
+
+    Qwen often forgets to call complete_step() after using a tool.
+    This silently marks the step so the pipeline tracks progress correctly.
+    Only triggers if:
+      - The tool is in the mapping
+      - There's a gene in progress
+      - The result doesn't contain [ERROR]
+    """
+    if "[ERROR]" in result_str:
+        return
+
+    step = _TOOL_STEP_MAP.get(tool_name)
+    if not step:
+        return
+
+    try:
+        from tools.gene_queue import complete_step as _cs, _load_queue
+        q = _load_queue()
+        if not q.get("in_progress"):
+            return
+        done = q["in_progress"].get("steps_done", [])
+        if step not in done:
+            _cs(step)
+            ui_log("INFO", f"Auto-completed pipeline step '{step}' (from {tool_name})")
+    except Exception:
+        pass  # Don't crash the orchestrator for pipeline tracking
 
 
 def _build_reflection_prompt(tool_name: str, result_str: str,
