@@ -8,8 +8,7 @@ think → act → reflect before moving to the next cycle.
 
 import re
 
-from config import OLLAMA_MODEL
-from orchestrator.llm import chat, recovery_reprompt, build_system_prompt
+from orchestrator.llm import chat, recovery_reprompt, build_system_prompt, get_model, get_provider, get_provider_status
 from orchestrator.dashboard import write_status
 from tools.registry import ToolRegistry
 from agent.memory import load_memory, save_memory, update_memory, summarize_memory
@@ -46,8 +45,8 @@ class Orchestrator:
 
     def run(self):
         """Execute the research loop."""
-        model_name = self.model or OLLAMA_MODEL
-        print_banner(model_name, self.memory, self.target)
+        model_name = self.model or get_model()
+        print_banner(model_name, self.memory, self.target, provider=get_provider_status())
         write_status(running=True, cycle=0, phase="init")
 
         # Build initial context

@@ -179,17 +179,19 @@ def log(level, message, **extra):
 # Banners & summaries
 # ---------------------------------------------------------------------------
 
-def print_banner(model, memory, target=None):
+def print_banner(model, memory, target=None, provider=None):
     """Print a colorful startup banner."""
     now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     n_findings = len(memory.get("findings", []))
     n_explored = len(memory.get("explored", []))
     n_sessions = memory.get("session_count", 0)
+    prov = (provider or "ollama").upper()
 
     print(f"""
 {C.BANNER}{C.BOLD}╔══════════════════════════════════════════════════════════╗
 ║  🧬  GenoResearch — Autonomous Genomics Agent  🧬       ║
 ╠══════════════════════════════════════════════════════════╣{C.RESET}
+{C.BANNER}║{C.RESET}  Provider  : {C.BOLD}{prov}{C.RESET}
 {C.BANNER}║{C.RESET}  Model     : {C.BOLD}{model}{C.RESET}
 {C.BANNER}║{C.RESET}  Started   : {now}
 {C.BANNER}║{C.RESET}  Memory    : {C.BOLD}{n_findings}{C.RESET} findings │ {C.BOLD}{n_explored}{C.RESET} targets │ {C.BOLD}{n_sessions}{C.RESET} session(s)""")

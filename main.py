@@ -3,10 +3,15 @@ GenoResearch — Autonomous Genomics Research Agent
 Entry point.
 
 Usage:
-    python main.py                              # Interactive mode
+    python main.py                              # Local Ollama (default)
+    python main.py --provider cerebras           # Cerebras cloud (free, 1M tok/day)
+    python main.py --provider groq              # Groq cloud (free, fast)
+    python main.py --provider hybrid            # 4-tier failover (best)
+    python main.py --provider hybrid --cycles 0 # Hybrid infinite mode
     python main.py --target "BRCA1 mutations"   # Target-specific
     python main.py --cycles 50                  # Long run
     python main.py --cycles 0                   # Infinite mode
+    python main.py --model qwen3-32b            # Model override
     python main.py --plan                       # Planning mode only
     python main.py --lab-status                 # Check lab status
 """
@@ -28,12 +33,20 @@ def main():
     parser.add_argument("--cycles", type=int, default=0,
                         help="Max orchestrator cycles (0 = infinite, default)")
     parser.add_argument("--model", type=str, default=None,
-                        help="Ollama model override (default: qwen3.5:4b)")
+                        help="Model override (default depends on provider)")
+    parser.add_argument("--provider", type=str, default=None,
+                        choices=["ollama", "cerebras", "groq", "hybrid"],
+                        help="LLM provider: 'ollama', 'cerebras', 'groq', or 'hybrid' (4-tier failover)")
     parser.add_argument("--plan", action="store_true",
                         help="Planning mode — propose directions, don't execute")
     parser.add_argument("--lab-status", action="store_true",
                         help="Show ML lab experiment status")
     args = parser.parse_args()
+
+    # Set LLM provider if specified
+    if args.provider:
+        from orchestrator.llm import set_provider
+        set_provider(args.provider)
 
     # Increment session counter
     memory = load_memory()

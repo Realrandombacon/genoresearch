@@ -6,6 +6,13 @@ Paths, directories, constants, and UTF-8 setup for Windows.
 import os
 import sys
 
+# Load .env file if present (API keys, etc.)
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass  # python-dotenv not installed, use system env vars
+
 # Force UTF-8 output on Windows
 if sys.platform == "win32":
     os.system("")
@@ -42,7 +49,26 @@ LAB_CHECKPOINTS_DIR = os.path.join(DATA_DIR, "checkpoints")
 # ---------------------------------------------------------------------------
 
 OLLAMA_URL = "http://localhost:11434/api/chat"
-OLLAMA_MODEL = "qwen3.5:4b"
+
+# Tier 1 — primary: large local model (best quality)
+OLLAMA_MODEL_PRIMARY = "qwen3.5:cloud"
+# Tier 3 — fallback: small local model (always available)
+OLLAMA_MODEL_FALLBACK = "qwen3.5:4b"
+# Legacy alias (used by code that just needs "the ollama model")
+OLLAMA_MODEL = OLLAMA_MODEL_PRIMARY
+
+# Tier 2 — Cerebras cloud API (free tier, very fast, 1M tokens/day)
+CEREBRAS_API_KEY = os.environ.get("CEREBRAS_API_KEY", "")
+CEREBRAS_URL = "https://api.cerebras.ai/v1/chat/completions"
+CEREBRAS_MODEL = "qwen-3-235b-a22b-instruct-2507"  # 1M tokens/day, 30 RPM
+
+# Tier 3 — Groq cloud API (free tier, fast, backup)
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
+GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
+GROQ_MODEL = "meta-llama/llama-4-scout-17b-16e-instruct"  # 30K TPM, fast
+
+# Active provider: "ollama", "groq", "cerebras", or "hybrid" (recommended)
+LLM_PROVIDER = os.environ.get("LLM_PROVIDER", "hybrid")
 
 NCBI_BASE_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
 NCBI_BLAST_URL = "https://blast.ncbi.nlm.nih.gov/Blast.cgi"
@@ -52,9 +78,21 @@ UNIPROT_BASE_URL = "https://rest.uniprot.org"
 NCBI_API_KEY = os.environ.get("NCBI_API_KEY", "")
 
 # ---------------------------------------------------------------------------
+# Local BLAST+ configuration
+# ---------------------------------------------------------------------------
+
+# Path to BLAST+ binaries (auto-detected if on PATH, else check default install)
+BLAST_BIN_DIR = os.environ.get(
+    "BLAST_BIN_DIR", r"C:\Program Files\NCBI\blast-2.17.0+\bin"
+)
+BLAST_DB_DIR = r"C:\blastdb"
+# Use local BLAST when available, fallback to remote NCBI
+BLAST_LOCAL_ENABLED = True
+
+# ---------------------------------------------------------------------------
 # Ensure required directories exist
 # ---------------------------------------------------------------------------
 
 for _d in [DATA_DIR, SEQUENCES_DIR, ALIGNMENTS_DIR, FINDINGS_DIR,
-           REPORTS_DIR, LAB_RUNS_DIR, LAB_CHECKPOINTS_DIR]:
+           REPORTS_DIR, LAB_RUNS_DIR, LAB_CHECKPOINTS_DIR, BLAST_DB_DIR]:
     os.makedirs(_d, exist_ok=True)
