@@ -52,7 +52,7 @@ OLLAMA_URL = "http://localhost:11434/api/chat"
 
 # Tier 1 — primary: large local model (best quality)
 OLLAMA_MODEL_PRIMARY = "qwen3.5:cloud"
-# Tier 3 — fallback: small local model (always available)
+# Tier 4 — fallback: small local model (always available)
 OLLAMA_MODEL_FALLBACK = "qwen3.5:4b"
 # Legacy alias (used by code that just needs "the ollama model")
 OLLAMA_MODEL = OLLAMA_MODEL_PRIMARY

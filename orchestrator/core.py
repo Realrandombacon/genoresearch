@@ -30,7 +30,7 @@ class Orchestrator:
     # How many identical consecutive tool calls before we intervene
     LOOP_THRESHOLD = 2
     # Max reflection turns per cycle (think → act → reflect → act → ...)
-    MAX_TURNS = 5
+    MAX_TURNS = 8
 
     def __init__(self, max_cycles: int = 10, model: str = None,
                  target: str = None):

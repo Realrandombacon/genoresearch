@@ -54,6 +54,11 @@ class ToolRegistry:
             next_gene, add_to_queue, complete_step, complete_gene,
             skip_gene, advance_seed, queue_status, hypothesize,
         )
+        from tools.interpro import interpro_scan, interpro_search
+        from tools.string_db import string_interactions, string_enrichment
+        from tools.hpa import hpa_expression
+        from tools.alphafold import alphafold_structure
+        from tools.clinvar import clinvar_search
 
         self.register("ncbi_search", ncbi_search)
         self.register("ncbi_fetch", ncbi_fetch)
@@ -93,5 +98,20 @@ class ToolRegistry:
         self.register("make_hypothesis", hypothesize)  # alias
         self.register("hypothesis", hypothesize)  # alias
         self.register("search_database", ncbi_search)  # alias — Qwen invents this name
+
+        # New analysis tools — domains, interactions, expression, structure, clinical
+        self.register("interpro_scan", interpro_scan)
+        self.register("interpro_search", interpro_search)
+        self.register("string_interactions", string_interactions)
+        self.register("string_enrichment", string_enrichment)
+        self.register("hpa_expression", hpa_expression)
+        self.register("alphafold_structure", alphafold_structure)
+        self.register("clinvar_search", clinvar_search)
+        # Aliases — Qwen may use different names
+        self.register("domain_search", interpro_scan)
+        self.register("protein_interactions", string_interactions)
+        self.register("tissue_expression", hpa_expression)
+        self.register("protein_structure", alphafold_structure)
+        self.register("clinical_variants", clinvar_search)
 
         log.info("Registered %d tools", len(self._tools))

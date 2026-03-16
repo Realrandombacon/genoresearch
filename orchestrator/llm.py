@@ -22,6 +22,14 @@ from config import (
     LLM_PROVIDER,
 )
 
+def _ui_log(level, msg):
+    """Lazy import to avoid circular dependency."""
+    try:
+        from agent.ui import log as _log
+        _log(level, msg)
+    except ImportError:
+        print(f"  [{level}] {msg}")
+
 # Regex to extract Qwen <think>...</think> blocks
 _THINK_PATTERN = re.compile(r"<think>(.*?)</think>", re.DOTALL)
 
@@ -38,6 +46,8 @@ _groq_last_request = 0.0
 
 _cerebras_available_at = 0.0     # timestamp when Cerebras cooldown ends
 _cerebras_failover_count = 0     # how many times Cerebras has failed over
+_moonshot_available_at = 0.0     # timestamp when Moonshot cooldown ends
+_moonshot_failover_count = 0     # how many times Moonshot has failed over
 _groq_available_at = 0.0         # timestamp when Groq cooldown ends
 _groq_failover_count = 0         # how many times we've failed over this session
 _ollama_primary_down = False     # True if primary Ollama model failed
@@ -122,16 +132,16 @@ def get_provider() -> str:
 def get_active_tier() -> str:
     """Get which tier is currently active.
 
-    Returns: 'tier1' (primary ollama), 'tier2' (cerebras), 'tier3' (groq), 'tier4' (fallback ollama)
+    Returns: 'tier1'–'tier4'
     """
     configured = get_provider()
 
     if configured == "hybrid":
         if _ollama_primary_available():
             return "tier1"
-        if _cerebras_is_available():
+        if CEREBRAS_API_KEY and _cerebras_is_available():
             return "tier2"
-        if _groq_is_available():
+        if GROQ_API_KEY and _groq_is_available():
             return "tier3"
         return "tier4"
 
@@ -256,14 +266,26 @@ def _chat_ollama(messages: list[dict], model: str = None, temperature: float = 0
     except requests.exceptions.Timeout:
         log.error("Ollama request timed out (model=%s)", model)
         return None  # signal failover
-    except Exception as e:
-        # Check if it's a model-not-found error
-        error_str = str(e)
-        if "404" in error_str or "not found" in error_str.lower():
+    except requests.exceptions.HTTPError as e:
+        status = getattr(e.response, 'status_code', 0) if hasattr(e, 'response') else 0
+        if status == 429:
+            log.warning("Ollama 429 rate limited — signaling failover")
+            _ollama_primary_set_down(60)  # short cooldown for rate limits
+            return None  # signal failover to next tier
+        if status == 404:
             log.error("Ollama model '%s' not found", model)
             return None
-        log.error("Ollama call failed: %s", e)
-        return f"[ERROR] {e}"
+        log.error("Ollama HTTP error: %s", e)
+        return None  # any HTTP error should trigger failover
+    except Exception as e:
+        # Catch-all: check if it's a 429 hidden in the error message
+        err_str = str(e)
+        if "429" in err_str or "Too Many Requests" in err_str:
+            log.warning("Ollama 429 (caught via generic handler) — signaling failover")
+            _ollama_primary_set_down(60)
+        else:
+            log.error("Ollama call failed: %s", e)
+        return None  # signal failover on unexpected errors too
 
 
 def _recovery_ollama(thought_text: str, model: str = None,
@@ -380,10 +402,12 @@ def _chat_cerebras(messages: list[dict], model: str = None, temperature: float =
         return None
     except KeyError:
         log.error("Unexpected Cerebras response: %s", resp.text[:500])
-        return "[ERROR] Unexpected Cerebras response format."
+        _cerebras_set_cooldown(120)
+        return None  # signal failover
     except Exception as e:
         log.error("Cerebras call failed: %s", e)
-        return f"[ERROR] {e}"
+        _cerebras_set_cooldown(120)
+        return None  # signal failover
 
 
 def _recovery_cerebras(thought_text: str, model: str = None,
@@ -430,6 +454,133 @@ def _recovery_cerebras(thought_text: str, model: str = None,
         return content if content else ""
     except Exception as e:
         log.error("Cerebras recovery failed: %s", e)
+        return None
+
+
+# ─── Moonshot (Kimi K2.5) state helpers ───────────────────────────────────────
+
+def _moonshot_is_available() -> bool:
+    return time.time() >= _moonshot_available_at
+
+
+def _moonshot_set_cooldown(seconds: float):
+    global _moonshot_available_at, _moonshot_failover_count
+    _moonshot_available_at = time.time() + seconds
+    _moonshot_failover_count += 1
+    log.warning("Moonshot rate limited — cooldown %.0fs — failover #%d",
+                seconds, _moonshot_failover_count)
+
+
+# ─── Moonshot (Kimi K2.5) engine ─────────────────────────────────────────────
+
+def _chat_moonshot(messages: list[dict], model: str = None, temperature: float = 0.1,
+                   top_p: float = 0.85, max_tokens: int = 4096) -> str | None:
+    """Send chat to Moonshot Kimi K2.5 (OpenAI-compatible). Returns None to signal failover."""
+    model = model or MOONSHOT_MODEL
+
+    headers = {
+        "Authorization": f"Bearer {MOONSHOT_API_KEY}",
+        "Content-Type": "application/json",
+    }
+    payload = {
+        "model": model,
+        "messages": messages,
+        "temperature": temperature,
+        "top_p": top_p,
+        "max_tokens": min(max_tokens, 8192),
+        "reasoning": {"effort": "off"},  # disable thinking mode for speed
+    }
+
+    try:
+        resp = requests.post(MOONSHOT_URL, json=payload, headers=headers, timeout=180)
+
+        if resp.status_code == 429:
+            retry_after = float(resp.headers.get("retry-after", 60))
+            if retry_after <= _FAILOVER_MAX_WAIT:
+                log.info("Moonshot rate limited — short wait %.0fs", retry_after)
+                time.sleep(retry_after)
+                resp = requests.post(MOONSHOT_URL, json=payload, headers=headers, timeout=180)
+                if resp.status_code == 429:
+                    retry_after = float(resp.headers.get("retry-after", 300))
+                    _moonshot_set_cooldown(retry_after)
+                    return None
+            else:
+                _moonshot_set_cooldown(retry_after)
+                return None
+
+        resp.raise_for_status()
+        msg = resp.json()["choices"][0]["message"]
+        # NVIDIA NIM may put text in content or reasoning_content
+        content = (msg.get("content") or "").strip()
+        reasoning = (msg.get("reasoning_content") or "").strip()
+        if content:
+            return _extract_thinking(content)
+        if reasoning:
+            return reasoning
+        return ""
+
+    except requests.exceptions.ConnectionError:
+        log.error("Cannot connect to Moonshot API")
+        _moonshot_set_cooldown(300)
+        return None
+    except requests.exceptions.Timeout:
+        log.error("Moonshot timeout")
+        _moonshot_set_cooldown(120)
+        return None
+    except KeyError:
+        log.error("Unexpected Moonshot response: %s", resp.text[:500])
+        _moonshot_set_cooldown(120)
+        return None
+    except Exception as e:
+        log.error("Moonshot call failed: %s", e)
+        _moonshot_set_cooldown(120)
+        return None
+
+
+def _recovery_moonshot(thought_text: str, model: str = None,
+                       temperature: float = 0.5) -> str | None:
+    """Recovery reprompt via Moonshot. Returns None to signal failover."""
+    model = model or MOONSHOT_MODEL
+    summary = thought_text
+    if summary.startswith("[Reasoning]"):
+        summary = summary[len("[Reasoning]"):].strip()
+    summary = summary[:800]
+
+    recovery_prompt = (
+        f"You just analyzed data and concluded:\n{summary}\n\n"
+        "NOW respond with ONLY a TOOL: line. No explanations. No THOUGHT blocks.\n"
+        "Pick the most logical next step.\n\n"
+        "Examples:\n"
+        "TOOL: ncbi_search('BRCA1', db='gene')\n"
+        "TOOL: save_finding('title', 'description', 'evidence')\n"
+        "TOOL: next_gene()\n"
+        "TOOL: complete_step('analyze')\n"
+    )
+
+    headers = {
+        "Authorization": f"Bearer {MOONSHOT_API_KEY}",
+        "Content-Type": "application/json",
+    }
+    payload = {
+        "model": model,
+        "messages": [
+            {"role": "system", "content": "You are a genomics research agent. Respond with ONLY a TOOL: line."},
+            {"role": "user", "content": recovery_prompt},
+        ],
+        "temperature": temperature,
+        "max_tokens": 200,
+    }
+
+    try:
+        resp = requests.post(MOONSHOT_URL, json=payload, headers=headers, timeout=60)
+        if resp.status_code == 429:
+            _moonshot_set_cooldown(float(resp.headers.get("retry-after", 300)))
+            return None
+        resp.raise_for_status()
+        content = resp.json()["choices"][0]["message"]["content"].strip()
+        return content if content else ""
+    except Exception as e:
+        log.error("Moonshot recovery failed: %s", e)
         return None
 
 
@@ -508,10 +659,12 @@ def _chat_groq(messages: list[dict], model: str = None, temperature: float = 0.1
         return None
     except KeyError:
         log.error("Unexpected Groq response: %s", resp.text[:500])
-        return "[ERROR] Unexpected Groq response format."
+        _groq_set_cooldown(120)
+        return None  # signal failover
     except Exception as e:
         log.error("Groq call failed: %s", e)
-        return f"[ERROR] {e}"
+        _groq_set_cooldown(120)
+        return None  # signal failover
 
 
 def _recovery_groq(thought_text: str, model: str = None,
@@ -623,34 +776,45 @@ def _chat_hybrid(messages: list[dict], model: str, temperature: float,
 
     # ── Tier 1: Primary Ollama (qwen3.5:cloud) ──
     if _ollama_primary_available():
-        log.info("Tier 1: trying %s...", OLLAMA_MODEL_PRIMARY)
+        _ui_log("INFO", f"[T1] trying {OLLAMA_MODEL_PRIMARY}...")
         result = _chat_ollama(messages, model=OLLAMA_MODEL_PRIMARY,
                               temperature=temperature, top_p=top_p, max_tokens=max_tokens)
         if result is not None:
             return result
-        _ollama_primary_set_down(300)
-        log.warning("Tier 1 failed — falling to Tier 2")
+        if not _ollama_primary_down:
+            _ollama_primary_set_down(300)
+        _ui_log("WARN", "[T1] FAILED — falling to Tier 2")
+    else:
+        _ui_log("INFO", "[T1] cooldown active — skipping to T2")
 
     # ── Tier 2: Cerebras (Qwen 3 235B, 1M tokens/day) ──
-    if _cerebras_is_available():
-        log.info("Tier 2: trying Cerebras/%s...", CEREBRAS_MODEL)
+    if CEREBRAS_API_KEY and _cerebras_is_available():
+        _ui_log("INFO", f"[T2] trying Cerebras/{CEREBRAS_MODEL}...")
         result = _chat_cerebras(messages, model=None, temperature=temperature,
                                 top_p=top_p, max_tokens=max_tokens)
         if result is not None:
             return result
-        log.warning("Tier 2 (Cerebras) unavailable — falling to Tier 3")
+        _ui_log("WARN", "[T2] Cerebras FAILED — falling to Tier 3")
+    elif not CEREBRAS_API_KEY:
+        _ui_log("WARN", "[T2] skipped — no CEREBRAS_API_KEY")
+    else:
+        _ui_log("INFO", "[T2] Cerebras cooldown active — skipping to T3")
 
     # ── Tier 3: Groq ──
-    if _groq_is_available():
-        log.info("Tier 3: trying Groq/%s...", GROQ_MODEL.split('/')[-1])
+    if GROQ_API_KEY and _groq_is_available():
+        _ui_log("INFO", f"[T3] trying Groq/{GROQ_MODEL.split('/')[-1]}...")
         result = _chat_groq(messages, model=None, temperature=temperature,
                             top_p=top_p, max_tokens=max_tokens)
         if result is not None:
             return result
-        log.warning("Tier 3 (Groq) rate-limited — falling to Tier 4")
+        _ui_log("WARN", "[T3] Groq rate-limited — falling to Tier 4")
+    elif not GROQ_API_KEY:
+        _ui_log("WARN", "[T3] skipped — no GROQ_API_KEY")
+    else:
+        _ui_log("INFO", "[T3] Groq cooldown active — skipping to T4")
 
     # ── Tier 4: Fallback Ollama (qwen3.5:4b) ──
-    log.info("Tier 4: using %s (fallback)", OLLAMA_MODEL_FALLBACK)
+    _ui_log("INFO", f"[T4] using {OLLAMA_MODEL_FALLBACK} (fallback)")
     result = _chat_ollama(messages, model=OLLAMA_MODEL_FALLBACK,
                           temperature=temperature, top_p=top_p, max_tokens=max_tokens)
     if result is not None:
@@ -665,14 +829,12 @@ def recovery_reprompt(thought_text: str, model: str = None,
     configured = get_provider()
 
     if configured in ("hybrid", "cerebras"):
-        # Try Cerebras first (fast, high limit)
         if _cerebras_is_available():
             result = _recovery_cerebras(thought_text, model=model, temperature=temperature)
             if result is not None:
                 return result
 
     if configured in ("hybrid", "groq"):
-        # Try Groq next
         if _groq_is_available():
             result = _recovery_groq(thought_text, model=model, temperature=temperature)
             if result is not None:
@@ -721,9 +883,29 @@ def build_system_prompt(context: str = "") -> dict:
         "  queue_status()\n"
         "  lab_train(config_name)\n"
         "  lab_status()\n\n"
+        "DEEP ANALYSIS TOOLS (use these to enrich findings):\n"
+        "  interpro_scan(accession_id)  # find protein domains/families (UniProt acc)\n"
+        "  interpro_search(query)  # search domains by name (e.g. 'DUF4709')\n"
+        "  string_interactions(protein)  # protein-protein interactions (gene name)\n"
+        "  string_enrichment(proteins)  # GO/KEGG enrichment (comma-sep genes)\n"
+        "  hpa_expression(gene)  # tissue expression + localization (gene symbol)\n"
+        "  alphafold_structure(accession_id)  # predicted 3D structure (UniProt acc)\n"
+        "  clinvar_search(gene)  # pathogenic variants + diseases (gene symbol)\n\n"
+        "RECOMMENDED WORKFLOW for each dark gene:\n"
+        "  1. gene_info + ncbi_search → basic info\n"
+        "  2. uniprot_fetch → protein details\n"
+        "  3. blast_search → homology\n"
+        "  4. interpro_scan → domains (reveals hidden function!)\n"
+        "  5. string_interactions → what does it interact with?\n"
+        "  6. hpa_expression → where is it expressed?\n"
+        "  7. clinvar_search → disease associations?\n"
+        "  8. alphafold_structure → structural confidence\n"
+        "  9. save_finding with ALL evidence combined\n\n"
         "Constraints:\n"
         "  - Only use accession IDs that appear in search results.\n"
         "  - For BLAST: pass the .fasta filename, not raw sequence.\n"
+        "  - For interpro_scan/alphafold_structure: use UniProt accession (e.g. Q9H3H3).\n"
+        "  - For string_interactions/hpa_expression/clinvar_search: use gene symbol (e.g. TP53).\n"
     )
     if context:
         base += f"\nCurrent research context:\n{context}\n"

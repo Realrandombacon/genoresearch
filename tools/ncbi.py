@@ -114,6 +114,16 @@ def ncbi_fetch(*args, accession_id: str = "", db: str = "nucleotide", **kwargs) 
     if "database" in kwargs:
         db = str(kwargs["database"])
     accession_id = str(accession_id)  # handle int IDs from parser
+
+    # Block chromosome-level accessions (NC_, AC_) — they are 100MB+ and will timeout
+    prefix = accession_id.split("_")[0].upper() if "_" in accession_id else ""
+    if prefix in ("NC", "AC", "NT", "NW"):
+        return (
+            f"[ERROR] {accession_id} is a chromosome/contig-level sequence (too large). "
+            f"Use a transcript accession instead (NM_, XM_, NR_) or protein (NP_, XP_). "
+            f"Search with ncbi_search() or gene_info() to find the right accession."
+        )
+
     params = {
         "db": db,
         "id": accession_id,

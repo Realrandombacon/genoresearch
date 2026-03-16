@@ -21,6 +21,46 @@ _GENE_PATTERN = re.compile(
 )
 
 
+def _compute_score(title: str, description: str, evidence: str) -> int:
+    """Compute a quality score (0-10) for a finding based on evidence richness."""
+    text = f"{title} {description} {evidence}".lower()
+    score = 0
+
+    # ClinVar pathogenic variants (+3 max)
+    if "clinvar" in text or "pathogenic" in text:
+        score += 3
+    # InterPro/Pfam domain found (+2)
+    if "interpro" in text or "pfam" in text or "duf" in text or "domain" in text:
+        score += 2
+    # Cross-species conservation (+2)
+    if "mouse" in text or "zebrafish" in text or "conserved" in text:
+        conservation = re.search(r'(\d+(?:\.\d+)?)\s*%\s*identity', text)
+        if conservation and float(conservation.group(1)) > 30:
+            score += 2
+        elif "conserved" in text:
+            score += 1
+    # Zero publications = true dark gene (+1)
+    if "zero publications" in text or "0 pubmed" in text or "no publications" in text:
+        score += 1
+    # STRING interactions found (+1)
+    if "string" in text or "interact" in text:
+        score += 1
+    # HPA tissue expression (+1)
+    if "hpa" in text or "tissue expression" in text or "protein atlas" in text:
+        score += 1
+    # AlphaFold structure (+1)
+    if "alphafold" in text or "plddt" in text:
+        score += 1
+    # Disease association (+1)
+    if "disease" in text or "cancer" in text or "syndrome" in text:
+        score += 1
+    # Penalize thin findings
+    if len(description) < 100:
+        score = max(0, score - 2)
+
+    return min(10, score)
+
+
 def _extract_gene_from_title(title: str) -> str:
     """Extract the most likely gene name from a finding title.
     Returns empty string if no gene pattern found."""
@@ -98,28 +138,39 @@ def save_finding(*args, title: str = "", description: str = "",
             "Please provide a meaningful description of the discovery."
         )
 
-    # 3. Deduplication: check for EXACT or near-exact duplicates only
-    #    Use gene-aware matching: extract gene name from title and compare
-    #    within same-gene findings only. Threshold 0.92 to avoid false positives
-    #    (e.g. "C8orf48 - Dark Gene" vs "G3WRF0 - Dark Gene" are NOT duplicates)
+    # 3. Gene-level consolidation: ONE finding per gene.
+    #    If a finding for the same gene already exists, OVERWRITE it with the
+    #    newer (presumably richer) version. This prevents 3-4 files per gene.
+    existing_file_to_replace = None
     if os.path.isdir(FINDINGS_DIR):
-        # Extract a gene identifier from the new title (first word or known pattern)
         title_gene = _extract_gene_from_title(title)
-        for fname in os.listdir(FINDINGS_DIR):
-            if fname.endswith(".md"):
-                existing_title = fname.replace(".md", "")
-                existing_gene = _extract_gene_from_title(existing_title)
-                # Only compare within same gene (if gene detected in both)
-                if title_gene and existing_gene and title_gene != existing_gene:
-                    continue  # different genes — never a duplicate
-                similarity = SequenceMatcher(
-                    None, title.lower(), existing_title.lower()
-                ).ratio()
-                if similarity > 0.92:
-                    return (
-                        f"[REJECTED] Near-duplicate finding already exists: '{existing_title}'. "
-                        "Update the existing finding instead of creating a duplicate."
-                    )
+        if title_gene:
+            for fname in os.listdir(FINDINGS_DIR):
+                if fname.endswith(".md"):
+                    existing_gene = _extract_gene_from_title(fname.replace(".md", ""))
+                    if existing_gene and existing_gene == title_gene:
+                        existing_path = os.path.join(FINDINGS_DIR, fname)
+                        # Keep the newer/longer finding — read existing to compare
+                        try:
+                            with open(existing_path, "r", encoding="utf-8") as ef:
+                                existing_content = ef.read()
+                            # If new description is longer, replace; otherwise skip
+                            if len(description) >= len(existing_content) * 0.5:
+                                existing_file_to_replace = existing_path
+                                log.info("Consolidating: replacing '%s' with updated finding", fname)
+                            else:
+                                # Near-exact duplicate with less content — reject
+                                similarity = SequenceMatcher(
+                                    None, title.lower(), fname.replace(".md", "").lower()
+                                ).ratio()
+                                if similarity > 0.85:
+                                    return (
+                                        f"[CONSOLIDATED] Finding for {title_gene} already exists: '{fname.replace('.md', '')}'. "
+                                        "Use more tools (interpro_scan, clinvar_search, etc.) to enrich the finding before saving again."
+                                    )
+                        except Exception:
+                            existing_file_to_replace = existing_path
+                        break  # Only check first match per gene
 
     # 4. Plausibility warning for low-identity claims between gene variants
     warning_prefix = ""
@@ -155,18 +206,37 @@ def save_finding(*args, title: str = "", description: str = "",
             writer.writerow(["timestamp", "title", "description", "evidence"])
         writer.writerow([ts, title, description[:500], evidence[:500]])
 
+    # Remove old finding file if consolidating
+    if existing_file_to_replace and os.path.exists(existing_file_to_replace):
+        try:
+            os.remove(existing_file_to_replace)
+            log.info("Removed old finding: %s", existing_file_to_replace)
+        except Exception as e:
+            log.warning("Could not remove old finding: %s", e)
+
     # Save detailed finding as individual file
     safe_title = "".join(c if c.isalnum() or c in " -_" else "" for c in title)[:60]
     detail_path = os.path.join(FINDINGS_DIR, f"{safe_title}.md")
+    # Auto-score the finding based on evidence richness
+    score = _compute_score(title, description, evidence)
+    score_label = (
+        "EXCELLENT" if score >= 8 else
+        "GOOD" if score >= 5 else
+        "MODERATE" if score >= 3 else
+        "LOW"
+    )
+
     with open(detail_path, "w", encoding="utf-8") as f:
         f.write(f"# {title}\n\n")
         f.write(f"**Date:** {ts}\n\n")
+        f.write(f"**Quality Score:** {score}/10 ({score_label})\n\n")
         f.write(f"## Description\n{description}\n\n")
         if evidence:
             f.write(f"## Evidence\n```\n{evidence}\n```\n")
 
-    log.info("Finding saved: %s", title)
-    return f"Finding logged: '{title}' — saved to memory, TSV, and {detail_path}"
+    log.info("Finding saved: %s [score=%d/%d]", title, score, 10)
+    consolidated = " (consolidated)" if existing_file_to_replace else ""
+    return f"Finding logged{consolidated}: '{title}' [Score: {score}/10 {score_label}] — saved to {detail_path}"
 
 
 def list_findings() -> str:
