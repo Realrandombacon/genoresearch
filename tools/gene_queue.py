@@ -236,24 +236,10 @@ def next_gene(*args, **kwargs) -> str:
     """
     q = _load_queue()
 
-    # If there's a gene in progress, remind the agent
+    # If there's a gene in progress, auto-complete it and move on
     if q["in_progress"]:
-        gene = q["in_progress"]["gene"]
-        done = q["in_progress"].get("steps_done", [])
-        remaining = [s for s in PIPELINE_STEPS if s not in done]
-        if remaining:
-            next_step = remaining[0]
-            step_instructions = _step_instructions(next_step, gene)
-            return (
-                f"CURRENT GENE: {gene} (in progress)\n"
-                f"Steps completed: {', '.join(done) if done else 'none'}\n"
-                f"Steps remaining: {', '.join(remaining)}\n\n"
-                f"NEXT STEP: {next_step}\n{step_instructions}"
-            )
-        else:
-            # All steps done — auto-complete
-            complete_gene(gene)
-            # Fall through to pick next
+        complete_gene(q["in_progress"]["gene"])
+        q = _load_queue()  # reload after completion
 
     # Pick from queue — auto-populate if empty
     if not q["queue"]:
@@ -315,14 +301,12 @@ def next_gene(*args, **kwargs) -> str:
     _save_queue(q)
 
     gene = gene_entry["gene"]
-    step = PIPELINE_STEPS[0]
     return (
-        f"NEW GENE: {gene}\n"
-        f"Source: {gene_entry.get('source', 'unknown')}\n"
-        f"Priority: {gene_entry.get('priority', 'normal')}\n"
-        f"Queue remaining: {len(q['queue'])}\n\n"
-        f"START PIPELINE — Step 1: {step}\n"
-        f"{_step_instructions(step, gene)}"
+        f"ANALYZE: {gene}\n"
+        f"Queue remaining: {len(q['queue'])}\n"
+        f"Use your tools to build the best possible finding for this gene.\n"
+        f"Your finding will be scored on COVERAGE, DEPTH, and INSIGHT (see scoring criteria).\n"
+        f"When done, call save_finding(title, description, evidence) then next_gene()."
     )
 
 

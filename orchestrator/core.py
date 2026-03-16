@@ -61,9 +61,7 @@ class Orchestrator:
             user_msg = f"[orchestrator] Research target: {self.target}"
         else:
             user_msg = (
-                "[orchestrator] Session started. Begin research.\n"
-                "IMPORTANT: Always start by calling TOOL: next_gene() to get your next target.\n"
-                "Do NOT pick genes randomly — the queue system ensures systematic coverage."
+                "[orchestrator] Session started. Call TOOL: next_gene() to begin."
             )
         self.messages.append({"role": "user", "content": user_msg})
 
@@ -412,8 +410,7 @@ class Orchestrator:
 
         if "blast" in call_lower:
             return ("BLAST is done. Record your findings: "
-                    "TOOL: save_finding('title', 'description', 'evidence'), "
-                    "then TOOL: complete_step('compare') and move to annotation.")
+                    "TOOL: save_finding('title', 'description', 'evidence').")
 
         if "pubmed" in call_lower:
             return ("Literature search done. Use results to form hypotheses: "
@@ -421,8 +418,8 @@ class Orchestrator:
                     "or search for a different angle with a new query.")
 
         if "save_finding" in call_lower:
-            return ("Finding saved. Move to the next step in the pipeline: "
-                    "TOOL: complete_step('STEP_NAME') or TOOL: next_gene() for a new target.")
+            return ("Finding saved! Get your next target: "
+                    "TOOL: next_gene()")
 
         # Generic fallback
         return ("Try a DIFFERENT tool than the one you were repeating. "
@@ -678,13 +675,16 @@ def _build_reflection_prompt(tool_name: str, result_str: str,
     return (
         f"[orchestrator] Turn {turn}/{max_turns} — REFLECTION\n\n"
         f"Tool result from {tool_name}:\n{result_preview}\n\n"
-        "Based on this result, what is your NEXT ACTION?\n"
-        "- Call another tool to continue investigating\n"
-        "- Call save_finding() if you've confirmed a discovery\n"
-        "- Call complete_step() to advance the pipeline\n"
-        "- If you're done with this gene, call TOOL: next_gene() to move on\n\n"
-        "Pipeline: discover -> profile -> analyze -> translate -> compare -> annotate -> hypothesize\n"
-        "Use TOOL: format for your next action."
+        "Before your next action, REFLECT briefly:\n"
+        "1. EVALUATE: What useful data did this tool give me? What's still missing?\n"
+        "2. TOOL REVIEW: Which sources have I already queried? Which scoring dimensions am I missing?\n"
+        f"   (You have {max_turns - turn} turns left — prioritize high-value tools)\n"
+        "3. PLAN: What is my next tool call, and why? What will I do after that?\n\n"
+        "Scoring reminders:\n"
+        "  COVERAGE: InterPro domains, STRING interactions, HPA expression, ClinVar, conservation, AlphaFold\n"
+        "  DEPTH: 400+ char description, quantitative data, named entities\n"
+        "  INSIGHT: functional hypothesis, cross-domain reasoning, mechanistic proposal\n\n"
+        "Now call your next tool using TOOL: format."
     )
 
 
