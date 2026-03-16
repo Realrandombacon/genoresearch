@@ -1,0 +1,13 @@
+# C7orf57 - Ciliary Transition Zone Dark Gene with DUF5524 Domain, SUN3/LINC Complex Interactome, and Cancer-Enhanced Expression
+
+**Date:** 2026-03-16T09:09:17.013487
+
+**Quality Score:** 9/10 (EXCELLENT)
+
+## Description
+C7orf57 (Q8NEG2) is a 295 aa uncharacterized dark gene encoding a predicted intracellular protein localized to the primary cilium, specifically the transition zone and basal body — critical structures for ciliary gate function and microtubule anchoring. Contains a DUF5524 domain of unknown function (aa 1-295, IPR040247, PF17662, PTHR31097) spanning the entire protein, indicating this is the defining architectural feature. BLAST shows strong mammalian conservation: 73.9% mouse, 72.4% rat, 73.2% bovine, confirming vertebrate purifying selection. STRING interactions reveal a ciliary-nuclear envelope network: SUN3 (0.656, LINC complex component connecting nucleus to cytoskeleton), PPP1R32 (0.582, protein phosphatase 1 regulatory subunit), plus multiple dark gene partners C10orf120 (0.571), C7orf31 (0.510), C10orf53 (0.506), FAM221B (0.527), FAM222A (0.460), and CFAP45 (0.513, cilia/flagella associated protein). HPA confirms primary cilium/transition zone/basal body localization with tissue-enhanced expression (fallopian tube 13.1 nTPM, choroid plexus 7.4 nTPM), cancer-enhanced expression pattern, and absence from immune cells. The fallopian tube has ciliated epithelium; choroid plexus has ciliated ependymal cells — both cilia-rich tissues. ClinVar contains 15 pathogenic/likely pathogenic variants including copy number losses/gains, inversions, and complex rearrangements on 7p, confirming strong disease relevance. True dark gene: conserved DUF5524 architecture, ciliary transition zone localization (ciliopathy-relevant structure), SUN3/LINC complex interaction (nuclear-cytoskeletal bridge), cancer-enhanced expression, clinically implicated, but molecular function completely unknown. Hypothesis: may function as a ciliary transition zone scaffold protein that coordinates nuclear envelope positioning (via SUN3 interaction) with ciliary gate assembly, using DUF5524 domain for protein oligomerization at the basal body, potentially regulating ciliary protein trafficking or ciliogenesis signaling in ciliated epithelia (fallopian tube, choroid plexus) with dysregulation contributing to cancer phenotypes.
+
+## Evidence
+```
+Evidence: UniProt Q8NEG2 (295 aa), BLAST mouse 73.9%/rat 72.4%/bovine 73.2%, InterPro DUF5524 IPR040247/PF17662 (aa 1-295), STRING 10 PPIs with SUN3/PPP1R32/CFAP45/dark gene partners, HPA primary cilium/transition zone/fallopian tube 13.1 nTPM/cancer-enhanced, ClinVar 15 pathogenic 7p CNVs/rearrangements
+```

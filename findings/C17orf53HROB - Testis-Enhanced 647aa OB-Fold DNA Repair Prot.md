@@ -1,0 +1,13 @@
+# C17orf53/HROB - Testis-Enhanced 647aa OB-Fold DNA Repair Protein Recruiting MCM8-MCM9 Helicase Complex to Double-Strand Breaks
+
+**Date:** 2026-03-16T03:15:16.235296
+
+**Quality Score:** 6/10 (GOOD)
+
+## Description
+C17orf53 (HROB) encodes a 647 aa homologous recombination OB-fold protein (UniProt Q8N3J3) named Homologous recombination factor with OB-fold. Contains conserved OB-fold nucleic acid-binding domain (IPR058570, PF15072, residues 493-576) characteristic of single-strand DNA binding proteins. Member of homologous recombination OB-fold protein family (IPR028045, PTHR14523) spanning residues 14-629. Recent research (PubMed:31467087) demonstrates critical function in homologous recombination DNA repair: recruits MCM8-MCM9 replicative helicase complex to sites of DNA double-strand breaks to promote DNA repair synthesis. Shows tissue-enhanced expression pattern with highest expression in testis (10.7 nTPM) and bone marrow (8.8 nTPM) - consistent with DNA repair demands in proliferating cells and germline tissue. Detected in some tissues with low cancer specificity. Not detected in immune cells. Dual subcellular localization to nucleoplasm and cytosol indicates nuclear DNA repair function. Cell type enhanced specificity suggests specialized role in particular cell populations. Protein class: predicted intracellular, DNA-binding. Biological processes: DNA damage response, DNA recombination, DNA repair, DNA synthesis. Molecular function: DNA-binding. High-confidence protein interactions validate mechanism: MCM8 (0.753), MCM8-2 (0.658), MCM9 (0.613) confirm direct role in MCM8-MCM9 helicase complex recruitment. Additional interactions with ZBTB40 (0.530), TMEM89 (0.507), STARD3NL (0.447) suggest broader DNA damage response network. Disease involvement noted - potential mutations may impair homologous recombination repair capacity. Represents a former 'dark gene' now recognized as essential factor in homologous recombination-mediated double-strand break repair pathway.
+
+## Evidence
+```
+UniProt Q8N3J3; InterPro IPR028045 (HROB family), IPR058570 (OB-fold domain), PF15072 (HROB), PTHR14523 (C17orf53 homolog); HPA tissue-enhanced, testis (10.7 nTPM), bone marrow (8.8 nTPM), nucleoplasm/cytosol localization, cell type enhanced, not in immune cells, predicted intracellular; GO: recombinational repair (GO:0000725), DNA damage, DNA recombination, DNA repair, DNA synthesis, DNA-binding; STRING interactions with MCM8/MCM8-2/MCM9/ZBTB40/TMEM89/STARD3NL/FAM199X/FAM210A/DCDC1/FAM71E1 (scores 0.43-0.75); Gene ID: 79633; Chromosome 17; Aliases: C17orf53, HROB; Function: homologous recombination, MCM8-MCM9 recruitment, double-strand break repair, OB-fold DNA binding
+```

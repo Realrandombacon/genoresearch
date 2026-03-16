@@ -1,0 +1,13 @@
+# C3orf38 - Conserved DUF4518/NTF2-like Dark Gene with Apoptosis Regulation, Nuclear-Cytoplasmic Shuttling, and Transcription Factor Interactome
+
+**Date:** 2026-03-16T09:11:55.137026
+
+**Quality Score:** 9/10 (EXCELLENT)
+
+## Description
+C3orf38 (Q5JPI3) is a 329 aa uncharacterized dark gene encoding a predicted intracellular protein with potential apoptosis regulation function. Contains two defining domains: DUF4518 (aa 3-305/9-277, IPR026698, PF15008) covering ~85% of the protein, and an NTF2-like domain superfamily (aa 134-275, IPR032710, SSF54427) embedded within — the NTF2 fold typically mediates nuclear transport and protein-protein interactions. BLAST reveals strong mammalian conservation: 85.3% bovine, 84.4% mouse/rat, indicating vertebrate purifying selection. STRING interactions reveal a nuclear-cytoplasmic regulatory network: ZNF654 (0.714, C2H2 zinc finger transcriptional repressor), DNAJB4 (0.633, HSP40 DnaJ co-chaperone), CGGBP1 (0.628, CGG triplet repeat DNA-binding protein, cell proliferation regulator), THOC3 (0.498, THO complex component for mRNA export), MAP10 (0.437, microtubule-associated protein), STUB1 (0.420, E3 ubiquitin ligase CHIP, protein quality control), NPM3 (0.417, nucleophosmin family, histone chaperone). HPA confirms apoptosis as associated biological process with nucleoplasm/plasma membrane/cytosol localization — consistent with NTF2-like nuclear transport capability — and ubiquitous tissue distribution with group-enriched single cell specificity. ClinVar contains 8 pathogenic/likely pathogenic variants, predominantly 3p copy number losses/gains, confirming strong disease relevance. True dark gene: deeply conserved DUF4518+NTF2-like dual-domain architecture, apoptosis regulation signature, nuclear-cytoplasmic shuttling potential, transcription factor/chaperone/ubiquitin ligase interaction network, clinically implicated, but molecular mechanism completely unknown. Hypothesis: may function as a nucleocytoplasmic adaptor that coordinates apoptosis signaling through interaction with transcriptional repressors (ZNF654), protein quality control machinery (DNAJB4/STUB1), and mRNA export complexes (THOC3), using NTF2-like domain for nuclear import/export and DUF4518 for effector protein oligomerization, potentially serving as stress-responsive regulator linking transcriptional control to cell death decisions.
+
+## Evidence
+```
+Evidence: UniProt Q5JPI3 (329 aa, apoptosis regulation), BLAST bovine 85.3%/mouse 84.4%, InterPro DUF4518 IPR026698/PF15008 (aa 3-305) + NTF2-like IPR032710/SSF54427 (aa 134-275), STRING 7 PPIs with ZNF654/DNAJB4/CGGBP1/THOC3/STUB1, HPA apoptosis/nucleoplasm-cytosol-membrane/ubiquitous, ClinVar 8 pathogenic 3p CNVs
+```

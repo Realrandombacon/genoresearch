@@ -60,7 +60,11 @@ class Orchestrator:
         if self.target:
             user_msg = f"[orchestrator] Research target: {self.target}"
         else:
-            user_msg = "[orchestrator] Session started. Begin research."
+            user_msg = (
+                "[orchestrator] Session started. Begin research.\n"
+                "IMPORTANT: Always start by calling TOOL: next_gene() to get your next target.\n"
+                "Do NOT pick genes randomly — the queue system ensures systematic coverage."
+            )
         self.messages.append({"role": "user", "content": user_msg})
 
         while self._should_continue():
@@ -571,7 +575,11 @@ _TOOL_STEP_MAP = {
     "compare_sequences": "compare",
     "uniprot_search": "annotate",
     "hypothesize": "hypothesize",
+    "save_finding": "hypothesize",
 }
+
+# Pattern to extract gene names from finding titles/results
+_GENE_NAME_RE = re.compile(r'\b(C\d+orf\d+|LOC\d+|[A-Z][A-Z0-9]{1,10})\b')
 
 
 def _auto_complete_step(tool_name: str, result_str: str):
@@ -579,12 +587,12 @@ def _auto_complete_step(tool_name: str, result_str: str):
 
     Qwen often forgets to call complete_step() after using a tool.
     This silently marks the step so the pipeline tracks progress correctly.
-    Only triggers if:
-      - The tool is in the mapping
-      - There's a gene in progress
-      - The result doesn't contain [ERROR]
+
+    Special handling for save_finding: auto-completes the gene in the queue
+    so Qwen doesn't revisit it. Also checks if the gene was being worked on
+    outside the queue (direct analysis without add_to_queue) and registers it.
     """
-    if "[ERROR]" in result_str:
+    if "[ERROR]" in result_str or "[REJECTED]" in result_str:
         return
 
     step = _TOOL_STEP_MAP.get(tool_name)
@@ -592,8 +600,49 @@ def _auto_complete_step(tool_name: str, result_str: str):
         return
 
     try:
-        from tools.gene_queue import complete_step as _cs, _load_queue
+        from tools.gene_queue import (
+            complete_step as _cs, complete_gene as _cg,
+            _load_queue, _save_queue, add_to_queue
+        )
         q = _load_queue()
+
+        # --- Special: save_finding → auto-complete the gene entirely ---
+        if tool_name == "save_finding":
+            # Extract gene name from the result string
+            gene_match = _GENE_NAME_RE.search(result_str)
+            if gene_match:
+                gene_name = gene_match.group(1)
+
+                # If this gene is currently in_progress, complete it
+                if q.get("in_progress") and q["in_progress"]["gene"].upper() == gene_name.upper():
+                    _cg()
+                    ui_log("INFO", f"Auto-completed gene '{gene_name}' (finding saved)")
+                    return
+
+                # If this gene was analyzed outside the queue, register it as completed
+                # so it won't be re-queued later
+                all_known = set()
+                all_known.update(g["gene"].upper() for g in q.get("completed", []))
+                all_known.update(g["gene"].upper() for g in q.get("skipped", []))
+                all_known.update(g["gene"].upper() for g in q.get("queue", []))
+                if q.get("in_progress"):
+                    all_known.add(q["in_progress"]["gene"].upper())
+
+                if gene_name.upper() not in all_known:
+                    # Register as completed directly
+                    import datetime
+                    q["completed"].append({
+                        "gene": gene_name,
+                        "finished": datetime.datetime.now().isoformat(),
+                        "steps_done": ["discover", "hypothesize"],
+                        "source": "auto-registered from save_finding",
+                    })
+                    q["stats"]["genes_completed"] = len(q["completed"])
+                    _save_queue(q)
+                    ui_log("INFO", f"Auto-registered gene '{gene_name}' as completed (was outside queue)")
+            return
+
+        # --- Normal step completion ---
         if not q.get("in_progress"):
             return
         done = q["in_progress"].get("steps_done", [])
@@ -616,6 +665,16 @@ def _build_reflection_prompt(tool_name: str, result_str: str,
     if len(result_str) > 1500:
         result_preview += "\n... (truncated)"
 
+    # After save_finding, direct Qwen to move to next gene
+    if tool_name == "save_finding":
+        return (
+            f"[orchestrator] Turn {turn}/{max_turns} — REFLECTION\n\n"
+            f"Finding saved successfully.\n\n"
+            "GOOD WORK! Now move to the next gene:\n"
+            "TOOL: next_gene()\n\n"
+            "Do NOT re-analyze the same gene. The queue will give you a new target."
+        )
+
     return (
         f"[orchestrator] Turn {turn}/{max_turns} — REFLECTION\n\n"
         f"Tool result from {tool_name}:\n{result_preview}\n\n"
@@ -623,7 +682,7 @@ def _build_reflection_prompt(tool_name: str, result_str: str,
         "- Call another tool to continue investigating\n"
         "- Call save_finding() if you've confirmed a discovery\n"
         "- Call complete_step() to advance the pipeline\n"
-        "- If you're done with this gene, just explain your conclusion (no tool call needed)\n\n"
+        "- If you're done with this gene, call TOOL: next_gene() to move on\n\n"
         "Pipeline: discover -> profile -> analyze -> translate -> compare -> annotate -> hypothesize\n"
         "Use TOOL: format for your next action."
     )

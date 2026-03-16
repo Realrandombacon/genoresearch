@@ -1,0 +1,13 @@
+# C17orf78 - Intestine-Enriched 275aa DUF4711 Domain Protein with Cancer-Enhanced Expression and Diverse Nuclear/Cytoplasmic Interactions
+
+**Date:** 2026-03-16T03:17:30.872780
+
+**Quality Score:** 5/10 (GOOD)
+
+## Description
+C17orf78 encodes a 275 aa uncharacterized protein (UniProt Q8N4C9) containing domain of unknown function DUF4711 (IPR031668, PF15829, residues 1-211/1-275) spanning entire protein sequence. Member of C17orf78 family (PTHR36870). Shows striking tissue-enriched expression pattern with highest expression in intestine (120.0 nTPM) - indicates gut-specific or gut-enriched function. Cancer-enhanced expression suggests potential role in tumor biology. Not detected in immune cells, distinguishing from immune-related dark genes. Cell type enhanced specificity indicates specialized function in particular cell populations. Predicted as intracellular and membrane protein suggesting membrane association or transmembrane topology. Medium-confidence protein interactions reveal diverse functional connections: SYNRG (synergin gamma, 0.690) links to nuclear receptor coactivation; TADA2A (transcriptional adapter, 0.652) connects to transcriptional coactivation; MRM1 (mitoribosomal methyltransferase, 0.621) suggests mitochondrial RNA modification; PIGW (GPI anchor biosynthesis, 0.600) indicates glycosylphosphatidylinositol anchoring pathway; GABRA2 (GABA-A receptor, 0.596) suggests neuronal relevance; DDX52 (RNA helicase, 0.594) links to RNA metabolism; ZNHIT3 (zinc finger, 0.581) indicates transcriptional regulation; MYO19 (mitochondrial myosin, 0.575) suggests mitochondrial trafficking; GGNBP2 (gametogenesis binding, 0.564) indicates reproductive function; DUSP14 (dual specificity phosphatase, 0.455) suggests signaling regulation. This diverse interaction profile spanning transcription, RNA metabolism, mitochondrial function, and membrane anchoring suggests C17orf78 may function as regulatory scaffold or adaptor protein. Intestine enrichment combined with cancer-enhanced expression warrants investigation in gastrointestinal malignancies. Represents a genuine dark gene with DUF4711 domain awaiting functional characterization.
+
+## Evidence
+```
+UniProt Q8N4C9; InterPro IPR031668 (DUF4711), PF15829 (DUF4711 domain), PTHR36870 (C17orf78); HPA tissue-enriched, intestine (120.0 nTPM), cancer-enhanced, not in immune cells, cell type enhanced, predicted intracellular/membrane; STRING interactions with SYNRG/TADA2A/MRM1/PIGW/GABRA2/DDX52/ZNHIT3/MYO19/GGNBP2/DUSP14 (scores 0.46-0.69); Gene ID: 124222; Chromosome 17; Aliases: C17orf78; Function: DUF4711 domain protein, intestine-enriched, cancer-associated, regulatory scaffold candidate
+```

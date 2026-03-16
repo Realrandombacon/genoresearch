@@ -1,0 +1,13 @@
+# C11orf24 - DUF5585 Golgi/Vesicle Protein with Erythrocyte Invasion Family Signature and Vesicle Trafficking Interactions
+
+**Date:** 2026-03-16T02:25:31.408350
+
+**Quality Score:** 4/10 (MODERATE)
+
+## Description
+C11orf24 encodes a 449 aa uncharacterized protein entirely composed of a DUF5585 domain of unknown function (IPR041056/PF17823, residues 1-449, covering 100% of the protein). CRITICAL FUNCTIONAL CLUE: InterPro annotates this protein as member of 'Erythrocyte Invasion and Immune Modulation Protein' family (IPR052660/PTHR16021) - this is a MAJOR discovery clue. Erythrocyte invasion proteins are typically associated with pathogens (e.g., Plasmodium malaria parasites) that invade red blood cells, suggesting this human protein may have evolved from horizontal gene transfer, endogenous retroviral elements, or functions in analogous host cell entry/membrane fusion processes. HPA reveals Golgi apparatus and vesicle localization consistent with secretory pathway function, plus nucleoplasmic presence. STRING interactions support vesicle trafficking hypothesis: VAT1L (0.560 - synaptic vesicle membrane trafficking protein), TMED9 (0.427 - transmembrane emp24 domain protein, COPII vesicle cargo receptor, Golgi-to-ER trafficking), GMPPA (0.469 - GDP-mannose pyrophosphorylase A, N-glycosylation precursor synthesis), CDC14B (0.425 - cell cycle phosphatase), SMIM13 (0.481 - small integral membrane protein), ZNF616 (0.463 - zinc finger transcription factor). The interaction network suggests roles in: (1) vesicle membrane trafficking/secretory pathway (VAT1L, TMED9), (2) protein glycosylation (GMPPA), (3) cell cycle regulation (CDC14B). Ubiquitous expression indicates housekeeping function. The 'erythrocyte invasion' family signature combined with Golgi/vesicle localization suggests C11orf24 may function in membrane fusion events, vesicle budding/scission, or host-pathogen interaction mimicry. Potential links to vesiculopathies, glycosylation disorders, or immune modulation. This protein may represent a domesticated transposon/viral element co-opted for cellular membrane trafficking.
+
+## Evidence
+```
+Gene: C11orf24 (53838), Chr11q13.2 | UniProt: Q96F05 | Protein: 449 aa | Domain: DUF5585 (IPR041056/PF17823, 1-449 entire protein) | Family: Erythrocyte Invasion and Immune Modulation (IPR052660/PTHR16021) | Localization: Golgi/Vesicles/Nucleoplasm | Expression: Ubiquitous (all tissues) | Interactions: VAT1L (0.560), SMIM13 (0.481), GMPPA (0.469), ZNF616 (0.463), TMED9 (0.427), CDC14B (0.425) | Function: Likely vesicle trafficking, membrane fusion, glycosylation, potential pathogen-mimicry or domesticated mobile element
+```

@@ -109,7 +109,7 @@ def _ollama_primary_available() -> bool:
     return False
 
 
-def _ollama_primary_set_down(seconds: float = 300):
+def _ollama_primary_set_down(seconds: float = 30):
     global _ollama_primary_down, _ollama_primary_retry_at
     _ollama_primary_down = True
     _ollama_primary_retry_at = time.time() + seconds
@@ -238,54 +238,62 @@ def _chat_ollama(messages: list[dict], model: str = None, temperature: float = 0
         },
     }
 
-    try:
-        resp = requests.post(OLLAMA_URL, json=payload, timeout=180)
-        resp.raise_for_status()
-        data = resp.json()
-        content = data.get("message", {}).get("content", "").strip()
+    # Try up to 2 times with short timeout before giving up
+    max_attempts = 2 if model == OLLAMA_MODEL_PRIMARY else 1
+    for attempt in range(max_attempts):
+        try:
+            timeout = 30 if model == OLLAMA_MODEL_PRIMARY else 180
+            resp = requests.post(OLLAMA_URL, json=payload, timeout=timeout)
+            resp.raise_for_status()
+            data = resp.json()
+            content = data.get("message", {}).get("content", "").strip()
 
-        thinking = ""
-        msg = data.get("message", {})
-        if msg.get("thinking"):
-            thinking = msg["thinking"].strip()
+            thinking = ""
+            msg = data.get("message", {})
+            if msg.get("thinking"):
+                thinking = msg["thinking"].strip()
 
-        thinking_parts = _THINK_PATTERN.findall(content)
-        visible = _THINK_PATTERN.sub("", content).strip()
+            thinking_parts = _THINK_PATTERN.findall(content)
+            visible = _THINK_PATTERN.sub("", content).strip()
 
-        if thinking_parts:
-            tag_thinking = "\n".join(t.strip() for t in thinking_parts if t.strip())
-            thinking = f"{thinking}\n{tag_thinking}" if thinking else tag_thinking
+            if thinking_parts:
+                tag_thinking = "\n".join(t.strip() for t in thinking_parts if t.strip())
+                thinking = f"{thinking}\n{tag_thinking}" if thinking else tag_thinking
 
-        if thinking:
-            return f"[Reasoning] {thinking}\n\n{visible}" if visible else f"[Reasoning] {thinking}"
-        return content
+            if thinking:
+                return f"[Reasoning] {thinking}\n\n{visible}" if visible else f"[Reasoning] {thinking}"
+            return content
 
-    except requests.exceptions.ConnectionError:
-        log.error("Cannot connect to Ollama at %s", OLLAMA_URL)
-        return None  # signal failover
-    except requests.exceptions.Timeout:
-        log.error("Ollama request timed out (model=%s)", model)
-        return None  # signal failover
-    except requests.exceptions.HTTPError as e:
-        status = getattr(e.response, 'status_code', 0) if hasattr(e, 'response') else 0
-        if status == 429:
-            log.warning("Ollama 429 rate limited — signaling failover")
-            _ollama_primary_set_down(60)  # short cooldown for rate limits
-            return None  # signal failover to next tier
-        if status == 404:
-            log.error("Ollama model '%s' not found", model)
-            return None
-        log.error("Ollama HTTP error: %s", e)
-        return None  # any HTTP error should trigger failover
-    except Exception as e:
-        # Catch-all: check if it's a 429 hidden in the error message
-        err_str = str(e)
-        if "429" in err_str or "Too Many Requests" in err_str:
-            log.warning("Ollama 429 (caught via generic handler) — signaling failover")
-            _ollama_primary_set_down(60)
-        else:
-            log.error("Ollama call failed: %s", e)
-        return None  # signal failover on unexpected errors too
+        except requests.exceptions.ConnectionError:
+            log.error("Cannot connect to Ollama at %s", OLLAMA_URL)
+            return None  # signal failover
+        except requests.exceptions.Timeout:
+            if attempt < max_attempts - 1:
+                log.warning("Ollama timeout (attempt %d/%d, model=%s) — retrying...",
+                           attempt + 1, max_attempts, model)
+                continue  # retry once
+            log.error("Ollama request timed out after %d attempts (model=%s)", max_attempts, model)
+            return None  # signal failover
+        except requests.exceptions.HTTPError as e:
+            status = getattr(e.response, 'status_code', 0) if hasattr(e, 'response') else 0
+            if status == 429:
+                log.warning("Ollama 429 rate limited — signaling failover")
+                _ollama_primary_set_down(15)  # very short cooldown — retry soon
+                return None  # signal failover to next tier
+            if status == 404:
+                log.error("Ollama model '%s' not found", model)
+                return None
+            log.error("Ollama HTTP error: %s", e)
+            return None  # any HTTP error should trigger failover
+        except Exception as e:
+            # Catch-all: check if it's a 429 hidden in the error message
+            err_str = str(e)
+            if "429" in err_str or "Too Many Requests" in err_str:
+                log.warning("Ollama 429 (caught via generic handler) — signaling failover")
+                _ollama_primary_set_down(15)
+            else:
+                log.error("Ollama call failed: %s", e)
+            return None  # signal failover on unexpected errors too
 
 
 def _recovery_ollama(thought_text: str, model: str = None,
@@ -782,10 +790,11 @@ def _chat_hybrid(messages: list[dict], model: str, temperature: float,
         if result is not None:
             return result
         if not _ollama_primary_down:
-            _ollama_primary_set_down(300)
+            _ollama_primary_set_down(30)  # short cooldown — retry next cycle
         _ui_log("WARN", "[T1] FAILED — falling to Tier 2")
     else:
-        _ui_log("INFO", "[T1] cooldown active — skipping to T2")
+        remaining = _ollama_primary_retry_at - time.time()
+        _ui_log("INFO", f"[T1] cooldown ({remaining:.0f}s left) — skipping to T2")
 
     # ── Tier 2: Cerebras (Qwen 3 235B, 1M tokens/day) ──
     if CEREBRAS_API_KEY and _cerebras_is_available():

@@ -27,21 +27,179 @@ PIPELINE_STEPS = [
 
 # Seed families — systematic starting points for dark gene discovery
 # These are known to contain many uncharacterized genes
+# Estimated gene counts per family (for progress tracking)
 SEED_PREFIXES = [
-    # Chromosome ORFs (C1orf1 through C22orf)
+    # --- Phase 1: Chromosome ORFs (~250-300 genes) ---
     "C1orf", "C2orf", "C3orf", "C4orf", "C5orf", "C6orf", "C7orf",
     "C8orf", "C9orf", "C10orf", "C11orf", "C12orf", "C13orf", "C14orf",
     "C15orf", "C16orf", "C17orf", "C18orf", "C19orf", "C20orf", "C21orf",
-    "C22orf",
-    # FAM genes (family with sequence similarity)
-    "FAM",
-    # KIAA genes (large-scale cDNA project, many uncharacterized)
-    "KIAA",
-    # TMEM genes (transmembrane proteins, many unknown)
-    "TMEM",
-    # LINC genes (long intergenic non-coding RNA)
-    "LINC",
+    "C22orf", "CXorf",
+    # --- Phase 2: Named dark gene families (~600 genes) ---
+    "FAM",      # ~150-200 genes — family with sequence similarity
+    "KIAA",     # ~20-30 genes — Kazusa cDNA project remnants
+    "TMEM",     # ~200-250 genes — transmembrane proteins
+    "LINC",     # ~2000-4000 genes — long intergenic non-coding RNA
+    "FLJ",      # ~10 genes — full-length cDNA Japan remnants
+    # --- Phase 3: Structural domain families (~400 genes) ---
+    "CCDC",     # ~180 genes — coiled-coil domain containing
+    "ANKRD",    # ~55 genes — ankyrin repeat domain
+    "LRRC",     # ~65 genes — leucine rich repeat containing
+    "KLHL",     # ~42 genes — kelch-like family
+    "KBTBD",    # ~9 genes — kelch repeat and BTB domain
+    # --- Phase 4: Functional dark families (~500 genes) ---
+    "SPATA",    # ~50 genes — spermatogenesis associated
+    "PRR",      # ~35 genes — proline rich
+    "PRAMEF",   # ~23 genes — PRAME family
+    "NKAPD",    # ~5 genes — NF-kB activating protein dark
+    # --- Phase 5: Large understudied families (~1200 genes) ---
+    "ZNF",      # ~718 genes — zinc finger (many dark despite size)
+    "OR",       # ~400 functional genes — olfactory receptors
+    # --- Phase 6: LOC genes — the biggest pool (~4000+ dark) ---
+    "LOC1000",  # split LOC into sub-ranges to avoid overwhelming NCBI
+    "LOC1001",
+    "LOC1002",
+    "LOC1003",
+    "LOC1004",
+    "LOC1005",
+    "LOC1006",
+    "LOC1007",
+    "LOC1008",
+    "LOC1009",
+    "LOC101",
+    "LOC102",
+    "LOC103",
+    "LOC104",
+    "LOC105",
+    "LOC106",
+    "LOC107",
+    "LOC108",
+    "LOC109",
+    "LOC110",
+    "LOC111",
+    "LOC112",
+    "LOC124",
+    "LOC125",
+    "LOC126",
+    "LOC127",
+    "LOC128",
+    "LOC129",
 ]
+
+
+def _get_known_genes(q: dict) -> set:
+    """Get all genes already known (with findings on disk, skipped, queued, in_progress).
+
+    IMPORTANT: We use findings on disk as the source of truth, NOT the completed list.
+    This way, if a finding is deleted (cleanup), the gene becomes available again.
+    """
+    known = set()
+    # Skipped genes stay skipped (they were explicitly marked as non-dark)
+    known.update(g["gene"].upper() for g in q.get("skipped", []))
+    known.update(g["gene"].upper() for g in q.get("queue", []))
+    if q.get("in_progress"):
+        known.add(q["in_progress"]["gene"].upper())
+
+    # Findings on disk = source of truth for completed genes
+    from config import FINDINGS_DIR
+    import re
+    gene_re = re.compile(r'\b(C\d+orf\d+|CXorf\d+|LOC\d+)\b', re.IGNORECASE)
+    if os.path.isdir(FINDINGS_DIR):
+        for fname in os.listdir(FINDINGS_DIR):
+            if fname.endswith(".md"):
+                m = gene_re.search(fname)
+                if m:
+                    known.add(m.group(1).upper())
+    return known
+
+
+def _auto_populate_queue(q: dict, batch_size: int = 10):
+    """Auto-populate the queue when empty.
+
+    Strategy:
+    1. First, check dark_genes_reference.tsv for TODO genes (CXorf family)
+    2. If that's exhausted, use NCBI search with wildcard for other families
+    3. Always skip genes that already have findings on disk
+
+    This prevents Qwen from having to search & add_to_queue manually,
+    which it often forgets — causing it to re-analyze the same genes.
+    """
+    known = _get_known_genes(q)
+    seed_idx = q.get("seed_index", 0)
+
+    # --- Strategy 1: Use dark_genes_reference.tsv if available ---
+    ref_file = os.path.join(os.path.dirname(QUEUE_FILE), "dark_genes_reference.tsv")
+    if os.path.exists(ref_file):
+        try:
+            import csv
+            with open(ref_file, "r", encoding="utf-8") as f:
+                reader = csv.DictReader(f, delimiter="\t")
+                added = 0
+                for row in reader:
+                    gene = row.get("gene_name", "").strip()
+                    status = row.get("status", "").strip()
+                    if not gene or status == "DONE":
+                        continue
+                    if gene.upper() in known:
+                        continue
+                    q["queue"].append({
+                        "gene": gene,
+                        "source": "dark_genes_reference.tsv",
+                        "priority": "normal",
+                        "added": datetime.datetime.now().isoformat(),
+                    })
+                    known.add(gene.upper())
+                    added += 1
+                    if added >= batch_size:
+                        break
+                if added > 0:
+                    q["stats"]["genes_queued"] = len(q["queue"])
+                    log.info("Auto-populated %d genes from dark_genes_reference.tsv", added)
+                    return
+        except Exception as e:
+            log.warning("Failed to read dark_genes_reference.tsv: %s", e)
+
+    # --- Strategy 2: NCBI search with wildcard for current seed prefix ---
+    if seed_idx >= len(SEED_PREFIXES):
+        return  # All seeds exhausted
+
+    prefix = SEED_PREFIXES[seed_idx]
+    try:
+        from tools.ncbi import ncbi_search
+        result = ncbi_search(f"{prefix}*[gene name]", db="gene", max_results=20)
+
+        # Parse gene names — look for the original CXorf names in descriptions
+        # or the current gene symbols
+        import re
+        # Match gene IDs and names from NCBI result format: [ID] SYMBOL — description
+        symbol_pattern = re.compile(r'\[(\d+)\]\s+(\S+)\s+')
+        found_genes = []
+        for m in symbol_pattern.finditer(result):
+            symbol = m.group(2)
+            if symbol.upper() not in known:
+                found_genes.append(symbol)
+
+        added = 0
+        for gene in found_genes:
+            if gene.upper() in known:
+                continue
+            q["queue"].append({
+                "gene": gene,
+                "source": f"auto-populate seed {prefix}",
+                "priority": "normal",
+                "added": datetime.datetime.now().isoformat(),
+            })
+            known.add(gene.upper())
+            added += 1
+            if added >= batch_size:
+                break
+
+        q["seed_index"] = seed_idx + 1
+        q["stats"]["genes_queued"] = len(q["queue"])
+        log.info("Auto-populated %d genes from NCBI seed '%s'", added, prefix)
+
+    except Exception as e:
+        log.warning("Auto-populate NCBI failed for seed '%s': %s", prefix, e)
+        q["seed_index"] = seed_idx + 1
 
 
 def _load_queue() -> dict:
@@ -97,9 +255,13 @@ def next_gene(*args, **kwargs) -> str:
             complete_gene(gene)
             # Fall through to pick next
 
-    # Pick from queue
+    # Pick from queue — auto-populate if empty
     if not q["queue"]:
-        # Queue empty — suggest discovery
+        _auto_populate_queue(q)
+        _save_queue(q)
+
+    if not q["queue"]:
+        # Still empty after auto-populate — all seeds exhausted
         seed_idx = q.get("seed_index", 0)
         if seed_idx < len(SEED_PREFIXES):
             prefix = SEED_PREFIXES[seed_idx]
@@ -116,8 +278,32 @@ def next_gene(*args, **kwargs) -> str:
                 "Or: ncbi_search('hypothetical protein homo sapiens', db='gene', max_results=5)"
             )
 
-    # Pop the first gene
-    gene_entry = q["queue"].pop(0)
+    # Pop the first gene — skip any that already have findings on disk
+    known = _get_known_genes(q)
+    gene_entry = None
+    while q["queue"]:
+        candidate = q["queue"].pop(0)
+        if candidate["gene"].upper() in known:
+            # Already done — silently skip and move to completed
+            candidate["finished"] = datetime.datetime.now().isoformat()
+            candidate["steps_done"] = ["auto-skipped"]
+            candidate["source"] = candidate.get("source", "unknown")
+            q["completed"].append(candidate)
+            log.info("Auto-skipped '%s' (already has finding on disk)", candidate["gene"])
+            continue
+        gene_entry = candidate
+        break
+
+    if not gene_entry:
+        # All queue entries were already done — try auto-populate again
+        _auto_populate_queue(q)
+        _save_queue(q)
+        if q["queue"]:
+            gene_entry = q["queue"].pop(0)
+        else:
+            _save_queue(q)
+            return "QUEUE EMPTY after filtering — all queued genes already completed."
+
     q["in_progress"] = {
         "gene": gene_entry["gene"],
         "started": datetime.datetime.now().isoformat(),
@@ -125,6 +311,7 @@ def next_gene(*args, **kwargs) -> str:
         "source": gene_entry.get("source", "unknown"),
     }
     q["stats"]["genes_queued"] = len(q["queue"])
+    q["stats"]["genes_completed"] = len(q["completed"])
     _save_queue(q)
 
     gene = gene_entry["gene"]
@@ -173,17 +360,10 @@ def add_to_queue(*args, **kwargs) -> str:
 
     q = _load_queue()
 
-    # Check if already in queue, in progress, or completed
-    all_genes = (
-        {g["gene"] for g in q["queue"]} |
-        {g["gene"] for g in q["completed"]} |
-        {g["gene"] for g in q["skipped"]}
-    )
-    if q["in_progress"]:
-        all_genes.add(q["in_progress"]["gene"])
-
-    if gene.upper() in {g.upper() for g in all_genes}:
-        return f"Gene '{gene}' already in queue/completed/skipped — skipping duplicate."
+    # Check if already in queue, in progress, completed, or has findings on disk
+    known = _get_known_genes(q)
+    if gene.upper() in known:
+        return f"Gene '{gene}' already in queue/completed/skipped/has findings — skipping duplicate."
 
     q["queue"].append({
         "gene": gene,
