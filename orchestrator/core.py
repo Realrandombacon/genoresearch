@@ -29,8 +29,10 @@ class Orchestrator:
 
     # How many identical consecutive tool calls before we intervene
     LOOP_THRESHOLD = 2
-    # Max reflection turns per cycle (think → act → reflect → act → ...)
-    MAX_TURNS = 8
+    # Soft target for turns per cycle — agent can go beyond if still working
+    SOFT_TURNS = 12
+    # Hard safety cap — prevent infinite loops
+    MAX_TURNS = 20
 
     def __init__(self, max_cycles: int = 10, model: str = None,
                  target: str = None):
@@ -94,7 +96,7 @@ class Orchestrator:
         for turn in range(1, self.MAX_TURNS + 1):
             is_first_turn = (turn == 1)
 
-            ui_log("INFO", f"── Turn {turn}/{self.MAX_TURNS} ──")
+            ui_log("INFO", f"── Turn {turn} ──")
 
             # --- Get LLM response ---
             if is_first_turn:
@@ -165,7 +167,8 @@ class Orchestrator:
                 # --- Reflection: if not last turn, send reflection prompt ---
                 if turn < self.MAX_TURNS:
                     reflection = _build_reflection_prompt(
-                        name, result_str, turn, self.MAX_TURNS
+                        name, result_str, turn, self.MAX_TURNS,
+                        soft_turns=self.SOFT_TURNS
                     )
                     self.messages.append({
                         "role": "user",
@@ -216,7 +219,8 @@ class Orchestrator:
                             # Send reflection for recovered result
                             if turn < self.MAX_TURNS:
                                 reflection = _build_reflection_prompt(
-                                    rname, result_str, turn, self.MAX_TURNS
+                                    rname, result_str, turn, self.MAX_TURNS,
+                                    soft_turns=self.SOFT_TURNS
                                 )
                                 self.messages.append({
                                     "role": "user",
@@ -651,7 +655,8 @@ def _auto_complete_step(tool_name: str, result_str: str):
 
 
 def _build_reflection_prompt(tool_name: str, result_str: str,
-                             turn: int, max_turns: int) -> str:
+                             turn: int, max_turns: int,
+                             soft_turns: int = 12) -> str:
     """Build a lightweight reflection prompt after a tool execution.
 
     Sent as a user message so Qwen sees the result and decides what to do next
@@ -665,21 +670,28 @@ def _build_reflection_prompt(tool_name: str, result_str: str,
     # After save_finding, direct Qwen to move to next gene
     if tool_name == "save_finding":
         return (
-            f"[orchestrator] Turn {turn}/{max_turns} — REFLECTION\n\n"
+            f"[orchestrator] Turn {turn} — REFLECTION\n\n"
             f"Finding saved successfully.\n\n"
             "GOOD WORK! Now move to the next gene:\n"
             "TOOL: next_gene()\n\n"
             "Do NOT re-analyze the same gene. The queue will give you a new target."
         )
 
+    # Dynamic pacing — no pressure early, gentle nudge after soft cap
+    if turn < soft_turns:
+        pacing = "Take your time — explore all relevant sources before saving."
+    elif turn < max_turns - 2:
+        pacing = "You've done thorough research. When ready, save your finding."
+    else:
+        pacing = "Wrap up and save your finding now."
+
     return (
-        f"[orchestrator] Turn {turn}/{max_turns} — REFLECTION\n\n"
+        f"[orchestrator] Turn {turn} — REFLECTION\n\n"
         f"Tool result from {tool_name}:\n{result_preview}\n\n"
         "Before your next action, REFLECT briefly:\n"
         "1. EVALUATE: What useful data did this tool give me? What's still missing?\n"
         "2. TOOL REVIEW: Which sources have I already queried? Which scoring dimensions am I missing?\n"
-        f"   (You have {max_turns - turn} turns left — prioritize high-value tools)\n"
-        "3. PLAN: What is my next tool call, and why? What will I do after that?\n\n"
+        f"3. PLAN: {pacing}\n\n"
         "Scoring reminders:\n"
         "  COVERAGE: InterPro domains, STRING interactions, HPA expression, ClinVar, conservation, AlphaFold\n"
         "  DEPTH: 400+ char description, quantitative data, named entities\n"

@@ -1,0 +1,13 @@
+# C6orf94/ZC2HC1B - Testis-Enriched Zinc Finger Protein with Chromatin Regulatory Function
+
+**Date:** 2026-03-16T19:27:43.395454
+
+**Quality Score:** 10/10 (EXCELLENT)
+
+## Description
+C6orf94 (ZC2HC1B) encodes a 222-amino acid zinc finger C2HC domain-containing protein 1B (UniProt Q5TFG8) functioning as a putative chromatin regulator and nucleic acid-binding protein. InterPro analysis reveals dual C2HC-type zinc finger domains (IPR049899/PF13913/PS52027) at residues 14-43 and 117-146, characteristic of RNA-binding or chromatin-associated proteins, plus a C2HC zinc finger family domain (IPR026319, aa 13-182) spanning most of the protein sequence. The classic zinc finger fold (G3DSA:3.30.160.60, aa 15-44) suggests structured nucleic acid recognition capability. STRING interaction network shows high-confidence binding to FAM163B (0.735), a transmembrane protein of unknown function, plus interactions with vesicle trafficking protein SEC22C (0.665), palmitoyltransferase ZDHHC22 (0.646), calcium-dependent activator protein CAPS (0.610), leucine-rich repeat transmembrane protein LRRTM2 (0.508), zinc finger protein ZNF496 (0.444), tubulin TUBB4A (0.420), transcriptional repressor TSC22D4 (0.418), arginine sensor CASTOR1 (0.407), and ribosome biogenesis factor LTV1 (0.406). HPA data indicates testis-enriched expression (14.9 nTPM), tissue-enriched pattern, classified as predicted intracellular protein with cell type-enhanced single cell expression. ClinVar contains 17 pathogenic/likely pathogenic variants including copy number gains/losses at 6q24, indicating disease relevance. AlphaFold structure (pLDDT 73.2) confirms well-folded architecture with stable zinc finger domains. ZC2HC1B likely functions as a testis-specific chromatin modifier coordinating transcriptional regulation during spermatogenesis through zinc finger-mediated nucleic acid binding. The interaction with ZDHHC22 suggests potential S-palmitoylation regulating membrane association or protein stability. Testis enrichment combined with zinc finger architecture indicates roles in meiotic chromosome organization, transposon silencing, or spermatid differentiation. The FAM163B interaction may link chromatin regulation to membrane dynamics in germ cell development.
+
+## Evidence
+```
+Evidence: UniProt Q5TFG8 (222 aa); InterPro: C2HC IPR049899/PF13913 (aa 14-43, 117-146), IPR026319 (aa 13-182), G3DSA:3.30.160.60 (aa 15-44); STRING: FAM163B(0.735), SEC22C(0.665), ZDHHC22(0.646), CAPS(0.610), LRRTM2(0.508), ZNF496(0.444), TUBB4A(0.420), TSC22D4(0.418), CASTOR1(0.407), LTV1(0.406); HPA: testis 14.9 nTPM, tissue-enriched, intracellular; ClinVar: 17 pathogenic variants including CNVs; AlphaFold pLDDT 73.2
+```

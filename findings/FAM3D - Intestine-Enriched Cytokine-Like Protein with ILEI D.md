@@ -1,0 +1,13 @@
+# FAM3D - Intestine-Enriched Cytokine-Like Protein with ILEI Domain and Cancer Association
+
+**Date:** 2026-03-16T22:53:07.167812
+
+**Quality Score:** 10/10 (EXCELLENT)
+
+## Description
+FAM3D (FAM3 metabolism regulating signaling molecule D) is a 224aa secreted protein with strong structural homology to interleukin-like EMT inducers. InterPro analysis reveals multiple conserved domains: IPR039220 (FAM3 family), IPR039475/7 (ILEI/PANDER domain, residues 99-186), and PF15711 (Interleukin-like EMT inducer). AlphaFold predicts a well-folded structure with pLDDT=91.1 (very high confidence), indicating stable tertiary structure despite limited functional characterization.\n\nHPA expression data shows FAM3D is highly enriched in barrier tissues: intestine (458.5 nTPM), salivary gland (440.9 nTPM), and esophagus (270.0 nTPM). Expression is cancer-enhanced and immune cell-enhanced, suggesting roles in mucosal immunity and tumor microenvironment. STRING interactions reveal connections to formyl peptide receptors FPR1 (0.570) and FPR2 (0.573) - GPCRs that mediate neutrophil chemotaxis and inflammation - plus PKD2 (0.525), BPIFA1 (0.428), and RAB11FIP1 (0.411).\n\nClinVar contains 8 pathogenic/likely pathogenic variants, predominantly copy number losses on chromosome 3p, implicating FAM3D dosage sensitivity in disease. The gene aliases (EF7, OIT1) and predicted cytokine activity suggest secreted signaling function.\n\nFUNCTIONAL HYPOTHESIS: FAM3D encodes a cytokine-like secreted protein that modulates mucosal immune responses through FPR1/FPR2 receptor signaling. Its ILEI/PANDER domain homology suggests potential roles in epithelial-mesenchymal transition (EMT) regulation, consistent with cancer-enhanced expression. High expression in intestine/salivary gland indicates barrier tissue surveillance function, possibly coordinating innate immune cell recruitment via formyl peptide receptor pathways. Negative regulation of insulin secretion (Alliance annotation) may reflect metabolic crosstalk between mucosal immunity and glucose homeostasis.
+
+## Evidence
+```
+Evidence: (1) InterPro: IPR039220 FAM3 family, IPR039475 FAM3C/ILEI domain (50-220aa), IPR039477 ILEI/PANDER domain (99-186aa), PF15711 Interleukin-like EMT inducer (99-186aa), PS52031 GG-type lectin profile (64-222aa). (2) STRING: FPR2 score=0.573, FPR1 score=0.570, PKD2 score=0.525, GUF1 score=0.473, VSIG2 score=0.436, BPIFA1 score=0.428, RAB11FIP1 score=0.411. (3) HPA: intestine=458.5 nTPM, salivary gland=440.9 nTPM, esophagus=270.0 nTPM; cancer-enhanced, immune cell-enhanced. (4) ClinVar: 8 pathogenic/likely pathogenic CNVs. (5) AlphaFold: pLDDT=91.1 (1-224aa). (6) UniProt: Q96BQ1, 224aa. (7) Gene location: 3p14.2, aliases EF7/OIT1.
+```

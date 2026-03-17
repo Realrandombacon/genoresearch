@@ -1,0 +1,13 @@
+# C2orf80: 193aa DUF5563 Gamma-Crystallin Family Protein with Brain Expression and Clinical Variants
+
+**Date:** 2026-03-16T18:10:16.641927
+
+**Quality Score:** 10/10 (EXCELLENT)
+
+## Description
+C2orf80 (Gene ID: 389073, alias GONDA1) encodes a 193 amino acid uncharacterized protein (UniProt Q0P641) located on chromosome 2q33.3 (NC_000002.12:208190029-208165346). INTERPRO DOMAIN ANALYSIS: Contains DUF5563 (Domain of Unknown Function 5563, PF17718) spanning residues 1-192, classified under InterPro family IPR038776. Notably, Panther classification places C2orf80 in the Gamma-Crystallin A family (PTHR36296, residues 1-191), suggesting structural homology to lens crystallin proteins despite distinct tissue expression. PROTEIN INTERACTIONS (STRING-DB): C2orf80 shows medium-confidence interactions with 10 partners including MGAT4D (score 0.662, mannosyltransferase), SCOC (0.527, coiled-coil protein), ASTN1 (0.520, astrotactin-1), ARHGAP42 (0.508, RhoGAP), STMN3 (0.498, stathmin-3), BRINP1 (0.479), FAM189A2 (0.479), CRYGD (0.451, gamma-crystallin D), ASTN2 (0.434), and PHLDB1 (0.433). The MGAT4D interaction suggests Golgi glycosylation function; CRYGD interaction supports crystallin family relationship. TISSUE EXPRESSION (HPA): C2orf80 shows tissue-enriched RNA expression in brain (39.6 nTPM), with subcellular localization to Golgi apparatus. Cancer-enriched expression pattern and immune cell enhancement observed. CLINICAL SIGNIFICANCE (ClinVar): 28 pathogenic/likely pathogenic variants identified, predominantly copy number variations (CNVs) including deletions and duplications spanning 2q33.3-37.3 region. Conservation: Mouse homolog Q8C3M9 (231aa), orangutan Q5RDL5 (168aa), macaque H9EXW4 (193aa) indicate vertebrate conservation. FUNCTIONAL HYPOTHESIS: C2orf80 likely functions as a Golgi-associated adaptor protein involved in vesicular trafficking or protein glycosylation, leveraging gamma-crystallin fold for protein-protein interactions. Brain-enriched expression suggests neuronal-specific role. MECHANISTIC PROPOSAL: DUF5563 domain adopts gamma-crystallin beta-sandwich fold enabling interaction with MGAT4D glycosyltransferase complex in Golgi, potentially regulating neuronal protein glycosylation. ASTN1/ASTN2 interactions suggest role in neuronal migration or synaptic adhesion. ClinVar CNVs implicate C2orf80 haploinsufficiency in neurodevelopmental or genomic instability disorders.
+
+## Evidence
+```
+Evidence: UniProt Q0P641 (193aa); InterPro IPR038776/PF17718 DUF5563 (1-192); PTHR36296 Gamma-Crystallin; STRING MGAT4D(0.662)/SCOC(0.527)/ASTN1(0.520)/CRYGD(0.451); HPA brain 39.6 nTPM Golgi; ClinVar 28 pathogenic CNVs; Conservation mouse/orangutan/macaque
+```

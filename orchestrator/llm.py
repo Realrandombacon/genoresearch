@@ -222,7 +222,7 @@ def get_provider_status() -> str:
 # ─── Ollama engine ───────────────────────────────────────────────────────────
 
 def _chat_ollama(messages: list[dict], model: str = None, temperature: float = 0.1,
-                 top_p: float = 0.85, max_tokens: int = 4096) -> str:
+                 top_p: float = 0.85, max_tokens: int = 16384) -> str:
     """Send chat to Ollama (local)."""
     model = model or OLLAMA_MODEL_PRIMARY
     payload = {
@@ -362,7 +362,7 @@ def _cerebras_set_cooldown(seconds: float):
 # ─── Cerebras engine ────────────────────────────────────────────────────────
 
 def _chat_cerebras(messages: list[dict], model: str = None, temperature: float = 0.1,
-                   top_p: float = 0.85, max_tokens: int = 4096) -> str | None:
+                   top_p: float = 0.85, max_tokens: int = 16384) -> str | None:
     """Send chat to Cerebras (OpenAI-compatible). Returns None to signal failover."""
     model = model or CEREBRAS_MODEL
 
@@ -375,7 +375,7 @@ def _chat_cerebras(messages: list[dict], model: str = None, temperature: float =
         "messages": messages,
         "temperature": temperature,
         "top_p": top_p,
-        "max_tokens": min(max_tokens, 8192),
+        "max_tokens": min(max_tokens, 16384),
     }
 
     try:
@@ -482,7 +482,7 @@ def _moonshot_set_cooldown(seconds: float):
 # ─── Moonshot (Kimi K2.5) engine ─────────────────────────────────────────────
 
 def _chat_moonshot(messages: list[dict], model: str = None, temperature: float = 0.1,
-                   top_p: float = 0.85, max_tokens: int = 4096) -> str | None:
+                   top_p: float = 0.85, max_tokens: int = 16384) -> str | None:
     """Send chat to Moonshot Kimi K2.5 (OpenAI-compatible). Returns None to signal failover."""
     model = model or MOONSHOT_MODEL
 
@@ -495,7 +495,7 @@ def _chat_moonshot(messages: list[dict], model: str = None, temperature: float =
         "messages": messages,
         "temperature": temperature,
         "top_p": top_p,
-        "max_tokens": min(max_tokens, 8192),
+        "max_tokens": min(max_tokens, 16384),
         "reasoning": {"effort": "off"},  # disable thinking mode for speed
     }
 
@@ -617,10 +617,10 @@ def _trim_for_groq(messages: list[dict], max_messages: int = 8) -> list[dict]:
 
 
 def _chat_groq(messages: list[dict], model: str = None, temperature: float = 0.1,
-               top_p: float = 0.85, max_tokens: int = 1024) -> str | None:
+               top_p: float = 0.85, max_tokens: int = 8192) -> str | None:
     """Send chat to Groq. Returns None to signal failover."""
     model = model or GROQ_MODEL
-    max_tokens = min(max_tokens, 1024)
+    max_tokens = min(max_tokens, 8192)
     trimmed_messages = _trim_for_groq(messages)
 
     headers = {
@@ -741,7 +741,7 @@ def _extract_thinking(content: str) -> str:
 # ─── Public API — 3-tier dispatch ────────────────────────────────────────────
 
 def chat(messages: list[dict], model: str = None, temperature: float = 0.1,
-         top_p: float = 0.85, max_tokens: int = 4096) -> str:
+         top_p: float = 0.85, max_tokens: int = 16384) -> str:
     """Send a chat completion request with automatic 4-tier failover.
 
     Hybrid mode tries:

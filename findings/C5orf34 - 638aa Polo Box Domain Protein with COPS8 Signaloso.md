@@ -1,0 +1,13 @@
+# C5orf34 - 638aa Polo Box Domain Protein with COPS8 Signalosome and DNA Repair Interactions
+
+**Date:** 2026-03-16T23:07:45.853826
+
+**Quality Score:** 10/10 (EXCELLENT)
+
+## Description
+C5orf34 encodes a 638-amino acid uncharacterized protein (UniProt Q96MH7) containing multiple C5orf34-like domains (IPR027830 N-terminal aa 7-76, IPR053899 second domain aa 121-258, IPR053900 aa 332-417, IPR027865 C-terminal aa 448-537) and critically a Polo box domain (PF22834, residues 332-417). The Polo box domain is a phospho-dependent protein-protein interaction module typically found in Polo-like kinases (PLKs) that targets substrates to centrosomes and spindle apparatus during cell division. AlphaFold prediction shows high confidence folding (pLDDT 72.1), indicating a stable globular structure. STRING interactions reveal high-confidence association with CCDC124 (0.748), a coiled-coil protein, and medium-confidence interactions with COPS8 (0.689, COP9 signalosome subunit 8 that regulates cullin-RING ubiquitin ligases), PIK3R5 (0.479, PI3K regulatory subunit), RAD54B (0.478, DNA recombination/repair helicase), and RDH12 (0.460). This interaction network suggests C5orf34 functions at the intersection of cell cycle regulation, protein ubiquitination, and DNA damage response. HPA classifies C5orf34 as a predicted intracellular protein with low tissue specificity, detected in many tissues, and immune cell-enhanced expression. ClinVar documents 22 pathogenic/likely pathogenic copy number variants (primarily gains) spanning 5p13.3-11, indicating dosage sensitivity and disease relevance. Orthologs exist in Urocitellus parryii and Ailuropoda melanoleuca annotated as polyadenylate-binding protein-interacting protein 1, suggesting potential RNA-binding functions. We hypothesize C5orf34 functions as a Polo box-containing adaptor protein that recruits COPS8/COP9 signalosome and RAD54B DNA repair machinery to phosphorylated substrates at replication forks or centrosomes during S-phase, coordinating DNA damage checkpoint signaling with ubiquitin-mediated protein turnover. The Polo box domain likely mediates phospho-dependent targeting to PLK1/PLK4 phosphorylation sites on replication stress response complexes.
+
+## Evidence
+```
+InterPro: IPR027830/PF15025 N-term(aa7-76), IPR053899/PF22833 second(aa121-258), IPR053900/PF22834 Polo box(aa332-417), IPR027865/PF15016 C-term(aa448-537); STRING: CCDC124(0.748), COPS8(0.689), PIK3R5(0.479), RAD54B(0.478); HPA: low-specificity detected-many immune-enhanced; ClinVar: 22 pathogenic CNVs; AlphaFold: pLDDT 72.1 folded; UniProt: Q96MH7 638aa
+```

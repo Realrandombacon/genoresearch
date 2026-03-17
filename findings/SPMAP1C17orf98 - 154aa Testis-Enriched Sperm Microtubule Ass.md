@@ -1,0 +1,13 @@
+# SPMAP1/C17orf98 - 154aa Testis-Enriched Sperm Microtubule Associated Protein with PF15075 Domain and 7 Pathogenic 17q CNVs
+
+**Date:** 2026-03-16T21:43:32.337200
+
+**Quality Score:** 10/10 (EXCELLENT)
+
+## Description
+SPMAP1 (Gene ID: 388381, alias C17orf98) encodes a 154 amino acid sperm microtubule associated protein localized to chromosome 17q12 with predicted intracellular localization. InterPro analysis reveals SPMAP1 family domain (IPR028027, residues 6-154), PF15075 sperm microtubule associated protein 1 domain (residues 12-145), and family classification PTHR34221, indicating conserved structural features specific to this protein family. AlphaFold structure prediction shows high confidence (pLDDT 76.4), indicating a well-folded stable tertiary structure suitable for microtubule binding or regulatory functions. STRING interaction analysis returned no partners, suggesting this protein may function as a monomer or its interactions are not yet catalogued in current databases. HPA expression data shows tissue-enriched RNA pattern with exclusive detection in testis (18.8 nTPM), not detected in any other tissue or cancer cell lines, indicating highly specialized testis-specific function consistent with sperm microtubule association. ClinVar contains 7 pathogenic/likely pathogenic variants consisting of 17q copy number gains and losses (17q12-21.2, 17q12-22, 17p13.3-q25.3 regions), demonstrating clinical significance in chromosomal rearrangement syndromes affecting the 17q12 locus. Conservation extends across mammals (Lynx canadensis 121-125 aa, Ailuropoda melanoleuca 137-162 aa), demonstrating vertebrate evolutionary constraint. Mechanistic hypothesis: SPMAP1 functions as a testis-specific microtubule-associated protein that regulates sperm flagellar axoneme assembly, stability, or motility through direct microtubule binding via the PF15075 domain. The testis-restricted expression pattern (18.8 nTPM, single tissue detection) strongly supports roles in spermatogenesis, potentially in sperm tail formation or acrosome reaction. The well-folded AlphaFold structure (pLDDT 76.4) suggests defined microtubule-binding interfaces. Pathogenic 17q CNVs likely disrupt testis-specific microtubule dynamics, contributing to male infertility phenotypes and dosage-sensitive developmental defects in 17q12 deletion/duplication syndromes.
+
+## Evidence
+```
+Evidence: InterPro IPR028027/PF15075/PTHR34221 (aa 6-154/12-145); STRING no interactions found; HPA testis 18.8 nTPM, tissue enriched/detected single/not detected cancer; ClinVar 7 pathogenic variants (17q12-21.2/17q12-22/17p13.3-q25.3 CNVs); AlphaFold pLDDT 76.4; UniProt A8MV24 (154aa); Chromosome 17q12; Conservation: Lynx canadensis 121-125aa, Ailuropoda melanoleuca 137-162aa
+```

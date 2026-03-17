@@ -1,0 +1,13 @@
+# C3orf49: 292aa Centrosomal Protein with THOC7 mRNA Export Interaction
+
+**Date:** 2026-03-16T18:12:35.360045
+
+**Quality Score:** 10/10 (EXCELLENT)
+
+## Description
+C3orf49 (Gene ID: 132200) encodes a 292 amino acid uncharacterized protein (UniProt Q96BT1) located on chromosome 3p14.2-p14.1 (NC_000003.12:63779706-63848635). INTERPRO DOMAIN ANALYSIS: No canonical catalytic or binding domains identified. Protein belongs to C3orf49-like family (IPR055322, PF28264, PTHR36473) spanning residues 1-287, representing a vertebrate-specific protein family of unknown function. PROTEIN INTERACTIONS (STRING-DB): C3orf49 shows medium-confidence interactions with 2 partners: ZNF823 (score 0.521, zinc finger protein 823, transcriptional regulator) and THOC7 (score 0.433, THO complex subunit 7, mRNA export factor). The THOC7 interaction suggests potential role in mRNA export/nuclear pore complex function. ZNF823 interaction indicates possible transcriptional co-regulation activity. TISSUE EXPRESSION (HPA): C3orf49 classified as essential protein with subcellular localization to vesicles, centrosome, and cytosol. Low tissue specificity with expression detected in some tissues. Cell type-enhanced expression pattern observed. Not detected in immune cells. CLINICAL SIGNIFICANCE (ClinVar): 5 pathogenic/likely pathogenic variants identified, predominantly copy number losses (CNVs) spanning 3p14.2-14.1 and broader 3p deletions. STRUCTURE (AlphaFold): Predicted structure (AF-Q96BT1-F1) shows medium confidence (pLDDT 60.7), suggesting partially structured protein with intrinsically disordered regions typical of scaffold/adaptor proteins. Conservation: Orthologs in Pan troglodytes (292-293aa) and Equus caballus (274aa) indicate strong vertebrate conservation. FUNCTIONAL HYPOTHESIS: C3orf49 likely functions as a centrosome-associated scaffold protein linking mRNA export machinery (THO complex) to vesicular trafficking or cell cycle regulation. Centrosomal localization suggests role in mitotic spindle organization or cytokinesis. MECHANISTIC PROPOSAL: C3orf49 recruits THOC7 mRNA export complex to centrosomal/vesicular compartments, potentially coordinating mRNA localization with cell division. ZNF823 interaction may link transcriptional regulation to mRNA export efficiency. Essential protein classification indicates fundamental cellular role. ClinVar 3p deletions implicate C3orf49 haploinsufficiency in chromosomal instability syndromes or developmental disorders.
+
+## Evidence
+```
+Evidence: UniProt Q96BT1 (292aa); InterPro IPR055322/PF28264 C3orf49-like (1-287); STRING ZNF823(0.521)/THOC7(0.433); HPA vesicles/centrosome/cytosol essential; ClinVar 5 pathogenic CNVs; AlphaFold pLDDT 60.7; Conservation chimp/horse
+```

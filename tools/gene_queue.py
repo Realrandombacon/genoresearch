@@ -102,104 +102,58 @@ def _get_known_genes(q: dict) -> set:
     # Findings on disk = source of truth for completed genes
     from config import FINDINGS_DIR
     import re
-    gene_re = re.compile(r'\b(C\d+orf\d+|CXorf\d+|LOC\d+)\b', re.IGNORECASE)
+    # No \b word boundary — CXorf names are often glued to modern names
+    # e.g. "TMEM268C9orf91" or "FAM221AC7orf46"
+    gene_re = re.compile(r'(C\d+orf\d+|CXorf\d+|LOC\d+)', re.IGNORECASE)
     if os.path.isdir(FINDINGS_DIR):
         for fname in os.listdir(FINDINGS_DIR):
             if fname.endswith(".md"):
-                m = gene_re.search(fname)
-                if m:
-                    known.add(m.group(1).upper())
+                # findall to catch ALL CXorf references (some files have 2+)
+                for match in gene_re.findall(fname):
+                    known.add(match.upper())
     return known
 
 
-def _auto_populate_queue(q: dict, batch_size: int = 10):
-    """Auto-populate the queue when empty.
+def _auto_populate_queue(q: dict, batch_size: int = 50):
+    """Auto-populate the queue from dark_genes_reference.tsv ONLY.
 
-    Strategy:
-    1. First, check dark_genes_reference.tsv for TODO genes (CXorf family)
-    2. If that's exhausted, use NCBI search with wildcard for other families
-    3. Always skip genes that already have findings on disk
-
-    This prevents Qwen from having to search & add_to_queue manually,
-    which it often forgets — causing it to re-analyze the same genes.
+    The TSV is the single source of truth for which genes to analyze.
+    No NCBI search — that was adding non-dark genes (PIEZO2, TOMM40, etc.)
     """
     known = _get_known_genes(q)
-    seed_idx = q.get("seed_index", 0)
 
-    # --- Strategy 1: Use dark_genes_reference.tsv if available ---
     ref_file = os.path.join(os.path.dirname(QUEUE_FILE), "dark_genes_reference.tsv")
-    if os.path.exists(ref_file):
-        try:
-            import csv
-            with open(ref_file, "r", encoding="utf-8") as f:
-                reader = csv.DictReader(f, delimiter="\t")
-                added = 0
-                for row in reader:
-                    gene = row.get("gene_name", "").strip()
-                    status = row.get("status", "").strip()
-                    if not gene or status == "DONE":
-                        continue
-                    if gene.upper() in known:
-                        continue
-                    q["queue"].append({
-                        "gene": gene,
-                        "source": "dark_genes_reference.tsv",
-                        "priority": "normal",
-                        "added": datetime.datetime.now().isoformat(),
-                    })
-                    known.add(gene.upper())
-                    added += 1
-                    if added >= batch_size:
-                        break
-                if added > 0:
-                    q["stats"]["genes_queued"] = len(q["queue"])
-                    log.info("Auto-populated %d genes from dark_genes_reference.tsv", added)
-                    return
-        except Exception as e:
-            log.warning("Failed to read dark_genes_reference.tsv: %s", e)
+    if not os.path.exists(ref_file):
+        log.warning("dark_genes_reference.tsv not found — cannot auto-populate")
+        return
 
-    # --- Strategy 2: NCBI search with wildcard for current seed prefix ---
-    if seed_idx >= len(SEED_PREFIXES):
-        return  # All seeds exhausted
-
-    prefix = SEED_PREFIXES[seed_idx]
     try:
-        from tools.ncbi import ncbi_search
-        result = ncbi_search(f"{prefix}*[gene name]", db="gene", max_results=20)
-
-        # Parse gene names — look for the original CXorf names in descriptions
-        # or the current gene symbols
-        import re
-        # Match gene IDs and names from NCBI result format: [ID] SYMBOL — description
-        symbol_pattern = re.compile(r'\[(\d+)\]\s+(\S+)\s+')
-        found_genes = []
-        for m in symbol_pattern.finditer(result):
-            symbol = m.group(2)
-            if symbol.upper() not in known:
-                found_genes.append(symbol)
-
-        added = 0
-        for gene in found_genes:
-            if gene.upper() in known:
-                continue
-            q["queue"].append({
-                "gene": gene,
-                "source": f"auto-populate seed {prefix}",
-                "priority": "normal",
-                "added": datetime.datetime.now().isoformat(),
-            })
-            known.add(gene.upper())
-            added += 1
-            if added >= batch_size:
-                break
-
-        q["seed_index"] = seed_idx + 1
-        q["stats"]["genes_queued"] = len(q["queue"])
-        log.info("Auto-populated %d genes from NCBI seed '%s'", added, prefix)
-
+        import csv
+        with open(ref_file, "r", encoding="utf-8") as f:
+            reader = csv.DictReader(f, delimiter="\t")
+            added = 0
+            for row in reader:
+                gene = row.get("gene_name", "").strip()
+                status = row.get("status", "").strip()
+                if not gene or status == "DONE":
+                    continue
+                if gene.upper() in known:
+                    continue
+                q["queue"].append({
+                    "gene": gene,
+                    "source": "dark_genes_reference.tsv",
+                    "priority": "normal",
+                    "added": datetime.datetime.now().isoformat(),
+                })
+                known.add(gene.upper())
+                added += 1
+                if added >= batch_size:
+                    break
+            if added > 0:
+                q["stats"]["genes_queued"] = len(q["queue"])
+                log.info("Auto-populated %d genes from dark_genes_reference.tsv", added)
     except Exception as e:
-        log.warning("Auto-populate NCBI failed for seed '%s': %s", prefix, e)
-        q["seed_index"] = seed_idx + 1
+        log.warning("Failed to read dark_genes_reference.tsv: %s", e)
 
 
 def _load_queue() -> dict:
@@ -247,22 +201,16 @@ def next_gene(*args, **kwargs) -> str:
         _save_queue(q)
 
     if not q["queue"]:
-        # Still empty after auto-populate — all seeds exhausted
-        seed_idx = q.get("seed_index", 0)
-        if seed_idx < len(SEED_PREFIXES):
-            prefix = SEED_PREFIXES[seed_idx]
-            return (
-                f"QUEUE EMPTY — time to discover new genes!\n"
-                f"Search suggestion: ncbi_search('{prefix}', db='gene', max_results=5)\n"
-                f"Then use add_to_queue() for any uncharacterized genes you find.\n"
-                f"Seed family: {prefix} ({seed_idx + 1}/{len(SEED_PREFIXES)})"
-            )
-        else:
-            return (
-                "QUEUE EMPTY and all seed families searched.\n"
-                "Try: ncbi_search('uncharacterized protein human', db='gene', max_results=5)\n"
-                "Or: ncbi_search('hypothetical protein homo sapiens', db='gene', max_results=5)"
-            )
+        # Still empty after auto-populate — ALL dark genes from reference are done
+        from config import FINDINGS_DIR
+        finding_count = len([f for f in os.listdir(FINDINGS_DIR) if f.endswith(".md")]) if os.path.isdir(FINDINGS_DIR) else 0
+        return (
+            f"ALL DARK GENES COMPLETED! 🎉\n"
+            f"Total findings on disk: {finding_count}\n"
+            f"All genes from dark_genes_reference.tsv have been analyzed.\n"
+            f"DO NOT search for new genes with ncbi_search — the project is complete.\n"
+            f"Call gene_status() to see the full summary."
+        )
 
     # Pop the first gene — skip any that already have findings on disk
     known = _get_known_genes(q)
@@ -436,21 +384,40 @@ def complete_gene(*args, **kwargs) -> str:
     """
     Finalize the current gene and move it to completed list.
     Call this after all pipeline steps are done (or to skip remaining steps).
+    Accepts an optional gene name for cases where save_finding triggers completion.
     """
+    gene_name = args[0] if args else kwargs.get("gene", "")
+
     q = _load_queue()
-    if not q["in_progress"]:
+
+    if q["in_progress"]:
+        gene_data = q["in_progress"]
+        gene_data["finished"] = datetime.datetime.now().isoformat()
+        q["completed"].append(gene_data)
+        q["in_progress"] = None
+    elif gene_name:
+        # Gene wasn't in queue (e.g. Qwen found it via ncbi_search)
+        # Register it as completed so dashboard stays in sync
+        already = {g["gene"].upper() for g in q.get("completed", [])}
+        if gene_name.upper() not in already:
+            q["completed"].append({
+                "gene": gene_name,
+                "finished": datetime.datetime.now().isoformat(),
+                "steps_done": ["discover", "hypothesize"],
+                "source": "auto-registered from save_finding",
+            })
+            gene_data = q["completed"][-1]
+        else:
+            return f"Gene '{gene_name}' already marked as completed."
+    else:
         return "[ERROR] No gene in progress."
 
-    gene_data = q["in_progress"]
-    gene_data["finished"] = datetime.datetime.now().isoformat()
-    q["completed"].append(gene_data)
-    q["in_progress"] = None
     q["stats"]["genes_completed"] = len(q["completed"])
     _save_queue(q)
 
+    gene_info = gene_data if 'gene_data' in dir() else {"gene": gene_name, "steps_done": []}
     return (
-        f"Gene '{gene_data['gene']}' COMPLETED.\n"
-        f"Steps done: {', '.join(gene_data.get('steps_done', []))}\n"
+        f"Gene '{gene_info.get('gene', gene_name)}' COMPLETED.\n"
         f"Total genes completed: {len(q['completed'])}\n"
         f"Queue remaining: {len(q['queue'])}\n\n"
         f"Call next_gene() to start the next one!"

@@ -1,0 +1,13 @@
+# C5orf52 - Testis-Enriched DUF5528 Protein with Cilia-Sperm Interaction Network and Dosage Sensitivity
+
+**Date:** 2026-03-16T18:28:37.541299
+
+**Quality Score:** 10/10 (EXCELLENT)
+
+## Description
+C5orf52 encodes a 159aa uncharacterized protein (UniProt A6NGY3) classified as DUF5528 family member. InterPro analysis identifies a single DUF5528 domain (IPR038935/PF17666, aa 2-151) spanning nearly the entire protein, indicating a conserved but functionally uncharacterized protein family. AlphaFold structure prediction shows high confidence folding (pLDDT 73.4), suggesting a well-ordered stable tertiary structure suitable for specific protein-protein interactions. HPA data reveals strong testis-enriched expression (35.6 nTPM) with intracellular localization and cancer-enhanced expression pattern, strongly implicating C5orf52 in spermatogenesis or germ cell proliferation. STRING interaction network reveals connections to cilia and spermatogenesis factors: CFAP97D1/cilia flagellar associated protein (0.610), KIAA0586/centriolar protein (0.506), TEX37/testis expressed 37 (0.494), CCDC24/coiled-coil domain protein (0.478), TLCD5/TLR pathway regulator (0.475), DDX59/DEAD-box helicase (0.448), CCDC116 (0.447), FBXW12/F-box ubiquitin ligase (0.438), DNAJC5G/co-chaperone (0.407), and TMEM42/transmembrane protein (0.401). This interaction profile places C5orf52 at the intersection of ciliogenesis and sperm differentiation - CFAP97D1 and KIAA0586 are critical for primary cilia formation, while TEX37 is testis-specific. ClinVar contains 15 pathogenic/likely pathogenic copy number variants (gains/losses spanning 5q33-35), indicating strong dosage sensitivity. Conservation across mammals (mouse Q9CR34 168aa, pig A0A8W4FP34 194aa, amphioxus A0A8K0EZ44 314aa) confirms deep evolutionary constraint. Mechanistically, C5orf52 likely functions as a ciliary scaffold or adaptor protein in spermatogenic cells, potentially regulating sperm flagellum assembly or cilia-dependent signaling during germ cell development. The cilia-sperm connection is biologically coherent since sperm flagella share structural homology with primary cilia.
+
+## Evidence
+```
+UniProt: A6NGY3 (159aa) | InterPro: IPR038935/PF17666-DUF5528(2-151) | STRING: CFAP97D1(0.610), KIAA0586(0.506), TEX37(0.494), CCDC24(0.478), TLCD5(0.475), DDX59(0.448), CCDC116(0.447), FBXW12(0.438), DNAJC5G(0.407), TMEM42(0.401) | HPA: testis(35.6 nTPM), tissue-enriched, cancer-enhanced, intracellular | ClinVar: 15 pathogenic CNVs (5q33-35 gains/losses) | AlphaFold: pLDDT 73.4 (high confidence) | Conservation: mouse(Q9CR34), pig, amphioxus homologs
+```

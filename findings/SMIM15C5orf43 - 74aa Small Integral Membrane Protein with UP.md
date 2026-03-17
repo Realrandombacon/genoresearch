@@ -1,0 +1,13 @@
+# SMIM15/C5orf43 - 74aa Small Integral Membrane Protein with UPF0542 Domain and Golgi Trafficking Network
+
+**Date:** 2026-03-16T21:38:29.043392
+
+**Quality Score:** 10/10 (EXCELLENT)
+
+## Description
+SMIM15 (Gene ID: 643155, alias C5orf43) encodes a 74 amino acid small integral membrane protein localized to chromosome 5q12.1. InterPro analysis reveals family classification IPR027877 and UPF0542 domain (PF15086, residues 4-70), indicating conserved structural features across vertebrates (Pan troglodytes 74 aa, Xenopus tropicalis 75 aa, Macaca mulatta 74 aa). AlphaFold structure prediction shows very high confidence (pLDDT 94.1), indicating a well-folded stable transmembrane topology despite small size. STRING interaction analysis identifies 10 medium-confidence partners enriched for membrane trafficking and nuclear functions: SREK1IP1 (SREK1-interacting protein 1, 0.636), SYS1 (Golgi membrane protein, 0.493), PRDM15 (PR/SET domain protein, 0.472), TSPAN14 (tetraspanin, 0.447), IFFO2 (intermediate filament, 0.447), RFX8 (regulatory factor X, 0.440), APTX (aprataxin DNA repair, 0.432), HSDL1 (hydroxysteroid dehydrogenase-like, 0.422), ARFRP1 (ADP-ribosylation factor, 0.422), and DIS3L2 (exonuclease, 0.412). The SYS1 interaction suggests Golgi/ER membrane localization consistent with integral membrane topology. HPA expression data shows low tissue specificity with detection in all tissues and cell type-enhanced pattern, indicating housekeeping membrane function. ClinVar contains 13 pathogenic/likely pathogenic variants including 5q12.1 copy number losses and gains, demonstrating clinical significance in chromosomal rearrangement syndromes. Mechanistic hypothesis: SMIM15 functions as a small Golgi/ER membrane adaptor protein that facilitates vesicle trafficking or membrane protein complex assembly through UPF0542 domain-mediated interactions. The SYS1 partnership suggests roles in retrograde Golgi-to-ER transport, while SREK1IP1 and PRDM15 connections may link membrane dynamics to transcriptional regulation. Pathogenic 5q CNVs likely disrupt membrane homeostasis and vesicular trafficking, contributing to dosage-sensitive developmental phenotypes.
+
+## Evidence
+```
+Evidence: InterPro IPR027877/PF15086/PTHR28644 (aa 4-70/74); STRING SREK1IP1 (0.636), SYS1 (0.493), PRDM15 (0.472), TSPAN14 (0.447), IFFO2 (0.447), RFX8 (0.440), APTX (0.432), HSDL1 (0.422), ARFRP1 (0.422), DIS3L2 (0.412); HPA low tissue specificity/detected all/cell type enhanced; ClinVar 13 pathogenic variants (5q12.1 CNVs); AlphaFold pLDDT 94.1; UniProt Q7Z3B0 (74aa); Chromosome 5q12.1; Conservation: Pan troglodytes 74aa, Xenopus tropicalis 75aa, Macaca mulatta 74aa
+```

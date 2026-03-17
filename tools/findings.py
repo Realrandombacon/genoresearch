@@ -330,6 +330,16 @@ def save_finding(*args, title: str = "", description: str = "",
             f.write(f"## Evidence\n```\n{evidence}\n```\n")
 
     log.info("Finding saved: %s [score=%d/%d]", title, score, 10)
+
+    # Auto-complete the gene in the queue so dashboard stays in sync
+    try:
+        from tools.gene_queue import complete_gene
+        gene_name = _extract_gene_from_title(title)
+        if gene_name:
+            complete_gene(gene_name)
+    except Exception:
+        pass  # Don't break save_finding if queue has issues
+
     consolidated = " (consolidated)" if existing_file_to_replace else ""
     return f"Finding logged{consolidated}: '{title}' [Score: {score}/10 {score_label}] — saved to {detail_path}"
 
