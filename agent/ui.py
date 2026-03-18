@@ -171,7 +171,7 @@ def log(level, message, **extra):
                 if extra:
                     f.write(f" | {json.dumps(extra, default=str)}")
                 f.write("\n")
-    except Exception:
+    except OSError:
         pass
 
 

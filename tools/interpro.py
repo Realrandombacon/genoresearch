@@ -35,7 +35,7 @@ def interpro_scan(*args, accession_id: str = "", **kwargs) -> str:
         resp = requests.get(url, timeout=30)
         resp.raise_for_status()
         resp.json()  # validate protein exists in InterPro
-    except Exception as e:
+    except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError) as e:
         return f"[ERROR] InterPro lookup failed for '{accession_id}': {e}"
 
     # Get entry annotations (domains, families, etc.)
@@ -44,7 +44,7 @@ def interpro_scan(*args, accession_id: str = "", **kwargs) -> str:
         resp2 = requests.get(url2, timeout=30)
         resp2.raise_for_status()
         entries_data = resp2.json()
-    except Exception as e:
+    except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError) as e:
         return f"[ERROR] InterPro entries lookup failed: {e}"
 
     results = entries_data.get("results", [])
@@ -105,7 +105,7 @@ def interpro_search(*args, query: str = "", **kwargs) -> str:
         resp = requests.get(url, timeout=30)
         resp.raise_for_status()
         data = resp.json()
-    except Exception as e:
+    except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError) as e:
         return f"[ERROR] InterPro search failed: {e}"
 
     results = data.get("results", [])

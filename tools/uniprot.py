@@ -42,7 +42,7 @@ def uniprot_search(*args, query: str = "", max_results: int = 5, **kwargs) -> st
                             params=params, timeout=30)
         resp.raise_for_status()
         data = resp.json()
-    except Exception as e:
+    except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError) as e:
         return f"[ERROR] UniProt search failed: {e}"
 
     results = data.get("results", [])
@@ -103,7 +103,7 @@ def uniprot_fetch(*args, accession_id: str = "", **kwargs) -> str:
                             timeout=30)
         resp.raise_for_status()
         data = resp.json()
-    except Exception as e:
+    except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError) as e:
         return f"[ERROR] UniProt fetch failed for '{accession_id}': {e}. Note: UniProt only accepts UniProt accessions (e.g. P38398, Q9Y6K1). For NCBI accessions (NP_, NM_), use ncbi_fetch instead."
 
     # Extract key info

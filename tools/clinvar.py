@@ -43,7 +43,7 @@ def clinvar_search(*args, gene: str = "", **kwargs) -> str:
         resp = requests.get(search_url, params=params, timeout=30)
         resp.raise_for_status()
         search_data = resp.json()
-    except Exception as e:
+    except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError) as e:
         return f"[ERROR] ClinVar search failed for '{gene}': {e}"
 
     result = search_data.get("esearchresult", {})
@@ -66,7 +66,7 @@ def clinvar_search(*args, gene: str = "", **kwargs) -> str:
             else:
                 lines = [f"ClinVar: {total_all} total variants for {gene} (0 pathogenic/likely pathogenic)"]
                 lines.append("  → No disease-causing variants known — gene may be tolerant to variation")
-        except Exception:
+        except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError):
             return f"ClinVar: No pathogenic variants found for '{gene}'"
     else:
         lines = [f"ClinVar: {total} pathogenic/likely pathogenic variants for {gene}"]
@@ -85,7 +85,7 @@ def clinvar_search(*args, gene: str = "", **kwargs) -> str:
         resp = requests.get(summary_url, params=params, timeout=30)
         resp.raise_for_status()
         summary_data = resp.json()
-    except Exception as e:
+    except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError) as e:
         lines.append(f"  (Could not fetch variant details: {e})")
         return "\n".join(lines)
 

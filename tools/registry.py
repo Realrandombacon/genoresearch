@@ -52,7 +52,7 @@ class ToolRegistry:
         from tools.file_tools import read_file
         from tools.gene_queue import (
             next_gene, add_to_queue, complete_step, complete_gene,
-            skip_gene, advance_seed, queue_status, gene_status, hypothesize,
+            skip_gene, advance_seed, queue_status, gene_status,
         )
         from tools.interpro import interpro_scan, interpro_search
         from tools.string_db import string_interactions, string_enrichment
@@ -95,9 +95,6 @@ class ToolRegistry:
         self.register("advance_seed", advance_seed)
         self.register("queue_status", queue_status)
         self.register("gene_status", gene_status)
-        self.register("hypothesize", hypothesize)
-        self.register("make_hypothesis", hypothesize)  # alias
-        self.register("hypothesis", hypothesize)  # alias
         self.register("search_database", ncbi_search)  # alias — Qwen invents this name
 
         # New analysis tools — domains, interactions, expression, structure, clinical

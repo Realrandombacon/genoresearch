@@ -11,320 +11,22 @@ Usage:
 """
 
 import os
-import json
-import csv
-import datetime
-import argparse
 import re
-import threading
-
-from config import (
-    SEQUENCES_DIR, FINDINGS_DIR, FINDINGS_FILE,
-    RESEARCH_LOG, DASHBOARD_STATUS, MEMORY_FILE,
-    BASE_DIR,
-)
+import argparse
 
 from flask import Flask, jsonify, Response, request
 
+from dashboard.log_parser import (
+    _get_cached_cycles, _get_cached_errors,
+    _get_cached_warnings, _get_log_tool_counts,
+)
+from dashboard.data_layer import (
+    read_memory, read_findings, read_log_tail, read_live_status,
+    read_gene_queue, list_sequences, list_finding_files,
+    _human_size, _merge_tool_stats, _extract_genes_from_sequences,
+)
+
 app = Flask(__name__)
-
-# ---------------------------------------------------------------------------
-# Log cache — avoid re-reading 77k lines every 12 seconds
-# ---------------------------------------------------------------------------
-
-_log_cache_lock = threading.Lock()
-_log_cache = {
-    "mtime": 0,
-    "size": 0,
-    "lines": [],
-    "cycles": [],
-    "errors": [],
-    "warnings": [],
-    "tool_calls_from_log": {},
-}
-
-
-def _refresh_log_cache():
-    """Re-parse log only when the file has been modified."""
-    try:
-        stat = os.stat(RESEARCH_LOG)
-    except OSError:
-        return
-
-    with _log_cache_lock:
-        if stat.st_mtime == _log_cache["mtime"] and stat.st_size == _log_cache["size"]:
-            return  # no change
-
-        try:
-            with open(RESEARCH_LOG, "r", encoding="utf-8") as f:
-                lines = f.readlines()
-        except Exception:
-            return
-
-        cycles = []
-        errors = []
-        warnings = []
-        tool_counts = {}
-        cycle_num = 0
-        cycle_tools = []
-        cycle_errors = 0
-        cycle_start = None
-
-        for line in lines:
-            # Cycle boundary
-            if "Waiting for LLM" in line:
-                if cycle_num > 0:
-                    cycles.append({
-                        "cycle": cycle_num,
-                        "timestamp": cycle_start or "",
-                        "tools": list(cycle_tools),
-                        "n_tools": len(cycle_tools),
-                        "errors": cycle_errors,
-                    })
-                cycle_num += 1
-                cycle_tools = []
-                cycle_errors = 0
-                ts_match = re.search(r'\[([^\]]+)\]', line)
-                cycle_start = ts_match.group(1) if ts_match else ""
-                continue
-
-            # Tool calls
-            m2 = re.search(r'\[TOOL\]\s*(\w+)\|', line)
-            if m2 and cycle_num > 0:
-                tool_name = m2.group(1)
-                cycle_tools.append(tool_name)
-                tool_counts[tool_name] = tool_counts.get(tool_name, 0) + 1
-
-            # Errors
-            if "[ERROR]" in line:
-                ts_match = re.search(r'\[([^\]]+)\]', line)
-                ts = ts_match.group(1) if ts_match else ""
-                errors.append({"timestamp": ts, "line": line.strip(), "cycle": cycle_num})
-                cycle_errors += 1
-
-            # Warnings
-            if "[WARN]" in line:
-                ts_match = re.search(r'\[([^\]]+)\]', line)
-                ts = ts_match.group(1) if ts_match else ""
-                warnings.append({"timestamp": ts, "line": line.strip(), "cycle": cycle_num})
-
-        # Save last cycle
-        if cycle_num > 0:
-            cycles.append({
-                "cycle": cycle_num,
-                "timestamp": cycle_start or "",
-                "tools": list(cycle_tools),
-                "n_tools": len(cycle_tools),
-                "errors": cycle_errors,
-            })
-
-        _log_cache["mtime"] = stat.st_mtime
-        _log_cache["size"] = stat.st_size
-        _log_cache["lines"] = lines
-        _log_cache["cycles"] = cycles
-        _log_cache["errors"] = errors
-        _log_cache["warnings"] = warnings
-        _log_cache["tool_calls_from_log"] = tool_counts
-
-
-def _get_cached_cycles():
-    _refresh_log_cache()
-    with _log_cache_lock:
-        return list(_log_cache["cycles"])
-
-
-def _get_cached_errors():
-    _refresh_log_cache()
-    with _log_cache_lock:
-        return list(_log_cache["errors"])
-
-
-def _get_cached_warnings():
-    _refresh_log_cache()
-    with _log_cache_lock:
-        return list(_log_cache["warnings"])
-
-
-def _get_log_tool_counts():
-    _refresh_log_cache()
-    with _log_cache_lock:
-        return dict(_log_cache["tool_calls_from_log"])
-
-
-# ---------------------------------------------------------------------------
-# Helper readers
-# ---------------------------------------------------------------------------
-
-def read_memory():
-    """Read and return the current memory.json."""
-    try:
-        with open(MEMORY_FILE, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except Exception:
-        return {"explored": [], "findings": [], "notes": [],
-                "tool_stats": {}, "exhausted": [], "dismissed": [],
-                "session_count": 0}
-
-
-def read_findings():
-    """Read findings.tsv and return as list of dicts."""
-    EXPECTED_FIELDS = ["timestamp", "title", "description", "evidence"]
-    findings = []
-    try:
-        with open(FINDINGS_FILE, "r", encoding="utf-8") as f:
-            lines = [l for l in f if l.strip()]
-            if not lines:
-                return findings
-            first = lines[0].strip().split("\t")
-            import io
-            if first[0].lower() in ("timestamp", "id", "finding_id"):
-                reader = csv.DictReader(io.StringIO("".join(lines)), delimiter="\t")
-            else:
-                reader = csv.DictReader(
-                    io.StringIO("".join(lines)), delimiter="\t",
-                    fieldnames=EXPECTED_FIELDS
-                )
-            for row in reader:
-                if row.get("timestamp"):
-                    findings.append(dict(row))
-    except Exception:
-        pass
-    return findings
-
-
-def read_log_tail(n=100):
-    """Read last N lines of research.log from cache."""
-    _refresh_log_cache()
-    with _log_cache_lock:
-        lines = _log_cache["lines"][-n:] if _log_cache["lines"] else []
-    return [l.rstrip() for l in lines]
-
-
-def read_live_status():
-    """Read live status from dashboard_status.json (written by orchestrator)."""
-    try:
-        with open(DASHBOARD_STATUS, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except Exception:
-        return {"running": False, "cycle": "?", "phase": "unknown",
-                "current_tool": None, "last_thought": ""}
-
-
-def read_gene_queue():
-    """Read gene_queue.json for pipeline status."""
-    queue_file = os.path.join(BASE_DIR, "gene_queue.json")
-    try:
-        with open(queue_file, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except Exception:
-        return {
-            "queue": [],
-            "in_progress": None,
-            "completed": [],
-            "skipped": [],
-            "seed_index": 0,
-            "stats": {"genes_queued": 0, "genes_completed": 0, "genes_skipped": 0},
-        }
-
-
-def list_sequences():
-    """List all sequence files with metadata."""
-    seqs = []
-    try:
-        for f in os.listdir(SEQUENCES_DIR):
-            if f.lower().endswith((".fasta", ".fa", ".fna")):
-                fpath = os.path.join(SEQUENCES_DIR, f)
-                size = os.path.getsize(fpath)
-                mtime = os.path.getmtime(fpath)
-                desc = ""
-                try:
-                    with open(fpath, "r", encoding="utf-8") as fp:
-                        header = fp.readline().strip()
-                        if header.startswith(">"):
-                            desc = header[1:].strip()[:120]
-                except Exception:
-                    pass
-                seqs.append({
-                    "filename": f,
-                    "accession": f.replace(".fasta", "").replace(".fa", ""),
-                    "size_bytes": size,
-                    "size_human": _human_size(size),
-                    "description": desc,
-                    "modified": datetime.datetime.fromtimestamp(mtime).isoformat(),
-                })
-    except Exception:
-        pass
-    seqs.sort(key=lambda x: x["modified"], reverse=True)
-    return seqs
-
-
-def list_finding_files():
-    """List all finding markdown files."""
-    findings = []
-    try:
-        for f in os.listdir(FINDINGS_DIR):
-            if f.lower().endswith(".md"):
-                fpath = os.path.join(FINDINGS_DIR, f)
-                size = os.path.getsize(fpath)
-                mtime = os.path.getmtime(fpath)
-                preview = ""
-                try:
-                    with open(fpath, "r", encoding="utf-8") as fp:
-                        lines = fp.readlines()[:5]
-                        preview = " ".join(l.strip() for l in lines if l.strip() and not l.startswith("#"))[:200]
-                except Exception:
-                    pass
-                findings.append({
-                    "title": f.replace(".md", ""),
-                    "filename": f,
-                    "size": _human_size(size),
-                    "modified": datetime.datetime.fromtimestamp(mtime).isoformat(),
-                    "preview": preview,
-                })
-    except Exception:
-        pass
-    findings.sort(key=lambda x: x["modified"], reverse=True)
-    return findings
-
-
-def _human_size(b):
-    for u in ["B", "KB", "MB", "GB"]:
-        if b < 1024:
-            return f"{b:.1f} {u}"
-        b /= 1024
-    return f"{b:.1f} TB"
-
-
-def _merge_tool_stats(memory_stats, log_stats):
-    """Merge tool stats from memory.json and log parsing for live accuracy."""
-    merged = dict(memory_stats)
-    for tool, count in log_stats.items():
-        # Use the higher count — log is real-time, memory may lag
-        merged[tool] = max(merged.get(tool, 0), count)
-    return merged
-
-
-def _extract_genes_from_sequences(seqs):
-    """Dynamically extract ALL gene names from sequence descriptions using regex."""
-    genes = set()
-    for s in seqs:
-        desc = s.get("description", "")
-        # Match (GENENAME) pattern — most common in NCBI FASTA headers
-        matches = re.findall(r'\(([A-Z][A-Z0-9]{1,15})\)', desc)
-        for m in matches:
-            # Filter out obvious non-gene tokens
-            if m not in ("DNA", "RNA", "CDS", "UTR", "MRNA", "PREDICTED", "PARTIAL",
-                         "COMPLETE", "HOMO", "SAPIENS", "VARIANT", "ISOFORM",
-                         "TRANSCRIPT", "PROTEIN", "CHROMOSOME", "GENOME",
-                         "ASSEMBLY", "SEQUENCE", "REGION", "CHAIN"):
-                genes.add(m)
-
-        # Also try to match gene= pattern in descriptions
-        gene_eq = re.findall(r'gene[=:]\s*([A-Z][A-Z0-9]{1,15})', desc, re.IGNORECASE)
-        for g in gene_eq:
-            genes.add(g.upper())
-
-    return sorted(genes)
 
 
 # ---------------------------------------------------------------------------
@@ -339,6 +41,7 @@ PIPELINE_STEPS = [
 
 @app.route("/api/status")
 def api_status():
+    """Return overall system status."""
     mem = read_memory()
     findings = read_findings()
     live = read_live_status()
@@ -413,6 +116,7 @@ def api_status():
 
 @app.route("/api/findings")
 def api_findings():
+    """Return all findings in reverse chronological order."""
     findings = read_findings()
     findings.reverse()
     return jsonify(findings)
@@ -420,16 +124,19 @@ def api_findings():
 
 @app.route("/api/finding-files")
 def api_finding_files():
+    """Return all finding file metadata."""
     return jsonify(list_finding_files())
 
 
 @app.route("/api/sequences")
 def api_sequences():
+    """Return all sequence file metadata."""
     return jsonify(list_sequences())
 
 
 @app.route("/api/tool-stats")
 def api_tool_stats():
+    """Return merged tool usage statistics."""
     mem = read_memory()
     memory_stats = mem.get("tool_stats", {})
     log_stats = _get_log_tool_counts()
@@ -439,6 +146,7 @@ def api_tool_stats():
 
 @app.route("/api/log")
 def api_log():
+    """Return recent log lines."""
     n = request.args.get("n", 100, type=int)
     lines = read_log_tail(n)
     return jsonify(lines)
@@ -565,7 +273,7 @@ def api_error_rate():
     warnings = _get_cached_warnings()
     cycles = _get_cached_cycles()
 
-    # Errors per tool (parse tool name from error lines)
+    # Errors per tool
     errors_per_tool = {}
     for e in errors:
         line = e.get("line", "")
@@ -574,7 +282,7 @@ def api_error_rate():
             tool = m.group(1)
             errors_per_tool[tool] = errors_per_tool.get(tool, 0) + 1
 
-    # Errors per cycle for chart
+    # Errors per cycle
     errors_by_cycle = {}
     for e in errors:
         c = e.get("cycle", 0)
@@ -583,7 +291,6 @@ def api_error_rate():
     cycle_nums = [c["cycle"] for c in cycles]
     errors_per_cycle = [errors_by_cycle.get(c, 0) for c in cycle_nums]
 
-    # Total tool calls from log for rate calculation
     log_stats = _get_log_tool_counts()
     total_calls = sum(log_stats.values())
     error_rate = len(errors) / total_calls if total_calls > 0 else 0.0
@@ -672,6 +379,7 @@ _TEMPLATE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
 
 @app.route("/")
 def index():
+    """Serve the dashboard HTML page."""
     with open(_TEMPLATE_PATH, "r", encoding="utf-8") as f:
         html = f.read()
     return Response(html, mimetype="text/html")
@@ -691,11 +399,6 @@ if __name__ == "__main__":
                         help="Run in debug mode")
     args = parser.parse_args()
 
-    print(f"""
-    ╔══════════════════════════════════════════════════════════╗
-    ║   🧬  Genoresearch Dashboard                             ║
-    ║   Open: http://{args.host}:{args.port}                        ║
-    ╚══════════════════════════════════════════════════════════╝
-    """)
+    print(f"\n    Genoresearch Dashboard\n    Open: http://{args.host}:{args.port}\n")
 
     app.run(host=args.host, port=args.port, debug=args.debug)

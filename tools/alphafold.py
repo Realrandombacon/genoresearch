@@ -41,7 +41,7 @@ def alphafold_structure(*args, accession_id: str = "", **kwargs) -> str:
         if resp.status_code == 404:
             return f"AlphaFold: No predicted structure for '{accession_id}'. Protein may not be in AlphaFold DB."
         return f"[ERROR] AlphaFold lookup failed for '{accession_id}': {e}"
-    except Exception as e:
+    except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError) as e:
         return f"[ERROR] AlphaFold lookup failed for '{accession_id}': {e}"
 
     if isinstance(data, list):
@@ -88,7 +88,7 @@ def alphafold_structure(*args, accession_id: str = "", **kwargs) -> str:
                 ann_data = ann_resp.json()
                 if ann_data:
                     lines.append(f"  Annotations available: {len(ann_data)} features")
-    except Exception:
+    except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError):
         pass  # Non-critical
 
     # Interpretation for dark genes

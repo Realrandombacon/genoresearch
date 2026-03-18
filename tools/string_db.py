@@ -43,7 +43,7 @@ def string_interactions(*args, protein: str = "", species: int = 9606, **kwargs)
         resp = requests.get(resolve_url, params=params, timeout=30)
         resp.raise_for_status()
         ids = resp.json()
-    except Exception as e:
+    except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError) as e:
         return f"[ERROR] STRING-DB resolve failed for '{protein}': {e}"
 
     if not ids:
@@ -64,7 +64,7 @@ def string_interactions(*args, protein: str = "", species: int = 9606, **kwargs)
         resp = requests.get(interact_url, params=params, timeout=30)
         resp.raise_for_status()
         interactions = resp.json()
-    except Exception as e:
+    except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError) as e:
         return f"[ERROR] STRING-DB interaction query failed: {e}"
 
     if not interactions:
@@ -122,7 +122,7 @@ def string_enrichment(*args, proteins: str = "", species: int = 9606, **kwargs) 
         resp = requests.get(url, params=params, timeout=30)
         resp.raise_for_status()
         data = resp.json()
-    except Exception as e:
+    except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError) as e:
         return f"[ERROR] STRING enrichment failed: {e}"
 
     if not data:

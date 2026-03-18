@@ -251,7 +251,7 @@ def _blast_local(sequence: str, db: str, program: str, evalue: float,
     except subprocess.TimeoutExpired:
         log.error("Local BLAST timed out after 120s")
         return "[ERROR] Local BLAST timed out (120s)"
-    except Exception as e:
+    except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError, OSError) as e:
         log.error("Local BLAST error: %s", e)
         return None  # fallback to remote
     finally:
@@ -326,7 +326,7 @@ def _blast_remote(sequence: str, db: str, program: str, evalue: float,
     try:
         resp = requests.post(NCBI_BLAST_URL, data=put_params, timeout=30)
         resp.raise_for_status()
-    except Exception as e:
+    except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError, OSError) as e:
         return f"[ERROR] BLAST submission failed: {e}"
 
     rid = _extract_rid(resp.text)
@@ -374,7 +374,7 @@ def _poll_results(rid: str) -> str:
             if "Status=UNKNOWN" in resp.text:
                 return "[ERROR] BLAST RID expired or unknown"
             return resp.text
-        except Exception as e:
+        except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError, OSError) as e:
             log.warning("Poll error: %s", e)
 
     return f"[ERROR] BLAST timed out after {MAX_WAIT_SECONDS}s"
@@ -441,7 +441,7 @@ def _resolve_sequence(sequence: str) -> str:
     try:
         with open(filepath, "r", encoding="utf-8") as f:
             lines = f.readlines()
-    except Exception as e:
+    except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError, OSError) as e:
         return f"[ERROR] Could not read {filepath}: {e}"
 
     seq_lines = [l.strip() for l in lines if l.strip() and not l.startswith(">")]
@@ -516,5 +516,5 @@ def download_blast_db(db_name: str = "swissprot") -> str:
             return f"[ERROR] Download failed: {result.stderr[:500]}"
     except subprocess.TimeoutExpired:
         return "[ERROR] Database download timed out (1 hour)"
-    except Exception as e:
+    except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError, OSError) as e:
         return f"[ERROR] Download failed: {e}"

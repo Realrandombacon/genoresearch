@@ -69,7 +69,7 @@ def ncbi_search(*args, query: str = "", db: str = "gene", max_results: int = 5, 
         resp = requests.get(f"{NCBI_BASE_URL}/esearch.fcgi", params=params, timeout=30)
         resp.raise_for_status()
         data = resp.json()
-    except Exception as e:
+    except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError) as e:
         return f"[ERROR] NCBI search failed: {e}"
 
     result = data.get("esearchresult", {})
@@ -137,7 +137,7 @@ def ncbi_fetch(*args, accession_id: str = "", db: str = "nucleotide", **kwargs) 
         resp = requests.get(f"{NCBI_BASE_URL}/efetch.fcgi", params=params, timeout=30)
         resp.raise_for_status()
         fasta = resp.text.strip()
-    except Exception as e:
+    except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError) as e:
         return f"[ERROR] NCBI fetch failed: {e}"
 
     if not fasta or "Error" in fasta[:100]:
@@ -204,7 +204,7 @@ def pubmed_search(*args, query: str = "", max_results: int = 5, **kwargs) -> str
         resp = requests.get(f"{NCBI_BASE_URL}/esearch.fcgi", params=params, timeout=30)
         resp.raise_for_status()
         data = resp.json()
-    except Exception as e:
+    except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError) as e:
         return f"[ERROR] PubMed search failed: {e}"
 
     ids = data.get("esearchresult", {}).get("idlist", [])
@@ -226,7 +226,7 @@ def pubmed_search(*args, query: str = "", max_results: int = 5, **kwargs) -> str
         resp = requests.get(f"{NCBI_BASE_URL}/efetch.fcgi", params=fetch_params, timeout=30)
         resp.raise_for_status()
         root = ET.fromstring(resp.text)
-    except Exception as e:
+    except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError) as e:
         return f"[ERROR] PubMed fetch failed: {e}"
 
     lines = [f"PubMed search: '{query}' — {total} total, showing {len(ids)}"]
@@ -295,7 +295,7 @@ def gene_info(*args, gene_name: str = "", **kwargs) -> str:
         resp = requests.get(f"{NCBI_BASE_URL}/esearch.fcgi", params=params, timeout=30)
         resp.raise_for_status()
         data = resp.json()
-    except Exception as e:
+    except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError) as e:
         return f"[ERROR] Gene search failed: {e}"
 
     ids = data.get("esearchresult", {}).get("idlist", [])
@@ -318,7 +318,7 @@ def gene_info(*args, gene_name: str = "", **kwargs) -> str:
         resp = requests.get(f"{NCBI_BASE_URL}/esummary.fcgi", params=fetch_params, timeout=30)
         resp.raise_for_status()
         data = resp.json()
-    except Exception as e:
+    except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError) as e:
         return f"[ERROR] Gene info fetch failed: {e}"
 
     info = data.get("result", {}).get(str(gene_id), {})
@@ -392,7 +392,7 @@ def _fetch_summaries(ids: list[str], db: str) -> list[dict]:
         resp = requests.get(f"{NCBI_BASE_URL}/esummary.fcgi", params=params, timeout=30)
         resp.raise_for_status()
         data = resp.json()
-    except Exception as e:
+    except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError) as e:
         log.warning("esummary failed: %s", e)
         return [{"id": i, "title": "(summary unavailable)", "description": ""} for i in ids]
 

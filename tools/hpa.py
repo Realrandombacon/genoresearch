@@ -23,7 +23,7 @@ def _resolve_ensembl_id(gene: str) -> str:
             if isinstance(ensembl, list):
                 ensembl = ensembl[0]
             return ensembl.get("gene", "")
-    except Exception:
+    except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError):
         pass
     return ""
 
@@ -59,7 +59,7 @@ def hpa_expression(*args, gene: str = "", **kwargs) -> str:
         data = resp.json()
     except requests.exceptions.HTTPError:
         return f"Human Protein Atlas: No data for '{gene}' ({ensembl_id}). Gene may not be in HPA database."
-    except Exception as e:
+    except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError) as e:
         return f"[ERROR] HPA lookup failed for '{gene}': {e}"
 
     # Handle list response (HPA returns a list)

@@ -20,7 +20,7 @@ def _read_gene_queue_current():
             gq = json.load(f)
         if gq.get("in_progress"):
             return gq["in_progress"].get("gene")
-    except Exception:
+    except (FileNotFoundError, json.JSONDecodeError, OSError):
         pass
     return None
 
@@ -47,7 +47,7 @@ def write_status(running: bool = True, cycle: int = 0, phase: str = "idle",
     try:
         with open(DASHBOARD_STATUS, "w", encoding="utf-8") as f:
             json.dump(status, f, indent=2)
-    except Exception as e:
+    except (OSError, TypeError) as e:
         log.warning("Failed to write dashboard status: %s", e)
 
 

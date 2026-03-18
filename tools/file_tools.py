@@ -68,6 +68,6 @@ def read_file(*args, **kwargs) -> str:
 
         return f"[File: {os.path.basename(resolved)} — {size:,} bytes]\n\n{content}"
 
-    except Exception as e:
+    except (FileNotFoundError, OSError, ValueError) as e:
         log.error("Failed to read file '%s': %s", resolved, e)
         return f"[ERROR] Could not read file: {e}"

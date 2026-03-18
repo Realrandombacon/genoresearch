@@ -21,6 +21,9 @@ from config import (
     GROQ_URL, GROQ_API_KEY, GROQ_MODEL,
     LLM_PROVIDER,
 )
+from orchestrator.providers import (
+    _chat_openai_compatible, _recovery_openai_compatible,
+)
 
 def _ui_log(level, msg):
     """Lazy import to avoid circular dependency."""
@@ -38,8 +41,15 @@ log = logging.getLogger("genoresearch.llm")
 # Runtime provider override (set by main.py --provider)
 _provider_override = None
 
+from config import (
+    GROQ_MIN_INTERVAL as _GROQ_MIN_INTERVAL_CFG,
+    FAILOVER_MAX_WAIT as _FAILOVER_MAX_WAIT_CFG,
+    RECOVERY_MAX_TOKENS as _RECOVERY_MAX_TOKENS,
+    LLM_CONTEXT_WINDOW as _LLM_CONTEXT_WINDOW,
+)
+
 # Groq rate limiter
-_GROQ_MIN_INTERVAL = 1.0
+_GROQ_MIN_INTERVAL = _GROQ_MIN_INTERVAL_CFG
 _groq_last_request = 0.0
 
 # ─── Failover state ─────────────────────────────────────────────────────────
@@ -51,7 +61,7 @@ _groq_available_at = 0.0         # timestamp when Groq cooldown ends
 _groq_failover_count = 0         # how many times we've failed over this session
 _ollama_primary_down = False     # True if primary Ollama model failed
 _ollama_primary_retry_at = 0.0   # when to try primary again
-_FAILOVER_MAX_WAIT = 60          # if provider says wait < 60s, just wait
+_FAILOVER_MAX_WAIT = _FAILOVER_MAX_WAIT_CFG
 
 
 def _parse_groq_reset(reset_str: str) -> float:
@@ -118,6 +128,7 @@ def _ollama_primary_set_down(seconds: float = 30):
 # ─── Provider management ────────────────────────────────────────────────────
 
 def set_provider(provider: str):
+    """Override the active LLM provider at runtime."""
     global _provider_override
     _provider_override = provider.lower()
     log.info("LLM provider set to: %s", _provider_override)
@@ -233,7 +244,7 @@ def _chat_ollama(messages: list[dict], model: str = None, temperature: float = 0
             "temperature": temperature,
             "top_p": top_p,
             "num_predict": max_tokens,
-            "num_ctx": 16000,
+            "num_ctx": _LLM_CONTEXT_WINDOW,
         },
     }
 
@@ -284,14 +295,8 @@ def _chat_ollama(messages: list[dict], model: str = None, temperature: float = 0
                 return None
             log.error("Ollama HTTP error: %s", e)
             return None  # any HTTP error should trigger failover
-        except Exception as e:
-            # Catch-all: check if it's a 429 hidden in the error message
-            err_str = str(e)
-            if "429" in err_str or "Too Many Requests" in err_str:
-                log.warning("Ollama 429 (caught via generic handler) — signaling failover")
-                _ollama_primary_set_down(15)
-            else:
-                log.error("Ollama call failed: %s", e)
+        except (ValueError, KeyError) as e:
+            log.error("Ollama call failed (parse error): %s", e)
             return None  # signal failover on unexpected errors too
 
 
@@ -326,7 +331,7 @@ def _recovery_ollama(thought_text: str, model: str = None,
         "think": False,
         "options": {
             "temperature": temperature,
-            "num_predict": 500,
+            "num_predict": _RECOVERY_MAX_TOKENS,
             "num_ctx": 4000,
         },
     }
@@ -339,7 +344,7 @@ def _recovery_ollama(thought_text: str, model: str = None,
             return ""
         log.info("Recovery response (%s): %d chars", model, len(content))
         return content
-    except Exception as e:
+    except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError) as e:
         log.error("Recovery reprompt failed: %s", e)
         return ""
 
@@ -365,39 +370,35 @@ def _chat_cerebras(messages: list[dict], model: str = None, temperature: float =
     """Send chat to Cerebras (OpenAI-compatible). Returns None to signal failover."""
     model = model or CEREBRAS_MODEL
 
-    headers = {
-        "Authorization": f"Bearer {CEREBRAS_API_KEY}",
-        "Content-Type": "application/json",
-    }
-    payload = {
-        "model": model,
-        "messages": messages,
-        "temperature": temperature,
-        "top_p": top_p,
-        "max_tokens": min(max_tokens, 16384),
-    }
-
     try:
-        resp = requests.post(CEREBRAS_URL, json=payload, headers=headers, timeout=120)
-
-        if resp.status_code == 429:
-            # Rate limited — check retry-after header
-            retry_after = float(resp.headers.get("retry-after", 60))
-            if retry_after <= _FAILOVER_MAX_WAIT:
-                log.info("Cerebras rate limited — short wait %.0fs", retry_after)
-                time.sleep(retry_after)
-                resp = requests.post(CEREBRAS_URL, json=payload, headers=headers, timeout=120)
-                if resp.status_code == 429:
-                    retry_after = float(resp.headers.get("retry-after", 300))
+        # First attempt
+        try:
+            return _chat_openai_compatible(
+                CEREBRAS_URL, CEREBRAS_API_KEY, model, messages,
+                temperature, top_p, min(max_tokens, 16384), timeout=120,
+            )
+        except requests.exceptions.HTTPError as e:
+            if hasattr(e, 'response') and e.response is not None and e.response.status_code == 429:
+                retry_after = float(e.response.headers.get("retry-after", 60))
+                if retry_after <= _FAILOVER_MAX_WAIT:
+                    log.info("Cerebras rate limited — short wait %.0fs", retry_after)
+                    time.sleep(retry_after)
+                    # Retry once
+                    try:
+                        return _chat_openai_compatible(
+                            CEREBRAS_URL, CEREBRAS_API_KEY, model, messages,
+                            temperature, top_p, min(max_tokens, 16384), timeout=120,
+                        )
+                    except requests.exceptions.HTTPError as e2:
+                        if hasattr(e2, 'response') and e2.response is not None and e2.response.status_code == 429:
+                            retry_after = float(e2.response.headers.get("retry-after", 300))
+                            _cerebras_set_cooldown(retry_after)
+                            return None
+                        raise
+                else:
                     _cerebras_set_cooldown(retry_after)
                     return None
-            else:
-                _cerebras_set_cooldown(retry_after)
-                return None
-
-        resp.raise_for_status()
-        content = resp.json()["choices"][0]["message"]["content"].strip()
-        return _extract_thinking(content)
+            raise
 
     except requests.exceptions.ConnectionError:
         log.error("Cannot connect to Cerebras API")
@@ -407,59 +408,29 @@ def _chat_cerebras(messages: list[dict], model: str = None, temperature: float =
         log.error("Cerebras timeout")
         _cerebras_set_cooldown(120)
         return None
-    except KeyError:
-        log.error("Unexpected Cerebras response: %s", resp.text[:500])
-        _cerebras_set_cooldown(120)
-        return None  # signal failover
-    except Exception as e:
+    except (KeyError, requests.exceptions.HTTPError) as e:
         log.error("Cerebras call failed: %s", e)
         _cerebras_set_cooldown(120)
-        return None  # signal failover
+        return None
 
 
 def _recovery_cerebras(thought_text: str, model: str = None,
                        temperature: float = 0.5) -> str | None:
     """Recovery reprompt via Cerebras. Returns None to signal failover."""
     model = model or CEREBRAS_MODEL
-    summary = thought_text
-    if summary.startswith("[Reasoning]"):
-        summary = summary[len("[Reasoning]"):].strip()
-    summary = summary[:800]
-
-    recovery_prompt = (
-        f"You just analyzed data and concluded:\n{summary}\n\n"
-        "NOW respond with ONLY a TOOL: line. No explanations. No THOUGHT blocks.\n"
-        "Pick the most logical next step.\n\n"
-        "Examples:\n"
-        "TOOL: ncbi_search('BRCA1', db='gene')\n"
-        "TOOL: save_finding('title', 'description', 'evidence')\n"
-        "TOOL: next_gene()\n"
-        "TOOL: save_finding('gene - title', 'description', 'evidence')\n"
-    )
-
-    headers = {
-        "Authorization": f"Bearer {CEREBRAS_API_KEY}",
-        "Content-Type": "application/json",
-    }
-    payload = {
-        "model": model,
-        "messages": [
-            {"role": "system", "content": "You are a genomics research agent. Respond with ONLY a TOOL: line."},
-            {"role": "user", "content": recovery_prompt},
-        ],
-        "temperature": temperature,
-        "max_tokens": 200,
-    }
 
     try:
-        resp = requests.post(CEREBRAS_URL, json=payload, headers=headers, timeout=60)
-        if resp.status_code == 429:
-            _cerebras_set_cooldown(float(resp.headers.get("retry-after", 300)))
+        return _recovery_openai_compatible(
+            CEREBRAS_URL, CEREBRAS_API_KEY, model,
+            thought_text, temperature, timeout=60,
+        )
+    except requests.exceptions.HTTPError as e:
+        if hasattr(e, 'response') and e.response is not None and e.response.status_code == 429:
+            _cerebras_set_cooldown(float(e.response.headers.get("retry-after", 300)))
             return None
-        resp.raise_for_status()
-        content = resp.json()["choices"][0]["message"]["content"].strip()
-        return content if content else ""
-    except Exception as e:
+        log.error("Cerebras recovery failed: %s", e)
+        return None
+    except (requests.exceptions.ConnectionError, requests.exceptions.Timeout, KeyError) as e:
         log.error("Cerebras recovery failed: %s", e)
         return None
 
@@ -496,39 +467,34 @@ def _chat_groq(messages: list[dict], model: str = None, temperature: float = 0.1
     max_tokens = min(max_tokens, 8192)
     trimmed_messages = _trim_for_groq(messages)
 
-    headers = {
-        "Authorization": f"Bearer {GROQ_API_KEY}",
-        "Content-Type": "application/json",
-    }
-    payload = {
-        "model": model,
-        "messages": trimmed_messages,
-        "temperature": temperature,
-        "top_p": top_p,
-        "max_tokens": max_tokens,
-    }
-
     try:
         _groq_throttle()
-        resp = requests.post(GROQ_URL, json=payload, headers=headers, timeout=120)
-
-        if resp.status_code == 429:
-            wait = _get_groq_wait(resp)
-            if wait <= _FAILOVER_MAX_WAIT:
-                log.info("Groq rate limited — short wait %.0fs", wait)
-                time.sleep(wait)
-                _groq_throttle()
-                resp = requests.post(GROQ_URL, json=payload, headers=headers, timeout=120)
-                if resp.status_code == 429:
-                    _groq_set_cooldown(_get_groq_wait(resp))
+        try:
+            return _chat_openai_compatible(
+                GROQ_URL, GROQ_API_KEY, model, trimmed_messages,
+                temperature, top_p, max_tokens, timeout=120,
+            )
+        except requests.exceptions.HTTPError as e:
+            if hasattr(e, 'response') and e.response is not None and e.response.status_code == 429:
+                wait = _get_groq_wait(e.response)
+                if wait <= _FAILOVER_MAX_WAIT:
+                    log.info("Groq rate limited — short wait %.0fs", wait)
+                    time.sleep(wait)
+                    _groq_throttle()
+                    try:
+                        return _chat_openai_compatible(
+                            GROQ_URL, GROQ_API_KEY, model, trimmed_messages,
+                            temperature, top_p, max_tokens, timeout=120,
+                        )
+                    except requests.exceptions.HTTPError as e2:
+                        if hasattr(e2, 'response') and e2.response is not None and e2.response.status_code == 429:
+                            _groq_set_cooldown(_get_groq_wait(e2.response))
+                            return None
+                        raise
+                else:
+                    _groq_set_cooldown(wait)
                     return None
-            else:
-                _groq_set_cooldown(wait)
-                return None
-
-        resp.raise_for_status()
-        content = resp.json()["choices"][0]["message"]["content"].strip()
-        return _extract_thinking(content)
+            raise
 
     except requests.exceptions.ConnectionError:
         log.error("Cannot connect to Groq API")
@@ -538,80 +504,35 @@ def _chat_groq(messages: list[dict], model: str = None, temperature: float = 0.1
         log.error("Groq timeout")
         _groq_set_cooldown(120)
         return None
-    except KeyError:
-        log.error("Unexpected Groq response: %s", resp.text[:500])
-        _groq_set_cooldown(120)
-        return None  # signal failover
-    except Exception as e:
+    except (KeyError, requests.exceptions.HTTPError) as e:
         log.error("Groq call failed: %s", e)
         _groq_set_cooldown(120)
-        return None  # signal failover
+        return None
 
 
 def _recovery_groq(thought_text: str, model: str = None,
                    temperature: float = 0.5) -> str | None:
     """Recovery reprompt via Groq. Returns None to signal failover."""
     model = model or GROQ_MODEL
-    summary = thought_text
-    if summary.startswith("[Reasoning]"):
-        summary = summary[len("[Reasoning]"):].strip()
-    summary = summary[:800]
-
-    recovery_prompt = (
-        f"You just analyzed data and concluded:\n{summary}\n\n"
-        "NOW respond with ONLY a TOOL: line. No explanations. No THOUGHT blocks.\n"
-        "Pick the most logical next step.\n\n"
-        "Examples:\n"
-        "TOOL: ncbi_search('BRCA1', db='gene')\n"
-        "TOOL: save_finding('title', 'description', 'evidence')\n"
-        "TOOL: next_gene()\n"
-        "TOOL: save_finding('gene - title', 'description', 'evidence')\n"
-    )
-
-    headers = {
-        "Authorization": f"Bearer {GROQ_API_KEY}",
-        "Content-Type": "application/json",
-    }
-    payload = {
-        "model": model,
-        "messages": [
-            {"role": "system", "content": "You are a genomics research agent. Respond with ONLY a TOOL: line. No other text."},
-            {"role": "user", "content": recovery_prompt},
-        ],
-        "temperature": temperature,
-        "max_tokens": 200,
-    }
 
     try:
         _groq_throttle()
-        resp = requests.post(GROQ_URL, json=payload, headers=headers, timeout=60)
-        if resp.status_code == 429:
-            _groq_set_cooldown(_get_groq_wait(resp))
+        return _recovery_openai_compatible(
+            GROQ_URL, GROQ_API_KEY, model,
+            thought_text, temperature, timeout=60,
+        )
+    except requests.exceptions.HTTPError as e:
+        if hasattr(e, 'response') and e.response is not None and e.response.status_code == 429:
+            _groq_set_cooldown(_get_groq_wait(e.response))
             return None
-        resp.raise_for_status()
-        content = resp.json()["choices"][0]["message"]["content"].strip()
-        return content if content else ""
-    except Exception as e:
+        log.error("Recovery reprompt failed: %s", e)
+        return None
+    except (requests.exceptions.ConnectionError, requests.exceptions.Timeout, KeyError) as e:
         log.error("Recovery reprompt failed: %s", e)
         return None
 
 
-# ─── Common helpers ──────────────────────────────────────────────────────────
-
-def _extract_thinking(content: str) -> str:
-    """Extract and format <think> blocks from content."""
-    thinking_parts = _THINK_PATTERN.findall(content)
-    visible = _THINK_PATTERN.sub("", content).strip()
-
-    if thinking_parts:
-        thinking = "\n".join(t.strip() for t in thinking_parts if t.strip())
-        if visible:
-            return f"[Reasoning] {thinking}\n\n{visible}"
-        return f"[Reasoning] {thinking}"
-    return content
-
-
-# ─── Public API — 3-tier dispatch ────────────────────────────────────────────
+# ─── Public API — 4-tier dispatch ────────────────────────────────────────────
 
 def chat(messages: list[dict], model: str = None, temperature: float = 0.1,
          top_p: float = 0.85, max_tokens: int = 16384) -> str:

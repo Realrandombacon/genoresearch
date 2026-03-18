@@ -1,0 +1,3419 @@
+{
+  "queue": [],
+  "completed": [
+    {
+      "gene": "C10orf1",
+      "started": "2026-03-18T00:02:23.004786",
+      "steps_done": [],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T00:03:52.953301"
+    },
+    {
+      "gene": "CFAP46",
+      "finished": "2026-03-18T00:05:58.064717",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "CC2D2B",
+      "finished": "2026-03-18T00:08:22.534113",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "GOLGA7B",
+      "finished": "2026-03-18T00:10:53.914090",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C11ORF23",
+      "started": "2026-03-18T00:17:21.249301",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T00:19:09.901363"
+    },
+    {
+      "gene": "C11orf32",
+      "started": "2026-03-18T00:19:40.759672",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T00:21:05.611731"
+    },
+    {
+      "gene": "C11orf43",
+      "started": "2026-03-18T00:21:09.008109",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T00:22:31.547962"
+    },
+    {
+      "gene": "BRSK2",
+      "finished": "2026-03-18T00:27:02.115425",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C11orf7",
+      "started": "2026-03-18T00:25:13.572852",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T00:27:05.472215"
+    },
+    {
+      "gene": "ANO2",
+      "finished": "2026-03-18T00:28:40.875707",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C12ORF3",
+      "started": "2026-03-18T00:27:05.484258",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T00:28:44.156485"
+    },
+    {
+      "gene": "CFAP54",
+      "finished": "2026-03-18T00:34:14.700442",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C12orf63",
+      "started": "2026-03-18T00:32:53.211645",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T00:34:19.941102"
+    },
+    {
+      "gene": "ANKRD33",
+      "finished": "2026-03-18T00:35:38.066272",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C12orf7",
+      "started": "2026-03-18T00:34:19.956072",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T00:35:41.836195"
+    },
+    {
+      "gene": "FOXN3",
+      "finished": "2026-03-18T00:42:03.439273",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "NGDN",
+      "finished": "2026-03-18T00:43:53.343099",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "ER",
+      "finished": "2026-03-18T00:45:27.938876",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "TSSK4",
+      "finished": "2026-03-18T01:02:08.946910",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C14orf33",
+      "started": "2026-03-18T01:02:12.285468",
+      "steps_done": [
+        "discover",
+        "annotate",
+        "translate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T01:03:35.193229"
+    },
+    {
+      "gene": "ACOT6",
+      "finished": "2026-03-18T01:08:39.684157",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C14orf42",
+      "started": "2026-03-18T01:07:25.929255",
+      "steps_done": [
+        "discover",
+        "annotate",
+        "translate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T01:08:42.716877"
+    },
+    {
+      "gene": "C14orf62",
+      "started": "2026-03-18T01:13:27.872350",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T01:14:25.872603"
+    },
+    {
+      "gene": "C14orf77",
+      "started": "2026-03-18T01:15:00.993546",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T01:16:25.993709"
+    },
+    {
+      "gene": "TMEM53",
+      "started": "2026-03-18T01:18:10.632458",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "uniprot_search",
+      "finished": "2026-03-18T01:19:13.994340"
+    },
+    {
+      "gene": "C9orf85",
+      "started": "2026-03-18T01:19:17.288192",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "ncbi_search",
+      "finished": "2026-03-18T01:20:30.926381"
+    },
+    {
+      "gene": "C1orf35",
+      "started": "2026-03-18T01:20:33.735334",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "ncbi_search",
+      "finished": "2026-03-18T01:21:47.555681"
+    },
+    {
+      "gene": "CZIB",
+      "started": "2026-03-18T01:21:51.450512",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "uniprot_search",
+      "finished": "2026-03-18T01:23:11.186165"
+    },
+    {
+      "gene": "TSBP1",
+      "started": "2026-03-18T01:23:15.594625",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "ncbi_search",
+      "finished": "2026-03-18T01:24:26.893893"
+    },
+    {
+      "gene": "CFAP410",
+      "started": "2026-03-18T01:24:29.950788",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "",
+      "finished": "2026-03-18T01:25:46.779412"
+    },
+    {
+      "gene": "FAM83A",
+      "started": "2026-03-18T01:25:49.871991",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "uniprot_search",
+      "finished": "2026-03-18T01:26:44.575939"
+    },
+    {
+      "gene": "VOPP1",
+      "started": "2026-03-18T01:26:47.999011",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "ncbi_search",
+      "finished": "2026-03-18T01:27:50.812830"
+    },
+    {
+      "gene": "TMEM43",
+      "started": "2026-03-18T01:27:54.437213",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "ncbi_search",
+      "finished": "2026-03-18T01:28:58.602505"
+    },
+    {
+      "gene": "C14orf88",
+      "started": "2026-03-18T01:29:01.933747",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T01:31:55.027541"
+    },
+    {
+      "gene": "WFIKKN1",
+      "finished": "2026-03-18T01:42:26.894035",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "WDR90",
+      "finished": "2026-03-18T01:43:42.579899",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C16orf2",
+      "started": "2026-03-18T01:48:06.224811",
+      "steps_done": [
+        "discover",
+        "annotate",
+        "translate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T01:49:46.069745"
+    },
+    {
+      "gene": "GATOR2",
+      "finished": "2026-03-18T01:51:12.823426",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "CHTF18",
+      "finished": "2026-03-18T02:08:13.165796",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C16orf47",
+      "started": "2026-03-18T02:11:35.445427",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T02:13:01.283793"
+    },
+    {
+      "gene": "C16orf8",
+      "started": "2026-03-18T02:13:14.497224",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T02:14:22.690922"
+    },
+    {
+      "gene": "C17orf10",
+      "started": "2026-03-18T02:14:55.528771",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T02:16:38.052361"
+    },
+    {
+      "gene": "CDH8",
+      "finished": "2026-03-18T02:32:30.342578",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "SLC39A11",
+      "finished": "2026-03-18T02:34:33.051548",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C17orf26",
+      "started": "2026-03-18T02:32:58.445389",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T02:34:47.330629"
+    },
+    {
+      "gene": "CCDC68",
+      "started": "2026-03-18T02:34:47.341651",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "ncbi_search",
+      "finished": "2026-03-18T02:36:13.449317"
+    },
+    {
+      "gene": "LRRC1",
+      "started": "2026-03-18T02:36:57.623301",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "ncbi_search",
+      "finished": "2026-03-18T02:38:09.463824"
+    },
+    {
+      "gene": "ILRUN",
+      "started": "2026-03-18T02:38:35.843026",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "ncbi_search",
+      "finished": "2026-03-18T02:40:34.239996"
+    },
+    {
+      "gene": "FAM180B",
+      "started": "2026-03-18T02:40:34.252962",
+      "steps_done": [
+        "annotate"
+      ],
+      "source": "ncbi_search",
+      "finished": "2026-03-18T02:41:32.859990"
+    },
+    {
+      "gene": "MTNAP1",
+      "started": "2026-03-18T02:41:37.087939",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "uniprot_search",
+      "finished": "2026-03-18T02:45:05.249875"
+    },
+    {
+      "gene": "ADISSP",
+      "started": "2026-03-18T02:45:08.822508",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "ncbi_search",
+      "finished": "2026-03-18T02:47:46.772031"
+    },
+    {
+      "gene": "CDH10",
+      "finished": "2026-03-18T02:53:52.594611",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "RNF213",
+      "finished": "2026-03-18T02:55:30.033883",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C17orf27",
+      "started": "2026-03-18T02:53:56.618057",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T02:55:33.947170"
+    },
+    {
+      "gene": "HID1",
+      "finished": "2026-03-18T02:56:51.190946",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C17orf28",
+      "started": "2026-03-18T02:55:33.962146",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T02:57:04.086945"
+    },
+    {
+      "gene": "VMA12",
+      "finished": "2026-03-18T02:58:30.071414",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C17orf32",
+      "started": "2026-03-18T02:57:04.104912",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T02:58:41.702707"
+    },
+    {
+      "gene": "SEPTIN4",
+      "finished": "2026-03-18T03:03:44.331309",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C17orf47",
+      "started": "2026-03-18T03:01:50.484491",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T03:03:48.036843"
+    },
+    {
+      "gene": "SUN",
+      "finished": "2026-03-18T03:28:38.587825",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C1ORF9",
+      "started": "2026-03-18T03:27:19.698437",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T03:28:42.830494"
+    },
+    {
+      "gene": "PHACTR3",
+      "finished": "2026-03-18T03:55:47.203451",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "TTLL9",
+      "finished": "2026-03-18T03:57:17.548337",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "TBC1D20",
+      "finished": "2026-03-18T03:59:03.389707",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "TMC2",
+      "finished": "2026-03-18T03:59:53.949352",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "SRMS",
+      "finished": "2026-03-18T04:00:52.821975",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "ADAM33",
+      "finished": "2026-03-18T04:02:57.639124",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "ZNF840P",
+      "finished": "2026-03-18T04:05:07.444660",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "DIDO1",
+      "finished": "2026-03-18T04:07:15.859843",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "XKR7",
+      "finished": "2026-03-18T04:08:11.082651",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "NOP16",
+      "started": "2026-03-18T04:08:15.033789",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "ncbi_search",
+      "finished": "2026-03-18T04:09:10.230312"
+    },
+    {
+      "gene": "ADAM10",
+      "started": "2026-03-18T04:09:14.938250",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "ncbi_search",
+      "finished": "2026-03-18T04:10:46.306733"
+    },
+    {
+      "gene": "LOC102723476",
+      "started": "2026-03-18T04:10:52.254631",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "ncbi_search",
+      "finished": "2026-03-18T04:12:05.610121"
+    },
+    {
+      "gene": "C9ORF72",
+      "finished": "2026-03-18T04:13:43.747217",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "RBM33",
+      "started": "2026-03-18T04:13:47.342399",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "ncbi_search",
+      "finished": "2026-03-18T04:15:38.679193"
+    },
+    {
+      "gene": "KIAA0511",
+      "started": "2026-03-18T04:15:42.185232",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "ncbi_search",
+      "finished": "2026-03-18T04:17:00.930762"
+    },
+    {
+      "gene": "C20orf17",
+      "started": "2026-03-18T04:17:05.013250",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T04:18:30.946314"
+    },
+    {
+      "gene": "C20orf182",
+      "started": "2026-03-18T04:18:36.678307",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T04:19:33.907968"
+    },
+    {
+      "gene": "C20orf186",
+      "started": "2026-03-18T04:19:37.221085",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T04:20:55.102798"
+    },
+    {
+      "gene": "C20orf193",
+      "started": "2026-03-18T04:20:58.281098",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T04:22:59.818873"
+    },
+    {
+      "gene": "C20orf22",
+      "started": "2026-03-18T04:23:04.198018",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T04:24:11.491203"
+    },
+    {
+      "gene": "C20orf57",
+      "started": "2026-03-18T04:24:14.944750",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T04:25:43.956368"
+    },
+    {
+      "gene": "C20orf67",
+      "started": "2026-03-18T04:25:48.032952",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T04:27:12.347736"
+    },
+    {
+      "gene": "C20orf74",
+      "started": "2026-03-18T04:27:15.613279",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T04:28:33.462902"
+    },
+    {
+      "gene": "C20orf95",
+      "started": "2026-03-18T04:29:01.455330",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T04:30:31.487959"
+    },
+    {
+      "gene": "C21orf81",
+      "started": "2026-03-18T04:50:55.863127",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T04:52:06.406320"
+    },
+    {
+      "gene": "C21orf85",
+      "started": "2026-03-18T04:52:10.136120",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T04:53:09.411858"
+    },
+    {
+      "gene": "C21orf86",
+      "started": "2026-03-18T04:53:13.524434",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T04:54:05.273696"
+    },
+    {
+      "gene": "C21orf87",
+      "started": "2026-03-18T04:54:09.611916",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T04:55:44.536393"
+    },
+    {
+      "gene": "C21orf9",
+      "started": "2026-03-18T04:55:48.615114",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T04:56:29.931275"
+    },
+    {
+      "gene": "C21ORF91",
+      "finished": "2026-03-18T04:57:26.268920",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C21orf91-OT1",
+      "started": "2026-03-18T04:56:33.527602",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T04:57:36.375023"
+    },
+    {
+      "gene": "C21orf97",
+      "started": "2026-03-18T04:57:36.387991",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T04:58:22.583737"
+    },
+    {
+      "gene": "C21orf98",
+      "started": "2026-03-18T04:58:34.954355",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T04:59:38.640337"
+    },
+    {
+      "gene": "C22orf12",
+      "started": "2026-03-18T04:59:43.296380",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:00:45.272856"
+    },
+    {
+      "gene": "C22orf14",
+      "started": "2026-03-18T05:00:50.878802",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:01:56.533525"
+    },
+    {
+      "gene": "C22orf18",
+      "started": "2026-03-18T05:02:01.832039",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:03:27.036604"
+    },
+    {
+      "gene": "C2orf12",
+      "started": "2026-03-18T05:03:43.716773",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:04:45.099861"
+    },
+    {
+      "gene": "C2orf20",
+      "started": "2026-03-18T05:04:48.469595",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:05:44.811086"
+    },
+    {
+      "gene": "C2orf31",
+      "started": "2026-03-18T05:05:49.402946",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:07:08.327742"
+    },
+    {
+      "gene": "C2orf48",
+      "started": "2026-03-18T05:07:13.530587",
+      "steps_done": [
+        "discover",
+        "annotate",
+        "translate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:10:30.877565"
+    },
+    {
+      "gene": "C2ORF49",
+      "finished": "2026-03-18T05:13:00.141727",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C2orf49-DT",
+      "started": "2026-03-18T05:10:36.732564",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:13:03.227357"
+    },
+    {
+      "gene": "C2ORF74",
+      "finished": "2026-03-18T05:13:47.886486",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C2orf74-AS1",
+      "started": "2026-03-18T05:13:03.240355",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:13:52.546814"
+    },
+    {
+      "gene": "C2orf74-DT",
+      "started": "2026-03-18T05:13:52.561761",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:14:37.144821"
+    },
+    {
+      "gene": "C3orf1",
+      "started": "2026-03-18T05:14:37.159787",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:16:02.516469"
+    },
+    {
+      "gene": "C3orf7",
+      "started": "2026-03-18T05:16:37.263782",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:18:04.834092"
+    },
+    {
+      "gene": "C4orf13",
+      "started": "2026-03-18T05:18:09.238362",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:19:18.719025"
+    },
+    {
+      "gene": "C4orf5",
+      "started": "2026-03-18T05:19:22.351702",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:20:37.688772"
+    },
+    {
+      "gene": "C5ORF15",
+      "finished": "2026-03-18T05:21:43.761158",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C5orf15-DT",
+      "started": "2026-03-18T05:20:50.392640",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:21:47.227173"
+    },
+    {
+      "gene": "LOC255218",
+      "started": "2026-03-18T05:21:47.240171",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "ncbi_search",
+      "finished": "2026-03-18T05:22:36.596174"
+    },
+    {
+      "gene": "OR4F16",
+      "started": "2026-03-18T05:22:51.545100",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "ncbi_search",
+      "finished": "2026-03-18T05:24:55.364269"
+    },
+    {
+      "gene": "FAM3C",
+      "started": "2026-03-18T05:25:56.867117",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "ncbi_search",
+      "finished": "2026-03-18T05:27:08.573389"
+    },
+    {
+      "gene": "C5orf23",
+      "started": "2026-03-18T05:27:12.890507",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:28:44.298759"
+    },
+    {
+      "gene": "C5ORF34",
+      "finished": "2026-03-18T05:29:48.025552",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C5orf34-AS1",
+      "started": "2026-03-18T05:28:47.993882",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:29:51.510633"
+    },
+    {
+      "gene": "C6ORF6",
+      "started": "2026-03-18T05:30:26.814449",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:32:22.692737"
+    },
+    {
+      "gene": "C6orf116",
+      "started": "2026-03-18T05:32:26.964067",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:34:17.144222"
+    },
+    {
+      "gene": "C6orf117",
+      "started": "2026-03-18T05:34:20.789903",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:35:43.698282"
+    },
+    {
+      "gene": "C6orf125",
+      "started": "2026-03-18T05:35:56.800011",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:37:25.355037"
+    },
+    {
+      "gene": "C6orf129",
+      "started": "2026-03-18T05:37:29.158151",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:40:15.156757"
+    },
+    {
+      "gene": "C6orf131",
+      "started": "2026-03-18T05:41:17.407893",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:43:19.562070"
+    },
+    {
+      "gene": "C6orf144",
+      "started": "2026-03-18T05:43:23.670684",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:45:11.882069"
+    },
+    {
+      "gene": "C6orf156",
+      "started": "2026-03-18T05:45:15.395286",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:46:58.992151"
+    },
+    {
+      "gene": "C6orf175",
+      "started": "2026-03-18T05:47:02.588480",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:48:41.816912"
+    },
+    {
+      "gene": "C6orf178",
+      "started": "2026-03-18T05:48:46.735846",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:50:44.061324"
+    },
+    {
+      "gene": "C6orf193",
+      "started": "2026-03-18T05:50:47.215067",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:52:11.795566"
+    },
+    {
+      "gene": "C6orf207",
+      "started": "2026-03-18T05:52:53.634939",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T05:54:42.979864"
+    },
+    {
+      "gene": "MCM9",
+      "finished": "2026-03-18T06:03:45.301751",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "IYD",
+      "finished": "2026-03-18T06:05:10.614153",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "SYNE1",
+      "finished": "2026-03-18T06:08:01.614957",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "CHCHD2",
+      "finished": "2026-03-18T06:09:36.792250",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "SAMD9",
+      "finished": "2026-03-18T06:11:38.908884",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C7orf5",
+      "started": "2026-03-18T06:09:50.784424",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T06:11:42.137157"
+    },
+    {
+      "gene": "SAMD9L",
+      "finished": "2026-03-18T06:12:54.776122",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "SEM1",
+      "finished": "2026-03-18T06:15:33.423612",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "CTTNBP2",
+      "finished": "2026-03-18T06:16:29.588052",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C8ORF44",
+      "finished": "2026-03-18T06:26:29.736429",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C8orf44-SGK3",
+      "started": "2026-03-18T06:25:31.623088",
+      "steps_done": [
+        "discover",
+        "annotate",
+        "translate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T06:26:33.343620"
+    },
+    {
+      "gene": "ERCC6L2",
+      "finished": "2026-03-18T06:35:01.977750",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C9orf103",
+      "started": "2026-03-18T06:35:15.235228",
+      "steps_done": [
+        "discover",
+        "annotate",
+        "translate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T06:36:44.208044"
+    },
+    {
+      "gene": "CCDC187",
+      "finished": "2026-03-18T06:38:43.589478",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C1ORF167",
+      "finished": "2026-03-18T06:40:13.965884",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "TMEFF1",
+      "finished": "2026-03-18T06:52:21.909371",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C9orf2",
+      "started": "2026-03-18T06:51:27.842161",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T06:52:25.187533"
+    },
+    {
+      "gene": "TTLL11",
+      "finished": "2026-03-18T06:53:17.011025",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C9orf20",
+      "started": "2026-03-18T06:52:25.202521",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T06:53:27.151893"
+    },
+    {
+      "gene": "AOPEP",
+      "finished": "2026-03-18T06:54:44.593002",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C9orf3",
+      "started": "2026-03-18T06:53:27.166880",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T06:54:48.748400"
+    },
+    {
+      "gene": "DENN",
+      "finished": "2026-03-18T06:58:45.020001",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C9orf55B",
+      "started": "2026-03-18T06:56:55.493596",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T06:58:49.317616"
+    },
+    {
+      "gene": "THO",
+      "finished": "2026-03-18T07:01:28.478541",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "CXorf3",
+      "started": "2026-03-18T07:00:18.850637",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T07:01:32.629670"
+    },
+    {
+      "gene": "CXorf49C",
+      "started": "2026-03-18T07:04:09.913735",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T07:05:03.465045"
+    },
+    {
+      "gene": "CXorf51A",
+      "started": "2026-03-18T07:06:29.974899",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T07:07:50.885774"
+    },
+    {
+      "gene": "CYorf15B",
+      "started": "2026-03-18T07:08:35.300070",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "dark_genes_reference.tsv",
+      "finished": "2026-03-18T07:09:31.796531"
+    },
+    {
+      "gene": "NKAPD1",
+      "started": "2026-03-18T07:27:02.816608",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "uniprot_search",
+      "finished": "2026-03-18T07:28:22.281587"
+    },
+    {
+      "gene": "FAM3A",
+      "started": "2026-03-18T07:30:31.782026",
+      "steps_done": [
+        "discover",
+        "annotate"
+      ],
+      "source": "uniprot_search",
+      "finished": "2026-03-18T07:31:51.839487"
+    },
+    {
+      "gene": "CCDC149",
+      "finished": "2026-03-18T07:37:45.411235",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "FAM180A",
+      "finished": "2026-03-18T07:39:25.166903",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C20ORF202",
+      "finished": "2026-03-18T07:41:29.102290",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C12ORF76",
+      "finished": "2026-03-18T07:46:44.391590",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C11ORF98",
+      "finished": "2026-03-18T07:51:17.317483",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C20ORF203",
+      "finished": "2026-03-18T07:53:07.158009",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C1ORF198",
+      "finished": "2026-03-18T07:54:48.420854",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C5ORF22",
+      "finished": "2026-03-18T07:56:26.811849",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C12ORF42",
+      "finished": "2026-03-18T08:01:02.550466",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C16ORF96",
+      "finished": "2026-03-18T08:03:37.223891",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "ARMH1",
+      "finished": "2026-03-18T08:06:56.376438",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C1ORF141",
+      "finished": "2026-03-18T08:08:01.592641",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "SPATA31H1",
+      "finished": "2026-03-18T08:09:23.851606",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C3ORF38",
+      "finished": "2026-03-18T08:10:33.632910",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "SMIM20",
+      "finished": "2026-03-18T08:12:42.193158",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C7ORF13",
+      "finished": "2026-03-18T08:17:19.108679",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "FAM167A",
+      "finished": "2026-03-18T08:19:18.708087",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "TOR4A",
+      "finished": "2026-03-18T08:20:49.912683",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C10ORF114",
+      "finished": "2026-03-18T08:23:21.071046",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C11ORF96",
+      "finished": "2026-03-18T08:24:42.863709",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C13ORF46",
+      "finished": "2026-03-18T08:29:32.481120",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C17ORF98",
+      "finished": "2026-03-18T08:34:07.071511",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C18ORF54",
+      "finished": "2026-03-18T08:36:08.993778",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C19ORF53",
+      "finished": "2026-03-18T08:38:35.186838",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C22ORF31",
+      "finished": "2026-03-18T08:42:44.436152",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "CIMIP6",
+      "finished": "2026-03-18T08:46:55.828684",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "ACTMAP",
+      "finished": "2026-03-18T08:49:13.753298",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C3ORF36",
+      "finished": "2026-03-18T08:51:26.823925",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C4ORF51",
+      "finished": "2026-03-18T08:53:27.134801",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C6ORF132",
+      "finished": "2026-03-18T08:56:40.904447",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C8ORF33",
+      "finished": "2026-03-18T09:00:25.022998",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "TMEM268",
+      "finished": "2026-03-18T09:02:53.429729",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C12ORF75",
+      "finished": "2026-03-18T09:09:01.787590",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C15ORF39",
+      "finished": "2026-03-18T09:13:16.281622",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C17ORF107",
+      "finished": "2026-03-18T09:16:48.756765",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C19ORF47",
+      "finished": "2026-03-18T09:21:05.054180",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "CFAP96",
+      "finished": "2026-03-18T09:32:15.529123",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C5ORF46",
+      "finished": "2026-03-18T09:35:05.815115",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "CYREN",
+      "finished": "2026-03-18T09:37:23.203823",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "CCDC186",
+      "finished": "2026-03-18T09:44:02.778825",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C2ORF72",
+      "finished": "2026-03-18T09:53:05.973432",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C6ORF120",
+      "finished": "2026-03-18T10:01:57.847328",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "CYSRT1",
+      "finished": "2026-03-18T10:07:38.458161",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C11ORF71",
+      "finished": "2026-03-18T10:13:10.921458",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C1ORF52",
+      "finished": "2026-03-18T10:34:23.710311",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C1ORF226",
+      "finished": "2026-03-18T10:37:04.185139",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C2ORF73",
+      "finished": "2026-03-18T10:38:52.257303",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C12ORF60",
+      "finished": "2026-03-18T10:49:04.549227",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C20ORF141",
+      "finished": "2026-03-18T10:51:32.635463",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "SPMAP1",
+      "finished": "2026-03-18T10:58:34.464477",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C11ORF86",
+      "finished": "2026-03-18T11:01:00.242423",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "NICOL1",
+      "finished": "2026-03-18T11:20:40.971371",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "SMIM24",
+      "finished": "2026-03-18T11:55:21.413794",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C8ORF48",
+      "finished": "2026-03-18T11:58:41.767788",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C11ORF21",
+      "finished": "2026-03-18T12:13:30.269799",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C6ORF136",
+      "finished": "2026-03-18T12:18:02.451366",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "CHCT1",
+      "finished": "2026-03-18T12:40:14.491044",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C6ORF15",
+      "finished": "2026-03-18T12:44:50.337785",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C10ORF105",
+      "finished": "2026-03-18T12:46:35.596291",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C12ORF43",
+      "finished": "2026-03-18T13:08:48.023454",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "SPEM2",
+      "finished": "2026-03-18T13:10:35.011356",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "FIRRM",
+      "finished": "2026-03-18T13:13:13.500786",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C22ORF15",
+      "finished": "2026-03-18T13:17:44.289251",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C1ORF94",
+      "finished": "2026-03-18T13:22:24.146028",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "SMIM15",
+      "finished": "2026-03-18T13:28:27.423369",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "KIAA0930",
+      "finished": "2026-03-18T14:07:48.475387",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "BBLN",
+      "finished": "2026-03-18T14:12:06.150364",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C17ORF75",
+      "finished": "2026-03-18T14:14:13.926369",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C12ORF71",
+      "finished": "2026-03-18T15:09:41.652340",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "MEDAG",
+      "finished": "2026-03-18T15:11:53.818495",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "CCDC9B",
+      "finished": "2026-03-18T15:14:15.821742",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "CLMB",
+      "finished": "2026-03-18T15:16:51.780536",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "MYDGF",
+      "finished": "2026-03-18T15:21:12.910196",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C22ORF42",
+      "finished": "2026-03-18T15:24:02.440372",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C3ORF22",
+      "finished": "2026-03-18T15:27:23.745172",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C12ORF56",
+      "finished": "2026-03-18T15:29:06.616292",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C11ORF16",
+      "finished": "2026-03-18T15:31:13.826614",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C11ORF42",
+      "finished": "2026-03-18T15:38:00.467288",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C4ORF33",
+      "finished": "2026-03-18T16:05:18.770467",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "FAM221A",
+      "finished": "2026-03-18T16:09:45.447770",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C10ORF67",
+      "finished": "2026-03-18T16:21:37.715092",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "RUSF1",
+      "finished": "2026-03-18T16:35:22.638553",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "ARK2N",
+      "finished": "2026-03-18T16:38:23.654538",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C9ORF40",
+      "finished": "2026-03-18T16:57:26.779231",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C19ORF38",
+      "finished": "2026-03-18T17:13:08.837629",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C11ORF87",
+      "finished": "2026-03-18T17:21:22.390021",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "CCDC197",
+      "finished": "2026-03-18T17:23:20.051989",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C19ORF33",
+      "finished": "2026-03-18T17:26:20.451459",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "BRCA1",
+      "finished": "2026-03-18T17:45:23.785107",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "TP53",
+      "finished": "2026-03-18T17:45:23.812107",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    },
+    {
+      "gene": "C14ORF93",
+      "finished": "2026-03-18T17:45:35.068903",
+      "steps_done": [
+        "discover",
+        "hypothesize"
+      ],
+      "source": "auto-registered from save_finding"
+    }
+  ],
+  "skipped": [
+    {
+      "gene": "C10orf124",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T00:06:01.704966"
+    },
+    {
+      "gene": "C10orf131",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T00:08:25.683663"
+    },
+    {
+      "gene": "C10orf133",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T00:10:58.164358"
+    },
+    {
+      "gene": "C10orf3",
+      "reason": "CEP55 is well-characterized: named centrosomal protein with defined TSG101/ALIX binding domain",
+      "skipped_at": "2026-03-18T00:12:18.300376"
+    },
+    {
+      "gene": "C10orf67-AS1",
+      "reason": "C10orf67-AS1 is a long non-coding RNA (antisense transcript)",
+      "skipped_at": "2026-03-18T00:12:47.528485"
+    },
+    {
+      "gene": "C10orf71-AS1",
+      "reason": "C10orf71-AS1 is a long non-coding RNA (antisense transcript)",
+      "skipped_at": "2026-03-18T00:15:53.083215"
+    },
+    {
+      "gene": "C10orf95-AS1",
+      "reason": "C10orf95-AS1 is a long non-coding RNA (antisense transcript)",
+      "skipped_at": "2026-03-18T00:16:14.090408"
+    },
+    {
+      "gene": "C11orf26",
+      "reason": "C11orf26 was DISCONTINUED/withdrawn by HGNC - not a valid gene record",
+      "skipped_at": "2026-03-18T00:19:37.482775"
+    },
+    {
+      "gene": "C11orf6",
+      "reason": "C11orf6 is DISCONTINUED by HGNC - not a valid gene record",
+      "skipped_at": "2026-03-18T00:22:43.153645"
+    },
+    {
+      "gene": "C11orf62",
+      "reason": "C11orf62 is DISCONTINUED/withdrawn by HGNC - not a valid gene record",
+      "skipped_at": "2026-03-18T00:23:16.285156"
+    },
+    {
+      "gene": "C12ORF5",
+      "reason": "C12ORF5 is TIGAR - a well-studied p53 target gene regulating glycolysis and apoptosis, not a dark gene",
+      "skipped_at": "2026-03-18T00:29:09.024359"
+    },
+    {
+      "gene": "C12ORF6",
+      "reason": "C12ORF6 is PARP11 - a well-characterized ADP-ribosyltransferase involved in interferon response and viral restriction, not a dark gene",
+      "skipped_at": "2026-03-18T00:29:44.803734"
+    },
+    {
+      "gene": "C12orf42-AS1",
+      "reason": "C12orf42-AS1 is a long non-coding antisense RNA, not a protein-coding gene - no UniProt/InterPro/AlphaFold data applicable",
+      "skipped_at": "2026-03-18T00:32:49.602174"
+    },
+    {
+      "gene": "C12orf75-AS1",
+      "reason": "C12orf75-AS1 is a long non-coding antisense RNA, not a protein-coding gene - no UniProt/InterPro/AlphaFold data applicable",
+      "skipped_at": "2026-03-18T00:36:02.355059"
+    },
+    {
+      "gene": "C12orf9",
+      "reason": "C12orf9 is a discontinued/withdrawn gene record by NCBI and HGNC - based on putative translocation sequences, not a valid protein-coding gene",
+      "skipped_at": "2026-03-18T00:36:21.733117"
+    },
+    {
+      "gene": "C13orf20",
+      "reason": "C13orf20 is actually UFM1 (Ubiquitin-fold modifier 1), a well-characterized ubiquitin-like protein modifier - not a dark gene. UFM1 is extensively studied in the UFM1 conjugation pathway with known structure, function, and disease associations including leukodystrophy",
+      "skipped_at": "2026-03-18T00:40:26.159562"
+    },
+    {
+      "gene": "C14orf113",
+      "reason": "C14orf113 is a discontinued/withdrawn gene record by HGNC - defined by AK000041.1 which was a probable cloning artifact, not a valid protein-coding gene",
+      "skipped_at": "2026-03-18T00:40:44.594535"
+    },
+    {
+      "gene": "C14orf116",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T00:42:06.590473"
+    },
+    {
+      "gene": "C14orf117",
+      "reason": "C14orf117 is a discontinued gene record - defined by AF147723.1 and NM_018678.1 which do not represent a protein-coding gene, likely a non-coding RNA or cloning artifact",
+      "skipped_at": "2026-03-18T00:42:15.328988"
+    },
+    {
+      "gene": "C14orf120",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T00:43:56.760647"
+    },
+    {
+      "gene": "C14orf122",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T00:45:30.973148"
+    },
+    {
+      "gene": "C14orf123",
+      "reason": "C14orf123 is actually CHMP4A (Charged multivesicular body protein 4a), a well-characterized ESCRT-III complex component involved in membrane scission, viral budding, cytokinesis, and multivesicular body biogenesis - extensively studied with known structure and mechanism",
+      "skipped_at": "2026-03-18T00:45:58.676018"
+    },
+    {
+      "gene": "C14orf151",
+      "reason": "C14orf151 is actually INF2 (Inverted formin-2), a well-characterized actin nucleation/polymerization factor involved in ER-actin coupling, cytokinesis, and vesicle trafficking - associated with FSGS and Charcot-Marie-Tooth neuropathy, extensively studied",
+      "skipped_at": "2026-03-18T00:46:23.758293"
+    },
+    {
+      "gene": "C14orf157",
+      "reason": "C14orf157 is DISCONTINUED locus - not a protein-coding gene, anchored by AK022356.1 non-coding transcript",
+      "skipped_at": "2026-03-18T00:50:24.983394"
+    },
+    {
+      "gene": "C14orf16",
+      "reason": "C14orf16 is DISCONTINUED - withdrawn by HGNC, not a valid protein-coding gene",
+      "skipped_at": "2026-03-18T00:50:42.924575"
+    },
+    {
+      "gene": "C14orf172",
+      "reason": "C14orf172 is TRMT61A - well-characterized tRNA methyltransferase, not a dark gene",
+      "skipped_at": "2026-03-18T00:52:06.753374"
+    },
+    {
+      "gene": "C14orf175",
+      "reason": "C14orf175 is PLD4 - well-characterized 5-3 exonuclease, not a dark gene",
+      "skipped_at": "2026-03-18T00:52:40.824492"
+    },
+    {
+      "gene": "C14orf181",
+      "reason": "C14orf181 - DISCONTINUED by NCBI/HGNC, record withdrawn, not a valid gene locus",
+      "skipped_at": "2026-03-18T00:56:05.838597"
+    },
+    {
+      "gene": "C14orf184",
+      "reason": "C14orf184 - DISCONTINUED by NCBI, defined by cloning artifacts AF318368.1 and AK091161.1, not a valid gene locus",
+      "skipped_at": "2026-03-18T00:56:24.664797"
+    },
+    {
+      "gene": "C14orf20",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T01:02:12.267441"
+    },
+    {
+      "gene": "C14orf40",
+      "reason": "HGNC discontinued record - no UniProt entry, not a valid protein-coding gene",
+      "skipped_at": "2026-03-18T01:04:04.267300"
+    },
+    {
+      "gene": "C14orf41",
+      "reason": "C14orf41 is an alias for NUMB (P49757) - well-characterized gene involved in Notch signaling and cell fate determination, not a dark gene",
+      "skipped_at": "2026-03-18T01:04:34.200120"
+    },
+    {
+      "gene": "C14orf45",
+      "reason": "C14orf45 is an alias for BBOF1 (Q8ND07) - Basal body-orientation factor 1, a well-characterized gene involved in centrosome/basal body function, not a dark gene",
+      "skipped_at": "2026-03-18T01:09:06.677399"
+    },
+    {
+      "gene": "C14orf51",
+      "reason": "C14orf51 is an alias for ZBTB25 (P24278) - Zinc finger and BTB domain-containing protein 25, a well-characterized transcriptional repressor involved in cell cycle regulation and hematopoiesis, not a dark gene",
+      "skipped_at": "2026-03-18T01:09:33.717991"
+    },
+    {
+      "gene": "C14orf60",
+      "reason": "C14orf60 is an alias for NRXN3 (Q9Y4C0) - Neurexin-3, a well-characterized synaptic cell adhesion molecule involved in neurotransmission and synapse formation, not a dark gene",
+      "skipped_at": "2026-03-18T01:11:04.239767"
+    },
+    {
+      "gene": "C14orf61",
+      "reason": "C14orf61 is an alias for CEP128 (Q6ZU80) - Centrosomal protein 128, a well-characterized centrosomal protein involved in ciliogenesis and microtubule organization, not a dark gene",
+      "skipped_at": "2026-03-18T01:11:36.168271"
+    },
+    {
+      "gene": "C14orf7",
+      "reason": "C14orf7 record withdrawn by HGNC - sequence AI027773 insufficient to define a gene, not a valid gene target",
+      "skipped_at": "2026-03-18T01:14:48.602911"
+    },
+    {
+      "gene": "C14orf81",
+      "reason": "C14orf81 record withdrawn by HGNC - defined by AK056731.1 which is insufficient evidence to define a distinct locus, not a valid gene target",
+      "skipped_at": "2026-03-18T01:16:46.391753"
+    },
+    {
+      "gene": "TMEM237",
+      "reason": "TMEM237 is well-characterized - known aliases ALS2CR4/JBTS14, disease association with Joubert syndrome-14, described as tetraspanin in WNT signaling, not a dark gene",
+      "skipped_at": "2026-03-18T01:17:06.177339"
+    },
+    {
+      "gene": "C14orf91",
+      "reason": "HGNC withdrawn record - not a valid gene locus",
+      "skipped_at": "2026-03-18T01:32:08.583004"
+    },
+    {
+      "gene": "C14orf99",
+      "reason": "NCBI discontinued record - not a valid gene locus",
+      "skipped_at": "2026-03-18T01:32:22.647790"
+    },
+    {
+      "gene": "C15orf13",
+      "reason": "C15orf13 is actually TPM1 (tropomyosin 1) - well-characterized cytoskeletal protein, not a dark gene",
+      "skipped_at": "2026-03-18T01:35:55.571041"
+    },
+    {
+      "gene": "C15orf31",
+      "reason": "C15orf31 is a discontinued NCBI record - withdrawn due to insufficient evidence for distinct locus",
+      "skipped_at": "2026-03-18T01:36:22.522558"
+    },
+    {
+      "gene": "C15orf35",
+      "reason": "C15orf35 is discontinued - withdrawn by HGNC",
+      "skipped_at": "2026-03-18T01:36:40.634873"
+    },
+    {
+      "gene": "C15orf45",
+      "reason": "HGNC withdrawn - probable cloning artifact, not a valid gene locus",
+      "skipped_at": "2026-03-18T01:38:43.521485"
+    },
+    {
+      "gene": "C15orf49",
+      "reason": "HGNC withdrawn - insufficient evidence for distinct locus",
+      "skipped_at": "2026-03-18T01:38:56.952490"
+    },
+    {
+      "gene": "C15orf6",
+      "reason": "Well-characterized as RHCG ammonium transporter - not a dark gene",
+      "skipped_at": "2026-03-18T01:40:40.974498"
+    },
+    {
+      "gene": "C16orf12",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T01:42:30.403960"
+    },
+    {
+      "gene": "C16orf15",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T01:43:46.199337"
+    },
+    {
+      "gene": "C16orf16",
+      "reason": "C16orf16 is same locus as C16orf15/WDR90 - not a distinct gene",
+      "skipped_at": "2026-03-18T01:44:26.919362"
+    },
+    {
+      "gene": "C16orf17",
+      "reason": "C16orf17 is same locus as C16orf15/WDR90 - not a distinct gene",
+      "skipped_at": "2026-03-18T01:45:12.981901"
+    },
+    {
+      "gene": "C16orf18",
+      "reason": "C16orf18 is same locus as C16orf15/WDR90 - not a distinct gene",
+      "skipped_at": "2026-03-18T01:45:40.856362"
+    },
+    {
+      "gene": "C16orf19",
+      "reason": "C16orf19 is same locus as C16orf15/WDR90 - not a distinct gene",
+      "skipped_at": "2026-03-18T01:46:19.167411"
+    },
+    {
+      "gene": "C16orf21",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T01:51:16.130384"
+    },
+    {
+      "gene": "C16orf23",
+      "reason": "C16orf23 is METRN/Meteorin - well-characterized secreted protein that regulates glial cell differentiation and neurogenesis, not a dark gene",
+      "skipped_at": "2026-03-18T01:51:38.111739"
+    },
+    {
+      "gene": "C16orf24",
+      "reason": "C16orf24 is ANTKMT - well-characterized lysine N-methyltransferase that modifies adenine nucleotide translocase, not a dark gene",
+      "skipped_at": "2026-03-18T01:52:05.081970"
+    },
+    {
+      "gene": "C16orf26",
+      "reason": "C16orf26 is LMF1 - well-characterized lipase maturation factor 1, not a dark gene",
+      "skipped_at": "2026-03-18T01:53:58.772934"
+    },
+    {
+      "gene": "C16orf27",
+      "reason": "C16orf27 is GNPTG - well-characterized N-acetylglucosamine-1-phosphotransferase subunit gamma involved in lysosomal enzyme targeting, not a dark gene",
+      "skipped_at": "2026-03-18T01:54:36.028124"
+    },
+    {
+      "gene": "C16orf33",
+      "reason": "C16orf33 is SNRNP25 - well-characterized U11/U12 snRNP 25 kDa protein involved in minor spliceosome function, not a dark gene",
+      "skipped_at": "2026-03-18T01:56:25.880033"
+    },
+    {
+      "gene": "C16orf35",
+      "reason": "C16orf35 is NPRL3 - well-characterized GATOR1 complex protein involved in mTORC1 regulation and amino acid sensing, not a dark gene",
+      "skipped_at": "2026-03-18T01:56:49.310411"
+    },
+    {
+      "gene": "C16orf36",
+      "reason": "C16orf36 is FAHD1 - well-characterized mitochondrial oxaloacetate tautomerase involved in cellular metabolism and apoptosis regulation, not a dark gene",
+      "skipped_at": "2026-03-18T01:59:31.654068"
+    },
+    {
+      "gene": "C16orf39",
+      "reason": "C16orf39 is RHOT2 - well-characterized mitochondrial Rho GTPase involved in mitochondrial trafficking and dynamics, not a dark gene",
+      "skipped_at": "2026-03-18T01:59:47.991816"
+    },
+    {
+      "gene": "C16orf4",
+      "reason": "C16orf4/EMC8 is well-characterized - encodes ER membrane protein complex subunit 8, part of the conserved EMC complex involved in membrane protein biogenesis. Has 10 high-confidence STRING interactors (EMC1-7, EMC10, MMGT1, COX4I1/2 all >0.949), defined MPN domain (IPR037518), 44 ClinVar variants, high-confidence AlphaFold (pLDDT 91.3), and clear ER/Golgi localization in HPA. This is not a dark gene.",
+      "skipped_at": "2026-03-18T02:05:17.049469"
+    },
+    {
+      "gene": "C16orf40",
+      "reason": "C16orf40/RPUSD1 is well-characterized - encodes RNA pseudouridylate synthase domain-containing protein 1, a clear member of the RluA pseudouridine synthase family (PF00849, IPR006145). Has defined catalytic domain (aa 18-215), 10 STRING interactors including other PUS enzymes (PUS7, PUS1, PUS3, TRUB2 all >0.6), ubiquitous tissue expression, 49 ClinVar variants, and high-confidence AlphaFold (pLDDT 86.5). This is a known RNA modification enzyme, not a dark gene.",
+      "skipped_at": "2026-03-18T02:06:52.388694"
+    },
+    {
+      "gene": "C16orf41",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T02:08:26.701170"
+    },
+    {
+      "gene": "C16orf42",
+      "reason": "C16orf42/TSR3 is well-characterized - encodes 18S rRNA aminocarboxypropyltransferase (312 aa, UniProt Q9UJK0), a conserved ribosome biogenesis factor with defined catalytic domains (IPR007177 Tsr3 C-terminal, IPR007209 RLI-like metal-binding, PF04034/PF04068). Has 10 STRING interactors all in ribosome assembly pathway (TSR2 0.905, METTL6 0.850, TSR1 0.827, EMG1 0.741, BUD23 0.679, NOB1 0.665), ubiquitous HPA expression, 52 ClinVar variants, and high-confidence AlphaFold (pLDDT 74.4). Clear GO annotations for rRNA processing (GO:0006364) and transferase activity (GO:0016740). This is a known ribosome maturation enzyme, not a dark gene.",
+      "skipped_at": "2026-03-18T02:09:32.726527"
+    },
+    {
+      "gene": "C16orf43",
+      "reason": "C16orf43 was discontinued/withdrawn by HGNC - not a valid protein-coding gene. This locus is either merged with another gene, was an erroneous prediction, or is now classified as non-coding. Cannot be analyzed as a dark gene.",
+      "skipped_at": "2026-03-18T02:09:54.861824"
+    },
+    {
+      "gene": "C16orf46-AS1",
+      "reason": "C16orf46-AS1 is a long non-coding RNA (antisense transcript), not a protein-coding gene. The \"-AS1\" suffix indicates antisense RNA 1, which produces a non-coding transcript from the opposite strand of C16orf46. lncRNAs do not encode proteins, so they lack InterPro domains, UniProt accessions, AlphaFold structures, and STRING protein interactions. This falls outside the scope of protein-coding dark gene characterization.",
+      "skipped_at": "2026-03-18T02:10:10.487643"
+    },
+    {
+      "gene": "C16orf46-DT",
+      "reason": "C16orf46-DT is a divergent transcript (lncRNA), not a protein-coding gene. The \"-DT\" suffix indicates a divergent transcript, which is a long non-coding RNA transcribed from the opposite strand near C16orf46. Like antisense RNAs, divergent transcripts do not encode proteins, so they lack UniProt accessions, InterPro domains, AlphaFold structures, and STRING protein interactions. This falls outside the scope of protein-coding dark gene characterization.",
+      "skipped_at": "2026-03-18T02:11:22.642884"
+    },
+    {
+      "gene": "C16orf95-DT",
+      "reason": "C16orf95-DT is a divergent transcript (lncRNA), not a protein-coding gene. The \"-DT\" suffix indicates a divergent transcript, which is a long non-coding RNA transcribed from the opposite strand near C16orf95. The genomic location (87317508-87318042) spans only ~534 bp, far too short to encode a functional protein. Like other non-coding RNAs, divergent transcripts lack UniProt accessions, InterPro domains, AlphaFold structures, and STRING protein interactions. This falls outside the scope of protein-coding dark gene characterization.",
+      "skipped_at": "2026-03-18T02:14:52.195461"
+    },
+    {
+      "gene": "C17orf11",
+      "reason": "C17orf11 was discontinued/withdrawn by HGNC. This record is no longer valid - the gene was either merged with another locus, re-annotated, or determined to not exist as a distinct transcriptional unit. Discontinued genes cannot be properly characterized as they lack current genomic annotation, UniProt accessions, and reliable data sources. This falls outside the scope of dark gene characterization.",
+      "skipped_at": "2026-03-18T02:16:49.821995"
+    },
+    {
+      "gene": "C17orf12",
+      "reason": "C17orf12 was discontinued by HGNC. The record was based on AJ276252.1, which represented an expressed LINE L2b retrotransposon repeat element, not a genuine protein-coding locus. LINE elements are repetitive genomic sequences that do not encode functional proteins with defined domains. This falls outside the scope of dark gene characterization.",
+      "skipped_at": "2026-03-18T02:17:09.207199"
+    },
+    {
+      "gene": "C17orf13",
+      "reason": "C17orf13 was discontinued by HGNC. The record was based on BX119309.1 and BX502008.1 cDNA sequences that are not sufficient evidence to define a distinct protein-coding locus. This is not a genuine dark gene target.",
+      "skipped_at": "2026-03-18T02:18:23.439268"
+    },
+    {
+      "gene": "C17orf14",
+      "reason": "C17orf14 was discontinued by NCBI. The record was based on AJ276255.1 which is not sufficient evidence to define a distinct protein-coding locus. This is not a genuine dark gene target.",
+      "skipped_at": "2026-03-18T02:18:36.892275"
+    },
+    {
+      "gene": "C17orf15",
+      "reason": "C17orf15 was withdrawn by HGNC. This record does not represent a valid protein-coding locus and is not a genuine dark gene target.",
+      "skipped_at": "2026-03-18T02:19:51.296096"
+    },
+    {
+      "gene": "C17orf16",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T02:21:56.952087"
+    },
+    {
+      "gene": "C17orf17",
+      "reason": "Gene record withdrawn by HGNC - not a valid dark gene target",
+      "skipped_at": "2026-03-18T02:22:05.220738"
+    },
+    {
+      "gene": "C17orf18",
+      "reason": "Gene record withdrawn by HGNC - not a valid dark gene target",
+      "skipped_at": "2026-03-18T02:22:17.244297"
+    },
+    {
+      "gene": "C17orf19",
+      "reason": "Gene record withdrawn by HGNC - not a valid dark gene target",
+      "skipped_at": "2026-03-18T02:24:24.688422"
+    },
+    {
+      "gene": "C17orf2",
+      "reason": "Not a dark gene - C17orf2 is OR1D5, a well-characterized olfactory receptor GPCR with known function, domains (IPR000276, IPR000725, PF13853), interaction partners (GNAL, ARRB2), and UniProt entry P58170",
+      "skipped_at": "2026-03-18T02:26:15.522660"
+    },
+    {
+      "gene": "C17orf20",
+      "reason": "Gene record withdrawn by HGNC - not a valid dark gene target",
+      "skipped_at": "2026-03-18T02:26:28.939846"
+    },
+    {
+      "gene": "C17orf21",
+      "reason": "Gene record withdrawn by HGNC - not a valid dark gene target",
+      "skipped_at": "2026-03-18T02:26:50.429375"
+    },
+    {
+      "gene": "C17orf22",
+      "reason": "HGNC discontinued - record withdrawn, not a valid gene target",
+      "skipped_at": "2026-03-18T02:32:43.468558"
+    },
+    {
+      "gene": "C2orf69",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T02:36:57.610355"
+    },
+    {
+      "gene": "LOC109504728",
+      "reason": "Not a protein-coding gene - this is a non-coding genomic region containing GGGGCC repeat expansions associated with frontotemporal lobar degeneration, no protein product to analyze",
+      "skipped_at": "2026-03-18T02:38:23.050722"
+    },
+    {
+      "gene": "CDH3",
+      "reason": "Well-characterized classical cadherin (P-cadherin) - extensively studied cell adhesion molecule with known structure, function, and disease associations including hereditary juvenile macular dystrophy and cancer metastasis roles",
+      "skipped_at": "2026-03-18T02:48:30.759143"
+    },
+    {
+      "gene": "CDH5",
+      "reason": "Well-characterized classical cadherin (VE-cadherin/CD144) - extensively studied endothelial-specific adhesion molecule critical for vascular integrity, angiogenesis, and endothelial barrier function with known roles in cardiovascular disease and inflammation",
+      "skipped_at": "2026-03-18T02:48:55.291970"
+    },
+    {
+      "gene": "C17orf33",
+      "reason": "C17orf33/CSF3OS is not a protein-coding dark gene - appears to be a long non-coding RNA antisense to CSF3. No UniProt accession exists, no ClinVar variants, HPA cannot resolve symbol. All searches return CSF3 (G-CSF) which is well-studied cytokine. This is either lncRNA or pseudogene, not suitable for protein function characterization.",
+      "skipped_at": "2026-03-18T03:00:47.258535"
+    },
+    {
+      "gene": "C17orf4",
+      "reason": "C17orf4 was withdrawn by HGNC - no UniProt accession exists, no protein evidence. This record likely represents a pseudogene, lncRNA, or merged gene that is no longer recognized as a valid protein-coding locus. Cannot characterize function without protein evidence.",
+      "skipped_at": "2026-03-18T03:01:45.683735"
+    },
+    {
+      "gene": "C17orf5",
+      "reason": "C17orf5 was withdrawn by HGNC - no UniProt accession exists, no protein evidence. This record likely represents a pseudogene, lncRNA, or merged gene that is no longer recognized as a valid protein-coding locus. Cannot characterize function without protein evidence.",
+      "skipped_at": "2026-03-18T03:04:18.540930"
+    },
+    {
+      "gene": "C17orf7",
+      "reason": "C17orf7 was withdrawn by HGNC - no UniProt accession exists, no protein evidence. This record likely represents a pseudogene, lncRNA, or merged gene that is no longer recognized as a valid protein-coding locus. Cannot characterize function without protein evidence.",
+      "skipped_at": "2026-03-18T03:04:57.740649"
+    },
+    {
+      "gene": "C17orf8",
+      "reason": "C17orf8 was withdrawn by HGNC - this record is discontinued and no longer recognized as a valid protein-coding locus. Cannot characterize function without valid gene status.",
+      "skipped_at": "2026-03-18T03:08:25.094075"
+    },
+    {
+      "gene": "C17orf84",
+      "reason": "C17orf84 was withdrawn by NCBI - this record was based on AK026247.1 cDNA which is not sufficient evidence to define a distinct locus. Cannot characterize function without valid gene status.",
+      "skipped_at": "2026-03-18T03:08:37.832476"
+    },
+    {
+      "gene": "C17orf9",
+      "reason": "C17orf9 was withdrawn by HGNC - this is not a valid gene locus. Cannot characterize function without valid gene status.",
+      "skipped_at": "2026-03-18T03:12:03.577481"
+    },
+    {
+      "gene": "C18orf33",
+      "reason": "C18orf33 was withdrawn by NCBI - this record was based on AK09623.1 cDNA which is not sufficient evidence to define a distinct locus. Cannot characterize function without valid gene status.",
+      "skipped_at": "2026-03-18T03:12:29.919208"
+    },
+    {
+      "gene": "C18orf41",
+      "reason": "C18orf41 was discontinued/withdrawn by HGNC and NCBI - lacks transcript or protein support, insufficient evidence to define a distinct locus.",
+      "skipped_at": "2026-03-18T03:13:56.680443"
+    },
+    {
+      "gene": "C18orf50",
+      "reason": "C18orf50 was discontinued/withdrawn by HGNC due to insufficient support - lacks evidence to define a distinct locus.",
+      "skipped_at": "2026-03-18T03:14:21.465718"
+    },
+    {
+      "gene": "C18orf57",
+      "reason": "C18orf57 was discontinued/withdrawn by HGNC - AL137361.1 transcript not sufficient evidence to define a distinct gene locus.",
+      "skipped_at": "2026-03-18T03:16:45.726688"
+    },
+    {
+      "gene": "C18orf58",
+      "reason": "C18orf58 is actually PIEZO2 (Q9H5I5) - a well-characterized mechanosensitive ion channel, not a dark gene. InterPro shows Piezo family domains IPR027272/PF24871, STRING shows 10 high-confidence interactions with TIMELESS/TRPV1/MCM4, and this gene is extensively studied in mechanotransduction.",
+      "skipped_at": "2026-03-18T03:18:45.262378"
+    },
+    {
+      "gene": "C19orf14",
+      "reason": "C19orf14 is WDR62 (O43379) - a well-characterized centrosomal protein, not a dark gene. InterPro shows WD40 repeats (IPR001680/PF24780/PF24782) and coiled-coil domain (IPR056364). STRING shows 10 high-confidence interactions with centrosome proteins ASPM (0.942), STIL (0.858), CENPJ (0.827), MCPH1 (0.821). HPA shows expression in skeletal muscle (103.4 nTPM), testis (66.9 nTPM), centriolar satellite localization. ClinVar has 241 pathogenic variants causing primary microcephaly and intellectual disability. This gene is extensively studied in neurogenesis and centrosome function.",
+      "skipped_at": "2026-03-18T03:20:17.176161"
+    },
+    {
+      "gene": "C19orf17",
+      "reason": "C19orf17 is ELL (P55199) - a well-characterized RNA polymerase II elongation factor, not a dark gene. STRING shows 10 ultra-high confidence interactions (scores 0.908-0.999) with transcription complex partners EAF1, AFF1, MLLT3, AFF4, CDK9, indicating role in the Super Elongation Complex (SEC). HPA confirms ubiquitous expression, nucleoplasm/nuclear bodies localization, and classification as an essential protein involved in transcription regulation. ELL is a known proto-oncogene frequently rearranged in acute myeloid leukemia (t(11;19)). This gene is extensively studied in transcriptional elongation mechanisms.",
+      "skipped_at": "2026-03-18T03:21:11.815651"
+    },
+    {
+      "gene": "C19orf31",
+      "reason": "C19orf31 was DISCONTINUED by HGNC - record withdrawn due to insufficient evidence (AK098038.1 transcript not sufficient to define distinct locus). This sequence represented a probable cloning artifact, not a genuine gene.",
+      "skipped_at": "2026-03-18T03:21:47.655715"
+    },
+    {
+      "gene": "C19orf49",
+      "reason": "MEGF8/C19orf49 is NOT a dark gene - well-characterized with 150 ClinVar pathogenic variants causing Craniosynostosis-Carpenter syndrome, known protein domains (EGF, CUB, Laminin), high-confidence STRING interactions with MGRN1/SMO, and HPA disease annotation. This gene has extensive clinical and functional data.",
+      "skipped_at": "2026-03-18T03:26:34.731986"
+    },
+    {
+      "gene": "C19orf8",
+      "reason": "C19orf8 was DISCONTINUED by HGNC - record withdrawn due to insufficient evidence for distinct gene locus. This likely represents a cloning artifact or pseudogene, not a genuine protein-coding gene.",
+      "skipped_at": "2026-03-18T03:27:05.492171"
+    },
+    {
+      "gene": "C1orf134",
+      "reason": "C1orf134 was DISCONTINUED by HGNC and NCBI - record withdrawn due to insufficient evidence for distinct gene locus. This likely represents a cloning artifact, pseudogene, or misannotated transcript, not a genuine protein-coding gene.",
+      "skipped_at": "2026-03-18T03:28:51.964045"
+    },
+    {
+      "gene": "C1orf136",
+      "reason": "C1orf136 is NOT a dark gene - this locus corresponds to DISC1 (Disrupted in Schizophrenia 1), one of the most well-studied psychiatric disease genes. DISC1 is a scaffold protein with extensive literature (500+ publications), known roles in neurodevelopment, neuronal migration, and cAMP signaling. STRING shows high-confidence interactions with DIXDC1(0.961), DRD2(0.958), PAFAH1B1(0.954). The gene has been extensively characterized since its discovery in 2000 from a balanced translocation in a Scottish family with schizophrenia. This is a well-known disease gene, not an uncharacterized dark gene.",
+      "skipped_at": "2026-03-18T03:30:19.605147"
+    },
+    {
+      "gene": "C1orf167-AS1",
+      "reason": "C1orf167-AS1 is NOT a protein-coding gene - it is an antisense long non-coding RNA (lncRNA). The \"-AS1\" suffix indicates \"antisense RNA 1\", meaning it is transcribed from the opposite strand of the C1orf167 locus. lncRNAs do not encode proteins, so they have no UniProt accession, no protein domains (InterPro), no AlphaFold structure, and no STRING protein interactions. This project focuses on uncharacterized protein-coding genes (\"dark genes\"), not non-coding RNAs. This target should be excluded from the protein-coding dark gene analysis.",
+      "skipped_at": "2026-03-18T03:30:47.814482"
+    },
+    {
+      "gene": "C1orf193",
+      "reason": "INTS3/C1orf193 is NOT a dark gene - it encodes Integrator complex subunit 3, a well-characterized component of the 14-subunit Integrator complex involved in RNA polymerase II transcription and snRNA 3'-end processing. The protein has defined domains (IPR019333 N-terminal, IPR056518 C-terminal HEAT repeats)",
+      "skipped_at": "2026-03-18T03:32:04.662262"
+    },
+    {
+      "gene": "C1orf20",
+      "reason": "C1orf20 is DISCONTINUED by HGNC - the record has been withdrawn due to insufficient evidence for a distinct gene locus. This likely represents a cloning artifact, pseudogene, or misannotated transcript rather than a genuine protein-coding gene. Withdrawn records should not be analyzed as dark genes.",
+      "skipped_at": "2026-03-18T03:32:16.941804"
+    },
+    {
+      "gene": "C1orf21-DT",
+      "reason": "C1orf21-DT is NOT a protein-coding gene - the \"-DT\" suffix indicates \"divergent transcript\", which is a long non-coding RNA (lncRNA) transcribed divergently from the C1orf21 locus. No UniProt accession exists because lncRNAs do not encode proteins. This project focuses on uncharacterized protein-coding genes (\"dark genes\"), not non-coding RNAs. This target should be excluded from protein-coding dark gene analysis.",
+      "skipped_at": "2026-03-18T03:32:57.303765"
+    },
+    {
+      "gene": "C1orf215",
+      "reason": "C1orf215 is STMN1 (stathmin 1) - a WELL-CHARACTERIZED gene, not a dark gene. Stathmin 1 is a ubiquitous cytosolic phosphoprotein with known function in microtubule filament system regulation. It prevents microtubule assembly and promotes disassembly. This gene has extensive literature, known protein domains, and well-documented disease associations (including cancer). The alias C1orf215 is outdated - the gene is properly annotated as STMN1 in current databases. This does not meet the criteria for an uncharacterized \"dark gene\" that needs characterization.",
+      "skipped_at": "2026-03-18T03:35:44.512012"
+    },
+    {
+      "gene": "C1orf28",
+      "reason": "C1orf28 is actually CDC73 (cell division cycle 73), encoding Parafibromin - a WELL-CHARACTERIZED tumor suppressor protein, not a dark gene. CDC73/Parafibromin is a component of the PAF1 transcriptional elongation complex and is associated with hyperparathyroidism-jaw tumor syndrome (HPT-JT). The gene has 531 amino acids, known protein domains, extensive disease literature, and is well-annotated in UniProt (Q6P1J9). The alias C1orf28 is outdated - this gene is properly characterized as CDC73 in current databases. This does not meet criteria for an uncharacterized \"dark gene\".",
+      "skipped_at": "2026-03-18T03:36:31.972185"
+    },
+    {
+      "gene": "C1orf30",
+      "reason": "C1orf30 is actually KCNC4 (potassium voltage-gated channel subfamily C member 4) - a WELL-CHARACTERIZED voltage-gated potassium channel. KCNC4 encodes a 635 aa protein with known transmembrane domains, electrophysiological properties, and extensive literature. UniProt accession Q03721. This is not a dark gene - the C1orf30 alias is outdated.",
+      "skipped_at": "2026-03-18T03:40:32.925109"
+    },
+    {
+      "gene": "C1orf31",
+      "reason": "C1orf31 is actually COA6 (Cytochrome c oxidase assembly factor 6) - a WELL-CHARACTERIZED mitochondrial protein involved in cytochrome c oxidase (Complex IV) assembly. COA6 encodes a 125 aa protein with known structure (UniProt Q5JTJ3), disease associations (hypertrophic cardiomyopathy, neonatal cardiomyopathy), and extensive functional characterization. This is not a dark gene - the C1orf31 alias is outdated.",
+      "skipped_at": "2026-03-18T03:41:19.539831"
+    },
+    {
+      "gene": "C1orf5",
+      "reason": "C1orf5 is DISCONTINUED by HGNC - the record was withdrawn because the sequence was determined to be derived from Drosophila melanogaster (fruit fly), not Homo sapiens. This is not a valid human gene.",
+      "skipped_at": "2026-03-18T03:43:07.388820"
+    },
+    {
+      "gene": "C1orf50-AS1",
+      "reason": "C1orf50-AS1 is a long non-coding RNA (lncRNA/antisense RNA), not a protein-coding gene. It has no UniProt entry, no protein product for STRING/InterPro/AlphaFold analysis. The protein-focused analysis pipeline is not applicable to ncRNAs.",
+      "skipped_at": "2026-03-18T03:44:01.231993"
+    },
+    {
+      "gene": "C1orf6",
+      "reason": "UBQLN4 (C1orf6) is NOT a dark gene - it is well-characterized. Ubiquilin-4 is a known proteasome shuttle receptor with established function in protein degradation, documented interactions with proteasome subunits (PSMD4, PSMD14, etc.), known domain architecture (Ubl + UBA domains), disease associations (ALS, neurodegeneration), and 18 ClinVar variants. This gene has extensive literature (PubMed entries), clear mechanistic understanding, and should not be classified as \"dark\".",
+      "skipped_at": "2026-03-18T03:47:44.714118"
+    },
+    {
+      "gene": "C1orf67",
+      "reason": "DNAH14 (C1orf67) is NOT a dark gene - it is well-characterized. Dynein axonemal heavy chain 14 is a known ciliary motor protein with established function in respiratory cilia force generation, documented AAA+ ATPase domains and coiled-coil stalk architecture, strong interactions with other dynein subunits (DNAH1, DNAH12, DNAI1, CCDC114), testis-specific expression (18.5 nTPM), and 246 ClinVar pathogenic variants. This gene has clear mechanistic understanding as part of the axonemal dynein complex and should not be classified as \"dark\".",
+      "skipped_at": "2026-03-18T03:49:35.072019"
+    },
+    {
+      "gene": "C1orf7",
+      "reason": "NLRP3 (C1orf7) is NOT a dark gene - it is extremely well-characterized. NLRP3 is a famous inflammasome sensor protein with established function in innate immunity, pyroptosis, and IL-1β/IL-18 maturation. It has well-documented domain architecture (NACHT nucleotide-binding domain, LRR leucine-rich repeats, PYD death domain), extensive literature (thousands of PubMed entries), known disease associations (CAPS, FCAS, Muckle-Wells syndrome), and is a major drug target. This gene has complete mechanistic understanding and should not be classified as \"dark\".",
+      "skipped_at": "2026-03-18T03:50:06.142218"
+    },
+    {
+      "gene": "C1orf84",
+      "reason": "SZT2 (C1orf84) is NOT a dark gene - it is well-characterized. SZT2 is a known component of the KICSTOR complex (with KPTN, ITT5, KIC1) that regulates mTORC1 signaling pathway. It has established function in nutrient sensing and cell growth control, documented protein interactions, known disease associations (developmental delay, epilepsy), and extensive literature. This gene has clear mechanistic understanding as a mTORC1 regulator and should not be classified as \"dark\".",
+      "skipped_at": "2026-03-18T03:50:48.834217"
+    },
+    {
+      "gene": "C20ORF2",
+      "reason": "C20ORF2 is NOT a dark gene - the gene symbol maps to TPX2 (Targeting protein for Xklp2), which is a well-characterized microtubule-associated protein essential for spindle assembly during mitosis. TPX2 has extensive known functions: activates Aurora A kinase, targets it to spindle microtubules, interacts with multiple kinesins (KIF2C, KIF4A, KIF11), and is critical for chromosome segregation. High-confidence STRING interactions (0.84-0.999) with PRC1, KIF2C, HMMR, AURKA confirm established mitotic machinery role. This protein is well-studied in cell biology and cancer research, not a \"dark gene\".",
+      "skipped_at": "2026-03-18T03:54:04.433306"
+    },
+    {
+      "gene": "C20orf101",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T03:55:52.065757"
+    },
+    {
+      "gene": "C20orf109",
+      "reason": "C20orf109 is NOT a dark gene - this record has been DISCONTINUED/WITHDRAWN by HGNC. The gene was defined by AL118499.39 (nts 4772-4826) which was deemed insufficient evidence to define a distinct locus. This is not a valid gene that can be characterized - it was removed from the genome annotation because it does not represent a real transcriptional unit. Cannot produce a meaningful finding for a withdrawn gene record.",
+      "skipped_at": "2026-03-18T03:56:01.806136"
+    },
+    {
+      "gene": "C20orf125",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T03:57:57.717005"
+    },
+    {
+      "gene": "C20orf126",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T03:58:17.440620"
+    },
+    {
+      "gene": "C20orf140",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T03:59:06.938820"
+    },
+    {
+      "gene": "C20orf145",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T03:59:57.377076"
+    },
+    {
+      "gene": "C20orf148",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T04:00:57.580391"
+    },
+    {
+      "gene": "C20orf153",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T04:03:59.156992"
+    },
+    {
+      "gene": "C20orf157",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T04:05:12.676058"
+    },
+    {
+      "gene": "C20orf158",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T04:07:19.582044"
+    },
+    {
+      "gene": "C20orf159",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T04:08:15.020801"
+    },
+    {
+      "gene": "C20orf89",
+      "reason": "HGNC withdrawn record - no UniProt entry found - gene symbol deprecated/merged",
+      "skipped_at": "2026-03-18T04:28:57.541127"
+    },
+    {
+      "gene": "C21orf112",
+      "reason": "Well-characterized chaperonin - C21orf112 maps to CCT8 (T-complex protein 1 subunit theta), a known TRiC/CCT chaperonin complex subunit with extensive literature",
+      "skipped_at": "2026-03-18T04:30:51.463747"
+    },
+    {
+      "gene": "C21orf114",
+      "reason": "NCBI withdrawn record - defined by L1 transposase sequence, not a protein-coding gene",
+      "skipped_at": "2026-03-18T04:31:04.806113"
+    },
+    {
+      "gene": "C21orf116",
+      "reason": "HGNC withdrawn record - not sufficient evidence to define a distinct locus",
+      "skipped_at": "2026-03-18T04:32:47.220064"
+    },
+    {
+      "gene": "C21orf118",
+      "reason": "NCBI withdrawn record - defined by repetitive sequence, not a distinct gene",
+      "skipped_at": "2026-03-18T04:33:17.570667"
+    },
+    {
+      "gene": "C21orf12",
+      "reason": "HGNC withdrawn record - gene nomenclature discontinued",
+      "skipped_at": "2026-03-18T04:35:59.380218"
+    },
+    {
+      "gene": "C21orf124",
+      "reason": "C21orf124 is actually PDXK (Pyridoxal kinase, UniProt O00764) - well-characterized metabolic enzyme, not a dark gene",
+      "skipped_at": "2026-03-18T04:36:38.321494"
+    },
+    {
+      "gene": "C21orf19",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T04:39:01.639688"
+    },
+    {
+      "gene": "C21orf27",
+      "reason": "C21orf27 is actually SETD4 (SET domain-containing protein 4, UniProt Q9NVD3) - well-characterized histone methyltransferase, not a dark gene",
+      "skipped_at": "2026-03-18T04:39:14.487225"
+    },
+    {
+      "gene": "C21orf32",
+      "reason": "C21orf32 record withdrawn by HGNC - insufficient evidence for distinct gene, AP001753.1:BAA95555.1 not validated",
+      "skipped_at": "2026-03-18T04:40:37.326674"
+    },
+    {
+      "gene": "C21orf36",
+      "reason": "C21orf36 record withdrawn by HGNC - insufficient evidence for distinct locus, defined only by AA017197.1 and AL833275.1",
+      "skipped_at": "2026-03-18T04:40:54.803372"
+    },
+    {
+      "gene": "C21orf43",
+      "reason": "C21orf43 is actually JAM2 (Junctional Adhesion Molecule B) - well-characterized cell adhesion protein with known structure and function, not a dark gene",
+      "skipped_at": "2026-03-18T04:44:58.673700"
+    },
+    {
+      "gene": "C21orf46",
+      "reason": "C21orf46 is actually MIS18A (Mis18-alpha) - well-characterized centromere specification protein involved in cell cycle regulation, not a dark gene",
+      "skipped_at": "2026-03-18T04:45:26.773289"
+    },
+    {
+      "gene": "C21orf47",
+      "reason": "C21orf47 record withdrawn by HGNC - insufficient evidence for distinct locus, defined only by AI282569.1",
+      "skipped_at": "2026-03-18T04:45:48.407969"
+    },
+    {
+      "gene": "C21orf50",
+      "reason": "C21orf50 is actually the well-characterized SON gene (UniProt P18583, 2426 aa) - a known splicing regulator and transcriptional coactivator, not a dark gene",
+      "skipped_at": "2026-03-18T04:48:40.502824"
+    },
+    {
+      "gene": "C21orf72",
+      "reason": "C21orf72 record withdrawn by HGNC - no longer recognized as a valid gene locus",
+      "skipped_at": "2026-03-18T04:49:03.446302"
+    },
+    {
+      "gene": "C21orf79",
+      "reason": "C21orf79 record withdrawn by HGNC - no longer recognized as a valid gene locus",
+      "skipped_at": "2026-03-18T04:50:52.178796"
+    },
+    {
+      "gene": "C3orf53",
+      "reason": "HGNC withdrawn - not a valid gene locus (AK090970.1 insufficient evidence)",
+      "skipped_at": "2026-03-18T05:16:32.785076"
+    },
+    {
+      "gene": "C5orf9",
+      "reason": "C5orf9 is a DISCONTINUED/withdrawn HGNC record - not a valid gene locus. Defined only by EST AI808255.1 which was insufficient evidence for distinct locus. Not a dark gene target.",
+      "skipped_at": "2026-03-18T05:30:15.171416"
+    },
+    {
+      "gene": "C6orf202",
+      "reason": "DISCONTINUED GENE - HGNC withdrew this record; AL136968.14 sequence not sufficient evidence for distinct locus; no UniProt entry; not a valid protein-coding gene",
+      "skipped_at": "2026-03-18T05:52:50.151924"
+    },
+    {
+      "gene": "C6orf214",
+      "reason": "NO VALID GENE - No UniProt entry; gene_info shows empty chromosome location; likely pseudogene or withdrawn record; not a valid protein-coding gene",
+      "skipped_at": "2026-03-18T05:55:09.259758"
+    },
+    {
+      "gene": "C6orf215",
+      "reason": "DISCONTINUED GENE - NCBI withdrew this record; based on X90534.1 not sufficient evidence for distinct locus; no UniProt entry; not a valid protein-coding gene",
+      "skipped_at": "2026-03-18T05:55:35.945276"
+    },
+    {
+      "gene": "C6orf36",
+      "reason": "DISCONTINUED GENE - withdrawn by HGNC; not a valid protein-coding gene",
+      "skipped_at": "2026-03-18T05:57:02.142803"
+    },
+    {
+      "gene": "C6orf41",
+      "reason": "NO MOLECULAR EVIDENCE - no UniProt entry, no STRING interactions, HPA cannot resolve symbol, no ClinVar variants; likely pseudogene or non-coding RNA, not a valid protein-coding gene",
+      "skipped_at": "2026-03-18T05:58:08.090990"
+    },
+    {
+      "gene": "C6orf42",
+      "reason": "DISCONTINUED GENE - withdrawn by HGNC; not a valid protein-coding gene",
+      "skipped_at": "2026-03-18T05:58:32.644071"
+    },
+    {
+      "gene": "C6orf43",
+      "reason": "DISCONTINUED GENE - withdrawn by HGNC; not a valid protein-coding gene",
+      "skipped_at": "2026-03-18T05:58:57.466787"
+    },
+    {
+      "gene": "C6orf47-AS1",
+      "reason": "ANTISENSE LNCRA - C6orf47-AS1 is a long non-coding antisense RNA, not a protein-coding gene; no protein domains/structure expected",
+      "skipped_at": "2026-03-18T06:00:32.603001"
+    },
+    {
+      "gene": "C6orf5",
+      "reason": "WELL-CHARACTERIZED GENE - TRAF3IP2/C6orf5 (ACT1) is a known E3 ubiquitin ligase adapter in IL-17/NF-kB signaling; extensively studied in immunology; not a true dark gene",
+      "skipped_at": "2026-03-18T06:02:07.496867"
+    },
+    {
+      "gene": "C6orf61",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T06:03:48.762669"
+    },
+    {
+      "gene": "C6orf71",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T06:05:23.542257"
+    },
+    {
+      "gene": "C6orf88",
+      "reason": "PSEUDOGENE/LONG NON-CODING RNA - C6orf88 has no UniProt protein entry, no HPA expression, no STRING interactions, and no ClinVar variants; NCBI shows association with SEPTIN14P6 pseudogene and LINC00266-3 lncRNA; not a protein-coding dark gene",
+      "skipped_at": "2026-03-18T06:06:21.264176"
+    },
+    {
+      "gene": "C6orf98",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T06:08:17.503204"
+    },
+    {
+      "gene": "C7orf17",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T06:09:50.769434"
+    },
+    {
+      "gene": "C7orf6",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T06:12:59.441765"
+    },
+    {
+      "gene": "C7orf76",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T06:15:37.363895"
+    },
+    {
+      "gene": "C7orf8",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T06:16:33.562916"
+    },
+    {
+      "gene": "C8orf15",
+      "reason": "HGNC discontinued record - probable cloning artifact, not a valid gene locus",
+      "skipped_at": "2026-03-18T06:16:42.986829"
+    },
+    {
+      "gene": "C8orf16",
+      "reason": "HGNC discontinued record - probable cloning artifact, not a valid gene locus",
+      "skipped_at": "2026-03-18T06:16:55.274567"
+    },
+    {
+      "gene": "C8orf27",
+      "reason": "HGNC discontinued record - not a valid gene locus, likely cloning artifact",
+      "skipped_at": "2026-03-18T06:20:08.934609"
+    },
+    {
+      "gene": "C8orf28",
+      "reason": "HGNC discontinued record - BI767459.1 EST not sufficient evidence for distinct locus",
+      "skipped_at": "2026-03-18T06:20:32.204803"
+    },
+    {
+      "gene": "C8orf29",
+      "reason": "HGNC discontinued record - BQ426089.1 EST not sufficient evidence for distinct locus",
+      "skipped_at": "2026-03-18T06:22:22.235187"
+    },
+    {
+      "gene": "C8orf30B",
+      "reason": "Well-characterized co-chaperone - known function in eEF2 folding, 62 ClinVar variants, 10 STRING interactions, HPA expression data available - not a dark gene",
+      "skipped_at": "2026-03-18T06:23:46.231782"
+    },
+    {
+      "gene": "C8orf34-AS1",
+      "reason": "Long non-coding RNA (antisense transcript) - not protein-coding, no UniProt human entry, no InterPro domains, no STRING interactions, no HPA data - analysis tools designed for proteins",
+      "skipped_at": "2026-03-18T06:25:27.321918"
+    },
+    {
+      "gene": "C8orf57",
+      "reason": "Well-characterized matrix metalloproteinase - MMP16 is a known ECM-degrading enzyme with clear function, 607 aa length, UniProt P51512, not a dark gene",
+      "skipped_at": "2026-03-18T06:27:09.223449"
+    },
+    {
+      "gene": "C8orf6",
+      "reason": "HGNC discontinued record - AJ307469.1 EST not sufficient evidence for distinct locus, probable cloning artifact",
+      "skipped_at": "2026-03-18T06:27:33.527745"
+    },
+    {
+      "gene": "C8orf60",
+      "reason": "HGNC discontinued record - insufficient evidence for distinct locus",
+      "skipped_at": "2026-03-18T06:30:46.294378"
+    },
+    {
+      "gene": "C8orf63",
+      "reason": "HGNC discontinued record - BQ919341.1 EST not sufficient evidence for distinct locus",
+      "skipped_at": "2026-03-18T06:31:20.316125"
+    },
+    {
+      "gene": "C8orf64",
+      "reason": "HGNC discontinued record - withdrawn by HGNC",
+      "skipped_at": "2026-03-18T06:32:04.729910"
+    },
+    {
+      "gene": "C8orf65",
+      "reason": "HGNC discontinued record - withdrawn by HUGO Gene Nomenclature Committee",
+      "skipped_at": "2026-03-18T06:32:24.379884"
+    },
+    {
+      "gene": "C8orf67",
+      "reason": "HGNC/NCBI discontinued record - withdrawn due to insufficient evidence for distinct locus",
+      "skipped_at": "2026-03-18T06:33:42.896168"
+    },
+    {
+      "gene": "C9orf102",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T06:35:15.220220"
+    },
+    {
+      "gene": "LOC283075",
+      "reason": "NCBI discontinued record - withdrawn due to lack of gene annotation evidence",
+      "skipped_at": "2026-03-18T06:37:05.372077"
+    },
+    {
+      "gene": "MGC50722",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T06:38:46.891025"
+    },
+    {
+      "gene": "LOC100506310",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T06:40:17.711251"
+    },
+    {
+      "gene": "C9orf108",
+      "reason": "Well-characterized GPCR - S1PR3 is a known sphingosine 1-phosphate receptor with established function, not a dark gene",
+      "skipped_at": "2026-03-18T06:40:44.125476"
+    },
+    {
+      "gene": "C9orf118",
+      "reason": "DISCONTINUED - withdrawn by HGNC and NCBI, no longer a valid gene annotation",
+      "skipped_at": "2026-03-18T06:41:07.658315"
+    },
+    {
+      "gene": "C9orf12",
+      "reason": "Not a dark gene - C9orf12 is IPPK (inositol-pentakisphosphate 2-kinase), a well-characterized enzyme with UniProt accession Q9H8X2",
+      "skipped_at": "2026-03-18T06:43:22.037803"
+    },
+    {
+      "gene": "C9orf13",
+      "reason": "Not a dark gene - C9orf13 is SVEP1 (Sushi, von Willebrand factor type A, EGF and pentraxin domain-containing protein 1), a well-characterized large protein with UniProt accession Q4LDE5, 3571 aa",
+      "skipped_at": "2026-03-18T06:43:48.848935"
+    },
+    {
+      "gene": "C9orf149",
+      "reason": "C9orf149 is discontinued locus - NCBI states it does not appear to represent a protein coding gene",
+      "skipped_at": "2026-03-18T06:46:57.423519"
+    },
+    {
+      "gene": "C9orf155",
+      "reason": "C9orf155 is GOLM1/GP73 - well-characterized Golgi membrane protein, established hepatocellular carcinoma biomarker, not a dark gene",
+      "skipped_at": "2026-03-18T06:48:18.773368"
+    },
+    {
+      "gene": "C9orf157",
+      "reason": "C9orf157 is SOHLH1 - well-characterized basic helix-loop-helix transcription factor essential for spermatogenesis and oogenesis, not a dark gene",
+      "skipped_at": "2026-03-18T06:48:46.164052"
+    },
+    {
+      "gene": "C9orf164",
+      "reason": "C9orf164 is SEMA4D/CD100 - well-characterized semaphorin family member, established roles in axon guidance, immune regulation, angiogenesis, and cancer progression, not a dark gene",
+      "skipped_at": "2026-03-18T06:49:25.273181"
+    },
+    {
+      "gene": "C9orf33",
+      "reason": "C9orf33 withdrawn by HGNC - record discontinued as probable cloning artifact, not a valid gene locus",
+      "skipped_at": "2026-03-18T06:54:58.031903"
+    },
+    {
+      "gene": "C9orf38",
+      "reason": "C9orf38 withdrawn by NCBI and HGNC - record discontinued, not a valid gene locus",
+      "skipped_at": "2026-03-18T06:55:23.036597"
+    },
+    {
+      "gene": "C9orf47",
+      "reason": "C9orf47 lacks human protein evidence - UniProt returned only non-human homologs, HPA could not resolve gene symbol, all protein data (STRING/InterPro/AlphaFold) maps to S1PR3 not C9orf47. Likely non-coding RNA or pseudogene, not suitable for protein-level dark gene characterization",
+      "skipped_at": "2026-03-18T06:56:51.705688"
+    },
+    {
+      "gene": "C9orf63",
+      "reason": "C9orf63 discontinued by NCBI - LocusID 55043 anchored by AK000815.1, explicitly stated as not a protein coding gene. Not suitable for protein-level dark gene characterization",
+      "skipped_at": "2026-03-18T06:58:57.092364"
+    },
+    {
+      "gene": "CXorf13",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T07:00:18.832636"
+    },
+    {
+      "gene": "CXorf35",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T07:02:40.146583"
+    },
+    {
+      "gene": "CXorf49B",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T07:04:09.896717"
+    },
+    {
+      "gene": "CXorf50B",
+      "reason": "CXorf50B lacks UniProt entry, STRING interactions, HPA expression data, and ClinVar variants - insufficient data for protein-level characterization. Gene may be non-coding or pseudogene",
+      "skipped_at": "2026-03-18T07:06:18.710047"
+    },
+    {
+      "gene": "CXorf51B",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T07:08:35.281100"
+    },
+    {
+      "gene": "LOC390690",
+      "reason": "LOC390690 is a DISCONTINUED/withdrawn NCBI gene model - the annotation was removed in later genome builds because the predicted model was not supported. This represents a pseudogene or annotation artifact, not a real protein-coding dark gene",
+      "skipped_at": "2026-03-18T07:12:26.768567"
+    },
+    {
+      "gene": "REEP5",
+      "reason": "abandoned without finding (next_gene called before save_finding)",
+      "skipped_at": "2026-03-18T07:16:37.682861"
+    },
+    {
+      "gene": "PRPF6",
+      "reason": "Well-characterized splicing factor - not a dark gene. PRPF6 is a known essential spliceosome component with established function in U5/U4/U6 snRNP bridging, 56 ClinVar pathogenic variants linked to retinitis pigmentosa, and extensive protein interaction data. This is one of the ~2,000 well-studied genes, not part of the ~17,000 dark proteome.",
+      "skipped_at": "2026-03-18T07:25:31.078369"
+    }
+  ],
+  "in_progress": null,
+  "seed_index": 84,
+  "stats": {
+    "genes_queued": 0,
+    "genes_completed": 252,
+    "genes_skipped": 206
+  }
+}

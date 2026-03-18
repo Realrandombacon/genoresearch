@@ -1,15 +1,18 @@
 """
 Orchestrator core — the main research loop.
-LLM proposes actions → tools execute → results feed back → repeat.
+LLM proposes actions -> tools execute -> results feed back -> repeat.
 
 Multi-turn inner loop: each cycle allows up to MAX_TURNS of
-think → act → reflect before moving to the next cycle.
+think -> act -> reflect before moving to the next cycle.
 """
 
-import re
-
+from config import MAX_TURNS as _MAX_TURNS, SOFT_TURNS as _SOFT_TURNS, LOOP_THRESHOLD as _LOOP_THRESHOLD, MAX_RESULT_LENGTH
 from orchestrator.llm import chat, recovery_reprompt, build_system_prompt, get_model, get_provider_status
 from orchestrator.dashboard import write_status
+from orchestrator.parsing import TOOL_START_PATTERN, parse_tool
+from orchestrator.loop_detection import is_looping, break_loop, suggest_next_step
+from orchestrator.prompts import _build_reflection_prompt, _auto_complete_step
+from orchestrator.context import _deduplicate_response, _trim_messages
 from tools.registry import ToolRegistry
 from agent.memory import load_memory, save_memory, update_memory, summarize_memory
 from agent.ui import (
@@ -17,22 +20,16 @@ from agent.ui import (
     print_cycle_summary, print_completion,
 )
 
-# Pattern: TOOL: function_name(...)
-# Also catches Qwen markdown variants like **Tool Call:** func(), **TOOL:** func(), etc.
-TOOL_START_PATTERN = re.compile(
-    r"(?:\*{0,2}Tool(?:\s*Call)?:?\*{0,2}|TOOL:)\s*(\w+)\(", re.IGNORECASE
-)
-
 
 class Orchestrator:
     """Main autonomous research loop with multi-turn inner loop."""
 
     # How many identical consecutive tool calls before we intervene
-    LOOP_THRESHOLD = 2
+    LOOP_THRESHOLD = _LOOP_THRESHOLD
     # Soft target for turns per cycle — agent can go beyond if still working
-    SOFT_TURNS = 12
+    SOFT_TURNS = _SOFT_TURNS
     # Hard safety cap — prevent infinite loops
-    MAX_TURNS = 20
+    MAX_TURNS = _MAX_TURNS
 
     def __init__(self, max_cycles: int = 10, model: str = None,
                  target: str = None):
@@ -110,7 +107,7 @@ class Orchestrator:
                 response = chat(self.messages, model=self.model)
 
             # Deduplicate repeated thought blocks (Qwen bug)
-            response, was_deduped = _deduplicate_response(response)
+            response, was_deduped = _deduplicate_response(response, TOOL_START_PATTERN)
             if was_deduped:
                 ui_log("WARN", "Deduplicated repeated THOUGHT blocks in response")
 
@@ -137,10 +134,10 @@ class Orchestrator:
                 if len(self._recent_tool_calls) > 10:
                     self._recent_tool_calls = self._recent_tool_calls[-10:]
 
-                if self._is_looping():
+                if is_looping(self._recent_tool_calls, self.LOOP_THRESHOLD):
                     ui_log("WARN", f"LOOP DETECTED: '{call_sig}' repeated {self.LOOP_THRESHOLD}+ times — breaking out")
                     cycle_summary.append(f"LOOP on {name} — redirecting")
-                    self._break_loop(call_sig)
+                    break_loop(self.messages, self._recent_tool_calls, call_sig, self.LOOP_THRESHOLD)
                     break
 
                 write_status(running=True, cycle=self.cycle,
@@ -151,7 +148,7 @@ class Orchestrator:
 
                 # --- Execute tool ---
                 result = self.tools.execute(name, *args, **kwargs)
-                result_str = str(result)[:3000]
+                result_str = str(result)[:MAX_RESULT_LENGTH]
 
                 # Show result preview
                 result_preview = result_str.replace("\n", " | ")[:250]
@@ -210,7 +207,7 @@ class Orchestrator:
                             )
                             ui_log("TOOL", f"{rname}|{rname}({rargs_str})")
                             result = self.tools.execute(rname, *rargs, **rkwargs)
-                            result_str = str(result)[:3000]
+                            result_str = str(result)[:MAX_RESULT_LENGTH]
                             result_preview = result_str.replace("\n", " | ")[:250]
                             ui_log("RESULT", f"{rname}|{result_preview}")
                             cycle_summary.append(f"T{turn}R {rname}: {result_preview[:80]}")
@@ -244,10 +241,10 @@ class Orchestrator:
                 if len(self._recent_tool_calls) > 10:
                     self._recent_tool_calls = self._recent_tool_calls[-10:]
 
-                if self._is_looping():
+                if is_looping(self._recent_tool_calls, self.LOOP_THRESHOLD):
                     ui_log("WARN", "LOOP DETECTED: agent stuck thinking without acting — redirecting")
                     cycle_summary.append("LOOP — redirecting")
-                    self._break_loop("__NO_TOOL__")
+                    break_loop(self.messages, self._recent_tool_calls, "__NO_TOOL__", self.LOOP_THRESHOLD)
                     break
 
                 # Nudge for next cycle (not a reflection — just a nudge)
@@ -276,611 +273,25 @@ class Orchestrator:
             save_memory(self.memory)
 
         # Smart context compression every cycle
-        self._trim_messages()
+        _trim_messages(self.messages, TOOL_START_PATTERN)
 
     def _parse_tool(self, text: str):
         """Extract TOOL: name(args) from LLM response. Returns (name, args, kwargs) or None."""
-        match = TOOL_START_PATTERN.search(text)
-        if not match:
-            return None
-
-        name = match.group(1)
-
-        # Find the matching closing paren, respecting quotes and nested parens
-        start = match.end()  # position right after the opening '('
-        raw_args = _extract_balanced_args(text, start)
-        if raw_args is None:
-            raw_args = ""
-
-        raw_args = raw_args.strip()
-
-        if not raw_args:
-            return name, [], {}
-
-        args = []
-        kwargs = {}
-        for part in _split_args(raw_args):
-            part = part.strip()
-            if "=" in part and not part.startswith(("'", '"')):
-                key, val = part.split("=", 1)
-                kwargs[key.strip()] = _cast(val.strip())
-            else:
-                args.append(_cast(part))
-
-        return name, args, kwargs
+        return parse_tool(text)
 
     def _is_looping(self) -> bool:
-        """Check if the agent is stuck in a loop.
-
-        Two checks:
-        1. Last N calls are strictly identical (immediate loop)
-        2. Same call appears 3+ times in the last 10 calls (spread-out loop,
-           e.g. search → nudge → search → nudge → search)
-        """
-        if len(self._recent_tool_calls) < self.LOOP_THRESHOLD:
-            return False
-        # Check 1: strictly consecutive identical calls
-        last_n = self._recent_tool_calls[-self.LOOP_THRESHOLD:]
-        if len(set(last_n)) == 1:
-            return True
-        # Check 2: same call appears 3+ times in last 10 (spread-out loop)
-        from collections import Counter
-        counts = Counter(self._recent_tool_calls[-10:])
-        for call, count in counts.items():
-            if call != "__NO_TOOL__" and count >= 3:
-                return True
-        return False
+        """Check if the agent is stuck in a loop."""
+        return is_looping(self._recent_tool_calls, self.LOOP_THRESHOLD)
 
     def _break_loop(self, stuck_call: str):
-        """Break out of a detected loop by trimming repeated context and
-        suggesting the logical next step based on what tool was being repeated.
-
-        Strategy:
-        1. Keep system prompt + strip all the repeated messages
-        2. Analyze the stuck tool call to suggest the right next action
-        3. Inject a specific directive with the exact tool to call next
-        4. Reset the tool call tracker
-        """
-        system = self.messages[0]
-
-        # Keep only system + last 4 non-duplicate messages
-        # (the loop fills context with identical copies — purge them)
-        unique = []
-        seen = set()
-        for msg in reversed(self.messages[1:]):
-            fp = msg.get("content", "")[:200]
-            if fp not in seen:
-                seen.add(fp)
-                unique.append(msg)
-            if len(unique) >= 4:
-                break
-        unique.reverse()
-        self.messages = [system] + unique
-
-        # Figure out what the next logical step is based on the stuck call
-        hint = self._suggest_next_step(stuck_call)
-
-        self.messages.append({
-            "role": "user",
-            "content": (
-                f"[orchestrator] LOOP DETECTED: You repeated '{stuck_call}' "
-                f"{self.LOOP_THRESHOLD}+ times without making progress. "
-                f"You already have the results from that search.\n\n"
-                f"DO SOMETHING DIFFERENT NOW. {hint}\n\n"
-                "Pipeline reminder: discover → profile → analyze → translate → compare → annotate → hypothesize.\n"
-                "If you are stuck on a gene, call skip_gene('reason') to move on."
-            ),
-        })
-
-        # Reset loop tracker
-        self._recent_tool_calls.clear()
-        ui_log("INFO", f"Loop broken — suggested next step: {hint[:100]}")
+        """Break out of a detected loop."""
+        break_loop(self.messages, self._recent_tool_calls, stuck_call, self.LOOP_THRESHOLD)
 
     @staticmethod
     def _suggest_next_step(stuck_call: str) -> str:
         """Given the tool call that was looping, suggest what to do next."""
-        call_lower = stuck_call.lower()
-
-        if stuck_call == "__NO_TOOL__":
-            return ("You must call a tool. Try: TOOL: next_gene() to get a target, "
-                    "or TOOL: list_sequences() to see what data you have.")
-
-        if "ncbi_search" in call_lower:
-            return ("You already have search results. Now USE them: "
-                    "pick an accession ID from the results and call "
-                    "TOOL: ncbi_fetch('ACCESSION_ID', db='nucleotide') to download the sequence, "
-                    "or TOOL: gene_info('GENE_NAME') to get detailed info.")
-
-        if "ncbi_fetch" in call_lower:
-            return ("You already fetched this sequence. Now analyze it: "
-                    "TOOL: analyze_sequence('FILENAME.fasta') to check composition, "
-                    "or TOOL: translate_sequence('FILENAME.fasta') for protein translation.")
-
-        if "gene_info" in call_lower:
-            return ("You already have gene info. Move to sequence analysis: "
-                    "TOOL: ncbi_fetch('ACCESSION', db='nucleotide') to get the sequence, "
-                    "or TOOL: uniprot_search('GENE_NAME') to find protein data.")
-
-        if "analyze_sequence" in call_lower:
-            return ("Analysis done. Next steps: "
-                    "TOOL: translate_sequence('FILE') for protein translation, "
-                    "TOOL: blast_search('FILE') for homology search, "
-                    "or TOOL: save_finding('title', 'description', 'evidence') to record results.")
-
-        if "uniprot" in call_lower:
-            return ("You have UniProt results. Try: "
-                    "TOOL: analyze_sequence('FILE') on a downloaded sequence, "
-                    "or TOOL: save_finding('title', 'description', 'evidence') to record what you found.")
-
-        if "blast" in call_lower:
-            return ("BLAST is done. Record your findings: "
-                    "TOOL: save_finding('title', 'description', 'evidence').")
-
-        if "pubmed" in call_lower:
-            return ("Literature search done. Use results to form hypotheses: "
-                    "TOOL: save_finding('title', 'description', 'evidence'), "
-                    "or search for a different angle with a new query.")
-
-        if "save_finding" in call_lower:
-            return ("Finding saved! Get your next target: "
-                    "TOOL: next_gene()")
-
-        if "next_gene" in call_lower:
-            return ("Queue is empty but the project is NOT complete — there are more seed families to search. "
-                    "You need to DISCOVER new genes. "
-                    "TOOL: ncbi_search('C5orf', db='gene', max_results=10) to find new dark genes, "
-                    "then TOOL: add_to_queue('GENE_NAME', source='ncbi_search') for each one. "
-                    "DO NOT save 'project complete' findings.")
-
-        if "queue_status" in call_lower or "list_findings" in call_lower or "note" in call_lower:
-            return ("Stop checking status and DO RESEARCH. "
-                    "TOOL: next_gene() to get a target, or "
-                    "TOOL: ncbi_search('uncharacterized protein human', db='gene') to discover new genes.")
-
-        # Generic fallback
-        return ("Try a DIFFERENT tool than the one you were repeating. "
-                "Options: gene_info(), ncbi_fetch(), analyze_sequence(), "
-                "save_finding(), next_gene(), list_sequences().")
+        return suggest_next_step(stuck_call)
 
     def _trim_messages(self, keep_recent: int = 20, hard_limit: int = 60):
-        """Smart per-cycle context management.
-
-        Every cycle:
-        1. Messages within the last `keep_recent` are kept in full detail.
-        2. Older messages get compressed:
-           - Tool results (user msgs with "[orchestrator] X returned:") → truncated to ~150 chars
-           - Assistant thinking/reasoning → condensed to tool call + 1-line summary
-           - Nudge messages → dropped entirely (they add no value to history)
-        3. If total still exceeds `hard_limit`, oldest compressed messages are dropped.
-
-        This prevents Qwen from losing coherence after ~30 cycles by keeping
-        the context window focused on recent work while retaining a brief
-        history of what was already done.
-        """
-        if len(self.messages) <= keep_recent + 1:  # +1 for system prompt
-            return
-
-        system = self.messages[0]
-        # Split into old vs recent
-        cutoff = len(self.messages) - keep_recent
-        old_messages = self.messages[1:cutoff]
-        recent_messages = self.messages[cutoff:]
-
-        compressed = []
-        compressed_count = 0
-
-        i = 0
-        while i < len(old_messages):
-            msg = old_messages[i]
-            role = msg.get("role", "")
-            content = msg.get("content", "")
-
-            # Drop empty messages
-            if not content.strip():
-                i += 1
-                continue
-
-            # Drop nudge messages and generic reflections — but KEEP
-            # "FINDING SAVED" reflections (they contain the completed gene name
-            # and prevent the agent from re-analyzing the same gene)
-            if role == "user" and "No tool call detected" in content:
-                i += 1
-                compressed_count += 1
-                continue
-            if role == "user" and "— REFLECTION" in content:
-                # Generic reflection — drop it
-                i += 1
-                compressed_count += 1
-                continue
-            if role == "user" and "— FINDING SAVED" in content:
-                # Keep finding-saved reflections — they prevent re-analysis
-                compressed.append(msg)
-                i += 1
-                continue
-
-            # Compress tool results — keep tool name + first ~150 chars
-            if role == "user" and content.startswith("[orchestrator]") and "returned:" in content:
-                # Extract tool name and truncate result
-                lines = content.split("\n", 2)
-                header = lines[0]  # "[orchestrator] tool_name returned:"
-                # Get a brief snippet of the result
-                result_text = content[len(header):].strip()
-                snippet = result_text[:150].replace("\n", " ").strip()
-                if len(result_text) > 150:
-                    snippet += "..."
-                compressed.append({
-                    "role": "user",
-                    "content": f"{header}\n{snippet}"
-                })
-                compressed_count += 1
-                i += 1
-                continue
-
-            # Compress assistant messages — keep tool call line + brief summary
-            if role == "assistant":
-                # Check if it contains a tool call
-                tool_match = TOOL_START_PATTERN.search(content)
-                if tool_match:
-                    # Extract just the tool call line
-                    tool_line_start = content.rfind("\n", 0, tool_match.start())
-                    tool_line_end = content.find("\n", tool_match.end())
-                    if tool_line_end == -1:
-                        tool_line_end = len(content)
-                    tool_line = content[tool_line_start + 1:tool_line_end].strip()
-
-                    # Also grab first non-reasoning line as summary
-                    summary = ""
-                    for line in content.split("\n"):
-                        line = line.strip()
-                        if (line and not line.startswith("[Reasoning]")
-                                and not line.startswith("TOOL:")
-                                and "Tool Call" not in line
-                                and len(line) > 10):
-                            summary = line[:120]
-                            break
-
-                    condensed = tool_line
-                    if summary:
-                        condensed = f"{summary}\n{tool_line}"
-                    compressed.append({"role": "assistant", "content": condensed})
-                    compressed_count += 1
-                else:
-                    # Thinking-only message (no tool call) — keep brief
-                    brief = content[:200].replace("\n", " ").strip()
-                    if len(content) > 200:
-                        brief += "..."
-                    compressed.append({"role": "assistant", "content": brief})
-                    compressed_count += 1
-                i += 1
-                continue
-
-            # Keep other messages (e.g., initial user prompt) as-is
-            compressed.append(msg)
-            i += 1
-
-        # Deduplicate compressed messages — if the same tool call or result
-        # appears multiple times (early loop that wasn't caught), keep only the last
-        deduped = []
-        seen_content = set()
-        for msg in reversed(compressed):
-            # Use a short fingerprint for dedup
-            content = msg.get("content", "")
-            fingerprint = content[:200]
-            if fingerprint in seen_content:
-                compressed_count += 1  # count as compressed/dropped
-                continue
-            seen_content.add(fingerprint)
-            deduped.append(msg)
-        deduped.reverse()
-        compressed = deduped
-
-        # Rebuild messages: system + compressed old + full recent
-        self.messages = [system] + compressed + recent_messages
-
-        # Hard limit: if still too many, drop oldest compressed messages
-        if len(self.messages) > hard_limit:
-            excess = len(self.messages) - hard_limit
-            # Drop from position 1 (after system), keeping system + recent
-            self.messages = [system] + self.messages[1 + excess:]
-            compressed_count += excess
-
-        if compressed_count > 0:
-            ui_log("INFO", f"Context managed: compressed {compressed_count} old messages, total now {len(self.messages)}")
-
-
-# Map tools to the pipeline step they naturally complete
-_TOOL_STEP_MAP = {
-    "gene_info": "discover",
-    "ncbi_fetch": "profile",
-    "analyze_sequence": "analyze",
-    "translate_sequence": "translate",
-    "uniprot_fetch": "translate",
-    "blast_search": "compare",
-    "compare_sequences": "compare",
-    "uniprot_search": "annotate",
-    "hypothesize": "hypothesize",
-    "save_finding": "hypothesize",
-}
-
-# Pattern to extract gene names from finding titles/results
-_GENE_NAME_RE = re.compile(r'\b(C\d+orf\d+|LOC\d+|[A-Z][A-Z0-9]{1,10})\b')
-
-
-def _build_queue_bulletin(just_completed: str) -> str:
-    """Build a concise queue status bulletin for the reflection prompt.
-
-    Tells the agent exactly what the queue looks like after completing a gene:
-    - How many genes are waiting vs completed
-    - What seed family is current
-    - Whether it needs to discover new genes or just call next_gene()
-
-    This replaces the need for the agent to call queue_status() as a tool
-    (which wastes a turn). The info is injected for free after save_finding.
-    """
-    try:
-        from tools.gene_queue import _load_queue, SEED_PREFIXES
-        from config import FINDINGS_DIR
-        import os
-
-        q = _load_queue()
-        queue_size = len(q.get("queue", []))
-        completed = len(q.get("completed", []))
-        skipped = len(q.get("skipped", []))
-        seed_idx = q.get("seed_index", 0)
-        total_seeds = len(SEED_PREFIXES)
-
-        # Count findings on disk (actual output)
-        findings_on_disk = 0
-        if os.path.isdir(FINDINGS_DIR):
-            findings_on_disk = len([f for f in os.listdir(FINDINGS_DIR) if f.endswith(".md")])
-
-        lines = []
-        lines.append(f"Genes in queue: {queue_size}")
-        lines.append(f"Completed: {completed} | Findings on disk: {findings_on_disk} | Skipped: {skipped}")
-        lines.append(f"Seed families: {seed_idx}/{total_seeds} searched")
-
-        if queue_size > 0:
-            next_genes = [g["gene"] for g in q["queue"][:3]]
-            lines.append(f"Next up: {', '.join(next_genes)}")
-            lines.append("Action: call next_gene() to start the next gene.")
-        elif seed_idx < total_seeds:
-            prefix = SEED_PREFIXES[seed_idx]
-            lines.append(f"Queue is EMPTY. Next seed family: '{prefix}'")
-            lines.append(f"Action: call next_gene() — it will guide you to discover new genes from '{prefix}'.")
-        else:
-            lines.append("Queue is EMPTY and all seed families searched.")
-            lines.append("Action: call next_gene() for broader discovery suggestions.")
-
-        return "\n".join(lines)
-    except Exception:
-        return "Queue status unavailable. Call next_gene() to continue."
-
-
-def _auto_complete_step(tool_name: str, result_str: str):
-    """Auto-mark pipeline steps done when the corresponding tool succeeds.
-
-    Qwen often forgets to call complete_step() after using a tool.
-    This silently marks the step so the pipeline tracks progress correctly.
-
-    Special handling for save_finding: auto-completes the gene in the queue
-    so Qwen doesn't revisit it. Also checks if the gene was being worked on
-    outside the queue (direct analysis without add_to_queue) and registers it.
-    """
-    if "[ERROR]" in result_str or "[REJECTED]" in result_str:
-        return
-
-    step = _TOOL_STEP_MAP.get(tool_name)
-    if not step:
-        return
-
-    try:
-        from tools.gene_queue import (
-            complete_step as _cs,
-            _load_queue,
-        )
-
-        # save_finding already calls complete_gene() internally — skip here
-        # to avoid double-completion race condition
-        if tool_name == "save_finding":
-            return
-
-        # --- Normal step completion ---
-        q = _load_queue()
-        if not q.get("in_progress"):
-            return
-        done = q["in_progress"].get("steps_done", [])
-        if step not in done:
-            _cs(step)
-            ui_log("INFO", f"Auto-completed pipeline step '{step}' (from {tool_name})")
-    except Exception:
-        pass  # Don't crash the orchestrator for pipeline tracking
-
-
-def _build_reflection_prompt(tool_name: str, result_str: str,
-                             turn: int, max_turns: int,
-                             soft_turns: int = 12) -> str:
-    """Build a lightweight reflection prompt after a tool execution.
-
-    Sent as a user message so Qwen sees the result and decides what to do next
-    within the same cycle (multi-turn inner loop).
-    """
-    # Truncate result for the reflection prompt (keep it focused)
-    result_preview = result_str[:1500]
-    if len(result_str) > 1500:
-        result_preview += "\n... (truncated)"
-
-    # After add_to_queue succeeds, tell agent to start analyzing
-    if tool_name == "add_to_queue" and "Added" in result_str:
-        return (
-            f"[orchestrator] Turn {turn} — GENE QUEUED\n\n"
-            f"{result_preview}\n\n"
-            "Gene added successfully! Now call advance_seed() then next_gene() to START ANALYZING it.\n"
-            "TOOL: advance_seed()"
-        )
-
-    # After add_to_queue rejects (duplicate), count consecutive rejections
-    if tool_name == "add_to_queue" and "already" in result_str.lower():
-        return (
-            f"[orchestrator] Turn {turn} — DUPLICATE REJECTED\n\n"
-            f"{result_preview}\n\n"
-            "This gene was already done. If you've had 3+ rejections in a row,\n"
-            "this seed family is exhausted. Call advance_seed() then next_gene().\n"
-            "Do NOT keep trying more genes from the same search results."
-        )
-
-    # After save_finding, direct Qwen to move to next gene
-    # Include a queue status bulletin so the agent knows what's ahead
-    if tool_name == "save_finding":
-        # Extract gene name from the result so the agent knows what to avoid
-        gene_match = _GENE_NAME_RE.search(result_str)
-        completed_gene = gene_match.group(1) if gene_match else "the gene you just analyzed"
-
-        # Build queue bulletin — tell the agent the state of its worklist
-        queue_bulletin = _build_queue_bulletin(completed_gene)
-
-        return (
-            f"[orchestrator] Turn {turn} — FINDING SAVED\n\n"
-            f"Finding for **{completed_gene}** saved successfully.\n\n"
-            f"GOOD WORK! {completed_gene} is DONE — do NOT re-analyze it.\n\n"
-            f"═══ QUEUE STATUS ═══\n"
-            f"{queue_bulletin}\n\n"
-            "NEXT ACTION: TOOL: next_gene()"
-        )
-
-    # Dynamic pacing — no pressure early, gentle nudge after soft cap
-    if turn < soft_turns:
-        pacing = "Take your time — explore all relevant sources before saving."
-    elif turn < max_turns - 2:
-        pacing = "You've done thorough research. When ready, save your finding."
-    else:
-        pacing = "Wrap up and save your finding now."
-
-    return (
-        f"[orchestrator] Turn {turn} — REFLECTION\n\n"
-        f"Tool result from {tool_name}:\n{result_preview}\n\n"
-        "Before your next action, REFLECT briefly:\n"
-        "1. EVALUATE: What useful data did this tool give me? What's still missing?\n"
-        "2. TOOL REVIEW: Which sources have I already queried? Which scoring dimensions am I missing?\n"
-        f"3. PLAN: {pacing}\n\n"
-        "Scoring reminders:\n"
-        "  COVERAGE: InterPro domains, STRING interactions, HPA expression, ClinVar, conservation, AlphaFold\n"
-        "  DEPTH: 400+ char description, quantitative data, named entities\n"
-        "  INSIGHT: functional hypothesis, cross-domain reasoning, mechanistic proposal\n\n"
-        "Now call your next tool using TOOL: format."
-    )
-
-
-def _deduplicate_response(response: str) -> tuple[str, bool]:
-    """Detect and remove repeated THOUGHT blocks or repeated substantial lines.
-
-    Qwen sometimes repeats the same reasoning block multiple times in a single
-    response, consuming tokens without producing useful output. This detects
-    that pattern and keeps only the first occurrence of each substantial line,
-    while always preserving TOOL: lines.
-
-    Returns (cleaned_response, was_deduplicated).
-    """
-    lines = response.split("\n")
-
-    # Count occurrences of substantial lines
-    line_counts: dict[str, int] = {}
-    for line in lines:
-        stripped = line.strip()
-        if len(stripped) > 20:
-            line_counts[stripped] = line_counts.get(stripped, 0) + 1
-
-    # If no substantial line appears 3+ times, no dedup needed
-    max_repeats = max(line_counts.values()) if line_counts else 0
-    if max_repeats < 3:
-        return response, False
-
-    # Deduplicate: keep first occurrence, always keep TOOL: lines
-    seen: set[str] = set()
-    deduped: list[str] = []
-    was_deduped = False
-
-    for line in lines:
-        stripped = line.strip()
-        # Always keep TOOL: lines
-        if TOOL_START_PATTERN.search(stripped) or stripped.upper().startswith("TOOL:"):
-            deduped.append(line)
-            continue
-        # Keep short/empty lines
-        if len(stripped) <= 20:
-            deduped.append(line)
-            continue
-        # Deduplicate substantial repeated lines
-        if stripped in seen:
-            was_deduped = True
-            continue
-        seen.add(stripped)
-        deduped.append(line)
-
-    return "\n".join(deduped), was_deduped
-
-
-def _extract_balanced_args(text: str, start: int) -> str:
-    """Extract content between balanced parentheses, respecting quoted strings.
-
-    `start` should point to the first char after the opening '('.
-    Returns the content between parens, or None if no balanced close found.
-    """
-    depth = 1
-    in_quote = None
-    i = start
-    while i < len(text):
-        ch = text[i]
-        if in_quote:
-            if ch == in_quote and (i == 0 or text[i-1] != "\\"):
-                in_quote = None
-        else:
-            if ch in ("'", '"'):
-                in_quote = ch
-            elif ch == "(":
-                depth += 1
-            elif ch == ")":
-                depth -= 1
-                if depth == 0:
-                    return text[start:i]
-        i += 1
-    # No balanced close found — return everything we have
-    return text[start:]
-
-
-def _split_args(raw: str) -> list[str]:
-    """Split comma-separated args, respecting quotes."""
-    parts = []
-    current = ""
-    depth = 0
-    in_quote = None
-    for ch in raw:
-        if ch in ("'", '"') and in_quote is None:
-            in_quote = ch
-        elif ch == in_quote:
-            in_quote = None
-        elif ch == "(" and in_quote is None:
-            depth += 1
-        elif ch == ")" and in_quote is None:
-            depth -= 1
-        elif ch == "," and depth == 0 and in_quote is None:
-            parts.append(current)
-            current = ""
-            continue
-        current += ch
-    if current.strip():
-        parts.append(current)
-    return parts
-
-
-def _cast(val: str):
-    """Try to cast a string argument to int, float, or stripped string."""
-    val = val.strip().strip("'\"")
-    try:
-        return int(val)
-    except ValueError:
-        pass
-    try:
-        return float(val)
-    except ValueError:
-        pass
-    return val
+        """Smart per-cycle context management."""
+        _trim_messages(self.messages, TOOL_START_PATTERN, keep_recent, hard_limit)
