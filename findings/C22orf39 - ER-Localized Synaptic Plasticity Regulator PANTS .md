@@ -1,0 +1,13 @@
+# C22orf39 - ER-Localized Synaptic Plasticity Regulator PANTS with High-Confidence Structure and 22q11.21 CNV Disease Association
+
+**Date:** 2026-03-17T03:02:03.959597
+
+**Quality Score:** 9/10 (EXCELLENT)
+
+## Description
+C22orf39 encodes a 105 amino acid protein (UniProt Q6P5X5) called Synaptic plasticity regulator PANTS, a true dark gene with emerging disease relevance. The protein contains a conserved PANTS domain (IPR021475, PF11326, residues 2-103) defining the UPF0545 protein family. AlphaFold predicts a well-folded structure with high confidence (pLDDT 89.4), suggesting stable tertiary structure despite limited functional annotation. HPA localizes C22orf39 to the endoplasmic reticulum with ubiquitous expression across all tissues (low tissue specificity, cell type enhanced), indicating a fundamental cellular role. STRING reveals 10 medium-confidence interactions (scores 0.43-0.58) including ATP23 (mitochondrial ATPase assembly), GNB1L (G-protein signaling), L3MBTL4 (chromatin compaction), TRMT2A (tRNA methylation), RHNO1 (DNA damage checkpoint), PIGBOS1 (ER-mitochondria communication), GPM6A (neuronal membrane glycoprotein), and TANGO2 (ER-Golgi trafficking). This interaction network suggests C22orf39 functions at ER-mitochondria interfaces, potentially coordinating protein folding, trafficking, or stress responses. Critically, ClinVar documents 379 pathogenic/likely pathogenic variants, predominantly copy number variations (CNVs) in the 22q11.21 region associated with DiGeorge/velocardiofacial syndrome spectrum. The 22q11.21 deletion syndrome affects ~1:4000 births with cardiac, palatal, immune, and neuropsychiatric phenotypes. C22orf39 haploinsufficiency may contribute to synaptic plasticity deficits and ER stress in neural development. Cross-domain reasoning links ER localization + synaptic plasticity annotation + 22q11.21 CNVs + neuronal interaction partners (GPM6A) to propose C22orf39 as an ER chaperone or trafficking factor required for neurodevelopmental protein homeostasis. Mechanistically, C22orf39 may facilitate ER-mitochondria calcium signaling or glycoprotein folding essential for synaptic vesicle maturation, with dosage sensitivity explaining neuropsychiatric phenotypes in 22q11.21 deletion carriers.
+
+## Evidence
+```
+InterPro: IPR021475/PF11326 (residues 2-103); UniProt: Q6P5X5 (105 aa); AlphaFold: pLDDT 89.4 (high confidence); HPA: ER localization, ubiquitous expression; STRING: ATP23(0.582), GNB1L(0.533), L3MBTL4(0.515), TRMT2A(0.494), RHNO1(0.484), PIGBOS1(0.470), GPM6A(0.461), TANGO2(0.450); ClinVar: 379 pathogenic CNVs in 22q11.21 region
+```

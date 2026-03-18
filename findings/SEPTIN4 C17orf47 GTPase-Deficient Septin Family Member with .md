@@ -1,0 +1,13 @@
+# SEPTIN4 (C17orf47): GTPase-Deficient Septin Family Member with Brain-Enriched Expression and Spermatogenesis Function
+
+**Date:** 2026-03-18T03:03:44.306856
+
+**Quality Score:** 10/10 (EXCELLENT)
+
+## Description
+SEPTIN4 (formerly C17orf47) encodes a 996 aa septin family GTPase (UniProt O43236) with multiple functional domains. InterPro analysis reveals: Septin-type GTPase domain (IPR030379, PF00735) at residues 659-935 for nucleotide binding, P-loop NTPase superfamily (IPR027417, G3DSA:3.40.50.300) at residues 639-934, and DUF4655 disordered region (PF15548) at residues 10-534. AlphaFold predicts confident structure (pLDDT 71.4) for residues 1-478. HPA shows brain-enriched expression (1097.2 nTPM) with secondary expression in retina (375.4 nTPM), classified as cancer-enhanced with annulus subcellular localization. Biological processes include cell cycle, cell division, differentiation, and spermatogenesis. STRING reveals extremely high-confidence interactions with septin family members: SEPTIN7 (0.998), SEPTIN11 (0.998), SEPTIN3 (0.995), SEPTIN2 (0.993), SEPTIN9 (0.991), SEPTIN5 (0.986), SEPTIN6 (0.977), SEPTIN12 (0.939), SEPTIN1 (0.928), and apoptosis regulator XIAP (0.995). ClinVar contains 16 pathogenic variants including nonsense mutations (p.Arg69Ter, p.Arg241Ter) and copy number variants. Orthologs exist across vertebrates indicating strong conservation. FUNCTIONAL HYPOTHESIS: SEPTIN4 functions as a catalytically inactive septin scaffold that regulates septin filament assembly and membrane diffusion barriers in neurons and sperm. MECHANISTIC PROPOSAL: SEPTIN4 lacks critical GTPase motifs (G4 motif degenerated), functioning as dominant-negative regulator of septin polymerization. Hetero-oligomerizes with SEPTIN2/6/7 core complex via NC and G interfaces. Brain-enriched expression suggests neuronal diffusion barrier formation at dendritic spines. Annulus localization indicates sperm tail compartmentalization. XIAP interaction links to apoptosis regulation. Pathogenic truncating mutations disrupt filament assembly, causing neurological and reproductive phenotypes. NOTE: This gene is NOT truly "dark" - septins are well-studied cytoskeletal GTPases.
+
+## Evidence
+```
+InterPro: IPR030379, IPR027417, IPR016491, PF00735, PF15548, G3DSA:3.40.50.300 | STRING: SEPTIN7(0.998), SEPTIN11(0.998), SEPTIN3(0.995), SEPTIN2(0.993), SEPTIN9(0.991), XIAP(0.995) | HPA: brain(1097.2 nTPM), retina(375.4 nTPM), annulus, spermatogenesis | ClinVar: 16 pathogenic variants (R69*, R241*, CNVs) | AlphaFold: pLDDT 71.4 (1-478 aa) | UniProt: O43236 (996 aa) | Conservation: vertebrate orthologs
+```

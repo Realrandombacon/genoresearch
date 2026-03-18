@@ -1,0 +1,13 @@
+# C10orf134/ENO4 - Cancer-Enhanced Enolase Glycolytic Enzyme with Dimerization Domain
+
+**Date:** 2026-03-16T23:48:11.067247
+
+**Quality Score:** 10/10 (EXCELLENT)
+
+## Description
+C10orf134 (Gene ID: 414268, chromosome 10q25.1) encodes Enolase 4 (ENO4), a 625 amino acid glycolytic enzyme (UniProt A6NNW6) belonging to the enolase family. Despite the 'orf' nomenclature, ENO4 contains canonical enolase catalytic machinery including an N-terminal dimerization/docking domain (InterPro IPR047500, residues 14-78), an enolase N-terminal domain (IPR020811, residues 68-261), and a C-terminal TIM barrel catalytic domain (IPR020810/PF00113, residues 275-573) that binds magnesium ions (GO:0000287) and catalyzes phosphopyruvate hydration (GO:0004634). AlphaFold structure prediction yields high confidence (pLDDT 84.4), consistent with a well-folded enzymatic structure. Human Protein Atlas reveals restricted expression in choroid plexus (5.2 nTPM) and fallopian tube (4.7 nTPM) with cancer-enhanced expression pattern, suggesting potential oncogenic metabolic reprogramming roles. STRING interaction network identifies 10 glycolytic partners with high confidence: PGAM1 (0.973), GPI (0.973), BPGM (0.960), PGAM4 (0.958), GLYCTK (0.938), PGAM2 (0.861), PKLR (0.733), PKM (0.700), PCK2 (0.538), and PCK1 (0.490), placing ENO4 within the core glycolytic pathway alongside phosphoglycerate mutases, glucose-6-phosphate isomerase, and pyruvate kinases. ClinVar documents 28 pathogenic/likely pathogenic variants including large copy number alterations spanning 10q25-26 and one splice region variant (c.1673+21C>G in SHTN1 transcript), though no specific monogenic disease phenotype is defined. The combination of canonical enolase structure, glycolytic interaction network, and cancer-enhanced expression suggests ENO4 functions as a metabolic enzyme potentially contributing to Warburg effect metabolic reprogramming in tumors, with choroid plexus and fallopian tube expression indicating tissue-specific glycolytic regulation roles.
+
+## Evidence
+```
+UniProt: A6NNW6 (625 aa) | InterPro: IPR047500 dimerization/docking (14-78), IPR000941 Enolase (66-571), IPR020810 C-terminal TIM barrel (273-578), IPR020811 N-terminal (68-261), PF00113 (275-573), PTHR11902 ENOLASE (66-571) | STRING: PGAM1(0.973), GPI(0.973), BPGM(0.960), PGAM4(0.958), GLYCTK(0.938), PGAM2(0.861), PKLR(0.733), PKM(0.700), PCK2(0.538), PCK1(0.490) | HPA: choroid plexus 5.2 nTPM, fallopian tube 4.7 nTPM, cancer enhanced | ClinVar: 28 pathogenic variants (CNVs + c.1673+21C>G) | AlphaFold: pLDDT 84.4 (high) | Function: Glycolytic enolase enzyme in cancer metabolism
+```

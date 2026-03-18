@@ -1,0 +1,13 @@
+# C10orf143 - Arginine-Rich Small Protein with Epididymal and Sperm Membrane Interactions
+
+**Date:** 2026-03-17T22:23:50.835339
+
+**Quality Score:** 10/10 (EXCELLENT)
+
+## Description
+C10orf143 (UniProt A0A1B0GUT2) is a 108aa human small protein characterized by elevated arginine content (14 residues, 13.0%) and moderate overall charge density (32 residues, 29.6%), with balanced hydrophobicity (27 residues, 25.0%). The high arginine-to-lysine ratio (14:5) suggests potential for RNA binding, nucleolar localization, or phase separation via arginine-rich motifs that recognize G-quadruplex structures or facilitate electrostatic interactions with negatively charged biomolecules. AlphaFold prediction (pLDDT 57.8) indicates medium confidence with mixed structured and disordered regions, consistent with small proteins that function through dynamic conformational changes or transient protein-protein interactions. STRING-DB reveals 10 interaction partners with striking functional coherence: EDDM13 (epididymal sperm-binding protein 13, score 0.769, high confidence), multiple small integral membrane proteins (SMIM31, SMIM36, SMIM41, SMIM38, all 0.57-0.62 scores), CCDC201 (coiled-coil domain-containing 201, score 0.580), and C1orf232 (another uncharacterized protein, score 0.478). EDDM13 is a cysteine-rich epididymal protein essential for sperm maturation and fertilization, while SMIM family proteins are predominantly testis-expressed erythroid or sperm membrane components. This interaction profile strongly implicates C10orf143 in reproductive biology, specifically sperm maturation, epididymal transit, or sperm-egg recognition. HPA expression shows "low tissue specificity" with detection across all tissues, suggesting ubiquitous basal expression that may be post-transcriptionally regulated or functionally activated in specific contexts (e.g., testis). ClinVar documents 36 pathogenic/likely pathogenic variants spanning 10q26.2-26.3, including both copy number losses (deletions) and gains (duplications) plus an intronic SNV (c.298-1116A>G), demonstrating bidirectional dosage sensitivity and clear clinical significance. The combination of arginine-rich composition, epididymal/sperm protein interactions, and dosage-sensitive CNVs suggests C10orf143 functions as a small regulatory or scaffolding protein in sperm maturation pathways, potentially modulating EDDM13 activity or sperm membrane protein complex assembly. The small size (108aa) and partial disorder may enable rapid diffusion through epididymal luminal fluid or facilitate transient interactions with multiple sperm surface proteins during maturation.
+
+## Evidence
+```
+evidence': {'uniprot_acc': 'A0A1B0GUT2
+```

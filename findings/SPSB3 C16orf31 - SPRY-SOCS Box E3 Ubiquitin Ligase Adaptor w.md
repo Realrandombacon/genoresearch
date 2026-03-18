@@ -1,0 +1,13 @@
+# SPSB3 C16orf31 - SPRY-SOCS Box E3 Ubiquitin Ligase Adaptor with Mitochondrial Localization and Cullin-5 Complex Assembly
+
+**Date:** 2026-03-17T01:16:59.296115
+
+**Quality Score:** 9/10 (EXCELLENT)
+
+## Description
+SPSB3 (SPRY domain-containing SOCS box protein 3, C16orf31) encodes a 355 amino acid intracellular protein (UniProt Q6PJ21) functioning as an E3 ubiquitin ligase adaptor. InterPro analysis reveals a canonical bipartite domain architecture: an N-terminal B30.2/SPRY domain (IPR001870, PF00622, residues 85-274) for substrate recognition and protein-protein interactions, plus a C-terminal SOCS box domain (IPR001496, residues 272-312) that recruits elongin BC-Cullin5-RING ubiquitin ligase complexes. Additional domain signatures include CATH-Gene3D superfamily G3DSA:2.60.120.920 (residues 109-270) and Concanavalin A-like lectin fold (IPR013320). AlphaFold structure prediction shows high confidence (pLDDT 76.7) across the 355 residue length, indicating a well-folded stable structure. STRING interactions identify 10 partners with high-confidence connections to ELOC/Elongin C (0.806) and CUL5 (0.791), core components of the ECS (Elongin-Cullin-SOCS) ubiquitin ligase complex, plus UBE2F (0.511) and UBE2M (0.508) E2 conjugating enzymes for NEDD8 modification. HPA classification indicates predicted intracellular protein with mitochondrial subcellular localization, Ubl conjugation pathway biological process, low tissue specificity with detection in all tissues, and cell type enhanced specificity. ClinVar contains 42 pathogenic/likely pathogenic variants including SNVs and copy number alterations at 16p13.3. The SPRY-SOCS box architecture positions SPSB3 as a substrate-specific adaptor that recruits target proteins to CUL5-based E3 ligase complexes for polyubiquitination and proteasomal degradation, potentially regulating mitochondrial protein turnover or stress response pathways.
+
+## Evidence
+```
+InterPro domains: IPR001870 (B30.2/SPRY domain), IPR001496 (SOCS box), IPR003877 (SPRY domain), PF00622 (SPRY), PS50188 (B30.2/SPRY profile), PS50225 (SOCS box profile), IPR013320 (Concanavalin A-like lectin), G3DSA:2.60.120.920 (CATH superfamily); STRING partners: ELOC (0.806), CUL5 (0.791), CISH (0.562), UBE2F (0.511), UBE2M (0.508), ELOB (0.508), RNF7 (0.507), NEDD8 (0.506), CCDC22 (0.499), COMMD3 (0.499); HPA: predicted intracellular proteins, mitochondria, Ubl conjugation pathway, detected in all tissues, cell type enhanced; ClinVar: 42 pathogenic variants (SNVs, CNVs, deletions); AlphaFold: pLDDT 76.7 (high confidence, residues 1-355); UniProt: Q6PJ21, 355 aa
+```

@@ -1,0 +1,13 @@
+# C2orf48: Disordered Oncogenic Protein in Nasopharyngeal Carcinoma with RRM2 Chimeric Transcript
+
+**Date:** 2026-03-18T05:10:30.835708
+
+**Quality Score:** 9/10 (EXCELLENT)
+
+## Description
+C2orf48 (Gene ID: 348738) encodes a 159-amino acid putative uncharacterized protein (UniProt Q96LS8) located at chromosome 2p25.1. AlphaFold structure prediction shows global pLDDT score of 31.1, indicating predominantly intrinsically disordered conformation - characteristic of proteins functioning through protein-protein interactions rather than enzymatic catalysis. Critical cancer role: PubMed literature (14 publications) reveals C2orf48 promotes nasopharyngeal carcinoma (NPC) progression by regulating HMGA2 (high mobility group AT-hook 2) transcription factor, and forms oncogenic chimeric transcript RRM2-C2orf48 that drives metastasis. STRING interactions returned RRM2 partners (CDK1 score 0.973, TOP2A 0.956, NUSAP1 0.951, MKI67 0.945, CEP55 0.945, KIF11 0.788, RRM2B 0.542, DLGAP5 0.510, RRM1 0.503, DTYMK 0.437) - cell cycle and DNA replication machinery, consistent with RRM2 (ribonucleotide reductase) function in nucleotide synthesis. Human Protein Atlas could not resolve C2orf48, indicating no antibody-based tissue expression data. ClinVar contains 19 pathogenic/likely pathogenic variants (mostly copy number gains across 2p25 regions), suggesting genomic instability association but no specific Mendelian disease. InterPro scan failed, indicating no characterized protein domains. Functional hypothesis: C2orf48 operates as a disordered scaffold protein or regulatory lncRNA in cancer pathways, potentially modulating cell cycle progression through RRM2 interaction and HMGA2 regulation. The chimeric RRM2-C2orf48 transcript suggests post-transcriptional readthrough or trans-splicing mechanism generating oncogenic fusion. Mechanistic proposal: C2orf48 may recruit chromatin modifiers or transcriptional co-activators to HMGA2 promoters, or stabilize RRM2 mRNA/protein to enhance dNTP synthesis in proliferating cancer cells. Experimental priorities: determine coding vs non-coding function, map HMGA2 regulatory elements, characterize RRM2-C2orf48 chimeric RNA biogenesis, and assess therapeutic targeting in NPC.
+
+## Evidence
+```
+Evidence: Gene ID 348738; Chromosome 2p25.1; UniProt Q96LS8 (159 aa); AlphaFold pLDDT 31.1 (disordered); STRING: RRM2 partners (10: CDK1 0.973, TOP2A 0.956, NUSAP1 0.951, MKI67 0.945, CEP55 0.945, KIF11 0.788, RRM2B 0.542, DLGAP5 0.510, RRM1 0.503, DTYMK 0.437); HPA: unresolved; ClinVar: 19 pathogenic variants (copy number gains); PubMed: 14 papers (NPC progression, HMGA2 regulation, RRM2-C2orf48 chimera); InterPro: failed
+```

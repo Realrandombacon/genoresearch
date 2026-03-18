@@ -1,0 +1,13 @@
+# CNTLN/C9orf101 - Centrosome Cohesion Scaffold with 96 Pathogenic Variants and High-Confidence Structure
+
+**Date:** 2026-03-17T04:31:05.584426
+
+**Quality Score:** 10/10 (EXCELLENT)
+
+## Description
+CNTLN (C9orf101) encodes a 1405 amino acid centlein protein that functions as a centrosome cohesion scaffold required for maintaining centrosome integrity and recruiting CEP68 to centrosomal microtubule-organizing centers. InterPro analysis reveals centlein family signatures (IPR038810/PTHR18957, residues 96-1373) defining this as a vertebrate-specific centrosomal adapter protein. AlphaFold structure prediction (AF-Q9NXG0-F1) shows high confidence (pLDDT 70.2) across the full 1405 aa sequence, indicating a well-folded stable structure suitable for protein-protein interactions at the centrosome. STRING-DB identifies 10 high-confidence protein interaction partners enriched for centrosome and cilium assembly: NIN (0.898 - ninein, microtubule anchoring), CEP250 (0.882 - centrosomal protein 250), CCP110 (0.878 - coiled-coil protein 110, centriole capping), CENPJ (0.875 - centromere protein J, centriole biogenesis), PCNT (0.702 - pericentrin, centrosome scaffold), CEP135 (0.599), CROCC (0.531 - ciliary rootlet coiled-coil), PLK4 (0.487 - polo-like kinase 4, centriole duplication), LRRC45 (0.431), and CEP170 (0.400). HPA expression data shows ubiquitous tissue distribution with low specificity, immune cell enhancement, subcellular localization to nucleoplasm/centrosome/cytosol, and classification as predicted intracellular protein. ClinVar reports 96 pathogenic/likely pathogenic variants including copy number gains/losses (9p24.3-q21.13 regions) and single nucleotide variants (p.Ile972Val, c.1886+20A>G, c.850-16A>G), indicating disease association through both genomic instability and coding sequence disruption. Mechanistically, centlein functions as a molecular scaffold at the proximal end of centrioles, bridging pericentriolar material (PCM) components (PCNT, ninein) with centriole wall proteins (CEP135, CENPJ). The protein recruits CEP68 to establish centrosome cohesion, preventing centriole splitting during mitosis. Loss of CNTLN disrupts PCM organization, impairing microtubule nucleation, spindle assembly, and ciliogenesis - processes linked to microcephaly, ciliopathy, and cancer phenotypes observed in 9p CNV syndromes and CNTLN point mutations.
+
+## Evidence
+```
+Evidence: UniProt Q9NXG0 (1405 aa); InterPro IPR038810/PTHR18957; STRING 10 interactions (NIN 0.898, CEP250 0.882, CCP110 0.878, CENPJ 0.875, PCNT 0.702, etc.); HPA ubiquitous expression, centrosome/nucleoplasm; ClinVar 96 pathogenic variants (CNVs + SNVs); AlphaFold pLDDT 70.2
+```

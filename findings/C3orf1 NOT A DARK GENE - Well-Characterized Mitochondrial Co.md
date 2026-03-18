@@ -1,0 +1,13 @@
+# C3orf1: NOT A DARK GENE - Well-Characterized Mitochondrial Complex I Assembly Factor TIMMDC1
+
+**Date:** 2026-03-18T05:16:02.486026
+
+**Quality Score:** 9/10 (EXCELLENT)
+
+## Description
+C3orf1 (Gene ID: 26522), historically named "chromosome 3 open reading frame 1", is actually a WELL-CHARACTERIZED mitochondrial protein now officially named TIMMDC1 (Translocase of Inner Mitochondrial Membrane Domain Containing 1). This represents a critical finding: C3orf1 is NOT a dark gene but rather a fully annotated protein with established function. UniProt accession Q9NPL8 encodes a 285-amino acid Complex I assembly factor. InterPro domains confirm functional annotation: IPR055299 (Complex I assembly factor TIMMDC1, residues 29-275), PF02466 (Tim17/Tim22/Tim23/Pmp24 family, residues 77-198), and PTHR13002 (C3ORF1 PROTEIN-RELATED). AlphaFold structure prediction shows global pLDDT score of 72.4 (high confidence), indicating well-folded stable 3D structure consistent with functional protein. STRING interactions reveal 10 high-confidence protein partners all involved in mitochondrial complex I biogenesis: NDUFA8 (0.999), NDUFA13 (0.999), NDUFAF1 (0.985), ECSIT (0.938), NDUFAF4 (0.937), NDUFAF3 (0.906), NDUFB5 (0.785), ACAD9 (0.717), TMEM126B (0.710), NDUFB10 (0.669). These interactions place TIMMDC1 within the mitochondrial complex I assembly module, working alongside assembly factors (NDUFAF1/3/4, ECSIT) and structural subunits (NDUFA/B series). Human Protein Atlas could not resolve C3orf1 symbol (requires TIMMDC1 search), and ClinVar contains zero variants, suggesting no Mendelian disease associations yet identified. Functional role: TIMMDC1 is essential for NADH:ubiquinone oxidoreductase (Complex I) assembly, specifically facilitating membrane arm module integration. Mechanistic proposal: TIMMDC1 likely acts as a chaperone or scaffold protein recruiting complex I subunits to the inner mitochondrial membrane via Tim17/Tim22/Tim23 translocase domain homology. This gene should be SKIPPED from dark gene analysis - it represents historical nomenclature (C#orf#) that has been superseded by functional annotation (TIMMDC1).
+
+## Evidence
+```
+Evidence: Gene ID 26522; Chromosome 3; Official symbol: TIMMDC1; UniProt Q9NPL8 (285 aa); InterPro: IPR055299 (29-275), PF02466 (77-198), PTHR13002; AlphaFold pLDDT 72.4 (well-folded); STRING: 10 complex I partners (NDUFA8 0.999, NDUFA13 0.999, NDUFAF1 0.985, ECSIT 0.938, NDUFAF4 0.937, NDUFAF3 0.906, NDUFB5 0.785, ACAD9 0.717, TMEM126B 0.710, NDUFB10 0.669); HPA: unresolved (needs TIMMDC1 symbol); ClinVar: 0 variants; GO: mitochondrial respiratory chain complex I assembly
+```

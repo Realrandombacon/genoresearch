@@ -1,0 +1,13 @@
+# C6orf154/LRRC73 - Testis-Enriched LRR Protein with Pluripotency Regulatory Potential
+
+**Date:** 2026-03-17T03:36:15.056712
+
+**Quality Score:** 10/10 (EXCELLENT)
+
+## Description
+C6orf154 encodes LRRC73 (Leucine-rich repeat-containing protein 73, UniProt Q5JTD7), a 316 aa intracellular protein with tandem leucine-rich repeat (LRR) domains (IPR032675, positions 4-140 and 141-263) belonging to the ribonuclease inhibitor-like superfamily (G3DSA:3.80.10.10, positions 4-263). InterPro classifies LRRC73 within the 'Leucine-rich repeat-containing regulator of pluripotency' family (IPR052201, PTHR24111, positions 4-266), suggesting evolutionary relationship to pluripotency factors. AlphaFold predicts a well-folded structure (pLDDT 84.2) consistent with stable LRR solenoid architecture. HPA shows testis-enriched expression (42.3 nTPM) with moderate brain expression (12.2 nTPM), and subcellular localization to nuclear bodies and cytosol - a dual localization pattern suggestive of nucleocytoplasmic shuttling. STRING interactions reveal associations with ANKRD13D (0.665), TEPSIN (0.625), VSIG10 (0.531), and vesicular trafficking components (VPS35: 0.420, VPS26B: 0.437, TBC1D5: 0.509), suggesting potential roles in endosomal sorting or protein complex assembly. ClinVar documents 12 pathogenic/likely pathogenic variants including copy number alterations and intronic SNVs. The LRR domain architecture (6 consecutive LRR motifs, positions 27-139) is characteristic of protein-protein interaction scaffolds. Mechanistic hypothesis: LRRC73 likely functions as a protein-protein interaction scaffold in testis and brain, potentially regulating transcriptional complexes or signaling pathways involved in germ cell development and neuronal function. The 'regulator of pluripotency' family annotation suggests possible roles in maintaining stem cell identity or modulating chromatin accessibility through LRR-mediated protein interactions. Testis enrichment parallels expression patterns of known pluripotency factors (e.g., NANOG, POU5F1), supporting a role in germ cell maintenance or spermatogenesis.
+
+## Evidence
+```
+InterPro: IPR032675 (LRR domain, 4-140 & 141-263aa), IPR052201 (LRR regulator of pluripotency, 4-266aa), PTHR24111 (LRR regulator of pluripotency, 4-266aa), G3DSA:3.80.10.10 (Ribonuclease inhibitor, 4-263aa), SM00368 (LRR ribonuclease inhibitor type, 27-54/84-111/112-139aa); STRING: ANKRD13D (0.665), TEPSIN (0.625), VSIG10 (0.531), TBC1D5 (0.509), POLR3H (0.468), VPS26B (0.437), NPRL2 (0.436), VPS35 (0.420); HPA: Testis 42.3 nTPM (group enriched), Brain 12.2 nTPM, nuclear bodies/cytosol; ClinVar: 12 pathogenic/likely pathogenic variants; AlphaFold: pLDDT 84.2 (high confidence, 1-316aa); UniProt: Q5JTD7, 316 aa
+```

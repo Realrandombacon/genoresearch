@@ -1,0 +1,13 @@
+# FAM120A/C9ORF10 - RNA-Binding Scaffold Protein with PIN-like Domain and 31 Pathogenic CNVs
+
+**Date:** 2026-03-17T04:29:31.694901
+
+**Quality Score:** 10/10 (EXCELLENT)
+
+## Description
+FAM120A (C9ORF10) encodes a 1118 amino acid constitutive coactivator of PPAR-gamma-like protein 1 that functions as an RNA-binding scaffold protein regulating post-transcriptional gene expression and oxidative stress survival signaling. InterPro analysis reveals multiple domain signatures: a PIN-like domain superfamily (IPR029060/SSF88723, residues 1-226) with 5'-nuclease fold (G3DSA:3.40.50.1010), a FAM120A-like helical domain (IPR060110/PF27242, residues 226-330), and the constitutive coactivator of PPAR-gamma family domain (IPR026784/PTHR15976, residues 1-1084). AlphaFold structure prediction (AF-Q9NZB2-F1) shows medium confidence (pLDDT 67.3) across the full 1118 aa sequence, consistent with a partially structured protein containing both ordered PIN-like domains and intrinsically disordered regions typical of RNA-binding scaffolds. STRING-DB identifies 10 high-confidence protein interaction partners enriched for RNA metabolism: IGF2BP2 (0.770 - IGF2 mRNA-binding protein), SYNCRIP (0.749 - heterogeneous nuclear ribonucleoprotein), UPF1 (0.741 - nonsense-mediated decay factor), HNRNPA1 (0.724), PABPC4 (0.650 - poly(A)-binding protein), RC3H2 (0.607 - roquin homolog), YBX1 (0.588 - Y-box binding protein), PURA (0.563), PUM1 (0.563 - pumilio homolog), and HNRNPL (0.514). HPA expression data shows ubiquitous tissue distribution with low specificity, cytosolic subcellular localization, RNA-binding molecular function, and tumor suppressor disease involvement. ClinVar reports 31 pathogenic/likely pathogenic variants, predominantly chromosome 9 copy number gains and losses (9p24.3-q34.3 regions), indicating disease association through genomic instability. Mechanistically, FAM120A likely functions as a multi-protein RNA granule scaffold, recruiting RNA-binding proteins (IGF2BP2, SYNCRIP, HNRNPs) and mRNA decay machinery (UPF1) to regulate mRNA stability, translation, and nonsense-mediated decay. The PIN-like domain may confer nucleic acid binding or processing activity. Loss of FAM120A disrupts post-transcriptional regulation of growth factor signaling (IGF2 pathway) and stress response genes, contributing to tumorigenesis and developmental phenotypes observed in 9p/9q CNV syndromes.
+
+## Evidence
+```
+Evidence: UniProt Q9NZB2 (1118 aa); InterPro IPR026784/IPR029060/IPR060110/PF27242/PTHR15976/G3DSA:3.40.50.1010; STRING 10 interactions (IGF2BP2 0.770, SYNCRIP 0.749, UPF1 0.741, etc.); HPA ubiquitous expression, cytosol, RNA-binding, tumor suppressor; ClinVar 31 pathogenic variants (9p/9q CNVs); AlphaFold pLDDT 67.3
+```

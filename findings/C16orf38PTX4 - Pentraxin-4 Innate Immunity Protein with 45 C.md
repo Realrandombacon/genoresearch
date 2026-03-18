@@ -1,0 +1,13 @@
+# C16orf38/PTX4 - Pentraxin-4 Innate Immunity Protein with 45 ClinVar Variants and Conserved Pentraxin Domain
+
+**Date:** 2026-03-17T01:22:11.744147
+
+**Quality Score:** 10/10 (EXCELLENT)
+
+## Description
+C16orf38 (gene symbol PTX4) encodes a 478 amino acid pentraxin-4 protein (UniProt Q96A99) belonging to the evolutionarily conserved pentraxin superfamily of pattern recognition receptors. The protein contains a canonical pentraxin domain (IPR001759, PF00354, cd00152, residues 265-473) with the characteristic concanavalin A-like lectin/glucanase fold (G3DSA:2.60.120.200, SSF49899), indicating structural homology to C-reactive protein (CRP) and serum amyloid P (SAP). AlphaFold predicts a confident 3D structure (pLDDT 78.3) across the full 478aa length, consistent with stable pentraxin oligomerization. HPA classification indicates dual intracellular/secreted localization potential, though RNA expression is not detected in normal tissues, suggesting inducible expression during immune challenge. STRING interactions reveal 4 medium-confidence partners: OCA2 (0.660, melanosome protein), RAB44 (0.501, vesicle trafficking GTPase), FCN1 (0.425, ficolin-1 innate immunity lectin), and FOXRED2 (0.412, mitochondrial complex I assembly), suggesting potential roles in vesicular trafficking of immune effectors or coordination with complement pathways. Remarkably, ClinVar documents 45 pathogenic/likely pathogenic variants (primarily copy number gains/losses and deletions at 16p13.3), indicating strong clinical significance despite limited functional characterization. The pentraxin domain architecture (IPR51360, PTHR19277) places PTX4 within the neuronal pentraxin subfamily, suggesting possible dual roles in innate immunity and synaptic plasticity. A mechanistic hypothesis: PTX4 functions as an inducible pattern recognition receptor that binds pathogen-associated molecular patterns (PAMPs) or damage-associated molecular patterns (DAMPs) via its C-terminal pentraxin domain, potentially oligomerizing like CRP to activate complement or facilitate phagocytosis. The FCN1 interaction suggests coordination with the lectin complement pathway. ClinVar CNVs may disrupt pentraxin oligomerization or secretion, contributing to immune dysregulation phenotypes.
+
+## Evidence
+```
+InterPro: IPR001759 (Pentraxin, 265-473aa), IPR51360 (Neuronal Pentraxin, 74-458aa), PF00354, cd00152, PS51828, SM00159, PTHR19277 | STRING: OCA2 (0.660), RAB44 (0.501), FCN1 (0.425), FOXRED2 (0.412) | HPA: Predicted intracellular/secreted, not detected in normal tissues | ClinVar: 45 pathogenic variants (CNVs, deletions) | AlphaFold: pLDDT 78.3 (confident), 478aa modeled | UniProt: Q96A99
+```

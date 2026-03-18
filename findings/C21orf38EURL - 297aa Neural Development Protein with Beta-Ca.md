@@ -1,0 +1,13 @@
+# C21orf38/EURL - 297aa Neural Development Protein with Beta-Catenin Modulation and Medium-Confidence Structure
+
+**Date:** 2026-03-17T02:40:46.958273
+
+**Quality Score:** 9/10 (EXCELLENT)
+
+## Description
+C21orf38 (Gene ID: 89755), officially named EURL (Early Up-regulated in Lymphocytes) protein homolog, encodes a 297 amino acid protein with defined function in cortical neurodevelopment. UniProt accession Q9NYK6 annotates this protein as playing a role in cortical progenitor cell proliferation and differentiation, specifically promoting dendritic spine development of post-migratory cortical projection neurons through beta-catenin signaling modulation. InterPro analysis reveals the protein belongs to the EURL family (IPR009704, PF06937, residues 1-291) with no additional catalytic or binding domains characterized, suggesting it may function as a scaffold or regulatory adaptor. AlphaFold structure prediction shows medium confidence (pLDDT 64.9), indicating a partially folded protein with potential intrinsically disordered regions - consistent with regulatory proteins that engage in transient protein-protein interactions. STRING database identifies 9 interaction partners including NUP54 (nuclear pore complex, score 0.533), RLF (retinoblastoma-like factor, 0.496), SCOC (short coiled-coil protein, 0.474), FBXL17 (F-box ubiquitin ligase, 0.458), and NEURL1 (neuralized E3 ubiquitin ligase, 0.441), suggesting potential roles in nucleocytoplasmic transport, cell cycle regulation, and ubiquitin-mediated protein turnover. Notably, Human Protein Atlas could not resolve this gene to an Ensembl ID, indicating no antibody-based protein detection across tissues despite mRNA evidence. ClinVar contains zero variants, suggesting no established disease associations though this may reflect limited clinical sequencing rather than true benignity. The combination of neural developmental function, nuclear pore interaction (NUP54), ubiquitin ligase partners (FBXL17, NEURL1), and disordered structure suggests EURL may function as a transiently-expressed regulatory hub coordinating beta-catenin signaling during cortical neuron maturation through dynamic protein interactions and potential ubiquitin-mediated turnover.
+
+## Evidence
+```
+Evidence: Gene ID 89755 | UniProt Q9NYK6 (297 aa) | InterPro IPR009704/PF06937 (EURL family) | AlphaFold pLDDT 64.9 (medium confidence) | STRING: NUP54(0.533), RLF(0.496), SCOC(0.474), FBXL17(0.458), NEURL1(0.441), CXorf40B(0.432), ARRDC3(0.410), BTG3(0.408), UFC1(0.406) | HPA: not resolved | ClinVar: 0 variants | Function: cortical progenitor proliferation, dendritic spine development, beta-catenin signaling modulation
+```

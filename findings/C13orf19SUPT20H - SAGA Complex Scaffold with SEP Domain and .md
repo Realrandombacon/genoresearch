@@ -1,0 +1,13 @@
+# C13orf19/SUPT20H - SAGA Complex Scaffold with SEP Domain and Universal SAGA Subunit Interactions
+
+**Date:** 2026-03-17T00:18:52.122493
+
+**Quality Score:** 10/10 (EXCELLENT)
+
+## Description
+C13orf19 (SUPT20H/SPT20 homolog) encodes a 779-amino acid transcription coactivator that serves as an essential scaffold component of the SAGA (Spt-Ada-Gcn5-Acetyltransferase) chromatin-modifying complex. InterPro identifies four domain signatures: IPR021950 (Transcription factor Spt20 family, residues 10-537) with GO annotations for transcription coregulator activity and SAGA complex; IPR046468 and PF12090 (SEP domain, residues 75-216) - a conserved Spt20-specific fold; and PTHR13526 family. AlphaFold predicts a partially structured conformation with global pLDDT 58.8 (medium confidence), consistent with a scaffold protein containing both ordered domains (SEP domain) and intrinsically disordered regions that facilitate dynamic protein-protein interactions. HPA data shows tissue-enhanced expression with detection in all tissues and highest levels in testis (53.0 nTPM), plus nucleoli fibrillar center localization matching SAGA complex function in ribosomal RNA transcription. STRING interactions reveal 10 extremely high-confidence partners (scores 0.982-0.999) that comprise the complete SAGA complex: TAF10 (0.999), SUPT7L (0.999), TRRAP (0.999), TADA1 (0.999), SUPT3H (0.999), TAF12 (0.998), TAF5L (0.996), TADA3 (0.994), SGF29 (0.993), ATXN7 (0.982). This interaction profile confirms SUPT20H as a central SAGA scaffold - the near-perfect scores indicate stable complex membership. ClinVar contains 53 pathogenic/likely pathogenic variants including both SNVs (e.g., c.950C>A p.Ser317Tyr) and copy number variants across 13q, indicating disease relevance though specific phenotypes remain uncharacterized. Functional hypothesis: SUPT20H acts as the structural core of SAGA complex, anchoring histone acetyltransferase (HAT) and deubiquitinase (DUB) modules to chromatin via its SEP domain, enabling coordinated histone H3 acetylation and H2B deubiquitination during transcriptional activation. Testis enrichment suggests specialized role in germ cell chromatin remodeling. This gene is NOT truly 'dark' - it has well-established function as SAGA complex scaffold with defined molecular mechanism.
+
+## Evidence
+```
+UniProt Q8NEM7 | InterPro: IPR021950 (10-537), IPR046468/PF12090 SEP domain (75-216), PTHR13526 | STRING: TAF10(0.999), SUPT7L(0.999), TRRAP(0.999), TADA1(0.999), SUPT3H(0.999), TAF12(0.998), ATXN7(0.982) | HPA: testis 53.0 nTPM, nucleoli fibrillar center, SAGA complex | ClinVar: 53 pathogenic variants | AlphaFold: pLDDT 58.8 | 779 aa
+```

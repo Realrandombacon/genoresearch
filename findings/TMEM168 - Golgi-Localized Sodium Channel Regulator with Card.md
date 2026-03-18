@@ -1,0 +1,13 @@
+# TMEM168 - Golgi-Localized Sodium Channel Regulator with Cardiac Arrhythmia Link
+
+**Date:** 2026-03-17T08:34:31.918947
+
+**Quality Score:** 9/10 (EXCELLENT)
+
+## Description
+TMEM168 (UniProt Q9H0V1) encodes a 697aa multi-pass transmembrane protein on chromosome 7q31.1 with established role in cardiac electrical stability through modulation of SCN5A (Nav1.5 voltage-gated sodium channel) cell surface expression. InterPro analysis confirms membership in the TMEM168 family (IPR029713, PTHR14437) with a conserved transmembrane domain (cd21494, positions 17-695) spanning nearly the entire protein, consistent with its membrane topology. AlphaFold structure prediction shows high confidence (pLDDT 83.4), indicating a well-folded stable transmembrane architecture suitable for protein trafficking or channel regulation. STRING interaction network identifies 10 medium-confidence partners including FAM174A (0.533), CEPT1 (0.530, choline/ethanolamine phosphotransferase), CCDC70 (0.500), NDC1 (0.500, nuclear pore component), TMEM140 (0.453), SLC30A6 (0.451, zinc transporter), GPR85 (0.439, GPCR), TTC14 (0.438, tetratricopeptide), ZMYND19 (0.431, chromatin reader), and PPP1R3A (0.430, glycogen targeting), suggesting roles in membrane trafficking, lipid metabolism, and ion channel regulation. HPA subcellular localization confirms Golgi apparatus and cytosolic distribution with ubiquitous low-level expression across all tissues. ClinVar contains 20 pathogenic/likely pathogenic variants, predominantly chromosome 7q copy-number alterations (deletions and duplications spanning 7q31.1-q36.3), indicating disease relevance though no specific Mendelian phenotype is established beyond cardiac conduction defects. The combination of Golgi localization, SCN5A regulatory function, transmembrane architecture, and interaction with lipid metabolism enzymes (CEPT1) and trafficking factors (NDC1) strongly supports a mechanistic role as a chaperone or trafficking adaptor that controls sodium channel surface expression in cardiomyocytes, with potential implications for arrhythmia susceptibility and anxiety-related behaviors via neuronal SCN5A modulation.
+
+## Evidence
+```
+InterPro: IPR029713, PTHR14437, cd21494 | STRING: FAM174A(0.533), CEPT1(0.530), CCDC70(0.500), NDC1(0.500), TMEM140(0.453), SLC30A6(0.451), GPR85(0.439), TTC14(0.438), ZMYND19(0.431), PPP1R3A(0.430) | HPA: Golgi apparatus/cytosol, low tissue specificity, detected in all | ClinVar: 20 pathogenic variants (7q CNVs) | AlphaFold: pLDDT 83.4 | UniProt: Q9H0V1, 697aa | Chromosome: 7q31.1 | Function: SCN5A trafficking regulator, cardiac electrical stability
+```
