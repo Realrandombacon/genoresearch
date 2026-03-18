@@ -46,8 +46,7 @@ _groq_last_request = 0.0
 
 _cerebras_available_at = 0.0     # timestamp when Cerebras cooldown ends
 _cerebras_failover_count = 0     # how many times Cerebras has failed over
-_moonshot_available_at = 0.0     # timestamp when Moonshot cooldown ends
-_moonshot_failover_count = 0     # how many times Moonshot has failed over
+# Moonshot removed — abandoned due to excessive rate-limiting delays
 _groq_available_at = 0.0         # timestamp when Groq cooldown ends
 _groq_failover_count = 0         # how many times we've failed over this session
 _ollama_primary_down = False     # True if primary Ollama model failed
@@ -186,7 +185,7 @@ def get_provider_status() -> str:
         if tier == "tier2":
             parts.append(f">>> T2: cerebras/{CEREBRAS_MODEL} (active)")
         elif _cerebras_is_available():
-            parts.append(f"    T2: cerebras (ready)")
+            parts.append("    T2: cerebras (ready)")
         else:
             remaining = max(0, _cerebras_available_at - time.time())
             parts.append(f"    T2: cerebras (cooldown {remaining:.0f}s)")
@@ -194,7 +193,7 @@ def get_provider_status() -> str:
         if tier == "tier3":
             parts.append(f">>> T3: groq/{GROQ_MODEL.split('/')[-1]} (active)")
         elif _groq_is_available():
-            parts.append(f"    T3: groq (ready)")
+            parts.append("    T3: groq (ready)")
         else:
             remaining = max(0, _groq_available_at - time.time())
             parts.append(f"    T3: groq (cooldown {remaining:.0f}s)")
@@ -464,132 +463,6 @@ def _recovery_cerebras(thought_text: str, model: str = None,
         log.error("Cerebras recovery failed: %s", e)
         return None
 
-
-# ─── Moonshot (Kimi K2.5) state helpers ───────────────────────────────────────
-
-def _moonshot_is_available() -> bool:
-    return time.time() >= _moonshot_available_at
-
-
-def _moonshot_set_cooldown(seconds: float):
-    global _moonshot_available_at, _moonshot_failover_count
-    _moonshot_available_at = time.time() + seconds
-    _moonshot_failover_count += 1
-    log.warning("Moonshot rate limited — cooldown %.0fs — failover #%d",
-                seconds, _moonshot_failover_count)
-
-
-# ─── Moonshot (Kimi K2.5) engine ─────────────────────────────────────────────
-
-def _chat_moonshot(messages: list[dict], model: str = None, temperature: float = 0.1,
-                   top_p: float = 0.85, max_tokens: int = 16384) -> str | None:
-    """Send chat to Moonshot Kimi K2.5 (OpenAI-compatible). Returns None to signal failover."""
-    model = model or MOONSHOT_MODEL
-
-    headers = {
-        "Authorization": f"Bearer {MOONSHOT_API_KEY}",
-        "Content-Type": "application/json",
-    }
-    payload = {
-        "model": model,
-        "messages": messages,
-        "temperature": temperature,
-        "top_p": top_p,
-        "max_tokens": min(max_tokens, 16384),
-        "reasoning": {"effort": "off"},  # disable thinking mode for speed
-    }
-
-    try:
-        resp = requests.post(MOONSHOT_URL, json=payload, headers=headers, timeout=180)
-
-        if resp.status_code == 429:
-            retry_after = float(resp.headers.get("retry-after", 60))
-            if retry_after <= _FAILOVER_MAX_WAIT:
-                log.info("Moonshot rate limited — short wait %.0fs", retry_after)
-                time.sleep(retry_after)
-                resp = requests.post(MOONSHOT_URL, json=payload, headers=headers, timeout=180)
-                if resp.status_code == 429:
-                    retry_after = float(resp.headers.get("retry-after", 300))
-                    _moonshot_set_cooldown(retry_after)
-                    return None
-            else:
-                _moonshot_set_cooldown(retry_after)
-                return None
-
-        resp.raise_for_status()
-        msg = resp.json()["choices"][0]["message"]
-        # NVIDIA NIM may put text in content or reasoning_content
-        content = (msg.get("content") or "").strip()
-        reasoning = (msg.get("reasoning_content") or "").strip()
-        if content:
-            return _extract_thinking(content)
-        if reasoning:
-            return reasoning
-        return ""
-
-    except requests.exceptions.ConnectionError:
-        log.error("Cannot connect to Moonshot API")
-        _moonshot_set_cooldown(300)
-        return None
-    except requests.exceptions.Timeout:
-        log.error("Moonshot timeout")
-        _moonshot_set_cooldown(120)
-        return None
-    except KeyError:
-        log.error("Unexpected Moonshot response: %s", resp.text[:500])
-        _moonshot_set_cooldown(120)
-        return None
-    except Exception as e:
-        log.error("Moonshot call failed: %s", e)
-        _moonshot_set_cooldown(120)
-        return None
-
-
-def _recovery_moonshot(thought_text: str, model: str = None,
-                       temperature: float = 0.5) -> str | None:
-    """Recovery reprompt via Moonshot. Returns None to signal failover."""
-    model = model or MOONSHOT_MODEL
-    summary = thought_text
-    if summary.startswith("[Reasoning]"):
-        summary = summary[len("[Reasoning]"):].strip()
-    summary = summary[:800]
-
-    recovery_prompt = (
-        f"You just analyzed data and concluded:\n{summary}\n\n"
-        "NOW respond with ONLY a TOOL: line. No explanations. No THOUGHT blocks.\n"
-        "Pick the most logical next step.\n\n"
-        "Examples:\n"
-        "TOOL: ncbi_search('BRCA1', db='gene')\n"
-        "TOOL: save_finding('title', 'description', 'evidence')\n"
-        "TOOL: next_gene()\n"
-        "TOOL: save_finding('gene - title', 'description', 'evidence')\n"
-    )
-
-    headers = {
-        "Authorization": f"Bearer {MOONSHOT_API_KEY}",
-        "Content-Type": "application/json",
-    }
-    payload = {
-        "model": model,
-        "messages": [
-            {"role": "system", "content": "You are a genomics research agent. Respond with ONLY a TOOL: line."},
-            {"role": "user", "content": recovery_prompt},
-        ],
-        "temperature": temperature,
-        "max_tokens": 200,
-    }
-
-    try:
-        resp = requests.post(MOONSHOT_URL, json=payload, headers=headers, timeout=60)
-        if resp.status_code == 429:
-            _moonshot_set_cooldown(float(resp.headers.get("retry-after", 300)))
-            return None
-        resp.raise_for_status()
-        content = resp.json()["choices"][0]["message"]["content"].strip()
-        return content if content else ""
-    except Exception as e:
-        log.error("Moonshot recovery failed: %s", e)
-        return None
 
 
 # ─── Groq engine ─────────────────────────────────────────────────────────────
@@ -885,6 +758,24 @@ def build_system_prompt(context: str = "") -> dict:
         "SCORE 6-8  = good data from several sources + functional insight\n"
         "SCORE 3-5  = limited sources or shallow analysis\n"
         "SCORE 0-2  = no real data, just keywords or empty content\n\n"
+        "═══ HOW YOUR QUEUE MANAGEMENT IS EVALUATED ═══\n"
+        "You are also evaluated on how efficiently you manage the gene queue.\n"
+        "The orchestrator tracks these metrics automatically:\n\n"
+        "EFFICIENCY:\n"
+        "  - Genes completed per cycle (target: 1 gene per cycle)\n"
+        "  - Turns wasted on duplicate add_to_queue calls (target: 0)\n"
+        "  - Turns wasted re-analyzing a gene that already has a finding (target: 0)\n\n"
+        "QUEUE DISCIPLINE:\n"
+        "  - NEVER add a gene to the queue without checking if it already has a finding\n"
+        "  - add_to_queue() will REJECT duplicates — if you see 'already in queue/completed',\n"
+        "    STOP trying to add more from that search and call advance_seed() instead\n"
+        "  - After save_finding, you will receive a QUEUE STATUS bulletin — READ IT\n"
+        "  - If queue has genes: just call next_gene()\n"
+        "  - If queue is empty: next_gene() will tell you what to do\n\n"
+        "SEED DISCOVERY (when queue is empty):\n"
+        "  - Search the seed family, add NEW genes only, then advance_seed()\n"
+        "  - If most results are 'already completed', the family is done — advance_seed()\n"
+        "  - Do NOT spend more than 3 turns on add_to_queue per seed family\n\n"
         "═══ AVAILABLE TOOLS ═══\n"
         "Gene discovery:\n"
         "  next_gene()  — get next gene from queue (ALWAYS start here)\n"
@@ -907,7 +798,7 @@ def build_system_prompt(context: str = "") -> dict:
         "  blast_search(fasta_file, db='nt', evalue=0.01)\n"
         "  pubmed_search(query, max_results=5)\n"
         "  analyze_sequence(filepath) / translate_sequence(filepath)\n"
-        "  queue_status() / note(text)\n\n"
+        "  queue_status() / gene_status() / note(text)\n\n"
         "═══ CONSTRAINTS ═══\n"
         "  - ALWAYS call next_gene() to get your target. Never pick genes randomly.\n"
         "  - For interpro_scan/alphafold_structure: use UniProt accession (e.g. Q9H3H3).\n"

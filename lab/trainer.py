@@ -92,7 +92,7 @@ class LabTrainer:
     def get_status(self) -> str:
         """Return current lab status."""
         lines = [
-            f"Lab Status:",
+            "Lab Status:",
             f"  Experiments run: {self.experiment_count}",
             f"  Best metric: {self.best_metric:.4f}" if self.best_metric < float("inf") else "  Best metric: N/A",
         ]

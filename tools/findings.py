@@ -8,9 +8,8 @@ import csv
 import re
 import datetime
 import logging
-from difflib import SequenceMatcher
 
-from config import FINDINGS_FILE, FINDINGS_DIR, MEMORY_FILE
+from config import FINDINGS_FILE, FINDINGS_DIR
 from agent.memory import load_memory, save_memory, add_finding
 
 log = logging.getLogger("genoresearch.findings")
@@ -123,7 +122,6 @@ def _compute_score(title: str, description: str, evidence: str) -> int:
         insight += 0.8  # Honest assessment is valuable
 
     # Cross-domain reasoning (linking structure to function, expression to disease, etc.)
-    cross_domain = 0
     domains_mentioned = set()
     for domain_type, patterns in {
         'structure': [r'domain|fold|repeat|helix|sheet|coil|disorder'],
@@ -217,10 +215,30 @@ def save_finding(*args, title: str = "", description: str = "",
 
     # --- Quality guards ---
 
+    title_lower = title.lower()
+
+    # 0. Block meta/status findings: these are NOT research discoveries
+    meta_phrases = [
+        "project complete", "project termination", "terminal state",
+        "mission accomplished", "mission complete", "no remaining",
+        "queue exhausted", "all dark genes", "verified completion",
+        "workflow summary", "session acknowledgment", "termination notice",
+        "dark genome complete", "dark genome project",
+        "termination certificate", "completion certificate",
+        "completion summary", "final summary", "final state",
+    ]
+    for phrase in meta_phrases:
+        if phrase in title_lower:
+            return (
+                f"[REJECTED] '{title}' is a status/meta message, not a research finding. "
+                "Findings must be about SPECIFIC GENES — not project status. "
+                "The project is NOT complete. Call next_gene() to continue research."
+            )
+
     # 1. Block error-as-finding: operational errors are not discoveries
     error_phrases = ["file not found", "timed out", "error", "not found"]
     for phrase in error_phrases:
-        if phrase in title.lower():
+        if phrase in title_lower:
             return (
                 f"[REJECTED] '{title}' looks like an operational error, not a research finding. "
                 "Do not log errors as findings — fix the issue and retry the tool."
@@ -234,9 +252,9 @@ def save_finding(*args, title: str = "", description: str = "",
         )
 
     # 3. Gene-level consolidation: ONE finding per gene.
-    #    If a finding for the same gene already exists, OVERWRITE it with the
-    #    newer (presumably richer) version. This prevents 3-4 files per gene.
-    existing_file_to_replace = None
+    #    If findings for the same gene already exist, DELETE ALL of them
+    #    and replace with the new (presumably richer) version.
+    existing_files_to_remove = []
     if os.path.isdir(FINDINGS_DIR):
         title_gene = _extract_gene_from_title(title)
         if title_gene:
@@ -244,28 +262,12 @@ def save_finding(*args, title: str = "", description: str = "",
                 if fname.endswith(".md"):
                     existing_gene = _extract_gene_from_title(fname.replace(".md", ""))
                     if existing_gene and existing_gene == title_gene:
-                        existing_path = os.path.join(FINDINGS_DIR, fname)
-                        # Keep the newer/longer finding — read existing to compare
-                        try:
-                            with open(existing_path, "r", encoding="utf-8") as ef:
-                                existing_content = ef.read()
-                            # If new description is longer, replace; otherwise skip
-                            if len(description) >= len(existing_content) * 0.5:
-                                existing_file_to_replace = existing_path
-                                log.info("Consolidating: replacing '%s' with updated finding", fname)
-                            else:
-                                # Near-exact duplicate with less content — reject
-                                similarity = SequenceMatcher(
-                                    None, title.lower(), fname.replace(".md", "").lower()
-                                ).ratio()
-                                if similarity > 0.85:
-                                    return (
-                                        f"[CONSOLIDATED] Finding for {title_gene} already exists: '{fname.replace('.md', '')}'. "
-                                        "Use more tools (interpro_scan, clinvar_search, etc.) to enrich the finding before saving again."
-                                    )
-                        except Exception:
-                            existing_file_to_replace = existing_path
-                        break  # Only check first match per gene
+                        existing_files_to_remove.append(
+                            os.path.join(FINDINGS_DIR, fname)
+                        )
+            if existing_files_to_remove:
+                log.info("Consolidating %s: removing %d old file(s)",
+                         title_gene, len(existing_files_to_remove))
 
     # 4. Plausibility warning for low-identity claims between gene variants
     warning_prefix = ""
@@ -301,13 +303,14 @@ def save_finding(*args, title: str = "", description: str = "",
             writer.writerow(["timestamp", "title", "description", "evidence"])
         writer.writerow([ts, title, description[:500], evidence[:500]])
 
-    # Remove old finding file if consolidating
-    if existing_file_to_replace and os.path.exists(existing_file_to_replace):
-        try:
-            os.remove(existing_file_to_replace)
-            log.info("Removed old finding: %s", existing_file_to_replace)
-        except Exception as e:
-            log.warning("Could not remove old finding: %s", e)
+    # Remove ALL old finding files for the same gene (consolidation)
+    for old_file in existing_files_to_remove:
+        if os.path.exists(old_file):
+            try:
+                os.remove(old_file)
+                log.info("Removed old finding: %s", old_file)
+            except Exception as e:
+                log.warning("Could not remove old finding: %s", e)
 
     # Save detailed finding as individual file
     safe_title = "".join(c if c.isalnum() or c in " -_" else "" for c in title)[:60]
@@ -332,15 +335,64 @@ def save_finding(*args, title: str = "", description: str = "",
     log.info("Finding saved: %s [score=%d/%d]", title, score, 10)
 
     # Auto-complete the gene in the queue so dashboard stays in sync
+    # Done IN-PLACE to avoid race condition: complete_gene() reloads the file
+    # which can overwrite genes added by add_to_queue() in the same cycle.
+    gene_name = _extract_gene_from_title(title)
     try:
-        from tools.gene_queue import complete_gene
-        gene_name = _extract_gene_from_title(title)
+        from tools.gene_queue import _load_queue, _save_queue
+        import datetime as _dt
         if gene_name:
-            complete_gene(gene_name)
-    except Exception:
-        pass  # Don't break save_finding if queue has issues
+            q = _load_queue()
+            if q.get("in_progress") and q["in_progress"]["gene"].upper() == gene_name.upper():
+                # Current gene — move to completed
+                gene_data = q["in_progress"]
+                gene_data["finished"] = _dt.datetime.now().isoformat()
+                q["completed"].append(gene_data)
+                q["in_progress"] = None
+            else:
+                # Gene analyzed outside queue — register as completed
+                already = {g["gene"].upper() for g in q.get("completed", [])}
+                if gene_name.upper() not in already:
+                    q["completed"].append({
+                        "gene": gene_name,
+                        "finished": _dt.datetime.now().isoformat(),
+                        "steps_done": ["discover", "hypothesize"],
+                        "source": "auto-registered from save_finding",
+                    })
+            q["stats"]["genes_completed"] = len(q["completed"])
+            _save_queue(q)
+            log.info("Auto-completed gene: %s", gene_name)
+    except Exception as e:
+        log.warning("Failed to auto-complete gene: %s", e)
 
-    consolidated = " (consolidated)" if existing_file_to_replace else ""
+    # Auto-mark gene as DONE in dark_genes_reference.tsv
+    if gene_name:
+        try:
+            from config import BASE_DIR
+            ref_file = os.path.join(BASE_DIR, "dark_genes_reference.tsv")
+            if os.path.exists(ref_file):
+                import csv as _csv
+                rows = []
+                updated = False
+                with open(ref_file, 'r', encoding='utf-8') as rf:
+                    reader = _csv.DictReader(rf, delimiter='\t')
+                    fieldnames = reader.fieldnames
+                    for row in reader:
+                        rg = row.get('gene_name', '').strip().upper()
+                        if rg == gene_name.upper() and row.get('status') == 'TODO':
+                            row['status'] = 'DONE'
+                            updated = True
+                        rows.append(row)
+                if updated:
+                    with open(ref_file, 'w', encoding='utf-8', newline='') as wf:
+                        writer = _csv.DictWriter(wf, fieldnames=fieldnames, delimiter='\t')
+                        writer.writeheader()
+                        writer.writerows(rows)
+                    log.info("Marked %s as DONE in dark_genes_reference.tsv", gene_name)
+        except Exception as e:
+            log.warning("Failed to update TSV for %s: %s", gene_name, e)
+
+    consolidated = " (consolidated)" if existing_files_to_remove else ""
     return f"Finding logged{consolidated}: '{title}' [Score: {score}/10 {score_label}] — saved to {detail_path}"
 
 

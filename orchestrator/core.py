@@ -8,12 +8,12 @@ think → act → reflect before moving to the next cycle.
 
 import re
 
-from orchestrator.llm import chat, recovery_reprompt, build_system_prompt, get_model, get_provider, get_provider_status
+from orchestrator.llm import chat, recovery_reprompt, build_system_prompt, get_model, get_provider_status
 from orchestrator.dashboard import write_status
 from tools.registry import ToolRegistry
 from agent.memory import load_memory, save_memory, update_memory, summarize_memory
 from agent.ui import (
-    C, log as ui_log, print_banner, print_cycle_header,
+    log as ui_log, print_banner, print_cycle_header,
     print_cycle_summary, print_completion,
 )
 
@@ -425,6 +425,18 @@ class Orchestrator:
             return ("Finding saved! Get your next target: "
                     "TOOL: next_gene()")
 
+        if "next_gene" in call_lower:
+            return ("Queue is empty but the project is NOT complete — there are more seed families to search. "
+                    "You need to DISCOVER new genes. "
+                    "TOOL: ncbi_search('C5orf', db='gene', max_results=10) to find new dark genes, "
+                    "then TOOL: add_to_queue('GENE_NAME', source='ncbi_search') for each one. "
+                    "DO NOT save 'project complete' findings.")
+
+        if "queue_status" in call_lower or "list_findings" in call_lower or "note" in call_lower:
+            return ("Stop checking status and DO RESEARCH. "
+                    "TOOL: next_gene() to get a target, or "
+                    "TOOL: ncbi_search('uncharacterized protein human', db='gene') to discover new genes.")
+
         # Generic fallback
         return ("Try a DIFFERENT tool than the one you were repeating. "
                 "Options: gene_info(), ncbi_fetch(), analyze_sequence(), "
@@ -468,11 +480,22 @@ class Orchestrator:
                 i += 1
                 continue
 
-            # Drop nudge and reflection messages — they're noise in history
-            if role == "user" and ("No tool call detected" in content
-                                   or "— REFLECTION" in content):
+            # Drop nudge messages and generic reflections — but KEEP
+            # "FINDING SAVED" reflections (they contain the completed gene name
+            # and prevent the agent from re-analyzing the same gene)
+            if role == "user" and "No tool call detected" in content:
                 i += 1
                 compressed_count += 1
+                continue
+            if role == "user" and "— REFLECTION" in content:
+                # Generic reflection — drop it
+                i += 1
+                compressed_count += 1
+                continue
+            if role == "user" and "— FINDING SAVED" in content:
+                # Keep finding-saved reflections — they prevent re-analysis
+                compressed.append(msg)
+                i += 1
                 continue
 
             # Compress tool results — keep tool name + first ~150 chars
@@ -583,6 +606,56 @@ _TOOL_STEP_MAP = {
 _GENE_NAME_RE = re.compile(r'\b(C\d+orf\d+|LOC\d+|[A-Z][A-Z0-9]{1,10})\b')
 
 
+def _build_queue_bulletin(just_completed: str) -> str:
+    """Build a concise queue status bulletin for the reflection prompt.
+
+    Tells the agent exactly what the queue looks like after completing a gene:
+    - How many genes are waiting vs completed
+    - What seed family is current
+    - Whether it needs to discover new genes or just call next_gene()
+
+    This replaces the need for the agent to call queue_status() as a tool
+    (which wastes a turn). The info is injected for free after save_finding.
+    """
+    try:
+        from tools.gene_queue import _load_queue, SEED_PREFIXES
+        from config import FINDINGS_DIR
+        import os
+
+        q = _load_queue()
+        queue_size = len(q.get("queue", []))
+        completed = len(q.get("completed", []))
+        skipped = len(q.get("skipped", []))
+        seed_idx = q.get("seed_index", 0)
+        total_seeds = len(SEED_PREFIXES)
+
+        # Count findings on disk (actual output)
+        findings_on_disk = 0
+        if os.path.isdir(FINDINGS_DIR):
+            findings_on_disk = len([f for f in os.listdir(FINDINGS_DIR) if f.endswith(".md")])
+
+        lines = []
+        lines.append(f"Genes in queue: {queue_size}")
+        lines.append(f"Completed: {completed} | Findings on disk: {findings_on_disk} | Skipped: {skipped}")
+        lines.append(f"Seed families: {seed_idx}/{total_seeds} searched")
+
+        if queue_size > 0:
+            next_genes = [g["gene"] for g in q["queue"][:3]]
+            lines.append(f"Next up: {', '.join(next_genes)}")
+            lines.append("Action: call next_gene() to start the next gene.")
+        elif seed_idx < total_seeds:
+            prefix = SEED_PREFIXES[seed_idx]
+            lines.append(f"Queue is EMPTY. Next seed family: '{prefix}'")
+            lines.append(f"Action: call next_gene() — it will guide you to discover new genes from '{prefix}'.")
+        else:
+            lines.append("Queue is EMPTY and all seed families searched.")
+            lines.append("Action: call next_gene() for broader discovery suggestions.")
+
+        return "\n".join(lines)
+    except Exception:
+        return "Queue status unavailable. Call next_gene() to continue."
+
+
 def _auto_complete_step(tool_name: str, result_str: str):
     """Auto-mark pipeline steps done when the corresponding tool succeeds.
 
@@ -602,48 +675,17 @@ def _auto_complete_step(tool_name: str, result_str: str):
 
     try:
         from tools.gene_queue import (
-            complete_step as _cs, complete_gene as _cg,
-            _load_queue, _save_queue, add_to_queue
+            complete_step as _cs,
+            _load_queue,
         )
-        q = _load_queue()
 
-        # --- Special: save_finding → auto-complete the gene entirely ---
+        # save_finding already calls complete_gene() internally — skip here
+        # to avoid double-completion race condition
         if tool_name == "save_finding":
-            # Extract gene name from the result string
-            gene_match = _GENE_NAME_RE.search(result_str)
-            if gene_match:
-                gene_name = gene_match.group(1)
-
-                # If this gene is currently in_progress, complete it
-                if q.get("in_progress") and q["in_progress"]["gene"].upper() == gene_name.upper():
-                    _cg()
-                    ui_log("INFO", f"Auto-completed gene '{gene_name}' (finding saved)")
-                    return
-
-                # If this gene was analyzed outside the queue, register it as completed
-                # so it won't be re-queued later
-                all_known = set()
-                all_known.update(g["gene"].upper() for g in q.get("completed", []))
-                all_known.update(g["gene"].upper() for g in q.get("skipped", []))
-                all_known.update(g["gene"].upper() for g in q.get("queue", []))
-                if q.get("in_progress"):
-                    all_known.add(q["in_progress"]["gene"].upper())
-
-                if gene_name.upper() not in all_known:
-                    # Register as completed directly
-                    import datetime
-                    q["completed"].append({
-                        "gene": gene_name,
-                        "finished": datetime.datetime.now().isoformat(),
-                        "steps_done": ["discover", "hypothesize"],
-                        "source": "auto-registered from save_finding",
-                    })
-                    q["stats"]["genes_completed"] = len(q["completed"])
-                    _save_queue(q)
-                    ui_log("INFO", f"Auto-registered gene '{gene_name}' as completed (was outside queue)")
             return
 
         # --- Normal step completion ---
+        q = _load_queue()
         if not q.get("in_progress"):
             return
         done = q["in_progress"].get("steps_done", [])
@@ -667,14 +709,42 @@ def _build_reflection_prompt(tool_name: str, result_str: str,
     if len(result_str) > 1500:
         result_preview += "\n... (truncated)"
 
-    # After save_finding, direct Qwen to move to next gene
-    if tool_name == "save_finding":
+    # After add_to_queue succeeds, tell agent to start analyzing
+    if tool_name == "add_to_queue" and "Added" in result_str:
         return (
-            f"[orchestrator] Turn {turn} — REFLECTION\n\n"
-            f"Finding saved successfully.\n\n"
-            "GOOD WORK! Now move to the next gene:\n"
-            "TOOL: next_gene()\n\n"
-            "Do NOT re-analyze the same gene. The queue will give you a new target."
+            f"[orchestrator] Turn {turn} — GENE QUEUED\n\n"
+            f"{result_preview}\n\n"
+            "Gene added successfully! Now call advance_seed() then next_gene() to START ANALYZING it.\n"
+            "TOOL: advance_seed()"
+        )
+
+    # After add_to_queue rejects (duplicate), count consecutive rejections
+    if tool_name == "add_to_queue" and "already" in result_str.lower():
+        return (
+            f"[orchestrator] Turn {turn} — DUPLICATE REJECTED\n\n"
+            f"{result_preview}\n\n"
+            "This gene was already done. If you've had 3+ rejections in a row,\n"
+            "this seed family is exhausted. Call advance_seed() then next_gene().\n"
+            "Do NOT keep trying more genes from the same search results."
+        )
+
+    # After save_finding, direct Qwen to move to next gene
+    # Include a queue status bulletin so the agent knows what's ahead
+    if tool_name == "save_finding":
+        # Extract gene name from the result so the agent knows what to avoid
+        gene_match = _GENE_NAME_RE.search(result_str)
+        completed_gene = gene_match.group(1) if gene_match else "the gene you just analyzed"
+
+        # Build queue bulletin — tell the agent the state of its worklist
+        queue_bulletin = _build_queue_bulletin(completed_gene)
+
+        return (
+            f"[orchestrator] Turn {turn} — FINDING SAVED\n\n"
+            f"Finding for **{completed_gene}** saved successfully.\n\n"
+            f"GOOD WORK! {completed_gene} is DONE — do NOT re-analyze it.\n\n"
+            f"═══ QUEUE STATUS ═══\n"
+            f"{queue_bulletin}\n\n"
+            "NEXT ACTION: TOOL: next_gene()"
         )
 
     # Dynamic pacing — no pressure early, gentle nudge after soft cap

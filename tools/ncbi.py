@@ -337,7 +337,6 @@ def gene_info(*args, gene_name: str = "", **kwargs) -> str:
 
     # Other names / aliases
     other_names = info.get("otheraliases", "")
-    other_desig = info.get("otherdesignations", "")
 
     # Genomic info — get RefSeq accessions
     genomic = info.get("genomicinfo", [])

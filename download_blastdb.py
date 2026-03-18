@@ -9,7 +9,6 @@ Usage:
 """
 
 import os
-import sys
 import time
 import subprocess
 import argparse
@@ -140,7 +139,7 @@ def download_database(db_name: str, dest_dir: str):
     print(f"  Done! {success}/{total} volumes downloaded.")
     if failed:
         print(f"  Failed: {', '.join(failed)}")
-        print(f"\n  Re-run to retry failed downloads.")
+        print("\n  Re-run to retry failed downloads.")
     print(f"{'='*60}")
 
 

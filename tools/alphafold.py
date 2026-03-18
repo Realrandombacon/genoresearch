@@ -68,10 +68,9 @@ def alphafold_structure(*args, accession_id: str = "", **kwargs) -> str:
     if plddt is not None:
         confidence = "Very high" if plddt > 90 else "High" if plddt > 70 else "Medium" if plddt > 50 else "Low"
         lines.append(f"  Global pLDDT: {plddt:.1f} ({confidence} confidence)")
-        lines.append(f"    >90=very high, 70-90=confident, 50-70=low, <50=disordered")
+        lines.append("    >90=very high, 70-90=confident, 50-70=low, <50=disordered")
 
     # Structural features from pLDDT distribution
-    plddt_url = data.get("paeImageUrl", "")
     cif_url = data.get("cifUrl", "")
     pdb_url = data.get("pdbUrl", "")
 
@@ -94,15 +93,15 @@ def alphafold_structure(*args, accession_id: str = "", **kwargs) -> str:
 
     # Interpretation for dark genes
     if plddt is not None:
-        lines.append(f"\n  Interpretation for dark gene research:")
+        lines.append("\n  Interpretation for dark gene research:")
         if plddt > 70:
-            lines.append(f"    -> Well-folded protein — likely has stable 3D structure")
-            lines.append(f"    -> Good candidate for structural comparison with known folds")
+            lines.append("    -> Well-folded protein — likely has stable 3D structure")
+            lines.append("    -> Good candidate for structural comparison with known folds")
         elif plddt > 50:
-            lines.append(f"    -> Partially structured — may have ordered domains + disordered regions")
-            lines.append(f"    -> Could be an intrinsically disordered protein (IDP)")
+            lines.append("    -> Partially structured — may have ordered domains + disordered regions")
+            lines.append("    -> Could be an intrinsically disordered protein (IDP)")
         else:
-            lines.append(f"    -> Mostly disordered — likely IDP or non-globular protein")
-            lines.append(f"    -> May function through protein-protein interactions rather than enzymatic activity")
+            lines.append("    -> Mostly disordered — likely IDP or non-globular protein")
+            lines.append("    -> May function through protein-protein interactions rather than enzymatic activity")
 
     return "\n".join(lines)

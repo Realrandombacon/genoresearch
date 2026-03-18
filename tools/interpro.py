@@ -34,7 +34,7 @@ def interpro_scan(*args, accession_id: str = "", **kwargs) -> str:
         url = f"{INTERPRO_BASE}/protein/UniProt/{accession_id}?format=json"
         resp = requests.get(url, timeout=30)
         resp.raise_for_status()
-        data = resp.json()
+        resp.json()  # validate protein exists in InterPro
     except Exception as e:
         return f"[ERROR] InterPro lookup failed for '{accession_id}': {e}"
 

@@ -11,19 +11,17 @@ Usage:
 """
 
 import os
-import sys
 import json
 import csv
 import datetime
 import argparse
-import collections
 import re
 import threading
 
 from config import (
-    DATA_DIR, SEQUENCES_DIR, FINDINGS_DIR, FINDINGS_FILE,
+    SEQUENCES_DIR, FINDINGS_DIR, FINDINGS_FILE,
     RESEARCH_LOG, DASHBOARD_STATUS, MEMORY_FILE,
-    LAB_RUNS_DIR, LAB_CHECKPOINTS_DIR, BASE_DIR,
+    BASE_DIR,
 )
 
 from flask import Flask, jsonify, Response, request
@@ -452,7 +450,6 @@ def api_cycle_timeline():
     cycles = _get_cached_cycles()
     findings = read_findings()
 
-    cycle_timestamps = {c["cycle"]: c["timestamp"] for c in cycles}
     cycle_nums = [c["cycle"] for c in cycles]
     tool_counts_per_cycle = [c["n_tools"] for c in cycles]
     errors_per_cycle = [c.get("errors", 0) for c in cycles]

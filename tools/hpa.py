@@ -113,7 +113,7 @@ def hpa_expression(*args, gene: str = "", **kwargs) -> str:
     if rna_ts and isinstance(rna_ts, dict):
         tissue_vals = sorted(rna_ts.items(), key=lambda x: float(x[1]) if x[1] else 0, reverse=True)
         if tissue_vals:
-            lines.append(f"  Top tissue expression (nTPM):")
+            lines.append("  Top tissue expression (nTPM):")
             for tissue, val in tissue_vals[:8]:
                 lines.append(f"    {tissue}: {val}")
 

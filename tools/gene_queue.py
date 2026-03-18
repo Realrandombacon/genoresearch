@@ -86,6 +86,46 @@ SEED_PREFIXES = [
 ]
 
 
+def _is_pseudogene(gene_name: str, description: str = "") -> bool:
+    """Check if a gene is a pseudogene, withdrawn, or otherwise non-protein-coding.
+
+    Detects:
+    - Names ending in P, P1, P2... (e.g. C19orf48P, C11orf58P1)
+    - Names ending in B then P (e.g. C10orf88B → pseudogene in description)
+    - Description containing 'pseudogene' or 'withdrawn'
+    """
+    import re
+    name = gene_name.strip().upper()
+
+    # Name ends with P or P+digits (C19orf48P, C11orf98P1, C11orf98P2...)
+    if re.search(r'P\d*$', name):
+        # But NOT genes where P is part of the real name (e.g. TSBP1, VOPP1)
+        # Pseudogene pattern: CXorfNNP, CXorfNNBP, FAMxxxP, etc.
+        if re.search(r'(orf\d+|FAM\d+|LINC\d+)B?P\d*$', name, re.IGNORECASE):
+            return True
+
+    # Description says pseudogene or withdrawn
+    desc_lower = description.lower()
+    if 'pseudogene' in desc_lower or 'pseudo gene' in desc_lower:
+        return True
+    if 'withdrawn' in desc_lower or 'discontinued' in desc_lower:
+        return True
+
+    return False
+
+
+def _has_finding_on_disk(gene_name: str) -> bool:
+    """Check if a specific gene has at least one finding file on disk."""
+    from config import FINDINGS_DIR
+    if not os.path.isdir(FINDINGS_DIR):
+        return False
+    gene_upper = gene_name.strip().upper()
+    for fname in os.listdir(FINDINGS_DIR):
+        if fname.endswith(".md") and gene_upper in fname.upper():
+            return True
+    return False
+
+
 def _get_known_genes(q: dict) -> set:
     """Get all genes already known (with findings on disk, skipped, queued, in_progress).
 
@@ -95,20 +135,30 @@ def _get_known_genes(q: dict) -> set:
     known = set()
     # Skipped genes stay skipped (they were explicitly marked as non-dark)
     known.update(g["gene"].upper() for g in q.get("skipped", []))
-    known.update(g["gene"].upper() for g in q.get("queue", []))
+    # NOTE: queue is NOT included in known — genes in the queue are "to do", not "done".
+    # Dedup for add_to_queue() is handled separately in that function.
+    # Completed genes are known (prevent re-queueing)
+    known.update(g["gene"].upper() for g in q.get("completed", []))
     if q.get("in_progress"):
         known.add(q["in_progress"]["gene"].upper())
 
     # Findings on disk = source of truth for completed genes
     from config import FINDINGS_DIR
     import re
-    # No \b word boundary — CXorf names are often glued to modern names
-    # e.g. "TMEM268C9orf91" or "FAM221AC7orf46"
-    gene_re = re.compile(r'(C\d+orf\d+|CXorf\d+|LOC\d+)', re.IGNORECASE)
+    # Match ALL gene families the project investigates, not just CXorf/LOC
+    # Includes: C1orf-C22orf, CXorf, LOC, FAM, KIAA, TMEM, LINC, CCDC,
+    #           ANKRD, LRRC, KLHL, KBTBD, SPATA, PRR, PRAMEF, ZNF, OR, etc.
+    gene_re = re.compile(
+        r'(C\d+orf\d+|CXorf\d+|LOC\d+|'
+        r'FAM\d+[A-Z]?|KIAA\d+|TMEM\d+[A-Z]?|LINC\d+|FLJ\d+|'
+        r'CCDC\d+[A-Z]?|ANKRD\d+[A-Z]?|LRRC\d+[A-Z]?|KLHL\d+|KBTBD\d+|'
+        r'SPATA\d+|PRR\d+|PRAMEF\d+|ZNF\d+|OR\d+[A-Z]\d*)',
+        re.IGNORECASE
+    )
     if os.path.isdir(FINDINGS_DIR):
         for fname in os.listdir(FINDINGS_DIR):
             if fname.endswith(".md"):
-                # findall to catch ALL CXorf references (some files have 2+)
+                # findall to catch ALL gene references (some files have 2+)
                 for match in gene_re.findall(fname):
                     known.add(match.upper())
     return known
@@ -121,6 +171,8 @@ def _auto_populate_queue(q: dict, batch_size: int = 50):
     No NCBI search — that was adding non-dark genes (PIEZO2, TOMM40, etc.)
     """
     known = _get_known_genes(q)
+    # Also exclude genes already in the queue
+    known.update(g["gene"].upper() for g in q.get("queue", []))
 
     ref_file = os.path.join(os.path.dirname(QUEUE_FILE), "dark_genes_reference.tsv")
     if not os.path.exists(ref_file):
@@ -132,12 +184,19 @@ def _auto_populate_queue(q: dict, batch_size: int = 50):
         with open(ref_file, "r", encoding="utf-8") as f:
             reader = csv.DictReader(f, delimiter="\t")
             added = 0
+            skipped_pseudo = 0
             for row in reader:
                 gene = row.get("gene_name", "").strip()
                 status = row.get("status", "").strip()
+                desc = row.get("description", "").strip()
                 if not gene or status == "DONE":
                     continue
                 if gene.upper() in known:
+                    continue
+                # Skip pseudogenes and withdrawn annotations
+                if _is_pseudogene(gene, desc):
+                    skipped_pseudo += 1
+                    log.info("Skipped pseudogene/withdrawn: %s (%s)", gene, desc[:50])
                     continue
                 q["queue"].append({
                     "gene": gene,
@@ -149,6 +208,8 @@ def _auto_populate_queue(q: dict, batch_size: int = 50):
                 added += 1
                 if added >= batch_size:
                     break
+            if skipped_pseudo > 0:
+                log.info("Filtered out %d pseudogenes/withdrawn from TSV", skipped_pseudo)
             if added > 0:
                 q["stats"]["genes_queued"] = len(q["queue"])
                 log.info("Auto-populated %d genes from dark_genes_reference.tsv", added)
@@ -177,9 +238,12 @@ def _load_queue() -> dict:
 
 
 def _save_queue(queue: dict):
-    """Save the gene queue to disk."""
-    with open(QUEUE_FILE, "w", encoding="utf-8") as f:
+    """Save the gene queue to disk atomically (write-to-temp + rename).
+    Prevents corruption if the process crashes mid-write."""
+    tmp_path = QUEUE_FILE + ".tmp"
+    with open(tmp_path, "w", encoding="utf-8") as f:
         json.dump(queue, f, indent=2, ensure_ascii=False)
+    os.replace(tmp_path, QUEUE_FILE)
 
 
 def next_gene(*args, **kwargs) -> str:
@@ -190,10 +254,32 @@ def next_gene(*args, **kwargs) -> str:
     """
     q = _load_queue()
 
-    # If there's a gene in progress, auto-complete it and move on
+    # If there's a gene in progress, complete or skip it IN-PLACE
+    # (no reload — avoids race condition where reload loses genes added by add_to_queue)
     if q["in_progress"]:
-        complete_gene(q["in_progress"]["gene"])
-        q = _load_queue()  # reload after completion
+        prev_gene = q["in_progress"]["gene"]
+        # Check if this gene has a FINDING FILE on disk (not just in known set,
+        # which includes in_progress itself and would always be True)
+        has_finding = _has_finding_on_disk(prev_gene)
+        if has_finding:
+            # Has a finding on disk — move to completed
+            gene_data = q["in_progress"]
+            gene_data["finished"] = datetime.datetime.now().isoformat()
+            q["completed"].append(gene_data)
+            q["in_progress"] = None
+            q["stats"]["genes_completed"] = len(q["completed"])
+            log.info("Auto-completed gene '%s' (finding exists on disk)", prev_gene)
+        else:
+            # No finding saved — mark as skipped
+            log.warning("Gene '%s' abandoned without finding — marking as skipped", prev_gene)
+            q["skipped"].append({
+                "gene": prev_gene,
+                "reason": "abandoned without finding (next_gene called before save_finding)",
+                "skipped_at": datetime.datetime.now().isoformat(),
+            })
+            q["in_progress"] = None
+            q["stats"]["genes_skipped"] = len(q["skipped"])
+        _save_queue(q)  # save once, preserving any genes added by add_to_queue
 
     # Pick from queue — auto-populate if empty
     if not q["queue"]:
@@ -201,29 +287,75 @@ def next_gene(*args, **kwargs) -> str:
         _save_queue(q)
 
     if not q["queue"]:
-        # Still empty after auto-populate — ALL dark genes from reference are done
-        from config import FINDINGS_DIR
-        finding_count = len([f for f in os.listdir(FINDINGS_DIR) if f.endswith(".md")]) if os.path.isdir(FINDINGS_DIR) else 0
-        return (
-            f"ALL DARK GENES COMPLETED! 🎉\n"
-            f"Total findings on disk: {finding_count}\n"
-            f"All genes from dark_genes_reference.tsv have been analyzed.\n"
-            f"DO NOT search for new genes with ncbi_search — the project is complete.\n"
-            f"Call gene_status() to see the full summary."
-        )
+        # Reference TSV exhausted — direct agent to seed-based discovery
+        # DO NOT auto-advance seed_index here — only advance_seed() does that,
+        # AFTER the agent actually searches and adds genes from the seed family.
+        seed_idx = q.get("seed_index", 0)
+        total_seeds = len(SEED_PREFIXES)
+        total_completed = len(q.get("completed", []))
+
+        if seed_idx < total_seeds:
+            prefix = SEED_PREFIXES[seed_idx]
+
+            # Tell the agent which genes from this family are ALREADY DONE
+            # so it doesn't waste turns trying to add duplicates
+            known = _get_known_genes(q)
+            already_done = sorted([g for g in known if g.upper().startswith(prefix.upper())])
+            if already_done:
+                done_list = ", ".join(already_done[:30])
+                done_note = f"\nALREADY COMPLETED for {prefix} family ({len(already_done)} genes): {done_list}\n"
+                if len(already_done) > 30:
+                    done_note += f"  ... and {len(already_done) - 30} more.\n"
+                done_note += "Do NOT add any of these. Only add genes NOT in this list.\n"
+            else:
+                done_note = f"\nNo genes completed yet for {prefix} family — all results are fair game.\n"
+
+            return (
+                f"QUEUE EMPTY — discover new genes from seed family '{prefix}'!\n"
+                f"Genes completed so far: {total_completed}\n"
+                f"Seed progress: {seed_idx}/{total_seeds} families done\n"
+                f"{done_note}\n"
+                f"DO THIS NOW:\n"
+                f"  1. TOOL: ncbi_search('chromosome {prefix.replace('C','').replace('orf','')} open reading frame', db='gene', max_results=10)\n"
+                f"  2. Try add_to_queue('GENE_NAME') for 2-3 results that are NOT in the completed list above.\n"
+                f"     If ALL are already completed → this family is DONE. Call advance_seed() then next_gene().\n"
+                f"  3. As soon as ONE gene is accepted → call advance_seed() then next_gene() to START ANALYZING it.\n\n"
+                f"RULE: Max 3 add_to_queue attempts per seed family. Then advance_seed().\n"
+                f"DO NOT save 'project complete' findings — there are more genes to find."
+            )
+        else:
+            # All seeds truly exhausted — suggest broader search
+            from config import FINDINGS_DIR
+            finding_count = len([f for f in os.listdir(FINDINGS_DIR) if f.endswith(".md")]) if os.path.isdir(FINDINGS_DIR) else 0
+            return (
+                f"All {total_seeds} seed families searched.\n"
+                f"Total findings on disk: {finding_count}\n"
+                f"Genes completed: {total_completed}\n\n"
+                f"Search for more dark genes with broader queries:\n"
+                f"  TOOL: ncbi_search('uncharacterized protein human', db='gene', max_results=10)\n"
+                f"  TOOL: ncbi_search('hypothetical protein homo sapiens', db='gene', max_results=10)\n\n"
+                f"Add any uncharacterized results with add_to_queue(), then call next_gene()."
+            )
 
     # Pop the first gene — skip any that already have findings on disk
     known = _get_known_genes(q)
     gene_entry = None
     while q["queue"]:
         candidate = q["queue"].pop(0)
-        if candidate["gene"].upper() in known:
-            # Already done — silently skip and move to completed
-            candidate["finished"] = datetime.datetime.now().isoformat()
-            candidate["steps_done"] = ["auto-skipped"]
-            candidate["source"] = candidate.get("source", "unknown")
-            q["completed"].append(candidate)
-            log.info("Auto-skipped '%s' (already has finding on disk)", candidate["gene"])
+        gene_name = candidate["gene"]
+        gene_desc = candidate.get("description", "")
+        if gene_name.upper() in known:
+            # Already done — silently skip (do NOT add to completed again)
+            log.info("Auto-skipped '%s' (already has finding on disk)", gene_name)
+            continue
+        if _is_pseudogene(gene_name, gene_desc):
+            # Pseudogene / withdrawn — skip silently
+            q["skipped"].append({
+                "gene": gene_name,
+                "reason": "pseudogene/withdrawn — filtered automatically",
+                "skipped_at": datetime.datetime.now().isoformat(),
+            })
+            log.info("Auto-skipped pseudogene '%s'", gene_name)
             continue
         gene_entry = candidate
         break
@@ -290,11 +422,20 @@ def add_to_queue(*args, **kwargs) -> str:
     elif "priority" in kwargs:
         priority = str(kwargs["priority"])
 
+    # Reject pseudogenes and withdrawn annotations
+    if _is_pseudogene(gene):
+        return (
+            f"[REJECTED] '{gene}' is a pseudogene or withdrawn annotation — not a protein-coding gene. "
+            "Pseudogenes don't produce functional proteins. Skip it and find a real dark gene."
+        )
+
     q = _load_queue()
 
     # Check if already in queue, in progress, completed, or has findings on disk
     known = _get_known_genes(q)
-    if gene.upper() in known:
+    # Also check current queue (not in _get_known_genes to avoid self-blocking in next_gene)
+    queued_genes = {g["gene"].upper() for g in q.get("queue", [])}
+    if gene.upper() in known or gene.upper() in queued_genes:
         return f"Gene '{gene}' already in queue/completed/skipped/has findings — skipping duplicate."
 
     q["queue"].append({
@@ -507,16 +648,99 @@ def queue_status(*args, **kwargs) -> str:
         lines.append(f"   ... and {len(q['queue']) - 10} more")
 
     # Stats
-    lines.append(f"\n📊 Stats:")
+    lines.append("\n📊 Stats:")
     lines.append(f"   Completed: {len(q['completed'])}")
     lines.append(f"   Skipped: {len(q['skipped'])}")
     lines.append(f"   Seed progress: {q.get('seed_index', 0)}/{len(SEED_PREFIXES)} families")
 
     # Last 5 completed
     if q["completed"]:
-        lines.append(f"\n✅ Recently completed:")
+        lines.append("\n✅ Recently completed:")
         for g in q["completed"][-5:]:
             lines.append(f"   • {g['gene']} ({len(g.get('steps_done', []))} steps)")
+
+    return "\n".join(lines)
+
+
+def gene_status(*args, **kwargs) -> str:
+    """
+    Show comprehensive project status: how many genes are DONE vs TODO
+    in dark_genes_reference.tsv, synced with actual findings on disk.
+    Also auto-syncs the TSV status column with findings on disk.
+    """
+    import csv
+    from config import FINDINGS_DIR
+
+    ref_file = os.path.join(os.path.dirname(QUEUE_FILE), "dark_genes_reference.tsv")
+    if not os.path.exists(ref_file):
+        return "[ERROR] dark_genes_reference.tsv not found."
+
+    # Get genes with findings on disk (source of truth)
+    import re as _re
+    gene_re = _re.compile(
+        r'(C\d+orf\d+|CXorf\d+|LOC\d+|'
+        r'FAM\d+[A-Z]?|KIAA\d+|TMEM\d+[A-Z]?|LINC\d+|FLJ\d+|'
+        r'CCDC\d+[A-Z]?|ANKRD\d+[A-Z]?|LRRC\d+[A-Z]?|KLHL\d+|KBTBD\d+|'
+        r'SPATA\d+|PRR\d+|PRAMEF\d+|ZNF\d+|OR\d+[A-Z]\d*)',
+        _re.IGNORECASE
+    )
+    disk_genes = set()
+    if os.path.isdir(FINDINGS_DIR):
+        for fname in os.listdir(FINDINGS_DIR):
+            if fname.endswith('.md'):
+                for m in gene_re.findall(fname):
+                    disk_genes.add(m.upper())
+
+    # Read TSV and auto-sync status
+    rows = []
+    synced = 0
+    with open(ref_file, 'r', encoding='utf-8') as f:
+        reader = csv.DictReader(f, delimiter='\t')
+        fieldnames = reader.fieldnames
+        for row in reader:
+            gene = row.get('gene_name', '').strip()
+            if gene.upper() in disk_genes and row.get('status') == 'TODO':
+                row['status'] = 'DONE'
+                synced += 1
+            rows.append(row)
+
+    # Write back if anything changed
+    if synced > 0:
+        with open(ref_file, 'w', encoding='utf-8', newline='') as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames, delimiter='\t')
+            writer.writeheader()
+            writer.writerows(rows)
+
+    done = [r for r in rows if r.get('status') == 'DONE']
+    todo = [r for r in rows if r.get('status') == 'TODO']
+    pseudo_todo = [r for r in todo if _is_pseudogene(r.get('gene_name', ''), r.get('description', ''))]
+    real_todo = [r for r in todo if not _is_pseudogene(r.get('gene_name', ''), r.get('description', ''))]
+
+    # Group TODO by chromosome
+    chr_groups = {}
+    for r in real_todo:
+        chrom = r.get('chromosome', '?')
+        chr_groups.setdefault(chrom, []).append(r.get('gene_name', ''))
+
+    q = _load_queue()
+    seed_idx = q.get("seed_index", 0)
+
+    lines = [
+        "PROJECT STATUS — dark_genes_reference.tsv",
+        f"  DONE:  {len(done)}/{len(rows)} genes ({len(done)/len(rows)*100:.1f}%)",
+        f"  TODO:  {len(real_todo)} real genes + {len(pseudo_todo)} pseudogenes (will be skipped)",
+        f"  Findings on disk: {len(disk_genes)}",
+        f"  Seed families: {seed_idx}/{len(SEED_PREFIXES)} searched",
+    ]
+    if synced > 0:
+        lines.append(f"  (auto-synced {synced} genes from TODO->DONE)")
+
+    # Show next 10 TODO genes
+    lines.append(f"\n  NEXT TODO genes ({len(real_todo)} remaining):")
+    for r in real_todo[:10]:
+        lines.append(f"    - {r.get('gene_name')} ({r.get('chromosome', '?')}) {r.get('description', '')[:40]}")
+    if len(real_todo) > 10:
+        lines.append(f"    ... and {len(real_todo) - 10} more")
 
     return "\n".join(lines)
 
@@ -616,9 +840,9 @@ def _step_instructions(step: str, gene: str) -> str:
             f"  After: complete_step('annotate')"
         ),
         "hypothesize": (
-            f"→ HYPOTHESIZE: What does this gene do? Synthesize all evidence.\n"
-            f"  TOOL: hypothesize('This gene likely functions as...', evidence='BLAST hits, domains, motifs...', confidence='medium')\n"
-            f"  This will auto-save the finding and complete the step."
+            "→ HYPOTHESIZE: What does this gene do? Synthesize all evidence.\n"
+            "  TOOL: hypothesize('This gene likely functions as...', evidence='BLAST hits, domains, motifs...', confidence='medium')\n"
+            "  This will auto-save the finding and complete the step."
         ),
     }
     return instructions.get(step, f"→ {step} for {gene}")

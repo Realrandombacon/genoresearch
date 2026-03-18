@@ -35,9 +35,13 @@ def load_memory() -> dict:
 
 
 def save_memory(memory: dict):
-    """Persist memory to disk."""
-    with open(MEMORY_FILE, "w", encoding="utf-8") as f:
+    """Persist memory to disk atomically (write-to-temp + rename).
+    Prevents corruption if the process crashes mid-write."""
+    import os
+    tmp_path = MEMORY_FILE + ".tmp"
+    with open(tmp_path, "w", encoding="utf-8") as f:
         json.dump(memory, f, indent=2, ensure_ascii=False)
+    os.replace(tmp_path, MEMORY_FILE)
     log.info("Memory saved (%d findings)", len(memory.get("findings", [])))
 
 
@@ -103,7 +107,6 @@ def summarize_memory(memory: dict) -> str:
     from config import FINDINGS_DIR, SEQUENCES_DIR
 
     lines = []
-    findings = memory.get("findings", [])
     explored = memory.get("explored", [])
     exhausted = memory.get("exhausted", [])
 
@@ -133,7 +136,7 @@ def summarize_memory(memory: dict) -> str:
 
     # Show sequence filenames
     if seq_files:
-        lines.append(f"\nDownloaded sequences (use list_sequences() for details):")
+        lines.append("\nDownloaded sequences (use list_sequences() for details):")
         for fname in sorted(seq_files)[:10]:
             lines.append(f"  - {fname}")
         if len(seq_files) > 10:

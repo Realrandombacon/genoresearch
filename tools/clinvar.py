@@ -5,7 +5,6 @@ Uses NCBI E-utilities to query ClinVar for disease-associated variants.
 
 import logging
 import requests
-import xml.etree.ElementTree as ET
 
 log = logging.getLogger("genoresearch.clinvar")
 
@@ -66,7 +65,7 @@ def clinvar_search(*args, gene: str = "", **kwargs) -> str:
                 return f"ClinVar: No variants found for '{gene}'. Gene has no ClinVar entries — no known clinical significance."
             else:
                 lines = [f"ClinVar: {total_all} total variants for {gene} (0 pathogenic/likely pathogenic)"]
-                lines.append(f"  → No disease-causing variants known — gene may be tolerant to variation")
+                lines.append("  → No disease-causing variants known — gene may be tolerant to variation")
         except Exception:
             return f"ClinVar: No pathogenic variants found for '{gene}'"
     else:
@@ -120,14 +119,14 @@ def clinvar_search(*args, gene: str = "", **kwargs) -> str:
             lines.append(f"    Type: {variant_type}")
 
     if diseases_seen:
-        lines.append(f"\n  Disease associations:")
+        lines.append("\n  Disease associations:")
         for disease in sorted(diseases_seen):
             lines.append(f"    • {disease}")
 
     lines.append(f"\n  Summary: {total} pathogenic variants, {len(diseases_seen)} diseases associated")
     if total > 0:
-        lines.append(f"  → This gene HAS clinical significance — variants cause disease")
+        lines.append("  → This gene HAS clinical significance — variants cause disease")
     else:
-        lines.append(f"  → No pathogenic variants — gene may be non-essential or redundant")
+        lines.append("  → No pathogenic variants — gene may be non-essential or redundant")
 
     return "\n".join(lines)
