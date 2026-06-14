@@ -5,10 +5,32 @@ UniProt tools — search and fetch protein data from UniProt REST API.
 import os
 import logging
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
 from config import UNIPROT_BASE_URL, SEQUENCES_DIR
 
 log = logging.getLogger("genoresearch.uniprot")
+
+# Persistent session with connection pooling + automatic retry on transient
+# failures (ConnectionError, RemoteDisconnected, 429, 5xx). Avoids the
+# "open a new TCP per call" pattern that causes sporadic RemoteDisconnected
+# when multiple tools hit the network concurrently.
+_session = requests.Session()
+_retry = Retry(
+    total=3,
+    backoff_factor=0.5,
+    status_forcelist=[429, 500, 502, 503, 504],
+    allowed_methods=["GET"],
+)
+_session.mount("https://", HTTPAdapter(max_retries=_retry, pool_connections=10, pool_maxsize=10))
+_session.mount("http://", HTTPAdapter(max_retries=_retry, pool_connections=10, pool_maxsize=10))
+_session.headers.update({"User-Agent": "GenoResearch/1.0 (genomics research tool)"})
+
+
+def _get(url, params=None, timeout=30):
+    """GET via persistent session. Retries on 429/5xx and transient network errors."""
+    return _session.get(url, params=params, timeout=timeout)
 
 
 def uniprot_search(*args, query: str = "", max_results: int = 5, **kwargs) -> str:
@@ -38,8 +60,7 @@ def uniprot_search(*args, query: str = "", max_results: int = 5, **kwargs) -> st
     }
 
     try:
-        resp = requests.get(f"{UNIPROT_BASE_URL}/uniprotkb/search",
-                            params=params, timeout=30)
+        resp = _get(f"{UNIPROT_BASE_URL}/uniprotkb/search", params=params, timeout=30)
         resp.raise_for_status()
         data = resp.json()
     except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError) as e:
@@ -99,8 +120,7 @@ def uniprot_fetch(*args, accession_id: str = "", **kwargs) -> str:
 
     # Fetch JSON details from UniProt
     try:
-        resp = requests.get(f"{UNIPROT_BASE_URL}/uniprotkb/{accession_id}.json",
-                            timeout=30)
+        resp = _get(f"{UNIPROT_BASE_URL}/uniprotkb/{accession_id}.json", timeout=30)
         resp.raise_for_status()
         data = resp.json()
     except (requests.Timeout, requests.ConnectionError, requests.HTTPError, ValueError, KeyError) as e:
