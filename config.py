@@ -77,6 +77,9 @@ UNIPROT_BASE_URL = "https://rest.uniprot.org"
 # Optional — set in environment for higher NCBI rate limits
 NCBI_API_KEY = os.environ.get("NCBI_API_KEY", "")
 
+# Optional — Semantic Scholar API key (1 RPS without, more headroom with)
+SEMANTIC_SCHOLAR_API_KEY = os.environ.get("SEMANTIC_SCHOLAR_API_KEY", "")
+
 # ---------------------------------------------------------------------------
 # Local BLAST+ configuration
 # ---------------------------------------------------------------------------
