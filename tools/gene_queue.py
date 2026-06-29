@@ -28,8 +28,13 @@ PIPELINE_STEPS = [
 ]
 
 
-def _auto_populate_queue(q: dict, batch_size: int = 50):
-    """Auto-populate the queue from dark_genes_reference.tsv ONLY."""
+def _auto_populate_queue(q: dict, batch_size: int | None = None):
+    """Auto-populate the queue from dark_genes_reference.tsv ONLY.
+
+    batch_size=None (default) loads the ENTIRE reference in one shot so the
+    queue is fully seeded up front and never needs mid-run repopulation.
+    Pass an int only if you deliberately want incremental top-ups.
+    """
     known = _get_known_genes(q)
     # Also exclude genes already in the queue
     known.update(g["gene"].upper() for g in q.get("queue", []))
@@ -66,7 +71,7 @@ def _auto_populate_queue(q: dict, batch_size: int = 50):
                 })
                 known.add(gene.upper())
                 added += 1
-                if added >= batch_size:
+                if batch_size is not None and added >= batch_size:
                     break
             if skipped_pseudo > 0:
                 log.info("Filtered out %d pseudogenes/withdrawn from TSV", skipped_pseudo)
