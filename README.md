@@ -8,27 +8,40 @@
 
 The agent runs autonomously in a **think → act → observe → learn** loop: it queries genomic databases, analyzes sequences, runs BLAST searches, and records novel findings — all without human intervention.
 
+## Status (June 2026)
+
+The **dark-genome sweep is complete** — every protein-coding gene without GO annotation has been processed.
+
+| Metric | Value |
+|--------|-------|
+| Findings produced | **10,973** |
+| Dark genome coverage (no-GO set) | **~100%** |
+| Avg quality score (recent 5k cohort) | **6.27 / 10** (median 5.6) |
+| First finding | **March 12, 2026** (BRCA1) |
+| Pipeline status | Sweep complete; re-runs with other LLMs (GLM-5.2, …) in progress |
+
+> **What the score measures:** tool-use coverage, evidence depth, and cross-domain
+> correlation — **not** lab-verified truth. Findings are **hypotheses to orient
+> researchers**, not proven claims.
+
 ## How It Works
 
-1. **Orchestrator** sends a research prompt to a local LLM (Qwen 3.5:4b via Ollama)
+1. **Orchestrator** sends a research prompt to a multi-tier LLM system (Ollama cloud/local + Cerebras + Groq)
 2. The LLM reasons about what to investigate next and outputs a tool call
-3. The orchestrator parses and executes the tool (NCBI search, BLAST, sequence analysis, etc.)
+3. The orchestrator parses and executes the tool (NCBI, UniProt, InterPro, STRING, HPA, ClinVar, AlphaFold, etc.)
 4. Results are fed back to the LLM, which decides the next step
-5. Discoveries are saved as persistent findings with evidence
+5. Discoveries are saved as persistent findings with evidence and quality scores
 6. Repeat — the agent runs for as many cycles as you want
 
 ## Quick Start
 
-**Requirements:** Python 3.10+, [Ollama](https://ollama.com/) with `qwen3.5:4b` model pulled.
+**Requirements:** Python 3.10+, [Ollama](https://ollama.com/)
 
 ```bash
-# 1. Install Ollama and pull the model
-ollama pull qwen3.5:4b
-
-# 2. Install dependencies
+# 1. Install dependencies
 pip install -r requirements.txt
 
-# 3. Run the agent
+# 2. Run the agent
 python main.py
 ```
 
@@ -40,7 +53,7 @@ python main.py --target "BRCA1 mutations"   # Focus on a specific gene/topic
 python main.py --cycles 50                  # Run exactly 50 cycles
 python main.py --plan                       # Planning mode — suggest directions only
 python main.py --lab-status                 # Show ML lab experiment history
-python main.py --model qwen2.5:4b           # Override LLM model
+python main.py --model qwen3.5:cloud        # Override LLM model
 ```
 
 ### Dashboard
@@ -52,8 +65,6 @@ python dashboard.py              # http://localhost:5555
 python dashboard.py --port 8080  # Custom port
 ```
 
-![GenoResearch Dashboard](docs/dashboard.png)
-
 Shows live research status, gene pipeline progress, tool usage distribution, error timeline, sequence inventory, findings log, and more — all updating in real time.
 
 ## Project Structure
@@ -61,12 +72,17 @@ Shows live research status, gene pipeline progress, tool usage distribution, err
 ```
 main.py                 — Entry point
 config.py               — Paths, API URLs, model config
-dashboard.py            — Flask web dashboard
+dashboard.py            — Flask web dashboard entry point
 
 orchestrator/
 ├── core.py             — Main think→act→observe loop
-├── llm.py              — Ollama/Qwen integration
-└── tool_registry.py    — Tool dispatch & argument parsing
+├── llm.py              — 4-tier LLM provider system with auto-failover
+├── providers.py        — OpenAI-compatible provider pattern (Cerebras/Groq)
+├── prompts.py          — System prompts and reflection prompts
+├── context.py          — Message compression and context trimming
+├── loop_detection.py   — Loop detection and breaking
+├── parsing.py          — Tool call parsing
+└── dashboard.py        — Status writer for Flask
 
 agent/
 ├── memory.py           — Persistent research memory (JSON-backed)
@@ -75,38 +91,61 @@ agent/
 └── ui.py               — Color-coded terminal output
 
 tools/
-├── ncbi.py             — NCBI GenBank/Gene/PubMed search & fetch
-├── blast.py            — Remote BLAST sequence similarity search
-├── uniprot.py          — UniProt protein database queries
-├── sequence.py         — Local sequence analysis (composition, motifs, translation)
+├── registry.py         — Tool registry and dispatch
 ├── findings.py         — Finding management (save, list, review)
-├── memory_tools.py     — Memory queries, stats, exploration tracking
+├── scoring.py          — Quality scoring v2 (CNV/SNV aware)
 ├── gene_queue.py       — Dark genome gene discovery pipeline
+├── gene_filters.py     — Pseudogene and low-quality filters
+├── seed_discovery.py   — Seed family management for queue
+├── ncbi.py             — NCBI GenBank/Gene/PubMed search & fetch
+├── uniprot.py          — UniProt protein database queries
+├── interpro.py         — InterPro domain analysis
+├── string_db.py        — STRING protein interactions
+├── hpa.py              — Human Protein Atlas expression
+├── clinvar.py           — ClinVar pathogenic variants
+├── alphafold.py        — AlphaFold structure predictions
+├── semantic_scholar.py — Academic literature search
+├── blast.py            — BLAST local/remote sequence search
+├── sequence.py         — Local sequence analysis
 ├── lab_tools.py        — ML experiment launcher
+├── memory_tools.py     — Memory queries and stats
 └── file_tools.py       — File I/O utilities
 
 lab/
 ├── trainer.py          — Autonomous ML experiment runner
-└── train_genomics.py   — Genomic sequence model (modifiable by agent)
+└── train_genomics.py   — Genomic sequence model
+
+dashboard/
+├── data_layer.py       — Data access layer
+└── log_parser.py       — Log parsing utilities
 
 data/
 ├── sequences/          — Downloaded FASTA files
 ├── alignments/         — BLAST results
 ├── runs/               — ML experiment logs
 └── checkpoints/        — Saved model weights
+
+findings/               — 10,900+ markdown findings (one per gene)
 ```
 
-## Tools (30+)
+## Tools (30+ functions)
 
 ### Database Queries
 | Tool | Description |
 |------|-------------|
 | `ncbi_search` | Search GenBank, Gene, Nucleotide, Protein, PubMed |
 | `ncbi_fetch` | Download FASTA sequences by accession ID |
-| `gene_info` | Detailed gene metadata (function, location, aliases) |
+| `gene_info` | Detailed gene metadata |
 | `pubmed_search` | Search biomedical literature |
 | `uniprot_search` | Find proteins by name/function/organism |
 | `uniprot_fetch` | Download protein sequences & annotations |
+| `interpro_scan` | Protein domains and families |
+| `string_interactions` | Protein-protein interaction partners |
+| `hpa_expression` | Tissue expression and localization |
+| `clinvar_search` | Pathogenic variants and diseases |
+| `alphafold_structure` | Predicted 3D structures |
+| `gene_literature` | Check literature coverage |
+| `semantic_search` | Search academic papers |
 
 ### Sequence Analysis
 | Tool | Description |
@@ -114,12 +153,12 @@ data/
 | `analyze_sequence` | Composition, GC content, motif scanning |
 | `compare_sequences` | Pairwise identity & composition diff |
 | `translate_sequence` | DNA → protein translation |
-| `blast_search` | Remote BLAST (blastn, blastp, blastx, etc.) |
+| `blast_search` | BLAST (blastn, blastp, blastx, etc.) |
 
 ### Research Management
 | Tool | Description |
 |------|-------------|
-| `save_finding` | Log a discovery with evidence |
+| `save_finding` | Log a discovery with quality score |
 | `review_findings` | AI-assisted finding review |
 | `query_memory` | Search past findings & notes |
 | `note` | Save free-form observations |
@@ -129,8 +168,8 @@ data/
 | Tool | Description |
 |------|-------------|
 | `next_gene` | Get next understudied gene from queue |
-| `complete_step` | Mark a pipeline step done |
-| `complete_gene` | Finish gene investigation |
+| `skip_gene` | Skip if not a dark gene |
+| `advance_seed` | Move to next seed family |
 | `queue_status` | Show pipeline progress |
 
 ## Gene Queue Pipeline
@@ -143,17 +182,20 @@ The **Dark Genome Mission** systematically investigates understudied gene famili
 - **TMEM genes** — Transmembrane proteins with unknown function
 - **LINC genes** — Long intergenic non-coding RNAs
 
-Each gene goes through a 7-step pipeline:
-`discover → profile → analyze → translate → compare → annotate → hypothesize`
+Each gene goes through deep analysis using 6+ bioinformatics sources before a finding is produced.
 
-## ML Lab
+## LLM Providers
 
-An autonomous experimentation framework (inspired by [autoresearch](https://github.com/karpathy/autoresearch)):
+GenoResearch uses a **4-tier hybrid system** with automatic failover:
 
-- Fixed **5-minute time budget** per experiment
-- Metric: **validation loss** (lower = better)
-- The agent can modify model architecture, hyperparameters, and training strategy
-- Results are tracked across sessions in `data/runs/`
+| Tier | Provider | Model | When |
+|------|----------|-------|------|
+| T1 | Ollama (cloud) | qwen3.5:cloud | Best quality |
+| T2 | Cerebras | qwen-3-235b | Fast, free tier |
+| T3 | Groq | llama-4-scout | Backup, fast |
+| T4 | Ollama (local) | qwen3.5:4b | Always available |
+
+Zero downtime — cascades automatically on failure.
 
 ## Configuration
 
@@ -161,13 +203,14 @@ Key settings in `config.py`:
 
 | Setting | Default | Description |
 |---------|---------|-------------|
-| `OLLAMA_MODEL` | `qwen3.5:4b` | Local LLM model |
-| `OLLAMA_URL` | `localhost:11434` | Ollama API endpoint |
+| `OLLAMA_MODEL_PRIMARY` | `qwen3.5:cloud` | Primary LLM |
+| `OLLAMA_MODEL_FALLBACK` | `qwen3.5:4b` | Fallback local LLM |
+| `LLM_PROVIDER` | `hybrid` | Provider mode |
 | `NCBI_API_KEY` | *(env var)* | Optional — higher NCBI rate limits |
 
 ## Optional Dependencies
 
-The core agent only requires `requests` and `flask`. For enhanced capabilities:
+The core agent only requires `requests` and `flask`:
 
 ```bash
 # ML Lab (autonomous training)
