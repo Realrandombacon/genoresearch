@@ -1,8 +1,15 @@
-# GenoResearch — Verified Findings
+# GenoResearch — Verified Findings (early audit snapshot)
 
-Reviewed and verified by Claude on 2026-03-16 (updated from 2026-03-14 audit).
+> ⚠️ **Historical snapshot — 16 March 2026, n=211 findings.** The project has since
+> grown to **10,973 findings** with a **recalibrated scoring v2** (CNV/SNV-aware — see
+> `README.md` and `CLAUDE.md`). The metrics tables and the scoring formula below reflect
+> that early cohort and the now-**superseded v1 scoring**; the curated highlights remain
+> valid as early discoveries. For the current, complete results, browse `findings/` and
+> `findings.tsv`.
 
-## Current State
+Original audit by Claude on 2026-03-16 (updated from 2026-03-14 audit).
+
+## State at this audit (16 March 2026 — n=211)
 
 | Metric | Value |
 |--------|-------|
