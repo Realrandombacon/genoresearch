@@ -21,3 +21,24 @@ dev/
 # Results file
 results.tsv
 .env
+
+# --- Run artifacts: regenerable / machine-specific, NOT shared ---
+# (findings/ and findings.tsv are intentionally NOT ignored — they are the product)
+research.log
+research-archive.log
+research-*.log
+memory.json
+memory-*.json
+gene_queue.json
+dashboard_status.json
+backups/
+data/sequences/
+data/alignments/
+data/runs/
+data/checkpoints/
+
+# Scratch / temp cruft
+_tmp_*.py
+__tmp*.py
+*.tmp
+EOF
