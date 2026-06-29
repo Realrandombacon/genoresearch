@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T08:36:38.040239
 
-**Quality Score:** 10/10 (EXCELLENT)
+**Quality Score:** 2.15/10  (E=3.0, D=1.3) [WEAK]
 
 ## Description
 FAM219B is a conserved dark gene (198 aa) with significant clinical relevance. Contains FAM219 family domains (IPR029339, PF15260). Localizes to nucleoplasm and Golgi apparatus. Interacts with ELP complex (ELP1/2/3), ULK3, SCAMP2, and FAM221A - suggesting roles in transcriptional elongation and vesicle trafficking. ClinVar shows 38 pathogenic/likely pathogenic variants (mostly CNVs on chr15q24), indicating disease association despite limited functional characterization. Paralogs FAM219A exist across vertebrates.

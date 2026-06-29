@@ -1,0 +1,15 @@
+# TADA2A: Transcriptional Adapter 2-Alpha Regulates RNA Polymerase II Transcription via SANT/Myb Domain-Mediated Coactivator Recruitment and Chromatin Remodeling
+
+**Date:** 2026-04-17T17:04:34.037988
+
+**Quality Score:** 3.5/10  (E=4.4, D=2.6) [MODERATE]
+
+**Confidence:** MEDIUM
+
+## Description
+TADA2A (Transcriptional adapter 2-alpha) is a 443 aa nuclear protein (UniProt O75478, AlphaFold pLDDT 84.4) characterized as a transcriptional coactivator. With only 26 papers in literature (2020-2026), TADA2A is a PARTIALLY CHARACTERIZED DARK GENE - understudied despite clear functional evidence. InterPro domains confirm transcriptional adaptor function: IPR016827 Transcriptional adaptor 2 family (aa8-442), IPR001005 SANT/Myb domain (aa71-122), IPR000433 ZZ-type zinc finger (aa12-69), IPR007526 SWIRM domain (aa356-443), IPR009057 Homeodomain-like superfamily (aa67-122, aa345-441). STRING interactions reveal high-confidence (0.969-0.999) complex membership with core transcription machinery: TADA3(0.999), SGF29(0.999), SUPT3H(0.999), TRRAP(0.998), TAF12(0.997), TAF9(0.997), TAF10(0.995), SUPT20H(0.994), KAT2B(0.988), KAT2A(0.969) - indicating role in Mediator complex and histone acetylation regulation. ClinVar contains 91 pathogenic variants (17q12 CNVs, deletions, duplications) with no specific disease named, suggesting dosage sensitivity. HPA expression: No data available (gene not in HPA database). FUNCTIONAL HYPOTHESIS: TADA2A functions as a scaffold for the Mediator complex and RNA Polymerase II transcription machinery, recruiting coactivators (KAT2A/B, SUPT3H) to regulate gene expression via histone acetylation. MECHANISTIC PROPOSAL: (1) SANT/Myb domains mediate protein-protein interactions with transcription factors and chromatin remodelers, (2) ZZ-type zinc fingers stabilize DNA/RNA binding, (3) SWIRM domain facilitates protein-protein interactions within the transcriptional machinery, (4) 17q12 CNVs (91 ClinVar variants) disrupt TADA2A dosage, leading to aberrant transcriptional regulation and disease phenotypes, (5) Absence from HPA database suggests limited tissue-specific expression or recent discovery. CROSS-DOMAIN REASONING: High AlphaFold confidence (84.4) indicates stable folded structure typical of transcriptional adaptors; SANT/Myb domain conservation across eukaryotes suggests essential role in transcriptional regulation; 17q12 CNVs link to developmental disorders; low literature count (26 papers) despite clear molecular function suggests genuine research gap. TADA2A represents a partially characterized transcriptional regulator with therapeutic potential for dosage-sensitive disorders.
+
+## Evidence
+```
+InterPro: IPR016827 (aa8-442), IPR001005 (aa71-122), IPR000433 (aa12-69), IPR007526 (aa356-443), IPR009057 (aa67-122, aa345-441) | STRING: 10 high-confidence interactions (TADA3, SGF29, SUPT3H, TRRAP, TAF12, TAF9, TAF10, SUPT20H, KAT2B, KAT2A) | HPA: No data | ClinVar: 91 pathogenic variants (17q12 CNVs) | AlphaFold: pLDDT=84.4 (well-folded) | Literature: 26 papers - PARTIALLY DARK GENE | UniProt: O75478, 443 aa
+```

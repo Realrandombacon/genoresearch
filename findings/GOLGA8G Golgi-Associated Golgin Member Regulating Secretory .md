@@ -1,0 +1,15 @@
+# GOLGA8G: Golgi-Associated Golgin Member Regulating Secretory Pathway Dynamics and Cytoskeletal Organization via GM130/GRIP1 Interaction and Golgi Architecture Maintenance
+
+**Date:** 2026-04-17T08:35:38.485137
+
+**Quality Score:** 3.83/10  (E=5.15, D=2.5) [MODERATE]
+
+**Confidence:** MEDIUM
+
+## Description
+GOLGA8G encodes a 648 aa Golgin subfamily A member (UniProt P0DX53) localized to the Golgi apparatus and cytoskeleton, functioning as a critical regulator of secretory pathway dynamics, vesicle trafficking, and cytoskeletal organization. InterPro analysis confirms its canonical Golgin architecture: Golgin subfamily A domain (IPR024858, aa 13-218), GM130 C-terminal binding motif (IPR043976/PF19046, aa 609-648), and coiled-coil regions (PF15070, aa 239-373/399-475) typical of Golgi membrane proteins. AlphaFold predicts medium-confidence structure (pLDDT 67.3), indicating a partially structured protein with potential intrinsically disordered regions (IDRs) crucial for dynamic protein-protein interactions. STRING interactions reveal a specialized Golgi-cytoskeleton network: CROCC2 (0.550), WDR49 (0.507), GOLGB1 (0.489), STX5 (0.482), ZSWIM1 (0.479), GOSR1 (0.459), TPGS1 (0.446), OR7C1 (0.418), TEX55 (0.409), suggesting roles in vesicle tethering, cytoskeletal anchoring, and Golgi integrity. HPA expression shows no detectable RNA across tissues, but protein localization to the Golgi implies post-transcriptional stability or specific cell-type expression. ClinVar reports 10 pathogenic variants, predominantly large 15q11.2-13.1 copy number gains (x2) and duplications, suggesting dosage sensitivity and potential links to developmental disorders or cancer susceptibility. Literature analysis reveals 0 papers specifically for GOLGA8G - a genuine dark gene despite belonging to the well-characterized Golgin family. Functional hypothesis: GOLGA8G functions through: (1) Golgi Architecture Maintenance - stabilizing the cis-Golgi network via GM130 motif interactions; (2) Cytoskeletal Coupling - linking Golgi to microtubules via coiled-coil domains and partners like WDR49/CROCC2; (3) Secretory Regulation - coordinating vesicle trafficking via STX5/ZSWIM1 interactions; (4) Disease Mechanism - dosage-sensitive regulation of secretory pathway efficiency, where copy number gains disrupt trafficking fidelity leading to cellular stress or oncogenic transformation. Despite complete lack of literature, the strong Golgin domain architecture, specific STRING network, and clinical variant burden provide compelling evidence for a role in cell biology and potential disease mechanisms.
+
+## Evidence
+```
+UniProt: P0DX53 | Size: 648 aa | Location: 15q11.2-13.1 | InterPro: IPR024858 (Golgin A), PF19046 (GM130), PTHR10881 (Golgin A-related) | STRING: CROCC2(0.550), WDR49(0.507), GOLGB1(0.489) | HPA: Not detected RNA | ClinVar: 10 pathogenic variants (15q CN gains) | AlphaFold: pLDDT 67.3 (medium confidence) | Literature: 0 papers - genuine dark gene | Function: Golgi-Associated Golgin Member regulating secretory pathway dynamics and cytoskeletal organization
+```

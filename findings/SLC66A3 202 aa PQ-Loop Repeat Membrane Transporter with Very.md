@@ -1,0 +1,13 @@
+# SLC66A3: 202 aa PQ-Loop Repeat Membrane Transporter with Very High-Confidence AlphaFold Structure (pLDDT 91.8) in Mannose-P-Dolichol Utilization Pathway
+
+**Date:** 2026-04-16T01:35:07.451586
+
+**Quality Score:** 4.1/10  (E=5.9, D=2.3) [MODERATE]
+
+## Description
+SLC66A3 (Q8N755, 202 aa) is a PQ-loop repeat-containing membrane transporter belonging to the mannose-P-dolichol utilization defect 1 protein family (IPR016817, PIRSF023381). InterPro identifies a canonical PQ-loop repeat domain (IPR006603, PF04193, aa 8-62) characteristic of transporters that move phosphorylated sugar derivatives across membranes. AlphaFold predicts very high-confidence structure (pLDDT 91.8, residues 1-202), indicating a well-folded, stable transmembrane protein with defined secondary structure elements. STRING reveals 10 interactions with strongest partners being TMPPE (0.598), TMEM41A (0.564), RMDN2 (0.560), KIAA2026 (0.516), NOL10 (0.513), HPCAL1 (0.469), DOLPP1 (0.458), KCNF1 (0.446), YIPF4 (0.426), and ATP6V1C2 (0.409). HPA shows ubiquitous expression across all tissues with cancer-enhanced expression pattern and cytosolic localization. ClinVar contains 20 pathogenic variants, predominantly copy number gains and deletions spanning 2p25 regions, though no specific diseases are yet assigned. Functional hypothesis: SLC66A3 functions as a PQ-loop fold transporter mediating translocation of phosphorylated dolichol-linked glycans (mannose-P-dolichol) across the ER membrane during N-linked glycosylation precursor synthesis. The PQ-loop repeat creates a hydrophilic channel for substrate passage while excluding water, typical of this transporter superfamily. Interaction with DOLPP1 (dolichyl-diphosphatase, 0.458) suggests coordinated regulation of dolichol phosphate cycling. TMEM41A interaction (0.564) indicates potential role in ER membrane lipid homeostasis and autophagosome formation. TMPPE (transmembrane pyrophosphatase, 0.598) interaction suggests energy coupling for active transport. Cancer-enhanced expression implies upregulation in tumors requiring increased protein glycosylation for growth factor receptor maturation and metastasis. Pathogenic CNVs disrupt glycosylation precursor transport, potentially causing congenital disorders of glycosylation (CDG) phenotypes. Conservation across vertebrates (mouse, rat, zebrafish) confirms essential metabolic role.
+
+## Evidence
+```
+InterPro: IPR006603 (PQ-loop), IPR016817 (MPDUD1), PF04193; STRING: TMPPE (0.598), TMEM41A (0.564), RMDN2 (0.560), DOLPP1 (0.458); HPA: Detected in all tissues, cancer enhanced, cytosol; ClinVar: 20 pathogenic variants (CNVs); AlphaFold: pLDDT 91.8; UniProt: Q8N755, 202 aa; Pathway: N-glycosylation precursor transport
+```

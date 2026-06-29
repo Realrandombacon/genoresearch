@@ -1,0 +1,15 @@
+# CDADC1: Vertebrate-Specific dCTP Deaminase Regulating Nucleotide Pool Balance and Chemotherapy Drug Metabolism
+
+**Date:** 2026-04-24T10:47:23.172168
+
+**Quality Score:** 4.2/10  (E=4.6, D=3.8) [MODERATE]
+
+**Confidence:** MEDIUM
+
+## Description
+CDADC1 (Cytidine and dCMP deaminase domain-containing protein 1) is a 514-amino acid vertebrate-specific enzyme that functions as a dCTP deaminase, converting dCTP to dUTP to maintain nucleotide pool balance during DNA replication and repair. Despite having only 10 publications confirming its 'dark gene' status, recent 2025 studies reveal CDADC1 has evolved from a bacterial dCMP deaminase precursor to become a critical regulator of pyrimidine metabolism with direct implications for chemotherapy response. The enzyme metabolizes nucleoside analog drugs like gemcitabine and decitabine, preventing cellular toxicity by deaminating these therapeutic compounds before they can be incorporated into DNA.\n\nStructural analysis via InterPro reveals a bipartite architecture with two cytidine/deoxycytidylate deaminase domains (IPR002125, residues 70-168 and 317-482) containing the canonical zinc-binding motif (IPR016192, residues 398-433, C-X-E-X24-P-X2-C-X2-C) essential for catalytic activity. The Pfam domain PF00383 confirms membership in the cytidine deaminase superfamily. AlphaFold predicts a well-folded structure (pLDDT 79.6) with two distinct catalytic lobes, suggesting potential homodimerization or allosteric regulation. STRING interaction data places CDADC1 in a tight nucleotide metabolism network with TYMS (thymidylate synthase, score 0.799), TK1 (thymidine kinase 1, 0.795), and TYMP (thymidine phosphorylase, 0.727), positioning it at a critical branch point between dCTP and dTTP synthesis pathways.\n\nHPA expression shows CDADC1 is detected in all tissues with immune cell enrichment and nucleoplasmic localization, consistent with a housekeeping role in DNA precursor synthesis. ClinVar reports 62 pathogenic/likely pathogenic variants, predominantly large copy number variations (CNVs) spanning 13q13-31, though specific monogenic disease associations remain undefined. The presence of clinical variants combined with conserved catalytic domains suggests CDADC1 deficiency may cause subtle nucleotide pool imbalances predisposing to genomic instability or altered drug sensitivity rather than overt developmental phenotypes. This gene represents a compelling example of a 'dark' metabolic enzyme with direct pharmacogenomic relevance.
+
+## Evidence
+```
+InterPro Domains: Cytidine/deoxycytidylate deaminase (IPR002125, PF00383), Zinc-binding site (IPR016192, residues 398-433). STRING Partners: TYMS (0.799), TK1 (0.795), TYMP (0.727), FNDC3A (0.702), CAB39L (0.666). HPA: Nucleoplasm, all tissues, immune cell enriched. ClinVar: 62 pathogenic variants (CNVs at 13q13-31). AlphaFold: pLDDT 79.6 (well-folded). UniProt: Q9BWV3 (514 aa). Literature: 10 papers (2025 studies confirm dCTP deaminase activity, gemcitabine/decitabine metabolism). Hypothesis: Vertebrate-specific nucleotide pool regulator with pharmacogenomic implications for chemotherapy response.
+```

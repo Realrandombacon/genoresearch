@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-18T00:08:22.503098
 
-**Quality Score:** 3/10 (MODERATE)
+**Quality Score:** 1.4/10  (E=0.8, D=2.0) [POOR]
 
 ## Description
 CC2D2B (C10orf131) encodes a 1437 aa coiled-coil and C2 domain-containing protein classified as a tectonic-like complex component (IPR052434, aa 7-1435). The protein contains multiple C2 domains (IPR000008, aa 861-1019; IPR028928, aa 470-637) characteristic of calcium-dependent phospholipid-binding modules

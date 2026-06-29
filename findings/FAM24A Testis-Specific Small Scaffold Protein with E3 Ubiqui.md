@@ -1,0 +1,13 @@
+# FAM24A: Testis-Specific Small Scaffold Protein with E3 Ubiquitin Ligase Network
+
+**Date:** 2026-03-19T16:42:08.398625
+
+**Quality Score:** 4.9/10  (E=7.0, D=2.8) [MODERATE]
+
+## Description
+FAM24A encodes a 105 amino acid uncharacterized protein (UniProt: A6NFZ4) localized to chromosome 10q26.13. InterPro analysis reveals membership in the FAM24 family (IPR028122, residues 1-105; PF15193, residues 33-105) and PTHR35860 family, indicating evolutionary conservation across mammals. AlphaFold predicts a partially structured conformation with medium confidence (pLDDT 64.9), suggesting a mix of ordered and intrinsically disordered regions typical of scaffold/adaptor proteins. HPA expression demonstrates striking testis-specific enrichment (16.5 nTPM) with detection in single tissue only, classified as both predicted intracellular and secreted protein, and notably absent from immune cells. This testis-restricted pattern strongly implicates roles in spermatogenesis or germ cell maintenance. STRING database identifies 7 medium-confidence interaction partners: IQCF6 (0.612), RNF148 (0.555), GAREM2 (0.511), TVP23A (0.507), PRR30 (0.475), CPXCR1 (0.449), and DPY19L1 (0.431). Notably, RNF148 is a RING-type E3 ubiquitin ligase, suggesting FAM24A may function as a substrate adaptor or scaffold for ubiquitination complexes in germ cells. IQCF6 is a sperm tail protein, reinforcing testis-specific function. ClinVar documents 50 pathogenic copy number variants (deletions and duplications spanning 10q26), indicating gene dosage sensitivity and clinical relevance despite no specific disease assignment. Conservation data shows orthologs in mouse (Q8CF27, 98 aa, 93% identity) and rat (B1WBS9, 98 aa), confirming functional constraint. The combination of testis-specific expression, E3 ligase interaction network, small scaffold architecture, and dosage sensitivity suggests FAM24A functions as a germ cell-specific adaptor protein that recruits ubiquitination machinery to regulate protein turnover during spermatogenesis, potentially targeting meiotic or post-meiotic substrates for degradation.
+
+## Evidence
+```
+Evidence: (1) InterPro: IPR028122/PF15193 FAM24 family aa 1-105/33-105, PTHR35860 aa 1-105; (2) UniProt: A6NFZ4, 105 aa; (3) AlphaFold: pLDDT 64.9 medium confidence; (4) HPA: testis-enriched 16.5 nTPM, tissue enriched, predicted intracellular/secreted; (5) STRING: 7 interactions IQCF6 0.612/RNF148 0.555/GAREM2 0.511/TVP23A 0.507/PRR30 0.475/CPXCR1 0.449/DPY19L1 0.431; (6) ClinVar: 50 pathogenic CNV variants; (7) Conservation: mouse Q8CF27 98 aa 93% identity, rat B1WBS9 98 aa; (8) Chromosome 10q26.13 location
+```

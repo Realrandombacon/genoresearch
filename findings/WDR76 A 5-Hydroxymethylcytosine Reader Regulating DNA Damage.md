@@ -1,0 +1,13 @@
+# WDR76: A 5-Hydroxymethylcytosine Reader Regulating DNA Damage Response and Cancer Progression via DDB1-CUL4A E3 Ligase Complex and Epigenetic Modulation
+
+**Date:** 2026-04-16T11:14:00.767299
+
+**Quality Score:** 2.95/10  (E=4.8, D=1.1) [WEAK]
+
+## Description
+WDR76 (UniProt Q9H967) encodes a 626 amino acid WD repeat-containing protein that functions as a specific reader of 5-hydroxymethylcytosine (5hmC), an epigenetic mark associated with active DNA demethylation. InterPro analysis confirms canonical WD40 repeat architecture (IPR001680, PF00400) with three repeats at aa 302-432 forming a beta-propeller structure, and classification within the WD repeat-containing DNA damage-binding protein family (IPR050853, PTHR14773) spanning aa 149-621. AlphaFold structure (AF-Q9H967-F1) predicts a well-folded protein with confident stability (global pLDDT 75.0), consistent with scaffold protein function. HPA expression reveals enrichment in lymphoid tissue (20.0 nTPM) and bone marrow (18.0 nTPM), with nucleolar fibrillar center and nuclear bodies localization, aligning with roles in DNA repair and epigenetic regulation. Literature (46 papers) confirms WDR76 binds 5hmC, regulates DNA damage response, promotes pancreatic tumorigenesis via KRAS stabilization through APC/C^CDH1-mediated degradation, enhances hepatocellular carcinoma stemness, and modulates 5-fluorouracil sensitivity in colon cancer via HRAS. ClinVar lists 13 pathogenic/likely pathogenic variants (predominantly copy number gains/losses on chr15q11.2-21.2), indicating clinical significance despite no specific monogenic disease annotation, suggesting contributions to cancer susceptibility or developmental disorders. STRING interactions identify high-confidence partners including HELLS (0.972), DDB1 (0.874), PARP1 (0.776), CUL4A (0.762), and DCAF8 (0.753), placing WDR76 within the DDB1-CUL4A E3 ubiquitin ligase complex and DNA damage response networks. Functional hypothesis: WDR76 functions as an epigenetic reader that recruits the DDB1-CUL4A E3 ligase complex to 5hmC-marked chromatin during DNA damage, facilitating ubiquitination of substrates like KRAS and HRAS to regulate cell proliferation; its dysregulation via copy number variations contributes to cancer progression through aberrant epigenetic signaling and impaired DNA repair.
+
+## Evidence
+```
+Evidence: InterPro domains (IPR001680, PF00400, IPR050853, PTHR14773), AlphaFold structure (AF-Q9H967-F1, pLDDT 75.0), HPA expression (Lymphoid 20.0 nTPM, Bone marrow 18.0 nTPM), ClinVar variants (13 pathogenic, chr15 CNVs), STRING interactions (HELLS 0.972, DDB1 0.874, CUL4A 0.762), Literature (46 papers, 5hmC binding, DNA damage, KRAS/HRAS regulation).
+```

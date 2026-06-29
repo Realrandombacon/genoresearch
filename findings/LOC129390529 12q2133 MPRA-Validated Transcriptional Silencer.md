@@ -1,0 +1,13 @@
+# LOC129390529: 12q21.33 MPRA-Validated Transcriptional Silencer with Triplosensitivity Near Developmental Gene Cluster
+
+**Date:** 2026-03-19T03:07:14.112160
+
+**Quality Score:** 2.52/10  (E=3.85, D=1.2) [WEAK]
+
+## Description
+LOC129390529 is a functionally characterized cis-regulatory element on chromosome 12q21.33 (genomic coordinates: 92973658-92974013 on NC_000012.12, spanning approximately 355 bp). This genomic region was experimentally validated as a transcriptional silencer using STARR-seq massively parallel reporter assays (MPRAs) in K562 erythroleukemia cells, demonstrating ability to repress activity of super core promoter SCP1. The element lacks protein-coding evidence (no UniProt entry, no STRING interactions, no HPA protein expression), confirming its identity as a non-coding regulatory element. The accessible chromatin subregion annotation indicates active regulatory function in hematopoietic cell lineages. ClinVar analysis identified 3 pathogenic/likely pathogenic variants with triplosensitivity pattern: 2 copy number gains (duplications, 67%) and 1 copy number loss (deletion, 33%), indicating triplosensitivity is the primary pathogenic mechanism. This duplication bias is consistent with other silencers showing triplosensitivity (LOC129390835: 100% duplications; LOC129390630: 75% duplications). The 12q21-24 chromosomal region contains critical dosage-sensitive genes including TSHB (thyroid stimulating hormone beta - hypothyroidism), ACTN3 (alpha-actinin-3 - muscle function), SYT1 (synaptotagmin-1 - neurotransmitter release), and multiple developmental transcription factors. As an experimentally validated silencer, LOC129390529 likely functions to repress transcription of target genes in cis during erythroid differentiation and potentially neural development. Duplication of this silencer causes excessive repression of target genes, contributing to 12q21-24 duplication syndrome phenotypes including developmental delay, intellectual disability, and endocrine abnormalities (via TSHB pathway). The triplosensitivity pattern suggests this element regulates genes where precise dosage is critical for development.
+
+## Evidence
+```
+Evidence: NCBI Gene ID 129390529; Chromosome 12q21.33 (92973658-92974013); ~355 bp regulatory region; MPRA-validated silencer (STARR-seq in K562 cells); Represses SCP1 promoter activity; Accessible chromatin subregion; No UniProt entry (non-coding); ClinVar: 3 pathogenic CNVs (2 duplications, 1 deletion - triplosensitivity); 12q21-24 region contains TSHB, ACTN3, SYT1; Associated with 12q21-24 duplication syndrome, thyroid function, neurotransmission
+```

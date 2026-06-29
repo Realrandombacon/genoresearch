@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T06:32:27.171246
 
-**Quality Score:** 8/10 (EXCELLENT)
+**Quality Score:** 2.38/10  (E=3.45, D=1.3) [WEAK]
 
 ## Description
 C11orf58 (SMAP - Small Acidic Protein) is a dark gene (183 aa) with defined protein family but unclear biological role. InterPro identifies Small acidic protein family domain (PF15477, aa 27-103). AlphaFold shows medium confidence structure (pLDDT=65.4) suggesting partial disorder. HPA shows ubiquitous intracellular expression (nucleoplasm + ER). STRING reveals high-confidence interactions with SKP1 (0.866, ubiquitin ligase complex), SUB1 (0.778, transcription elongation), and cell cycle proteins (CDC123, CALM3, SUMO2). ClinVar shows 13 pathogenic CNV variants indicating clinical importance. BLAST shows no homology beyond itself. Function likely involves protein complex assembly, transcription regulation, or cell cycle control through acidic protein-protein interactions.

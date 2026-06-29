@@ -1,0 +1,13 @@
+# SPATA18/Mieap: p53-Inducible Mitochondrial Quality Control Protein with BNIP3 Interactions and Testis-Enriched Expression
+
+**Date:** 2026-03-20T11:19:17.463305
+
+**Quality Score:** 3.92/10  (E=5.75, D=2.1) [MODERATE]
+
+## Description
+SPATA18 (Spermatogenesis Associated 18, also known as Mieap/mitochondria-eating protein, UniProt Q8TC71) encodes a 538-amino acid well-folded protein (AlphaFold pLDDT: 75.4) belonging to the mitochondria-eating protein family (IPR026169, residues 1-493) with a conserved C-terminal domain (IPR031981/PF16026, residues 298-488). The gene name reflects its discovery in spermatogenesis contexts, but HPA data reveals broader expression with fallopian tube enrichment (64.3 nTPM) and moderate testis expression (27.5 nTPM), with subcellular localization to mitochondria, nucleoplasm, and cytosol - consistent with its dual nuclear (p53-responsive) and mitochondrial functions. STRING interaction network identifies 10 partners including BNIP3L (0.747) and BNIP3 (0.628) - canonical mitophagy receptors that recruit autophagic machinery to damaged mitochondria - plus SGCB (0.790, sarcobeta), SPATA19 (0.607), and SPATA45 (0.626) suggesting coordination with other spermatogenesis factors. ClinVar contains 15 pathogenic/likely pathogenic variants, predominantly large copy number gains and losses spanning 4q11-q12, indicating dosage sensitivity though specific disease phenotypes remain undefined. Mouse (Q0P557, 537 aa) and rat (Q6AYL6, 556 aa) orthologs show strong conservation. Mechanistically, SPATA18 functions as a p53-inducible master regulator of mitochondrial quality control through two distinct pathways: (1) Mieap-dependent accumulation of lysosome-like organelles within mitochondria (MALM) for intramitochondrial proteolysis of oxidized proteins without mitochondrial degradation, and (2) Mieap-induced incomplete autophagy (MIA) for selective removal of damaged mitochondrial components. The BNIP3L/BNIP3 interactions suggest crosstalk with canonical PINK1/PARKIN mitophagy pathways. The C-terminal domain (residues 298-488) likely mediates mitochondrial outer membrane targeting and protein-protein scaffolding. Dysregulation contributes to cancer progression and neurodegeneration through accumulated mitochondrial damage.
+
+## Evidence
+```
+InterPro: IPR026169 (Mieap family), IPR031981 (C-term), PF16026; STRING: BNIP3L(0.747), BNIP3(0.628), SGCB(0.790), SPATA19(0.607), SPATA45(0.626); HPA: fallopian tube 64.3 nTPM, testis 27.5 nTPM, mitochondria; ClinVar: 15 pathogenic CNVs; AlphaFold: pLDDT 75.4; UniProt: Q8TC71 538aa; Conservation: mouse Q0P557 537aa
+```

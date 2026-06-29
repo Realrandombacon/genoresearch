@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T14:00:45.582416
 
-**Quality Score:** 7/10 (GOOD)
+**Quality Score:** 2.3/10  (E=2.1, D=2.5) [WEAK]
 
 ## Description
 Tiny 56aa uncharacterized protein, antisense to ARHGAP5. No known domains, no tissue expression data, no protein interactions, no clinical variants. BLAST only matches itself. Classic true dark gene.

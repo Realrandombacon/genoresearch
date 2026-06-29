@@ -1,0 +1,13 @@
+# ZNF276: C2H2 Zinc Finger Transcription Factor with Kinetochore Localization and DNA Damage Response Association
+
+**Date:** 2026-03-23T12:10:36.223406
+
+**Quality Score:** 3.05/10  (E=6.1, D=0.0) [WEAK]
+
+## Description
+ZNF276 encodes a 614 amino acid zinc finger protein (UniProt Q8N554) classified as a CENP-Z kinetochore component. InterPro analysis reveals multiple C2H2-type zinc finger domains (IPR013087, PF00096, PS00028, PS50157) at positions 434-577, plus an N-terminal ZAD domain (IPR012934, PF07776, PS51915) spanning residues 77-163, indicating DNA-binding capability and potential protein-protein interaction scaffolding. STRING interaction network identifies 10 protein partners with highest confidence interaction to SPG7 (score 0.761), a mitochondrial AAA protease linked to spastic paraplegia, followed by VPS9D1 (0.694), ZNF827 (0.667), APRT (0.551), FANCA (0.532), TCF25 (0.471), DEF8 (0.449), SPIRE2 (0.431), CDK10 (0.430), and GALNS (0.428). HPA expression data shows ubiquitous expression across all tissues with low tissue specificity, classified as a transcription factor with DNA-binding activity localized to nucleoplasm, nucleoli, plasma membrane, and cytosol. ClinVar documents 251 pathogenic/likely pathogenic variants including splice site mutations (c.1574+6T>C, c.510-21G>A), deletions, and single nucleotide variants, suggesting strong dosage sensitivity and functional constraint. Functional hypothesis: ZNF276 functions as a sequence-specific DNA-binding transcriptional regulator that localizes to kinetochores during cell division, potentially coordinating chromatin remodeling with centromere function. The ZAD domain mediates homo/heterodimerization with other ZNF proteins (via ZNF827 interaction), while the C2H2 fingers recognize specific DNA sequences. The SPG7 interaction suggests a link to mitochondrial quality control or metabolic regulation, and the FANCA interaction implicates ZNF276 in DNA damage response and Fanconi anemia pathway. The high ClinVar variant count indicates strong purifying selection, consistent with essential roles in transcription regulation and chromosome segregation.
+
+## Evidence
+```
+InterPro: IPR012934, IPR013087, IPR036236, PF00096, PF07776, PS00028, PS50157, PS51915, PTHR24379, SM00355, G3DSA:3.30.160.60, SSF57667 | STRING: SPG7(0.761), VPS9D1(0.694), ZNF827(0.667), APRT(0.551), FANCA(0.532), TCF25(0.471), DEF8(0.449), SPIRE2(0.431), CDK10(0.430), GALNS(0.428) | HPA: All tissues, nucleoplasm/nucleoli/plasma membrane/cytosol, transcription factor | ClinVar: 251 pathogenic variants (SNVs, indels, CNVs) | UniProt: Q8N554, 614 aa | AlphaFold: Server error (unavailable)
+```

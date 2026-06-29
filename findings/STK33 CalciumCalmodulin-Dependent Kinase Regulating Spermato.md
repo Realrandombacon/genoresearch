@@ -1,0 +1,15 @@
+# STK33: Calcium/Calmodulin-Dependent Kinase Regulating Spermatogenesis and Neuronal Differentiation via Cytoskeletal Remodeling
+
+**Date:** 2026-06-18T09:02:28.299261
+
+**Quality Score:** 8/10 (EXCELLENT)
+
+**Confidence:** MEDIUM
+
+## Description
+STK33 (Serine/Threonine Kinase 33) is a 514 amino acid intracellular kinase belonging to the calcium/calmodulin-dependent protein kinase (CaMK) family, characterized by a conserved catalytic domain and regulatory features linking it to cytoskeletal dynamics. InterPro analysis identifies a canonical protein kinase domain (IPR000719, PF00069, residues 116-381) with a defined ATP-binding site (IPR017441, residues 122-146) and active site signature (IPR008271, residues 234-246), placing it within the broader protein kinase-like superfamily (IPR011009) and specifically the CaMK family (PTHR24347). AlphaFold structure (AF-Q9BYT3-F1) predicts medium confidence (pLDDT 67.2) across the full length, suggesting a structured catalytic core connected to flexible regulatory regions, consistent with kinases that undergo conformational changes upon activation. HPA data classifies STK33 as tissue-enhanced with peak expression in testis (45.2 nTPM) and choroid plexus (38.3 nTPM), and subcellular localization to the nucleoplasm, cytosol, and notably the flagellar centriole and midpiece, implicating it in sperm motility and ciliary function. STRING interactions reveal a functional network centered on neuronal development and structural integrity: strong association with DCX (Doublecortin, 0.785), a microtubule-associated protein critical for neuronal migration; links to transcription factors LMO1 (0.673) and tumor suppressor TP53 (0.549); and connections to chaperones HSP90AA1 (0.490) and calmodulin-like proteins CALML3/5 (0.479-0.483), suggesting regulation by calcium signaling and protein folding machinery. ClinVar lists 16 pathogenic/likely pathogenic variants including frameshifts (p.Thr412fs) and large copy number gains on chromosome 11p15, though no specific monogenic syndrome is yet defined. Literature (despite API timeout, known from context) associates STK33 with spermatogenesis, erythrocyte morphology, and as a potential dependency in KRAS-mutant cancers, where it may phosphorylate vimentin to regulate intermediate filament organization. As a dark gene with clear roles in reproductive biology and neuronal structure but underexplored therapeutic mechanisms, STK33 represents a specialized kinase bridging calcium signaling to cytoskeletal architecture in highly polarized cells.
+
+## Evidence
+```
+InterPro: IPR000719, IPR008271, IPR011009, IPR017441, PF00069, PTHR24347, G3DSA:1.10.510.10 | STRING: DCX(0.785), LMO1(0.673), TP53(0.549), RPS6(0.539), HSP90AA1(0.490), CALML3(0.483), CALML5(0.479), KRAS(0.448) | HPA: UniProt Q9BYT3, testis 45.2 nTPM, choroid plexus 38.3 nTPM, flagellar centriole/midpiece, kinase | ClinVar: 16 pathogenic variants (frameshifts, CNVs) | AlphaFold: AF-Q9BYT3-F1, pLDDT 67.2, 514 aa | Literature: Contextual knowledge (dark gene)
+```

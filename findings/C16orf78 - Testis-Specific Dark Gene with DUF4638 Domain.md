@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T06:07:20.978373
 
-**Quality Score:** 9/10 (EXCELLENT)
+**Quality Score:** 4.53/10  (E=4.25, D=4.8) [MODERATE]
 
 ## Description
 C16orf78 encodes a 265 aa uncharacterized protein containing DUF4638 domain. Strongly testis-enriched (45.8 nTPM) with sperm-specific subcellular localization (connecting piece, mid piece, principal piece, end piece). Interacts with vesicle trafficking proteins (SNX20, GOLGA8H/R) and RNA processing factor TENT4B. 16 pathogenic CNV variants in ClinVar suggest disease relevance. AlphaFold shows medium confidence (55.1 pLDDT) with partially disordered structure. Likely functions in spermatogenesis via Golgi/vesicle organization.

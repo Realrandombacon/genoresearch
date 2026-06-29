@@ -1,0 +1,15 @@
+# RAB3GAP2: Non-Catalytic Regulatory Subunit Directing RAB18 GTPase Activity in Membrane Trafficking and Cataract Pathogenesis
+
+**Date:** 2026-06-18T08:58:50.851969
+
+**Quality Score:** 10/10 (EXCELLENT)
+
+**Confidence:** HIGH
+
+## Description
+RAB3GAP2 (RAB3 GTPase Activating Non-Catalytic Protein Subunit 2) is a large 1393 amino acid regulatory protein that serves as the essential non-catalytic partner for RAB3GAP1, forming a heterodimeric complex that specifically activates the GTPase activity of RAB18. InterPro analysis defines its unique architecture with distinct N-terminal (IPR032839, PF14655, residues 74-498) and C-terminal (IPR029257, PF14656, residues 769-1369) domains characteristic of the Rab3GAP regulatory family (IPR026059, PTHR12472), creating a scaffold that positions the catalytic subunit for substrate recognition. AlphaFold structure (AF-Q9H2M9-F1) predicts a confident fold (pLDDT 79.6) across the entire length, suggesting a stable multi-domain architecture capable of mediating complex protein-protein interactions at membrane interfaces. HPA data classifies RAB3GAP2 as a disease-related gene with ubiquitous expression, localizing to both the plasma membrane and cytosol, consistent with its role in vesicle trafficking cycles. STRING interactions reveal an extremely tight functional coupling with its obligate partner RAB3GAP1 (score 0.999), and strong associations with its primary substrate RAB18 (0.933), linking it directly to lipid droplet dynamics and ER-Golgi transport. Additional partners include the massive vesicle cargo proteins DMXL1/2 (0.720-0.900), the ER membrane tether VAPB (0.734), and the GAP TBC1D20 (0.789), placing RAB3GAP2 at the center of a regulatory network controlling secretory pathway fidelity. ClinVar lists a striking 146 pathogenic/likely pathogenic variants, including frameshifts (p.Gly242fs), splice site mutations (c.3262-2A>G), and large copy number losses, which are causally linked to Warburg Micro syndrome and congenital cataracts, highlighting its critical role in eye development and neuronal function. Literature (59 papers) further implicates RAB3GAP2 in skeletal muscle capillary density regulation, oxidative stress responses in lens epithelial cells via Mfn2-mediated mitophagy, and dysregulation in Adult T-cell Leukemia/Lymphoma (ATLL). As a dark gene with profound clinical impact but underexplored mechanistic details outside of rare syndromes, RAB3GAP2 represents a master regulator of RAB18-dependent membrane trafficking essential for vision, metabolism, and neurodevelopment.
+
+## Evidence
+```
+InterPro: IPR026059, IPR029257, IPR032839, PF14655, PF14656, PTHR12472 | STRING: RAB3GAP1(0.999), RAB18(0.933), DMXL2(0.900), TBC1D20(0.789), VAPB(0.734), DMXL1(0.720), WDR7(0.646), MADD(0.609), RASA1(0.469), RAB3A(0.455) | HPA: UniProt Q9H2M9, ubiquitous, plasma membrane/cytosol, GTPase regulator | ClinVar: 146 pathogenic variants (frameshifts, splice, CNVs) causing Warburg Micro/Cataract | AlphaFold: AF-Q9H2M9-F1, pLDDT 79.6, 1393 aa | Literature: 59 papers (dark gene)
+```

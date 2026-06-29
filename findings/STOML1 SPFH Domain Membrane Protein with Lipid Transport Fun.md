@@ -1,0 +1,15 @@
+# STOML1: SPFH Domain Membrane Protein with Lipid Transport Function and Emerging Cancer Prognostic Role
+
+**Date:** 2026-05-07T11:09:30.997205
+
+**Quality Score:** 8/10 (EXCELLENT)
+
+**Confidence:** MEDIUM
+
+## Description
+STOML1 encodes a 398-amino acid stomatin-like protein 1 (UniProt Q9UBI4), a member of the SPFH (stomatin, prohibitin, flotillin, HflK/C) superfamily localized to vesicles and plasma membrane. The protein contains a conserved Band 7/SPFH domain (IPR001107, PF01145, positions 77-242) mediating membrane association and oligomerization, plus a C-terminal SCP2 sterol-binding domain (IPR003033, PF02036, positions 302-394) suggesting lipid/sterol transport function. AlphaFold predicts a confident structure (pLDDT 74.7, residues 1-398) with well-folded domains. STRING interaction analysis reveals STOML1 associates with lipid metabolism enzymes (ACAA1 0.568, ACAT1 0.567, ACAA2 0.561, AACS 0.519), sterol carrier protein SCP2 (0.600), fatty acid oxidation enzyme HADHB (0.586), and family member STOM (0.573), supporting roles in lipid trafficking and membrane microdomain organization. HPA data shows brain-enriched expression (48.7 nTPM) with vesicular subcellular localization and lipid transport annotation. ClinVar contains 32 pathogenic/likely pathogenic variants, predominantly copy number variations at 15q24.1-24.2, though specific Mendelian disorders remain undefined. With only 13 publications, STOML1 is genuinely understudied: recent studies identify STOML1 overexpression as associated with good prognosis in nasopharyngeal carcinoma (2025) and co-overexpression with STOML2 in oral squamous cell carcinoma pathology (2020, 8 cit). The functional hypothesis: STOML1 organizes lipid rafts and vesicular trafficking through SPFH-mediated membrane scaffolding and SCP2-mediated sterol binding, regulating membrane fluidity and receptor signaling in neuronal tissue; dysregulation contributes to cancer progression through altered lipid metabolism and membrane dynamics, with tissue-specific effects explaining brain enrichment and variable cancer prognostic associations.
+
+## Evidence
+```
+InterPro domains: IPR001107 (Band 7, pos 77-242), IPR001972 (Stomatin/HflK, pos 84-106/131-152/166-183), IPR003033 (SCP2 sterol-binding, pos 302-394), IPR036013 (Band 7/SPFH superfamily, pos 105-227), IPR036527 (SCP2 superfamily, pos 289-397), IPR043202 (Band-7 stomatin-like, pos 53-382), PF01145 (SPFH/Band 7, pos 80-217), PF02036 (SCP-2 sterol transfer, pos 302-394), cd13436 (SLP-1 subgroup, pos 94-224), G3DSA:3.30.1050.10 (SCP2, pos 290-397), G3DSA:3.30.479.30 (Band 7, pos 105-227). STRING partners: UNC119 (0.654), SDR39U1 (0.616), SCP2 (0.600), HADHB (0.586), STOM (0.573), ACAA1 (0.568), ACAT1 (0.567), ACAA2 (0.561), AACS (0.519), CARTPT (0.450). HPA: brain 48.7 nTPM (tissue enhanced), vesicles localization, lipid transport/transport biological process. ClinVar: 32 pathogenic variants (CNVs at 15q24.1-24.2, no specific disease). AlphaFold: pLDDT 74.7, 1-398 aa. UniProt: Q9UBI4. Literature: 13 papers; NPC prognosis (2025), OSCC STOML1/STOML2 co-overexpression (2020, 8 cit).
+```

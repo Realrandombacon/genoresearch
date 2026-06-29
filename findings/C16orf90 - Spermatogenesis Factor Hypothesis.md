@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T05:55:19.137340
 
-**Quality Score:** 10/10 (EXCELLENT)
+**Quality Score:** 3.52/10  (E=4.75, D=2.3) [MODERATE]
 
 ## Description
 HYPOTHESIS: C16orf90 functions as a spermatogenesis regulatory factor. Evidence: (1) Testis-enriched expression (46.7 nTPM, highest among tissues), (2) Protein-protein interactions with known spermatogenesis genes IQCF3 and C3orf52 (both linked to male fertility), (3) DUF4644 domain conserved across mammals (70-75% identity), (4) 36 pathogenic ClinVar CNVs suggest functional importance, (5) AlphaFold structure shows partial disorder (pLDDT 54.2) typical of regulatory proteins. Predicted molecular function: chromatin binding or protein scaffold in developing germ cells.

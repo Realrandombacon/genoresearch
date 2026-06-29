@@ -1,0 +1,13 @@
+# Small Intracellular Protein with Liver-Enriched Expression and PTP4A1 Splice Variant Association
+
+**Date:** 2026-03-19T03:59:51.458829
+
+**Quality Score:** 4.62/10  (E=4.85, D=4.4) [MODERATE]
+
+## Description
+LOC128125822 encodes a small uncharacterized protein (UniProt A0A5F9ZHS0: 59 aa; A0A3F2YNX1: 44 aa protein tyrosine phosphatase 4A1-related) located on chromosome 6q12 (NC_000006.12:63572479-63583587, ~11.1 kb). Human Protein Atlas (ENSG00000285976) classifies this as a novel intracellular protein with tissue-enhanced RNA expression, detected in many tissues with highest expression in liver (35.7 nTPM) and skeletal muscle (25.2 nTPM). STRING database returned no protein interaction partners, suggesting either transient/weak interactions or that this small protein functions independently or as part of a complex not captured by affinity purification methods. InterPro scan failed, indicating no characterized protein domains in this short sequence. ClinVar analysis reveals 3 pathogenic/likely pathogenic variants including a splice donor variant in PTP4A1 (c.329+5del) and two large copy number gains encompassing 6p11.2-q12 (chr6:57466921-68712228, ~11.2 Mb; chr6:53931543-68149750, ~14.2 Mb). PTP4A1 (protein tyrosine phosphatase 4A1/PRL-1) is a well-characterized proto-oncogene that promotes cell migration, invasion, and metastasis through dephosphorylation of integrin beta-1 and activation of RhoA signaling. LOC128125822 likely represents an alternative transcript, upstream open reading frame (uORF), or regulatory isoform within the PTP4A1 locus. The liver-enriched expression pattern (35.7 nTPM) suggests potential roles in hepatic metabolism or regeneration, while the association with PTP4A1 splice variants indicates possible involvement in post-transcriptional regulation of this oncogenic phosphatase. The small protein size (44-59 aa) and intracellular localization are consistent with regulatory peptides, microproteins, or signaling modulators that may interact with PTP4A1 catalytic domain or modulate its subcellular trafficking. Further proteomic validation and co-immunoprecipitation studies would be needed to confirm physical interaction with PTP4A1 and determine whether this locus encodes a functional microprotein or represents a non-coding transcript with regulatory RNA function.
+
+## Evidence
+```
+UniProt: A0A5F9ZHS0 (59 aa), A0A3F2YNX1 (44 aa PTP4A1-related); HPA: ENSG00000285976, liver 35.7 nTPM, skeletal muscle 25.2 nTPM, tissue-enhanced; ClinVar: 3 pathogenic variants (PTP4A1 c.329+5del, CNVs at chr6:57466921-68712228, chr6:53931543-68149750); Genomic location: 6q12 (NC_000006.12:63572479-63583587, ~11.1 kb); No STRING interactions; Within PTP4A1 oncogene locus
+```

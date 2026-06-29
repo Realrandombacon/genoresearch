@@ -1,0 +1,15 @@
+# METTL8: Mitochondrial tRNA m3C Methyltransferase with Epitranscriptomic Regulation of Cancer Stemness and Neurogenesis
+
+**Date:** 2026-06-27T09:18:12.638652
+
+**Quality Score:** 9/10 (EXCELLENT)
+
+**Confidence:** HIGH
+
+## Description
+METTL8 encodes a 291 amino acid mitochondrial tRNA N(3)-cytidine methyltransferase (UniProt Q9H825) that installs 3-methylcytosine (m3C) modifications on mitochondrial tRNAs. This epitranscriptomic mark is critical for mitochondrial translation fidelity and energy metabolism.\n\nSTRUCTURAL FEATURES: AlphaFold predicts a confident structure (pLDDT 73.0) across all 291 residues. InterPro analysis reveals membership in the S-adenosyl-L-methionine-dependent methyltransferase superfamily (IPR029063, SSF53335) with a catalytic AdoMet_MTases domain (cd02440, positions 199-291). The protein belongs to the METTL2/6/8-like family (IPR026113, positions 49-287) and contains Methyltransferase domain 25 (IPR041698, PF13649, positions 200-286). The structural architecture positions the SAM-binding pocket for methyl group transfer to tRNA cytidine residues.\n\nINTERACTION NETWORK: STRING-DB identifies 10 interaction partners, notably TAX1BP3 (score 0.876), suggesting potential links to ubiquitin-mediated degradation pathways. Other methyltransferases appear as interactors: METTL25 (0.734), METTL7B (0.618), METTL9 (0.480), NSUN5 (0.617), TRMT10B (0.504), indicating a coordinated epitranscriptomic modification complex. GIPC1 (0.626) suggests potential scaffolding functions.\n\nEXPRESSION & LOCALIZATION: HPA shows ubiquitous expression (detected in all tissues) with low tissue specificity and cytosolic localization (though functionally mitochondrial due to N-terminal targeting sequence). Low cancer and immune cell specificity suggests housekeeping functions.\n\nCLINICAL SIGNIFICANCE: ClinVar reports 33 pathogenic/likely pathogenic variants including copy number losses on chromosome 2q and splice site mutations (c.1033+5G>A, c.144-6del). While specific diseases are not yet fully annotated, the variant burden suggests METTL8 dysfunction contributes to genomic disorders.\n\nFUNCTIONAL HYPOTHESIS: Recent literature (49 papers, 2023-2024) reveals METTL8's role in: (1) glioblastoma stem cell maintenance via HIF1α/RTK/Akt signaling axis, (2) cortical neurogenesis through mitochondrial tRNA modification, (3) hepatocellular carcinoma lenvatinib resistance. The mitochondrial localization connects epitranscriptomic regulation to metabolic reprogramming in cancer. METTL8 may serve as a metabolic checkpoint linking mitochondrial translation efficiency to nuclear signaling pathways controlling cell fate decisions.
+
+## Evidence
+```
+InterPro: IPR026113, IPR029063, IPR041698, PF13649, cd02440, SSF53335 | STRING: TAX1BP3(0.876), METTL25(0.734), TLCD4(0.646), GIPC1(0.626), METTL7B(0.618), NSUN5(0.617) | HPA: cytosol/mitochondrial, detected in all tissues, low specificity | ClinVar: 33 pathogenic variants (CNVs, SNVs) | AlphaFold: pLDDT 73.0 | UniProt: Q9H825, 291aa | Literature: 49 papers (emerging epitranscriptomic regulator)
+```

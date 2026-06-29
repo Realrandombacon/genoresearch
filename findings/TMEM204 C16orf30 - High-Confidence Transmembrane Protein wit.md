@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-17T01:15:53.319664
 
-**Quality Score:** 9/10 (EXCELLENT)
+**Quality Score:** 3.1/10  (E=5.4, D=0.8) [WEAK]
 
 ## Description
 TMEM204 (Transmembrane protein 204, C16orf30) encodes a 226 amino acid predicted membrane protein (UniProt Q9BSN7) with high-confidence AlphaFold structure (pLDDT 71.1). InterPro analysis identifies the protein as a member of the Transmembrane protein 204 family (IPR038992, PTHR14627) spanning residues 1-226, with a CATH-Gene3D homologous superfamily (G3DSA:1.20.140.150) at residues 2-201 suggesting a conserved transmembrane fold. STRING interactions reveal 10 partners with notable high-confidence connections to ATR (0.760), a serine/threonine kinase central to DNA damage checkpoint signaling, and KIAA1143 (0.721), suggesting potential roles in genome stability pathways. Additional partners include FLT4/VEGFR3 (0.611) and KDR/VEGFR2 (0.512), receptor tyrosine kinases involved in angiogenesis, plus TJP1/ZO-1 (0.596) for tight junction organization. HPA classification indicates predicted membrane protein and transporter function with stress response biological process, low tissue specificity but immune cell enhanced expression in blood cells, and cell type enhanced specificity. ClinVar contains 46 pathogenic/likely pathogenic variants including copy number gains/losses and deletions at 16p13.3, indicating clinical relevance. The combination of transmembrane topology, ATR interaction, and immune cell expression suggests TMEM204 may function as a membrane-localized scaffold or transporter coordinating DNA damage responses with immune cell signaling, potentially linking genotoxic stress to immune activation.

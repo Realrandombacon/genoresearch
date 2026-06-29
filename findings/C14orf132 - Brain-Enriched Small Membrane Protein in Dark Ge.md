@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T09:52:28.479635
 
-**Quality Score:** 6/10 (GOOD)
+**Quality Score:** 4.9/10  (E=3.2, D=6.6) [MODERATE]
 
 ## Description
 83 aa uncharacterized protein containing conserved C14orf132 domain (IPR059849/PF28562, residues 20-77 - covers most of the protein). BLAST: only human self-hit detected - suggests primate-specific or rapidly evolving sequence. HPA: predicted membrane protein with brain-enriched expression (107.7 nTPM), cancer-enhanced expression pattern, not detected in immune cells. STRING interactions reveal connections to other dark genes: FAM71E2, FAM200A, FAM200B, BOD1L2, SMCO2, C1orf210 - all uncharacterized proteins. This suggests C14orf132 may be part of a "dark interactome" - a network of uncharacterized proteins working together. Brain enrichment + membrane localization suggests potential role in neuronal membrane function or signaling. Small size and cancer-enhanced expression raises possibility of regulatory peptide function in neural tissues.

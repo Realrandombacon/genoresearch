@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T03:08:15.759938
 
-**Quality Score:** 6/10 (GOOD)
+**Quality Score:** 3.48/10  (E=3.25, D=3.7) [WEAK]
 
 ## Description
 C19orf33 (IMUP) encodes a small 106 aa protein (UniProt Q9GZP8) named Immortalization up-regulated protein. Contains conserved IMUP family domain (residues 1-104, IPR026621, PF15761) classified as intrinsically disordered region - suggests function as flexible scaffold or regulatory peptide. Gene ontology predicts nuclear localization. Shows esophagus-enriched expression (689.2 nTPM) with secondary high expression in skin (440.6 nTPM) - tissue-enhanced pattern indicating epithelial-specific function. Detected in many tissues with immune cell enrichment in blood. Multi-compartment localization: nucleoplasm, plasma membrane, and cytosol - consistent with dynamic regulatory protein. High-confidence interaction with SPINT2 (serine peptidase inhibitor, hepatocyte growth factor activator inhibitor type 2, 0.882) links to epithelial barrier maintenance and protease regulation. Additional interactions include PPP1R14A (protein phosphatase 1 inhibitor, 0.663), PPP1R12A (myosin phosphatase regulator, 0.428), and PPP1CB (catalytic subunit, 0.425) - suggesting role in phosphatase signaling cascade. The 'immortalization up-regulated' name implies potential oncogenic function in cell proliferation. Epithelial tissue enrichment (esophagus/skin) combined with SPINT2 interaction suggests role in epithelial integrity and wound healing. Intrinsically disordered architecture enables multiple protein-protein interactions. Represents a dark gene with emerging annotation connecting epithelial biology to phosphatase regulation and potential cancer progression.

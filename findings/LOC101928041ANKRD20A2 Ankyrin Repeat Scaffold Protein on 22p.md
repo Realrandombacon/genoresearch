@@ -1,0 +1,13 @@
+# LOC101928041/ANKRD20A2: Ankyrin Repeat Scaffold Protein on 22p11.2 with Golgi-Associated Interaction Network
+
+**Date:** 2026-03-20T15:10:43.601934
+
+**Quality Score:** 3.6/10  (E=3.4, D=3.8) [MODERATE]
+
+## Description
+LOC101928041 (ANKRD20A2, ankyrin repeat domain-containing protein 20A2, Gene ID: 101928041) is an 823 amino acid scaffold protein located on chromosome 22p11.2 (genomic coordinates 11866296-11890823 on NC_000022.11, UniProt: Q5SQ80). InterPro analysis reveals multiple ankyrin repeat domains (IPR002110, PF00023, PF12796, positions 37-229) mediating protein-protein interactions, plus a CCDC144C-like coiled-coil domain (IPR039497, PF14915, positions 500-812) suggesting oligomerization capacity. STRING database identifies 10 protein interactions: GOLGA6C (score 0.752, high confidence), ANKRD20A1 (0.633), PDZRN3 (0.601), ZNF595 (0.600), C2orf42 (0.579), FOXD4L5 (0.535), ZNF492 (0.504), ANKRD20A4 (0.503), FOXD4L3 (0.481), and DHRS4L2 (0.401). The GOLGA6C interaction (Golgin subfamily A member 6C) suggests potential Golgi apparatus localization or vesicular trafficking function. ANKRD20A1/ANKRD20A4 interactions indicate paralogue complex formation within the ANKRD20 gene family. Human Protein Atlas has no expression data (gene symbol not resolved), and ClinVar contains zero pathogenic variants, indicating no known disease associations. The 22p11.2 chromosomal location is adjacent to the DiGeorge syndrome critical region (22q11.2), but ANKRD20A2 itself shows no clinical variant burden. Ankyrin repeats typically mediate scaffold functions in signaling complexes, while the coiled-coil domain suggests multimerization. This protein likely functions as a cytoplasmic scaffold organizing protein complexes, potentially at Golgi membranes via GOLGA6C interaction. AlphaFold structure prediction unavailable (API error). Conservation data not computed. The combination of defined protein domains, interaction partners, but absent clinical variants and expression data classifies ANKRD20A2 as a genuine dark gene requiring functional characterization.
+
+## Evidence
+```
+Evidence: (1) UniProt Q5SQ80, 823 aa, chromosome 22p11.2, Gene ID 101928041; (2) InterPro: Ankyrin repeats IPR002110/PF00023/PF12796 (aa 37-229), CCDC144C coiled-coil IPR039497/PF14915 (aa 500-812); (3) STRING: 10 interactions - GOLGA6C (0.752), ANKRD20A1 (0.633), PDZRN3 (0.601), ZNF595 (0.600), C2orf42 (0.579), FOXD4L5 (0.535), ZNF492 (0.504), ANKRD20A4 (0.503), FOXD4L3 (0.481), DHRS4L2 (0.401); (4) HPA: no expression data (symbol not resolved); (5) ClinVar: 0 pathogenic variants; (6) Genomic context: 22p11.2, adjacent to 22q11.2 DiGeorge region
+```

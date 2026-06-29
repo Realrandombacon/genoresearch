@@ -1,0 +1,13 @@
+# Orphan 9q22.33 Locus with Complete Absence of Protein Evidence Across All Databases
+
+**Date:** 2026-03-27T12:05:21.359710
+
+**Quality Score:** 2.75/10  (E=3.0, D=2.5) [WEAK]
+
+## Description
+LOC105376166 is an uncharacterized genomic locus on chromosome 9q22.33 (NC_000009.12, positions 97124298-97130678, approximately 6.4 kb genomic span in reverse orientation) representing one of the most poorly annotated regions in the human genome. Comprehensive interrogation across all major protein databases reveals complete absence of molecular evidence: UniProt search returned zero results indicating no curated or predicted protein sequence; STRING database could not identify any protein product for interaction analysis in Homo sapiens (species 9606); Human Protein Atlas failed to resolve this gene symbol to an Ensembl ID, preventing tissue expression profiling and subcellular localization studies; ClinVar contains zero pathogenic or benign variants, suggesting no documented clinical associations despite the locus being catalogued in RefSeq. This systematic absence of protein-level evidence across four orthogonal databases (UniProt, STRING, HPA, ClinVar) raises fundamental questions about whether this locus encodes a genuine protein-coding gene. Several hypotheses are plausible: (1) this may represent a non-coding RNA incorrectly annotated as protein-coding in early genome builds, (2) an extremely low-abundance protein expressed only under specific physiological conditions not captured in standard assays, (3) a lineage-specific orphan gene without conservation or homology to characterized proteins, (4) a transcriptional artifact or pseudogene retained in annotations, or (5) a genuinely novel protein-coding gene awaiting experimental validation. The 9q22.33 chromosomal region harbors several well-characterized genes including PTCH1 (patched-1, associated with Gorlin syndrome) and various zinc finger clusters, but LOC105376166 remains isolated from these functional neighborhoods. The complete lack of ClinVar variants across large-scale sequencing studies suggests either neutral function, extreme rarity, or that the locus does not produce a functionally constrained protein product subject to purifying selection. Ribosome profiling, long-read transcriptomics across diverse tissues and developmental stages, and targeted mass spectrometry would be required to determine whether this locus produces a stable translated product.
+
+## Evidence
+```
+Genomic location: chr9:97124298-97130678 (9q22.33, reverse strand); UniProt: No accession found (0 results); STRING: No protein identified in species 9606; HPA: Could not resolve to Ensembl ID; ClinVar: 0 pathogenic/benign variants; InterPro/AlphaFold: Not applicable (no protein accession)
+```

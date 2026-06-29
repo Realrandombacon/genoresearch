@@ -1,0 +1,13 @@
+# ZNF829: KRAB-Zinc Finger Transcriptional Repressor with Testis-Specific Expression and Cancer Association
+
+**Date:** 2026-03-23T10:27:18.286753
+
+**Quality Score:** 3.3/10  (E=5.3, D=1.3) [WEAK]
+
+## Description
+ZNF829 encodes a 432 amino acid Krüppel-associated box (KRAB) zinc finger protein (UniProt: Q3KNS6) localized to chromosome 19q13.12. The protein architecture features a canonical N-terminal KRAB repressor domain (PF01352, IPR001909, residues 34-75) followed by three C2H2-type zinc finger DNA-binding domains (PF00096, IPR013087, residues 157-262). This domain organization is characteristic of sequence-specific transcriptional repressors that recruit heterochromatin machinery via KRAB-KAP1 interactions.\n\nHPA expression profiling reveals testis-specific enrichment (6.2 nTPM) with "tissue enhanced" and "cancer enhanced" RNA signatures. Subcellular localization is nucleoplasmic with nuclear body association, consistent with chromatin regulatory function. The testis-restricted expression pattern suggests ZNF829 may function in germ cell development, meiotic regulation, or transposon silencing - canonical roles for KRAB-ZFPs in maintaining germline genome integrity.\n\nSTRING interaction network identifies 10 protein partners with high confidence to ZNF paralogs: ZNF570 (0.791), ZNF568 (0.669), ZNF382 (0.523), and the corepressor TRIM28/KAP1 (0.522). TRIM28 interaction is mechanistically significant - it mediates KRAB domain recruitment of SETDB1 histone methyltransferase and HP1 heterochromatin proteins, establishing H3K9me3 repressive marks. This places ZNF829 within the canonical KRAB-ZFP silencing machinery.\n\nClinVar contains 14 pathogenic/likely pathogenic variants including intronic SNVs and large 19q copy number alterations (gains and losses). While no specific disease phenotypes are assigned, the variant burden suggests dosage sensitivity. Cancer-enhanced expression combined with transcriptional repressor function raises the possibility of oncogenic roles through silencing of tumor suppressors or differentiation genes.\n\nMechanistic hypothesis: ZNF829 functions as a sequence-specific transcriptional repressor in testis and cancer contexts, recruiting TRIM28/SETDB1 chromatin modifiers via its KRAB domain to silence target genes through H3K9me3 deposition. Target genes may include germline-specific transposons or somatic differentiation regulators.
+
+## Evidence
+```
+Evidence: UniProt Q3KNS6 (432 aa) | InterPro: KRAB domain PF01352/IPR001909 (34-75), C2H2-ZF PF00096/IPR013087 (157-262) | HPA: Testis 6.2 nTPM, tissue enhanced, cancer enhanced, nucleoplasm | STRING: ZNF570 (0.791), ZNF568 (0.669), ZNF382 (0.523), TRIM28 (0.522) | ClinVar: 14 pathogenic variants (SNVs + CNVs) | Chromosome 19q13.12
+```

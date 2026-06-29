@@ -1,0 +1,15 @@
+# RGL4: Ral Guanine Nucleotide Dissociation Stimulator-Like 4 - A Dark RasGEF Regulating Small GTPase Signaling in Bone Marrow and Immune Cells
+
+**Date:** 2026-04-17T17:15:16.122185
+
+**Quality Score:** 3.5/10  (E=4.5, D=2.5) [MODERATE]
+
+**Confidence:** MEDIUM
+
+## Description
+RGL4 (Ral-GDS-related protein, UniProt Q8IZJ4, 473 aa) is a 'DARK' gene with only 17 papers in literature despite clear evidence of function as a Ras guanine nucleotide exchange factor (GEF). InterPro domains confirm RasGEF catalytic activity: IPR001895 RasGEF catalytic domain (aa215-472, GO:0005085), IPR008937 Ras-like GEF (aa133-472), PF00617 RasGEF domain (aa223-414), indicating role in small GTPase-mediated signal transduction (GO:0007264). STRING interactions reveal high-confidence partners in the Ras/Ral pathway: HRAS (0.766), RALB (0.517), RALA (0.445), RAP1A (0.418), plus DRICH1 (0.554), OCIAD1 (0.523) - confirming function as a GEF activating Ral and Ras family GTPases. HPA expression shows bone marrow enrichment (149.8 nTPM), centrosome localization, and immune cell-enhanced expression, suggesting hematopoietic/immune regulatory role. ClinVar contains 47 pathogenic variants (22q11.21-11.23 CNVs, deletions, duplications) with no specific disease named, but 22q11.2 deletions are associated with DiGeorge/velocardiofacial syndrome. AlphaFold structure (pLDDT 61.8) shows medium confidence with partially structured regions, consistent with GEFs having flexible regulatory domains. FUNCTIONAL HYPOTHESIS: RGL4 functions as a GEF activating RalA/RalB and potentially HRAS/RAP1A small GTPases, regulating vesicle trafficking, cell proliferation, and immune cell function in bone marrow. MECHANISTIC PROPOSAL: (1) RasGEF catalytic domain (aa215-472) catalyzes GDP-GTP exchange on Ral/Ras GTPases, (2) Bone marrow enrichment (149.8 nTPM) suggests role in hematopoietic differentiation or immune cell activation, (3) 22q11.2 CNVs disrupt RGL4 dosage, potentially contributing to DiGeorge syndrome phenotypes via dysregulated small GTPase signaling, (4) Centrosome localization suggests potential role in cell division or ciliary signaling, (5) Low literature (17 papers) despite clear molecular function indicates significant research gap. CROSS-DOMAIN REASONING: Convergence of RasGEF domain architecture, Ral/Ras interaction partners, bone marrow expression, and 22q11.2 CNVs suggests RGL4 regulates hematopoietic/immune signaling pathways that remain unexplored. The partial AlphaFold structure (61.8 pLDDT) indicates flexible regulatory regions typical of signaling proteins. RGL4 represents a genuine dark gene with defined molecular function but unknown physiological role and disease mechanisms.
+
+## Evidence
+```
+InterPro: IPR001895 (aa215-472), IPR008937 (aa133-472), PF00617 (aa223-414) | STRING: 10 interactions (HRAS 0.766, RALB 0.517, RALA 0.445, RAP1A 0.418, DRICH1 0.554) | HPA: Bone marrow 149.8 nTPM, centrosome, immune cell enhanced | ClinVar: 47 pathogenic variants (22q11.2 CNVs) | AlphaFold: pLDDT=61.8 (partially structured) | Literature: 17 papers - DARK GENE | UniProt: Q8IZJ4, 473 aa
+```

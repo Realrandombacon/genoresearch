@@ -1,0 +1,13 @@
+# CCDC182: Testis-Specific Coiled-Coil Protein with DUF4715 Domain Implicated in Spermatogenesis and Sperm Flagella Assembly
+
+**Date:** 2026-03-28T00:37:31.751195
+
+**Quality Score:** 6.05/10  (E=7.3, D=4.8) [SOLID]
+
+## Description
+CCDC182 (Coiled-Coil Domain Containing 182, UniProt A6NF36) is a 153-amino acid protein containing a conserved DUF4715 domain (IPR031678/PF15835, residues 1-153) that spans nearly the entire protein length. AlphaFold predicts a well-folded structure with high confidence (pLDDT=83.2), indicating stable tertiary architecture despite the 'domain of unknown function' classification. HPA RNA-seq reveals testis-enriched expression at 26.7 nTPM with tissue-enriched specificity — a hallmark of genes involved in spermatogenesis and sperm differentiation. STRING interaction network identifies functional associations with established spermatogenesis and ciliary proteins including IQCF1 (0.557, Intraflagellar Transport protein critical for sperm flagella), CCDC89 (0.543, coiled-coil protein), TVP23C (0.520, Golgi-vesicle trafficking), GOLGA7B (0.496, golgin family), MEAK7 (0.496, mTOR pathway regulator in spermatogenesis), FSCN3 (0.442, actin-bundling protein in sperm), CCDC42 (0.438, sperm annulus protein), and KLHL10 (0.411, E3 ubiquitin ligase essential for spermatid differentiation). ClinVar documents 5 pathogenic/likely pathogenic copy number variants (CNVs) spanning 17q22-23.1 including deletions and duplications, indicating dosage sensitivity where both haploinsufficiency and triplosensitivity cause disease, potentially male infertility or syndromic disorders. Strong mammalian conservation is evidenced by orthologs in mouse (Q9D9C6, 152aa, ~99% identity), rat (A6HHY0, 152aa), chimpanzee (A0A6D2XJC1, 153aa), and hamster (A0AAU9YKQ8, 152aa). The coiled-coil architecture combined with testis specificity and IQCF1/CCDC42 interactions suggests CCDC182 functions as a structural scaffold protein within the sperm flagellar axoneme or peri-axonemal structures, potentially stabilizing microtubule doublets or connecting outer dense fibers during spermiogenesis.
+
+## Evidence
+```
+InterPro: IPR031678 (DUF4715, aa1-153), PF15835 (DUF4715, aa1-139), PTHR37364 | STRING: IQCF1(0.557), CCDC89(0.543), TVP23C(0.520), GOLGA7B(0.496), MEAK7(0.496), FSCN3(0.442), CCDC42(0.438), KLHL10(0.411), DHX32(0.409), CNTLN(0.401) | HPA: testis 26.7nTPM, tissue-enriched, group-enriched single cell | ClinVar: 5 pathogenic/likely pathogenic CNVs (17q22-23.1 deletions/duplications) | AlphaFold: pLDDT=83.2, 153aa modeled | UniProt: A6NF36 | Conservation: mouse Q9D9C6(152aa), rat A6HHY0(152aa), chimp A0A6D2XJC1(153aa), hamster A0AAU9YKQ8(152aa)
+```

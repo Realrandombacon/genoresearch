@@ -1,0 +1,13 @@
+# ZNF736: KRAB-Zinc Finger Transcriptional Repressor with Retina-Enriched Expression and Extensive CNV Burden
+
+**Date:** 2026-03-23T05:40:30.923747
+
+**Quality Score:** 1.85/10  (E=2.9, D=0.8) [POOR]
+
+## Description
+ZNF736 (Zinc Finger Protein 736) is a 427-amino acid KRAB domain-containing C2H2 zinc finger transcription factor encoded on chromosome 7q11.21 (UniProt B4DX44). InterPro analysis reveals a canonical KRAB repressor domain (residues 4-75, PF01352; IPR001909; IPR036051) that mediates transcriptional silencing through recruitment of the KAP1/TRIM28 corepressor complex and associated histone methyltransferases for H3K9me3 deposition. The protein contains multiple C2H2-type zinc finger motifs (IPR013087, PF00096, PF13912, PS00028) spanning residues 173-279 with at least 3-4 canonical fingers adopting the classic beta-beta-alpha fold (G3DSA:3.30.160.60) for sequence-specific DNA binding in the major groove. Human Protein Atlas confirms tissue-enhanced expression detected in all tissues with retina showing highest expression (11.4 nTPM), nucleoplasmic localization, and classification as a DNA-binding transcription factor involved in transcriptional regulation. ClinVar documents 13 pathogenic/likely pathogenic variants encompassing ZNF736, including large-scale copy number gains and losses on chromosome 7 (7p22.3-q36.3 and 7q11.21-11.22 regions), complex rearrangements, inversions, and a TMEM106B-BRAF fusion deletion, indicating strong dosage sensitivity and potential involvement in chromosomal rearrangement disorders. The KRAB-ZNF architecture strongly suggests ZNF736 functions as a sequence-specific transcriptional repressor that recruits the TRIM28-SETDB1 complex to silence target genes through heterochromatin formation. Given retina-enriched expression, nucleoplasmic localization, and extensive clinical CNV burden, ZNF736 likely regulates fundamental cellular processes such as photoreceptor differentiation or retinal development, with haploinsufficiency or overexpression contributing to developmental phenotypes and potentially retinal dystrophies through dysregulation of downstream target gene networks. STRING and AlphaFold queries failed technically, but domain architecture predicts chromatin-binding and transcriptional regulatory function.
+
+## Evidence
+```
+UniProt: B4DX44 (427 aa); InterPro: IPR001909 (KRAB), IPR013087 (C2H2 ZF), PF01352, PF00096, PF13912, G3DSA:3.30.160.60; HPA: Retina-enriched (11.4 nTPM), nucleoplasm, transcription factor; ClinVar: 13 pathogenic variants (CNVs, complex, inversion, TMEM106B-BRAF fusion); Chromosome: 7q11.21
+```

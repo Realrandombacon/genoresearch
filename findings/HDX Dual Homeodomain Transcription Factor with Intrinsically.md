@@ -1,0 +1,13 @@
+# HDX: Dual Homeodomain Transcription Factor with Intrinsically Disordered Regions Regulating X-Linked Gene Expression
+
+**Date:** 2026-03-19T10:34:25.502045
+
+**Quality Score:** 2.77/10  (E=5.25, D=0.3) [WEAK]
+
+## Description
+HDX (highly divergent homeobox, alias CXorf43) encodes a 690-amino acid X-linked transcription factor containing two canonical homeodomains (IPR001356/IPR009057, residues 1-66 and 433-501) characteristic of POU domain transcription factors (IPR050255/PTHR11636, residues 400-508). The dual homeodomain architecture is unusual among vertebrate transcription factors, suggesting potential for bipartite DNA recognition or heterodimerization. AlphaFold predicts medium confidence structure (pLDDT=55.5), indicating substantial intrinsically disordered regions typical of transcriptional coactivators that undergo coupled folding-binding upon partner interaction. HPA classifies HDX as a DNA-binding transcription factor with cytosolic localization and low tissue specificity (detected in many tissues), consistent with a broadly expressed regulatory role. STRING interactions reveal moderate-confidence partnerships with SMIM1 (0.572, small integral membrane protein), RINT1 (0.556, RAD50-interacting protein involved in DNA damage response), HOMEZ (0.417, homeodomain leucine zipper protein), and STX18 (0.403, syntaxin 18, ER-Golgi trafficking), suggesting coordination between transcriptional regulation, DNA repair, and membrane trafficking pathways. ClinVar documents 149 pathogenic/likely pathogenic variants, predominantly Xq copy number gains and losses (Xq13.1-22.2, Xq21.1-22.3), indicating strong dosage sensitivity and potential contribution to X-linked developmental disorders. Conservation is strong across vertebrates: mouse (Q14B70, 692 aa, ~95% identity), chicken (Q5ZKW8, 695 aa), and other mammals. Mechanistically, HDX likely functions as a sequence-specific DNA-binding transcription factor that recognizes homeodomain consensus motifs through its dual homeodomains, potentially regulating X-linked gene expression programs during development. The intrinsically disordered regions may facilitate dynamic interactions with chromatin remodeling complexes and transcriptional coactivators, while the RINT1 interaction suggests potential crosstalk between transcriptional regulation and DNA damage response pathways.
+
+## Evidence
+```
+Evidence: InterPro IPR001356/IPR009057 (1-66aa, 433-501aa homeodomains), IPR050255/PTHR11636 (400-508aa POU family); STRING partners SMIM1(0.572)/RINT1(0.556)/HOMEZ(0.417)/STX18(0.403); HPA cytosol/transcription_factor/low_tissue_specificity; ClinVar 149 pathogenic CNV variants on Xq; AlphaFold pLDDT=55.5; UniProt Q7Z353; 690aa length; mouse Q14B70/chicken Q5ZKW8 orthologs
+```

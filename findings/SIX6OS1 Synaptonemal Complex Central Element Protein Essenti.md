@@ -1,0 +1,13 @@
+# SIX6OS1: Synaptonemal Complex Central Element Protein Essential for Meiotic Chromosome Pairing
+
+**Date:** 2026-04-06T12:36:00.769070
+
+**Quality Score:** 2.82/10  (E=4.35, D=1.3) [WEAK]
+
+## Description
+SIX6OS1 (Six6 Opposite Strand 1, also C14orf39) is a 587 amino acid protein (UniProt Q8N1H7) with a partially structured 3D conformation (AlphaFold pLDDT 58.0, medium confidence), suggesting intrinsically disordered regions characteristic of synaptonemal complex proteins that require flexibility for chromosome dynamics.\n\nInterPro analysis identifies SIX6OS1 as the defining member of its own protein family (IPR031380/PF15676, residues 32-587; PTHR35449), indicating evolutionary specialization for meiotic functions without homology to other characterized domains.\n\nSTRING interaction analysis reveals SIX6OS1 functions exclusively in the synaptonemal complex during meiotic prophase I: strongest interactions with SYCP1 (0.829) and SYCE3 (0.822), core transverse filament and central element proteins, plus connections to SYCP3 (0.600), RNF212 (0.581), SYCP2 (0.544), SYCE1 (0.541), SYCE2 (0.457), MEIOB (0.449), and TEX12 (0.432) - all established meiotic recombination and chromosome pairing factors. This interaction network positions SIX6OS1 as a central element scaffold.\n\nHPA expression shows testis-enriched pattern (10.1 nTPM) with secondary expression in pituitary gland (4.5 nTPM) and salivary gland (4.4 nTPM). Subcellular localization to nucleoplasm and nucleoli is consistent with meiotic chromosome association. The gene is cancer-enhanced and classified as disease-related.\n\nAlthough ClinVar shows 0 catalogued variants, gene information explicitly links SIX6OS1 to primary ovarian insufficiency 18 (POF18) and spermatogenic failure 52 (SPGF52), indicating biallelic mutations cause infertility through meiotic arrest. Conservation is evident from mouse ortholog (Q9CTN5, 574 aa, 98% length conservation).\n\nMechanistic hypothesis: SIX6OS1 acts as a central element scaffold protein that bridges SYCP1 transverse filaments with SYCE2/SYCE3 complex, stabilizing homologous chromosome synapsis during pachytene. Its disordered regions enable dynamic assembly/disassembly of the synaptonemal complex, while mutations cause meiotic checkpoint activation and gametogenesis failure.
+
+## Evidence
+```
+InterPro: IPR031380, PF15676, PTHR35449 | STRING: SYCP1(0.829), SYCE3(0.822), SYCP3(0.600), RNF212(0.581), SYCP2(0.544), SYCE1(0.541), SYCE2(0.457), PSMA8(0.451), MEIOB(0.449), TEX12(0.432) | HPA: testis(10.1 nTPM), pituitary gland(4.5 nTPM), salivary gland(4.4 nTPM) | ClinVar: 0 variants (but linked to POF18, SPGF52) | AlphaFold: pLDDT 58.0 | UniProt: Q8N1H7 (587 aa) | Mouse ortholog: Q9CTN5 (574 aa)
+```

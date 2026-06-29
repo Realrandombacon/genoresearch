@@ -1,0 +1,13 @@
+# LOC127818109: 10q H3K4me1-Associated Primed hESC Enhancer with Two Adjacent Regions and No Clinical Variants — Putative Lineage Priming Regulatory Element
+
+**Date:** 2026-03-19T03:20:48.011810
+
+**Quality Score:** 2.15/10  (E=1.6, D=2.7) [WEAK]
+
+## Description
+LOC127818109 is a functionally characterized cis-regulatory element on chromosome 10q (genomic coordinates: 63684644-63685645 on NC_000010.11, spanning approximately 1001 bp encompassing two adjacent enhancer regions). This genomic region includes two active enhancers validated by ChIP-STARR-seq massively parallel reporter assays (MPRAs) in primed human embryonic stem cells (hESCs), where both regions are marked by the H3K4me1 histone modification (histone H3 lysine 4 monomethylation — canonical enhancer lineage mark). The H3K4me1 mark without concurrent H3K27ac suggests a poised or primed enhancer state characteristic of primed pluripotency (post-implantation epiblast-like state), preparing genes for activation upon lineage commitment. A subregion was also identified as an uncharacterized cis-regulatory element (CRE) lacking promoter, enhancer, or CTCF-bound insulator chromatin signature, and validated as a silencer that could repress activity of super core promoter SCP1 by STARR-seq MPRAs in K562 erythroleukemia cells. The element lacks protein-coding evidence (no UniProt entry, no STRING interactions, no HPA protein expression), confirming its identity as a non-coding regulatory element with dual enhancer/silencer activity depending on cellular context. ClinVar analysis identified 0 pathogenic/likely pathogenic variants, indicating no known clinical significance to date. The 10q chromosomal region contains critical dosage-sensitive genes including PTEN (phosphatase and tensin homolog - tumor suppressor, cell cycle regulation), FGFR2 (fibroblast growth factor receptor 2 - development, craniosynostosis), and multiple developmental transcription factors. As a primed hESC-specific enhancer marked by H3K4me1, LOC127818109 likely functions to prime transcription of target genes in cis during early embryonic development and lineage priming.
+
+## Evidence
+```
+Evidence: NCBI Gene ID 127818109; Chromosome 10q (63684644-63685645); ~1001 bp regulatory region (two enhancers); H3K4me1-marked primed hESC enhancer (ChIP-STARR-seq in primed hESCs); MPRA-validated silencer (STARR-seq in K562 cells); Represses SCP1 promoter activity; Accessible chromatin subregion; No UniProt entry (non-coding); ClinVar: 0 pathogenic variants (no clinical significance identified); 10q region contains PTEN, FGFR2; Associated with embryonic stem cell primed pluripotency, tumor suppression, cell development
+```

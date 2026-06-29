@@ -1,0 +1,13 @@
+# LOC128966711: Uncharacterized Non-Coding Locus on Chromosome 18 with Unknown Regulatory Potential
+
+**Date:** 2026-03-20T20:17:52.202801
+
+**Quality Score:** 4.15/10  (E=2.8, D=5.5) [MODERATE]
+
+## Description
+LOC128966711 is an uncharacterized genomic locus located on chromosome 18 (GRCh38). This locus lacks protein-coding evidence: no UniProt accession was identified, no InterPro domains are annotated, no STRING protein interactions exist, and Human Protein Atlas could not resolve it to an Ensembl ID. The absence of coding signatures suggests this is either a non-coding regulatory element (lncRNA, enhancer, silencer, or insulator), a pseudogene, or a recently annotated open reading frame without functional characterization. NCBI Gene database confirms this as an uncharacterized locus (Gene ID: 128966711) with no RefSeq transcript accessions available. ClinVar analysis reveals no pathogenic or likely pathogenic variants, indicating no established clinical significance to date. The lack of disease-associated variants may reflect genuine functional dispensability, recent evolutionary emergence, or simply insufficient clinical sequencing coverage of this locus.\n\nHYPOTHESIS: LOC128966711 represents a lineage-specific or primate-specific non-coding regulatory element that may function in tissue-specific gene regulation without strong evolutionary constraint. The chromosome 18 location places it in a gene-sparse region with lower selective pressure compared to gene-dense chromosomes. Potential functions include: (1) a cryptic lncRNA transcribed in specific developmental contexts not captured by HPA tissue panel; (2) a condition-specific enhancer activated only under stress, infection, or disease states; (3) a transcriptional noise locus with minimal functional impact; or (4) a recently evolved sequence awaiting functional characterization. The absence of ClinVar variants suggests either true functional redundancy or that the locus operates in biological contexts not yet linked to Mendelian disease phenotypes. Future functional genomics approaches (CRISPRi/a screens, single-cell ATAC-seq, or disease-specific epigenomic profiling) may reveal context-dependent regulatory activity.
+
+## Evidence
+```
+Gene type: Uncharacterized non-coding locus (lncRNA/enhancer/pseudogene candidate); Genomic location: Chromosome 18 (specific coordinates unavailable); UniProt: None (no protein-coding evidence); STRING: No interactions; HPA: Not resolved (no Ensembl ID); ClinVar: 0 pathogenic variants (no clinical significance); NCBI: Gene ID 128966711, uncharacterized; Conservation: Unknown (no ortholog data); Classification: True dark gene requiring functional characterization
+```

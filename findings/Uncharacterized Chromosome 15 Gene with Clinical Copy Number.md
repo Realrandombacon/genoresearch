@@ -1,0 +1,13 @@
+# Uncharacterized Chromosome 15 Gene with Clinical Copy Number Variants but No Molecular Characterization
+
+**Date:** 2026-03-28T07:09:18.284727
+
+**Quality Score:** 3.75/10  (E=3.5, D=4.0) [MODERATE]
+
+## Description
+LOC101928850 (GeneID: 101928850) is an uncharacterized protein-coding gene on chromosome 15 (NC_000015.10) representing one of the deepest tiers of the human dark genome. No UniProt accession exists, indicating no curated protein sequence in major databases, which prevents application of InterPro domain analysis and AlphaFold structure prediction. HPA expression data is unavailable (ENSG00000259530 not in database), suggesting either extremely low expression levels across all profiled tissues, expression restricted to cell types not included in HPA panels, or technical challenges in antibody-based detection. STRING interaction network returns no protein partners, consistent with complete absence of functional annotation in any database. Critically, ClinVar contains 3 pathogenic/likely pathogenic copy number variants spanning chromosome 15q regions: a duplication at chr15:59828460-101920998 (15q22.2-26.3), and two deletions at chr15:57567950-63019415 (15q21.3-22.2) and chr15:57456076-61907285 (15q21.3-22.2), all with uncertain significance but classified as pathogenic. The presence of dosage-sensitive CNVs suggests this locus contributes to 15q deletion/duplication syndrome phenotypes, though no specific monogenic disease is yet attributed solely to LOC101928850. The chromosomal region 15q21-22 contains multiple genes associated with developmental disorders, and LOC101928850 may contribute to haploinsufficiency or triplosensitivity phenotypes when deleted or duplicated. This gene exemplifies the challenge of characterizing dark genes that lack basic molecular data but show clinical relevance through structural variation. Future characterization requires fundamental discovery work: transcript validation by RT-PCR across developmental stages, antibody generation for cellular localization, evolutionary analysis to identify orthologs, and correlation of patient phenotypes with breakpoint mapping to determine if LOC101928850 loss contributes to 15q syndrome features.
+
+## Evidence
+```
+NCBI: LOC101928850 GeneID 101928850 on chr15 (NC_000015.10), uncharacterized | UniProt: no accession found | HPA: no data (ENSG00000259530 not in database) | STRING: no protein found in species 9606 | ClinVar: 3 pathogenic variants (CNV gain chr15:59828460-101920998 15q22.2-26.3, CNV loss chr15:57567950-63019415 15q21.3-22.2, CNV loss chr15:57456076-61907285 15q21.3-22.2, all uncertain significance) | AlphaFold: not applicable (no UniProt accession) | InterPro: no domains (no protein sequence) | Conservation: unknown
+```

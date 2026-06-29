@@ -1,0 +1,13 @@
+# TEX47: Testis-Specific Scaffold Protein with DYBLUF Domain Linked to Chromosomal Rearrangements
+
+**Date:** 2026-03-23T03:04:27.923181
+
+**Quality Score:** 3.1/10  (E=4.9, D=1.3) [WEAK]
+
+## Description
+TEX47 (testis expressed 47, also known as C7orf62 or DYBLUF) encodes a 253 amino acid protein (UniProt Q8TBZ9) that shows highly restricted tissue expression pattern. HPA data reveals testis-specific expression at 27.0 nTPM, classified as "tissue enriched" and "detected in single" tissue, indicating exclusive or near-exclusive expression in male germ cells. This expression pattern strongly suggests a role in spermatogenesis or testis-specific cellular processes.\n\nInterPro analysis identifies three conserved domain signatures: IPR055308 (Testis-expressed protein 47-like family, residues 10-252), PF24787 (Testis-expressed protein 47 domain, residues 46-235), and PTHR34035 family (residues 10-252). These domains span nearly the entire protein length, suggesting TEX47 functions as a structured scaffold rather than an enzyme. The PF24787 domain is testis-specific, indicating evolutionary specialization for male reproductive function.\n\nClinVar documents 13 pathogenic/likely pathogenic variants, predominantly large chromosomal rearrangements (copy number losses/gains, inversions, deletions) spanning 7q21.11-21.3. Notable variants include TMEM106B-BRAF fusion deletions and multi-megabase CNVs. While no single-gene disease is definitively established, the clustering of structural variants suggests TEX47 locus fragility or involvement in chromosomal stability.\n\nEvolutionary conservation is evident: orthologs exist in mouse (Q9D5W8, 253 aa, 100% length conservation) and rat (A0JPP5, 253 aa), indicating functional constraint across ~90 million years of mammalian evolution. Some avian species show truncated forms (184-186 aa), suggesting lineage-specific adaptation.\n\nFunctional hypothesis: TEX47 likely serves as a testis-specific protein scaffold involved in spermatogenic cell structure organization, possibly anchoring germ cell-specific protein complexes or stabilizing meiotic chromatin architecture. The DYBLUF domain may mediate protein-protein interactions essential for sperm differentiation. Chromosomal rearrangements disrupting TEX47 could impair fertility or contribute to genomic instability in germ cells.
+
+## Evidence
+```
+Evidence: InterPro domains IPR055308/PF24787/PTHR34035; HPA testis expression 27.0 nTPM (tissue-enriched); ClinVar 13 pathogenic variants (CNVs, inversions, TMEM106B-BRAF fusion); UniProt Q8TBZ9 (253 aa); Mouse ortholog Q9D5W8 (100% length conservation); Rat ortholog A0JPP5 (253 aa); Protein class: predicted intracellular proteins
+```

@@ -1,0 +1,13 @@
+# LOC129389835: MPRA-Validated Silencer Element in 7q22.1-31.31 Neurodevelopmental Region
+
+**Date:** 2026-03-23T06:46:57.657287
+
+**Quality Score:** 2.2/10  (E=3.1, D=1.3) [WEAK]
+
+## Description
+LOC129389835 (Gene ID: 129389835) is not a protein-coding gene but a functionally validated cis-regulatory silencer element mapping to chromosome 7q22.1 (106,750,848-106,751,048 bp, ~200 bp span). RefSeq annotation explicitly states: "MPRA-validated peak6674 silencer" - validated by STARR-seq massively parallel reporter assays in K562 erythroleukemia cells as repressing super core promoter SCP1 activity. Multiple evidence lines confirm non-coding regulatory function: (1) No UniProt accession (not a protein); (2) Genomic span of 200 bp is far too small for protein-coding gene; (3) ClinVar contains 5 pathogenic copy number variants (large 7q deletions spanning 5-150 Mb), associated with 7q deletion syndromes featuring developmental delay, intellectual disability, autism spectrum disorder, and growth retardation. The 7q22.1-31.31 region contains critical dosage-sensitive genes including HOXA cluster (homeobox transcription factors, limb and CNS development), MET (hepatocyte growth factor receptor, neurodevelopment), and BRAF (kinase, RAS-MAPK pathway). Mechanistic hypothesis: LOC129389835 functions as a transcriptional silencer that represses gene expression in hematopoietic or neural contexts. The element likely recruits co-repressor complexes (e.g., Polycomb repressive complex 2, NuRD, or HDAC-containing complexes) via sequence-specific DNA-binding proteins to establish repressive chromatin (H3K27me3, H3K9me3, DNA methylation). Pathogenic 7q CNVs disrupt silencer-enhancer balance and chromatin topology, causing HOXA haploinsufficiency (limb malformations, leukemia predisposition), MET dysregulation (autism, cancer), or BRAF alterations (cardiofaciocutaneous syndrome). The 7q region is a known neurodevelopmental critical region—7q11.23 duplications cause language delay and social anxiety. Altered silencer function may contribute to neurodevelopmental and hematologic phenotypes. This represents a critical class of "dark genes" that are actually functional non-coding regulatory elements misannotated as genes due to automated pipeline predictions. The MPRA validation provides direct functional evidence of regulatory activity in erythroid lineage.
+
+## Evidence
+```
+RefSeq: MPRA-validated silencer (peak6674); Genomic location: NC_000007.14 (106750848-106751048, 200 bp); Validated in: K562 cells via STARR-seq; ClinVar: 5 pathogenic CNVs (7q22.1-31.31 deletions); No UniProt data (non-coding); 7q region contains HOXA cluster, MET, BRAF
+```

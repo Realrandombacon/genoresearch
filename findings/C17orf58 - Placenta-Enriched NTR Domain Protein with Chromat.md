@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T15:15:09.944153
 
-**Quality Score:** 5/10 (GOOD)
+**Quality Score:** 1.9/10  (E=3.3, D=0.5) [POOR]
 
 ## Description
 339aa UPF0450 family protein containing C-terminal Netrin/NTR domain (residues 193-338) with TIMP-like OB-fold. Interacts with chromatin remodeling complexes (MYSM1, SMARCB1, PBRM1, BPTF, SMARCE1 - SWI/SNF components). Highly expressed in placenta (33.5 nTPM). AlphaFold medium confidence (64.4 pLDDT). Subcellular: plasma membrane + cytosol. May function as extracellular matrix-associated chromatin regulator in placental development.

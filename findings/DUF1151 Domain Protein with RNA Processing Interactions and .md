@@ -1,0 +1,13 @@
+# DUF1151 Domain Protein with RNA Processing Interactions and Chromosome 10 Copy Number Variant Associations
+
+**Date:** 2026-03-28T06:40:15.675968
+
+**Quality Score:** 5.4/10  (E=5.5, D=5.3) [SOLID]
+
+## Description
+FAM107B (UniProt Q9H098) is a 131 amino acid protein of the FAM107 family containing a domain of unknown function DUF1151 (PF06625, positions 13-120) that spans nearly the entire protein length. Despite the 'unknown function' designation, AlphaFold predicts a highly confident folded structure (global pLDDT 82.2), indicating this small protein adopts a stable 3D conformation likely critical for its biological role. HPA data shows ubiquitous expression across all tissues with low tissue specificity (detected in all), localized to nucleoplasm and Golgi apparatus, classified as a predicted intracellular protein. STRING interaction network reveals striking associations with RNA-binding and processing proteins: NOVA2 (score 0.853) and NOVA1 (0.847), neuron-specific RNA-binding proteins regulating alternative splicing; AGO2 (0.770), the catalytic component of RNA-induced silencing complex (RISC) mediating RNA interference; FMR1 (0.582), fragile X mental retardation protein involved in translational regulation; HNRNPA1 (0.599), heterogeneous nuclear ribonucleoprotein involved in mRNA processing; NEO1 (0.775), neogenin involved in cell differentiation; and GPHN (0.679), gephyrin involved in inhibitory synapse clustering. ClinVar contains 17 pathogenic/likely pathogenic variants, predominantly large copy number losses and gains spanning chromosome 10p15.3-q26.3 regions (chr10:100026-135427143), demonstrating strong dosage sensitivity though no specific monogenic disease is yet attributed solely to FAM107B. The convergence of nucleoplasmic localization, strong interactions with RNA splicing regulators (NOVA1/2), RNAi machinery (AGO2), and translational control proteins (FMR1, HNRNPA1) strongly suggests FAM107B functions as a regulatory cofactor in post-transcriptional gene regulation, potentially modulating RNA-binding protein activity or serving as a scaffold in ribonucleoprotein complexes.
+
+## Evidence
+```
+InterPro domains: FAM107 IPR009533 (1-130), DUF1151 PF06625 (13-120), PTHR16768 (1-130) | STRING partners: NOVA2 (0.853), NOVA1 (0.847), NEO1 (0.775), AGO2 (0.770), GPHN (0.679), OSTN (0.624), HNRNPA1 (0.599), CFLAR (0.586), FMR1 (0.582), KRT76 (0.559) | HPA: ubiquitous expression (detected in all), low tissue specificity, nucleoplasm/Golgi apparatus | ClinVar: 17 pathogenic variants (CNVs at 10p15.3-q26.3, chr10:100026-135427143) | AlphaFold: pLDDT 82.2 (high confidence), 131 aa modeled | UniProt: Q9H098
+```

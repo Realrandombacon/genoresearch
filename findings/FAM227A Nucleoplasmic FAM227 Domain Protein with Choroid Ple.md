@@ -1,0 +1,13 @@
+# FAM227A: Nucleoplasmic FAM227 Domain Protein with Choroid Plexus/Testis Expression and 22q13 Copy Number Variants
+
+**Date:** 2026-03-19T20:43:39.940266
+
+**Quality Score:** 5.25/10  (E=6.7, D=3.8) [SOLID]
+
+## Description
+FAM227A encodes a 570 amino acid uncharacterized protein (UniProt F5H4B4) localized to nucleoplasm. InterPro analysis reveals a conserved FAM227 protein domain (IPR029417, residues 7-547), a Domain of Unknown Function 14922 (PF14922, residues 146-300), and PANTHER family match (PTHR33560), indicating strong evolutionary constraint across vertebrates. AlphaFold predicts a medium-confidence structure (pLDDT 64.6), consistent with partially structured proteins containing both ordered domains and flexible linker regions typical of nuclear scaffold proteins. HPA data reveals tissue-enhanced expression with highest levels in choroid plexus (4.7 nTPM) and testis (4.7 nTPM), absence from immune cells, and low cancer specificity, suggesting roles in cerebrospinal fluid production and germ cell development. STRING interactions identify 7 medium-confidence partners (0.438-0.610 scores): CATIP (cancer-associated telomerase interacting protein), TCTEX1D2 (dynein light chain), CCDC39 (coiled-coil cilia protein), PRSS38 (serine protease), SLC35E4 (solute carrier), ITPRIPL2 (inositol triphosphate receptor), and HSBP1L1 (heat shock binding protein). This network suggests FAM227A functions as a nuclear scaffold coordinating telomerase regulation, ciliary function, and stress response pathways. ClinVar contains 22 pathogenic/likely pathogenic variants, predominantly large copy number losses/gains spanning 22q13.1 region, indicating dosage sensitivity and disease relevance. The chromosomal location (22q13.1) overlaps with Phelan-McDermid syndrome critical region, suggesting potential contribution to neurodevelopmental phenotypes. Mechanistic hypothesis: FAM227A acts as a nucleoplasmic scaffold protein that recruits telomerase regulators (CATIP), dynein motor complexes (TCTEX1D2), and cilia-associated proteins (CCDC39) to coordinate nuclear organization with ciliogenesis and stress response in choroid plexus epithelial cells and spermatogenic cells, explaining its disease-associated copy number variants affecting the 22q13.1 genomic region and potential role in neurodevelopmental disorders.
+
+## Evidence
+```
+InterPro: IPR029417/PF14922/PTHR33560 (FAM227, aa7-547/DUF aa146-300) | STRING: CATIP(0.610)/TCTEX1D2(0.594)/CCDC39(0.594)/PRSS38(0.527)/SLC35E4(0.507)/ITPRIPL2(0.447)/HSBP1L1(0.438) | HPA: Choroid plexus 4.7 nTPM/Testis 4.7 nTPM/nucleoplasm | ClinVar: 22 pathogenic CNVs (22q13.1) | AlphaFold: pLDDT 64.6 | UniProt: F5H4B4 (570aa)
+```

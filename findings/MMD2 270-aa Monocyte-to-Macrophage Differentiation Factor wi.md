@@ -1,0 +1,15 @@
+# MMD2: 270-aa Monocyte-to-Macrophage Differentiation Factor with Very High-Confidence AlphaFold Structure (pLDDT 87.3) Functioning as a Membrane-Bound Ras/ERK Signaling Modulator in Neutrophil Chemotaxis, Aggressive Periodontitis Pathogenesis, and Helicobacter pylori-Driven Gastric Cancer Malignancy
+
+**Date:** 2026-06-28T01:08:14.118159
+
+**Quality Score:** 9/10 (EXCELLENT)
+
+**Confidence:** MEDIUM
+
+## Description
+MMD2 (UniProt Q8IY49), or monocyte to macrophage differentiation factor 2, encodes a compact 270-amino acid integral membrane protein belonging to the AdipoR/Haemolysin-III superfamily (IPR004254/PF03006/PTHR20855, aa 13-258). This structural family is characterized by a 7-transmembrane helix bundle architecture resembling G-protein coupled receptors, though MMD2 functions as a signaling modulator rather than a canonical receptor. AlphaFold predicts a very confident structure (global pLDDT: 87.3), indicating a rigid, well-defined transmembrane topology consistent with its membrane-embedded signaling role.\n\nSTRING interaction analysis reveals MMD2's connection to membrane repair and lipid signaling pathways: ANO5 (0.856, anoctamin-5 calcium-activated chloride channel), DYSF (0.854, dysferlin membrane repair protein), PAQR3 (0.634, progestin/adipoQ receptor regulating Raf/MEK/ERK), and PAQR8 (0.464). These partners suggest MMD2 operates at the intersection of membrane integrity sensing and MAPK cascade regulation. The strong link to ANO5 and DYSF—both implicated in muscular dystrophies—hints at conserved roles in plasma membrane homeostasis.\n\nWith 56 papers, MMD2 occupies an intermediate space with breakthrough disease mechanisms emerging in 2025-2026. Recent studies establish: (1) monoallelic mutations (p.A116V, p.R126P) cause autosomal dominant aggressive periodontitis by disrupting fMLP-induced Ras/ERK activation and impairing neutrophil chemotaxis; (2) H. pylori infection drives gastric cancer malignancy via the HOXA-AS2/miR-509-3p/MMD2 axis; (3) MMD2 regulates growth in crustaceans (shrimp/prawn aquaculture studies). ClinVar lists 38 pathogenic variants including chromosome 7p22 copy number gains/losses, confirming dosage sensitivity. We hypothesize MMD2 functions as a membrane-embedded scaffold that recruits and positions Ras/ERK signaling components at specific membrane microdomains, coupling extracellular chemoattractant detection (fMLP receptors) to intracellular kinase cascades—a mechanism essential for neutrophil migration to periodontal pathogens and dysregulated in gastric carcinogenesis.
+
+## Evidence
+```
+InterPro: IPR004254, PF03006, PTHR20855 | STRING: ANO5 (0.856), DYSF (0.854), PAQR3 (0.634), ADD2 (0.493), F10 (0.491), ZNF358 (0.467), PAQR8 (0.464), ST8SIA6 (0.426), OPALIN (0.418), NTSR2 (0.416) | HPA: Data unavailable | ClinVar: 38 pathogenic variants (chr7p22 CNVs, p.A116V, p.R126P) | AlphaFold pLDDT: 87.3 (Very high confidence) | UniProt: Q8IY49 (270 aa) | Literature: 56 papers—Moderately characterized; 2025-2026: Aggressive periodontitis via Ras/ERK/neutrophil chemotaxis, H. pylori gastric cancer HOXA-AS2/miR-509-3p axis
+```

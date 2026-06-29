@@ -1,0 +1,13 @@
+# SLC25A43: An X-Linked Mitochondrial Carrier Regulating Oxidative Stress Response and Basal Cell Carcinoma via FAU-Mediated Ribosomal Function
+
+**Date:** 2026-04-16T11:22:47.786004
+
+**Quality Score:** 2.95/10  (E=4.8, D=1.1) [WEAK]
+
+## Description
+SLC25A43 (UniProt Q8WUT9) encodes a 341 amino acid mitochondrial solute carrier that functions as an X-linked metabolite transporter with canonical mitochondrial carrier architecture. InterPro analysis confirms three Solcar repeats (IPR002067, PF00153) spanning aa 13-99, 104-192, and 199-294, forming the characteristic 6-transmembrane helix bundle (IPR018108, IPR023395) typical of the SLC25 family (PTHR24089). AlphaFold structure (AF-Q8WUT9-F1) predicts a highly stable, well-folded transporter (global pLDDT 88.9), consistent with active metabolite exchange across mitochondrial membranes. HPA expression reveals cytosolic localization with low tissue specificity but detection in many tissues, classified as a predicted membrane protein and transporter with cell type-enhanced expression. Literature (26 papers) confirms SLC25A43 as a target gene of oxidative toxicity in genome-wide haploid screening, shows decreased expression in basal cell carcinoma compared to healthy skin, and represents an ATP carrier orthologue selectively retained in metamonad mitochondria adapted to anaerobiosis. ClinVar lists 163 pathogenic/likely pathogenic variants (predominantly Xq copy number gains/losses spanning Xq23-28), indicating strong clinical significance despite no specific monogenic disease annotation, suggesting contributions to X-linked metabolic disorders or cancer susceptibility. STRING interactions identify high-confidence partners including FAU (0.821), SLC25A53 (0.677), CXorf56 (0.636), and ribosomal proteins RPL14 (0.524), RPS18 (0.493), RPL6 (0.472), placing SLC25A43 within mitochondrial-ribosomal coordination networks. Functional hypothesis: SLC25A43 functions as an X-linked mitochondrial metabolite transporter that coordinates oxidative stress response and ribosomal function via FAU interaction; its downregulation in basal cell carcinoma suggests tumor suppressor activity, while copy number variations on Xq may disrupt mitochondrial metabolism contributing to cancer susceptibility or metabolic disorders through altered redox homeostasis.
+
+## Evidence
+```
+Evidence: InterPro domains (IPR002067, PF00153, IPR018108, IPR023395, PTHR24089), AlphaFold structure (AF-Q8WUT9-F1, pLDDT 88.9), HPA expression (Cytosol, Transporter class), ClinVar variants (163 pathogenic, Xq CNVs), STRING interactions (FAU 0.821, SLC25A53 0.677, CXorf56 0.636), Literature (26 papers, oxidative toxicity, basal cell carcinoma, anaerobic adaptation).
+```

@@ -1,0 +1,13 @@
+# Poorly Annotated 10p12.31 Locus with Copy Number Gain Sensitivity
+
+**Date:** 2026-03-27T12:02:31.638409
+
+**Quality Score:** 2.85/10  (E=3.2, D=2.5) [WEAK]
+
+## Description
+LOC100130992 is an uncharacterized genomic locus on chromosome 10p12.31 (NC_000010.11, positions 22252071-22258547, approximately 6.5 kb genomic span) with minimal protein-level annotation despite clinical significance. Comprehensive database searches reveal complete absence of protein evidence: no UniProt accession could be identified, preventing InterPro domain analysis and AlphaFold structure prediction; STRING database returned no protein interaction partners for this gene symbol in Homo sapiens; Human Protein Atlas could not resolve this gene to an Ensembl ID for tissue expression profiling. This complete lack of protein-level evidence across multiple orthogonal databases (UniProt, STRING, HPA) suggests several possibilities: (1) this may represent a non-coding RNA gene incorrectly annotated as protein-coding, (2) an extremely low-abundance or conditionally expressed protein escaping detection in standard proteomic assays, (3) a pseudogene or transcriptional artifact, or (4) a genuinely orphan protein-coding gene with lineage-specific function. ClinVar documents 2 pathogenic/likely pathogenic variants, both copy number gains spanning extensive 10p regions (chr10:19088161-32732293 and chr10:90205-26339978 duplications), indicating dosage sensitivity where overexpression drives pathogenicity. Notably, these CNVs span megabase-scale regions encompassing hundreds of genes, so the pathogenic mechanism may involve neighboring genes rather than LOC100130992 itself through position effects or regulatory landscape disruption. The 10p12.31 region is known to harbor genes involved in developmental processes, and 10p duplications have been associated with chromosomal duplication syndromes featuring developmental delay and dysmorphic features. The exclusive presence of copy number gains (no losses) in ClinVar may indicate that toxic gain-of-function rather than haploinsufficiency underlies pathogenicity. Further investigation using long-read RNA sequencing across diverse tissues, ribosome profiling to confirm translation, and mass spectrometry would be needed to determine whether this locus produces a stable protein product or functions through non-coding mechanisms.
+
+## Evidence
+```
+Genomic location: chr10:22252071-22258547 (10p12.31); ClinVar: 2 pathogenic variants (CN gains: chr10:19088161-32732293, chr10:90205-26339978); UniProt: No accession found; STRING: No interactions; HPA: Not resolved to Ensembl ID; InterPro/AlphaFold: Not applicable (no protein accession)
+```

@@ -1,0 +1,13 @@
+# GOLGA7B: Brain-Enriched Golgin Scaffold in Ras-Specific Palmitoyltransferase Complex for Sphingolipid Metabolism
+
+**Date:** 2026-03-19T11:58:49.396840
+
+**Quality Score:** 3.8/10  (E=5.8, D=1.8) [MODERATE]
+
+## Description
+GOLGA7B (UniProt Q2TAP0) encodes a 167 amino acid golgin family protein (chromosome 10q24.2) with strong palmitoyltransferase complex signatures. InterPro analysis reveals membership in the golgin subfamily A member 7/ERF4 family (IPR019383, residues 21-133; PF10256, residues 21-133) and the Ras-specific palmitoyltransferase complex (IPR051371, residues 4-156; PTHR13256, residues 4-156), placing it within the protein S-palmitoyltransferase machinery. STRING interactions show high-confidence associations with palmitoylation and sphingolipid biosynthesis pathways: ZDHHC9 (0.718, palmitoyltransferase), SPTSSB (0.656), SPTSSA (0.651), SPTLC3 (0.586), SPTLC2 (0.584), SPTLC1 (0.580, serine palmitoyltransferase subunits), ORMDL3 (0.608), ORMDL2 (0.572), ORMDL1 (0.558, ER membrane lipid sensors), and ZDHHC5 (0.487). HPA expression shows brain-enriched transcription (55.3 nTPM) with elevated epididymis expression (22.1 nTPM); classified as tissue-enhanced intracellular protein. ClinVar contains 17 pathogenic/likely pathogenic variants, predominantly large copy number gains/losses on 10q23-26 spanning the GOLGA7B locus. AlphaFold structure prediction shows high confidence (pLDDT 79.8) across the 167 aa sequence, indicating well-folded stable structure consistent with scaffold protein architecture. The convergence of golgin membrane-tethering domains, palmitoyltransferase complex membership, interaction with ZDHHC9 palmitoyltransferase and sphingolipid biosynthesis enzymes (SPT complex, ORMDL regulators), and brain-enriched expression suggests GOLGA7B functions as a Golgi membrane scaffold that recruits palmitoyltransferase machinery to specific membrane microdomains for protein S-palmitoylation and sphingolipid homeostasis. Brain enrichment implies specialized role in neuronal membrane trafficking and synaptic protein palmitoylation; disruption via 10q CNVs may contribute to neurodevelopmental disorders or sphingolipid metabolism defects.
+
+## Evidence
+```
+InterPro: IPR019383, IPR051371, PF10256, PTHR13256 | STRING: ZDHHC9(0.718), SPTSSB(0.656), SPTSSA(0.651), ORMDL3(0.608), SPTLC3(0.586), SPTLC2(0.584), SPTLC1(0.580), ORMDL2(0.572), ORMDL1(0.558), ZDHHC5(0.487) | HPA: brain-enriched (55.3 nTPM), epididymis (22.1); tissue-enhanced intracellular | ClinVar: 17 pathogenic variants (10q23-26 CNVs) | AlphaFold: pLDDT 79.8 (high confidence) | UniProt: Q2TAP0 | Length: 167 aa | Chromosome: 10q24.2
+```

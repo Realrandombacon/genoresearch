@@ -1,0 +1,15 @@
+# SEC24A: 1093-aa COPII Coat Complex Component with High-Confidence AlphaFold Structure (pLDDT 75.5) Mediating Selective ER-to-Golgi Cargo Sorting for PCSK9 Secretion, HBV Subviral Particle Transport, and Lung Cancer Progression via the OIP5-AS1/miR-381-3p Axis
+
+**Date:** 2026-06-28T00:59:42.837852
+
+**Quality Score:** 9/10 (EXCELLENT)
+
+**Confidence:** HIGH
+
+## Description
+SEC24A (UniProt O95486), or SEC24 homolog A, encodes a large 1093-amino acid peripheral membrane protein that serves as a critical cargo-selective component of the COPII vesicle coat complex. The protein features multiple conserved domains including a Sec23/Sec24-type zinc finger (IPR006895, aa 428-464), a trunk domain (IPR006896, aa 501-739) responsible for cargo recognition, and a helical domain (IPR006900, aa 839-939) for coat assembly. AlphaFold predicts a confident structure across the full length (global pLDDT: 75.5), consistent with its role as a stable scaffold for vesicle formation.\n\nSTRING interaction analysis places SEC24A at the core of the COPII machinery: SAR1B (0.990, GTPase initiator), SEC22B (0.985, v-SNARE), SEC23A (0.949, GTPase activating protein), SEC13 (0.803), SEC31A (0.791, outer coat components), and paralogs SEC24C (0.726), SEC24D (0.728). HPA data confirms ubiquitous expression with localization to nucleoli fibrillar centers and vesicles, reflecting its dual roles in ribosome biogenesis surveillance and secretory pathway trafficking.\n\nWith 67 papers, SEC24A is moderately characterized with emerging disease relevance beyond canonical ER-export functions. Recent 2025-2026 studies reveal: (1) ING5-mediated lung cancer progression via the OIP5-AS1/miR-381-3p/SEC24A axis; (2) circSEC24A promoting osteoarthritis through miR-107-5p/CASP3 sponging; (3) SEC24A deficiency lowering plasma cholesterol via reduced PCSK9 secretion from hepatocytes; (4) Hepatitis B virus selectively exploiting SEC24A/SEC23B for subviral envelope particle transport; (5) SEC24A facilitating ER-mitochondria colocalization and Ca2+ flux during thapsigargin-induced stress. ClinVar lists 20 pathogenic variants including chromosome 5q CNVs and splice site mutations. We hypothesize SEC24A functions as a cargo-selectivity filter: different SEC24 paralogs recognize distinct export signals, with SEC24A specifically sorting lipid metabolism regulators (PCSK9), viral glycoproteins (HBV S/L proteins), and calcium homeostasis factors, making it a therapeutic target for metabolic disease, viral hepatitis, and cancer.
+
+## Evidence
+```
+InterPro: IPR006895, IPR006896, IPR006900, cd01479, G3DSA:1.20.120.730, G3DSA:2.30.30.380, PF08017 | STRING: SAR1B (0.990), SEC22B (0.985), SEC23A (0.949), SEC13 (0.803), SEC31A (0.791), SEC24C (0.726), SEC24D (0.728) | HPA: Ubiquitous, cell type enhanced; Nucleoli fibrillar center, Vesicles | ClinVar: 20 pathogenic variants (chr5q CNVs, splice mutations) | AlphaFold pLDDT: 75.5 (High confidence) | UniProt: O95486 (1093 aa) | Literature: 67 papers—Moderately characterized; 2025-2026: Lung cancer OIP5-AS1 axis, OA circRNA, PCSK9/cholesterol, HBV SVP transport, ER-mitochondria Ca2+ flux
+```

@@ -1,0 +1,13 @@
+# ANKRD26: Ankyrin Repeat Scaffold Protein with 614 Pathogenic Variants Causing Autosomal Dominant Thrombocytopenia-2
+
+**Date:** 2026-03-23T11:25:25.918503
+
+**Quality Score:** 3.75/10  (E=5.2, D=2.3) [MODERATE]
+
+## Description
+ANKRD26 encodes a 1710 amino acid ankyrin repeat domain-containing scaffold protein (UniProt Q9UPS8) localized to the Golgi apparatus, vesicles, and cytosol. InterPro analysis reveals extensive ankyrin repeat architecture (IPR002110, PF00023, PF12796) spanning residues 50-221, providing protein-protein interaction capacity, plus a C-terminal DUF3496 domain (IPR021885, PF12001, residues 1523-1630) and an extensive coiled-coil region (PF14915, residues 793-1269) characteristic of CCDC144C-like proteins. AlphaFold structure prediction shows medium confidence (pLDDT 62.3), indicating partial intrinsic disorder consistent with scaffold function. STRING interactions identify 10 partners including ETV6 (0.693), RUNX1 (0.506), MYH9 (0.595), and DDX41 (0.573)—all hematopoiesis-associated factors. HPA shows ubiquitous expression across all tissues with low specificity. Critically, ClinVar documents 614 pathogenic/likely pathogenic variants, one of the highest burdens among characterized genes, causing autosomal dominant thrombocytopenia-2 (THC2). This variant burden exceeds typical disease genes, suggesting ANKRD26 functions as a dosage-sensitive megakaryocyte differentiation regulator. Hypothesis: ANKRD26 acts as a multi-protein scaffold assembly platform in megakaryocytes, bridging transcription factors (ETV6, RUNX1) with cytoskeletal machinery (MYH9) and RNA processing (DDX41) via its ankyrin repeat interaction surfaces. The coiled-coil region mediates oligomerization, creating higher-order scaffolds that coordinate platelet production gene expression programs. Pathogenic variants disrupt scaffold integrity or protein partner recruitment, causing haploinsufficiency and thrombocytopenia. TRlAGE NOTE: ANKRD26 is NOT a dark gene—it is well-characterized with known disease mechanism, extensive variant data, and defined interaction network. Its inclusion in the "dark gene" queue represents annotation lag rather than true biological obscurity.
+
+## Evidence
+```
+Evidence: 1. UniProt Q9UPS8 (1710 aa). 2. InterPro: IPR002110/PF00023 ankyrin repeats (50-221), IPR021885/PF12001 DUF3496 (1523-1630), PF14915 coiled-coil (793-1269). 3. STRING: ETV6(0.693), RUNX1(0.506), MYH9(0.595), DDX41(0.573), SRP72(0.689). 4. HPA: Golgi/vesicles/cytosol, ubiquitous expression. 5. ClinVar: 614 pathogenic variants (thrombocytopenia-2). 6. AlphaFold: pLDDT 62.3 (medium, partially disordered).
+```

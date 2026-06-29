@@ -1,0 +1,13 @@
+# LOC129390608: MPRA-Validated Silencer Element in 13q31.3 Retinoblastoma/Tumor Suppressor Region
+
+**Date:** 2026-03-23T06:41:15.469347
+
+**Quality Score:** 1.55/10  (E=1.8, D=1.3) [POOR]
+
+## Description
+LOC129390608 (Gene ID: 129390608) is not a protein-coding gene but a functionally validated cis-regulatory silencer element mapping to chromosome 13q31.3 (96,668,501-96,668,701 bp, ~200 bp span). RefSeq annotation explicitly states: "MPRA-validated peak2102 silencer" - validated by STARR-seq massively parallel reporter assays in K562 erythroleukemia cells as repressing super core promoter SCP1 activity. Multiple evidence lines confirm non-coding regulatory function: (1) No UniProt accession (not a protein); (2) Genomic span of 200 bp is far too small for protein-coding gene; (3) ClinVar contains 27 pathogenic copy number variants (large 13q deletions/duplications spanning 10-90 Mb), associated with 13q deletion syndromes featuring retinoblastoma, intellectual disability, and growth retardation. The 13q31.3 region contains critical tumor suppressor genes including RB1 (retinoblastoma 1), BRCA2 (breast cancer 2), and multiple dosage-sensitive developmental regulators. Mechanistic hypothesis: LOC129390608 functions as a transcriptional silencer that represses oncogene or cell cycle gene expression in hematopoietic or epithelial contexts. The element likely recruits co-repressor complexes (e.g., Polycomb repressive complex 2, NuRD, or HDAC-containing complexes) via sequence-specific DNA-binding proteins to establish repressive chromatin (H3K27me3, H3K9me3, DNA methylation). Pathogenic 13q CNVs disrupt silencer-enhancer balance and chromatin topology, causing RB1 haploinsufficiency (retinoblastoma predisposition) or BRCA2 dysregulation (DNA repair deficiency). The 13q31.3 locus is a known cancer susceptibility region—RB1 loss causes hereditary retinoblastoma, while BRCA2 mutations cause breast/ovarian cancer predisposition. Altered silencer function may contribute to tumorigenesis through dysregulated cell cycle control. This represents a critical class of "dark genes" that are actually functional non-coding regulatory elements misannotated as genes due to automated pipeline predictions. The MPRA validation provides direct functional evidence of regulatory activity in erythroid lineage.
+
+## Evidence
+```
+RefSeq: MPRA-validated silencer (peak2102); Genomic location: NC_000013.11 (96668501-96668701, 200 bp); Validated in: K562 cells via STARR-seq; ClinVar: 27 pathogenic CNVs (13q31.3-34 deletions/duplications); No UniProt data (non-coding); 13q31.3 region contains RB1 retinoblastoma tumor suppressor, BRCA2
+```

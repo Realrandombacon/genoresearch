@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T13:31:52.887601
 
-**Quality Score:** 10/10 (EXCELLENT)
+**Quality Score:** 5.5/10  (E=6.2, D=4.8) [SOLID]
 
 ## Description
 123aa protein consisting entirely of DUF4578 domain (aa 1-123), a protein of unknown function. BLAST shows mouse homolog with 63% identity indicating evolutionary conservation. STRING interactions with FRMD4A (0.471), CCDC90B (0.446), TMEM86A (0.421) suggest potential role in cytoskeletal/membrane organization. HPA: localized to cell junctions, detected in many tissues with low specificity. ClinVar: 18 pathogenic/likely pathogenic variants identified, all copy number variations (deletions/duplications) on chromosome 11q22.3-23.3 region. Variants have uncertain significance but classified as pathogenic, suggesting disease association though specific phenotypes not yet assigned. True dark gene with clinical relevance and subcellular localization clue but unknown molecular mechanism.

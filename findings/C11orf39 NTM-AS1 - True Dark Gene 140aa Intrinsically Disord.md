@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T13:28:13.606300
 
-**Quality Score:** 8/10 (EXCELLENT)
+**Quality Score:** 4.25/10  (E=4.5, D=4.0) [MODERATE]
 
 ## Description
 Putative uncharacterized protein with no characterized domains (InterPro lookup failed). BLAST shows only self-hit indicating sequence uniqueness. AlphaFold structure shows very low confidence (pLDDT 31.9) suggesting intrinsically disordered protein (IDP) that may function through protein-protein interactions rather than enzymatic activity. No STRING interactions found, no HPA expression data available, no ClinVar variants. Gene symbol ambiguity (C11orf39 vs NTM-AS1) suggests annotation uncertainty. Antisense RNA name suggests potential regulatory role. True dark gene with no molecular or clinical evidence.

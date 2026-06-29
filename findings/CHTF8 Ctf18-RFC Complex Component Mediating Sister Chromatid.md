@@ -1,0 +1,15 @@
+# CHTF8: Ctf18-RFC Complex Component Mediating Sister Chromatid Cohesion, PCNA Loading, and 16q22.1 Copy Number Variant-Associated Chromosome Instability
+
+**Date:** 2026-04-26T20:32:33.071480
+
+**Quality Score:** 4.72/10  (E=7.85, D=1.6) [MODERATE]
+
+**Confidence:** MEDIUM
+
+## Description
+CHTF8 (Chromosome Transmission Fidelity Factor 8, UniProt P0CG13) is a 121 aa small protein that functions as an essential component of the Ctf18-replication factor C (CTF18-RFC) complex, mediating sister chromatid cohesion and PCNA clamp loading during DNA replication and repair through ATP-dependent DNA binding. Structurally, AlphaFold predicts a confidently folded compact architecture (pLDDT=86.5) featuring a conserved chromosome transmission fidelity protein 8 domain (IPR018607/PF09696, aa 51-113) within the chromosome transmission fidelity complex component family (PTHR28605, aa 9-120), enabling integration into the heteroheptameric RFC-like complex. Functionally, STRING interactions reveal tight coupling to DNA replication and cohesion machinery: RFC clamp loader subunits RFC5 (0.999), RFC3 (0.997), RFC4 (0.997), RFC2 (0.662), cohesion establishment factor CHTF18 (0.947), sister chromatid cohesion protein DSCC1 (0.880), cohesin complex component SMC3 (0.786), acetyltransferases ESCO2 (0.748) and ESCO1 (0.721) mediating cohesin acetylation, and WDHD1 (0.695). HPA shows ubiquitous expression across all tissues with low tissue and cancer specificity, localized to nucleus with DNA-binding molecular function in cell cycle and DNA replication processes. ClinVar identifies 24 pathogenic/likely pathogenic variants predominantly as copy number losses and gains at 16q22.1 (chr16:67538639-69583342, chr16:67322830-69368947) and broader 16q regions, though no specific Mendelian disease is annotated - these CNVs overlap with developmental delay, intellectual disability, and chromosome instability syndrome regions. Literature (3 papers) reveals emerging mechanistic insights: CHTF8 identified in CRISPR screens regulating red blood cell density (2025), associated with keratoconus susceptibility in Chinese GWAS (2024, 6 citations), and serves as biomarker in invasive placenta accreta spectrum transcriptomic profiles (2024). The gene represents a 'very dark' cohesion factor where canonical CTF18-RFC function is suggested from yeast homologs, but specific mechanisms linking CHTF8-mediated PCNA loading to human chromosome instability phenotypes, tissue-specific vulnerability in developmental disorders, and potential roles in corneal and placental pathologies remain underexplored therapeutic targets.
+
+## Evidence
+```
+UniProt P0CG13 (121 aa); InterPro [IPR018607, PF09696, PTHR28605]; STRING [RFC5 0.999, RFC3 0.997, RFC4 0.997, CHTF18 0.947, DSCC1 0.880, SMC3 0.786, ESCO2 0.748, ESCO1 0.721, WDHD1 0.695, RFC2 0.662]; HPA [ubiquitous, nucleus, cell cycle/DNA replication]; ClinVar [24 pathogenic CNVs at 16q22.1]; AlphaFold [pLDDT 86.5]; Lit [3 papers, cohesion/CRISPR screen focus]"}
+```

@@ -1,0 +1,13 @@
+# MRPL33: Essential Mitochondrial Ribosomal Protein with Zinc-Binding Fold and Clinical CNVs
+
+**Date:** 2026-04-06T12:34:03.986390
+
+**Quality Score:** 2.8/10  (E=4.5, D=1.1) [WEAK]
+
+## Description
+MRPL33 (Mitochondrial Ribosomal Protein L33) is a compact 65 amino acid protein (UniProt O75394) that serves as a critical structural component of the mitochondrial large ribosomal subunit (39S). The protein exhibits an exceptionally stable 3D structure (AlphaFold pLDDT 91.2, very high confidence), characteristic of its role as a core ribosomal scaffold.\n\nInterPro analysis identifies MRPL33 as a member of the bL33 family (IPR001705/PF00471) containing a conserved zinc-binding ribosomal protein domain (IPR011332/SSF57829, residues 10-60). This zinc-coordinating fold is essential for stabilizing the ribosomal RNA architecture within the mitoribosome, which has a uniquely high protein-to-rRNA ratio (~75%) compared to bacterial ribosomes.\n\nSTRING interaction data confirms MRPL33 functions exclusively within the mitochondrial translation machinery, showing near-perfect confidence scores (0.999) with other large subunit proteins (MRPL17, MRPL13, MRPL4, MRPL12, MRPL27, MRPL32) and the mitochondrial elongation factor TUFM. It also interacts with small subunit components (MRPS9, MRPS5), reflecting the intact mitoribosome complex.\n\nHPA expression shows ubiquitous detection across all tissues with low tissue specificity, consistent with the fundamental requirement for mitochondrial protein synthesis in all metabolically active cells. \n\nClinVar documents 16 pathogenic/likely pathogenic variants, predominantly large copy number gains and losses spanning chromosome 2p (e.g., chr2:12771-30565600x3). While specific point mutations are not yet cataloged, these CNVs suggest that dosage imbalance of MRPL33 contributes to genomic disorders, likely manifesting as mitochondrial encephalopathies or metabolic defects due to impaired oxidative phosphorylation.\n\nMechanistic hypothesis: MRPL33 acts as a zinc-dependent structural clamp that stabilizes the central protuberance of the mitochondrial 50S subunit, facilitating proper assembly of the peptidyl transferase center. Disruption via CNVs leads to defective mitoribosome biogenesis, reduced mitochondrial translation efficiency, and subsequent cellular energy failure.
+
+## Evidence
+```
+InterPro: IPR001705, IPR011332, IPR038584, IPR052008, PF00471, PTHR47037 | STRING: MRPL17(0.999), TUFM(0.999), MRPL13(0.999), MRPL4(0.999), MRPL12(0.999), MRPS9(0.998), MRPL27(0.997), MRPL32(0.996), MRPS5(0.982), RPS3(0.971) | HPA: Detected in all tissues (Low specificity) | ClinVar: 16 pathogenic variants (CNVs) | AlphaFold: pLDDT 91.2 | UniProt: O75394 (65 aa)
+```

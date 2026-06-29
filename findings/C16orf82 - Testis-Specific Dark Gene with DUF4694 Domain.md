@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T06:09:51.197176
 
-**Quality Score:** 9/10 (EXCELLENT)
+**Quality Score:** 5.75/10  (E=5.5, D=6.0) [SOLID]
 
 ## Description
 C16orf82 encodes a 217 aa uncharacterized protein (Protein TNT) containing DUF4694 domain (IPR031520, residues 64-215). Strongly testis-enriched (265.4 nTPM) with intracellular localization. No STRING interactions found indicating poor characterization. ClinVar contains 32 pathogenic copy number variants (gains and losses) on chromosome 16p suggesting disease relevance despite no specific disease assignment. AlphaFold shows medium confidence (57.3 pLDDT) with partially disordered structure typical of uncharacterized proteins. Likely functions in testis-specific processes, possibly spermatogenesis.

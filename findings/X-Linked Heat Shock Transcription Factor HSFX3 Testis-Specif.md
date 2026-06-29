@@ -1,0 +1,13 @@
+# X-Linked Heat Shock Transcription Factor HSFX3: Testis-Specific Regulatory Protein with Structural Disorder and Clinical CNVs
+
+**Date:** 2026-04-15T00:15:56.924141
+
+**Quality Score:** 2.77/10  (E=4.3, D=1.25) [WEAK]
+
+## Description
+HSFX3 (heat shock transcription factor family, X-linked member 3) is a 333-amino acid protein encoded on chromosome Xq28, representing a member of the heat shock transcription factor (HSF) family. InterPro analysis reveals a conserved HSF-type DNA-binding domain (PF00447, positions 83-182; IPR000232, positions 79-182) within a winged helix-like DNA-binding superfamily (G3DSA:1.10.10.10, positions 80-183; SSF46785, positions 81-182), characteristic of transcription factors that bind heat shock elements (HSEs) in target gene promoters. AlphaFold structure prediction shows medium confidence (global pLDDT 64.0), suggesting a partially structured protein with ordered DNA-binding domains flanked by potentially disordered transactivation regions—typical of transcription factors requiring conformational flexibility for co-factor recruitment. HPA expression demonstrates testis-enriched specificity (13.1 nTPM) with detection in limited tissues, consistent with X-linked gene families involved in spermatogenesis. Notably, only 1 publication exists for HSFX3 (VERY DARK status)—a 2021 mouse study showing X-linked palindromic gene families including Hsfx3 are dispensable for male fertility, suggesting functional redundancy within the HSFX gene cluster (HSFX1, HSFX2, HSFX3). STRING database returned no interaction partners, reflecting its understudied nature. ClinVar contains 98 pathogenic/likely pathogenic variants, predominantly X chromosome copy number gains and losses spanning Xq26.3-q28, though no specific diseases are yet attributed solely to HSFX3. The testis-specific expression pattern, HSF DNA-binding domain architecture, and X-chromosome location suggest HSFX3 functions as a stress-responsive transcriptional regulator during spermatogenesis, potentially activating heat shock proteins (HSPs) and chaperones during meiotic divisions or sperm maturation when cells experience thermal or oxidative stress. The palindromic X-linked organization may enable gene conversion events maintaining sequence homogeneity across HSFX paralogs, explaining functional redundancy observed in mouse knockout studies.
+
+## Evidence
+```
+InterPro: PF00447, IPR000232, G3DSA:1.10.10.10, SSF46785; HPA: testis(13.1 nTPM), tissue-enriched; ClinVar: 98 pathogenic variants (CNVs Xq26.3-q28); AlphaFold: pLDDT 64.0 (medium); UniProt: A0A1B0GWH4; Literature: 1 paper (VERY DARK); STRING: no interactions
+```

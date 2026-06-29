@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T20:51:09.737538
 
-**Quality Score:** 4/10 (MODERATE)
+**Quality Score:** 0.65/10  (E=0.3, D=1.0) [POOR]
 
 ## Description
 CXorf66 encodes a 361 amino acid type I membrane protein (UniProt Q5JRM2) with testis-specific expression (12.7 nTPM) and distinctive sperm subcellular localization to the perinuclear theca

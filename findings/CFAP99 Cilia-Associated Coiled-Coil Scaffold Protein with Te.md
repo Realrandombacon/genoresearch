@@ -1,0 +1,13 @@
+# CFAP99 Cilia-Associated Coiled-Coil Scaffold Protein with Testis-Enriched Expression and Ciliary Dynein Interaction Network
+
+**Date:** 2026-03-23T03:34:42.037386
+
+**Quality Score:** 4.2/10  (E=6.3, D=2.1) [MODERATE]
+
+## Description
+CFAP99 (Cilia and Flagella Associated Protein 99) is a 646 amino acid protein located on chromosome 4p16.3 that functions as a structural scaffold component of motile cilia and flagella. The protein contains a characteristic V-shaped coiled-coil domain (IPR060436/PF27956, residues 300-430) that mediates protein-protein interactions within the ciliary axoneme complex. AlphaFold prediction yields high confidence (pLDDT 76.7), indicating a well-folded stable structure suitable for scaffolding functions. Human Protein Atlas data shows testis-enriched expression at 15.0 nTPM, consistent with the critical role of motile cilia in sperm flagella function; subcellular localization includes microtubules, cytokinetic bridge, mitotic spindle, mid piece, and principal piece of sperm. STRING interaction network reveals 10 medium-confidence partners (scores 0.417-0.616) including DNAH10 (axonemal dynein heavy chain), RSPH10B (radial spoke head protein), CCDC65 (nexin-dynein regulatory complex), CFAP47 (axonemal assembly factor), and ANKRD7/LRGUK (ankyrin repeat proteins), positioning CFAP99 within the ciliary dynein regulatory complex that controls axonemal beating. ClinVar contains 61 pathogenic/likely pathogenic variants, predominantly copy number losses and gains on 4p16.3, suggesting dosage sensitivity; while no specific monogenic disease is yet assigned, the variant burden and ciliary localization implicate CFAP99 in ciliopathy spectrum disorders potentially affecting sperm motility (asthenozoospermia) and respiratory ciliary function (primary ciliary dyskinesia). The coiled-coil domain architecture combined with testis-specific expression and dynein complex interactions supports a mechanistic model where CFAP99 acts as a molecular tether linking radial spoke proteins to the nexin-dynein regulatory complex, converting regulatory signals into coordinated dynein motor activity for proper ciliary waveform generation.
+
+## Evidence
+```
+InterPro: IPR039341 (CFAP99 family, 1-645), IPR060436/PF27956 (V-shaped coiled-coil, 300-430), PTHR34649 | STRING: DNAH10 (0.616), RSPH10B (0.616), ANKEF1 (0.606), VWA3B (0.597), ANKRD7 (0.565), LRGUK (0.564), FARP2 (0.560), PANK4 (0.557), CFAP47 (0.451), CCDC65 (0.417) | HPA: Testis 15.0 nTPM (tissue enriched), microtubules/cytokinetic bridge/mitotic spindle localization | ClinVar: 61 pathogenic variants (CNVs) | AlphaFold: pLDDT 76.7 (646 aa) | UniProt: D6REC4
+```

@@ -1,0 +1,15 @@
+# ST8SIA3: Golgi Sialyltransferase Modulating Neural Receptor Function and Glioblastoma Progression via Polysialic Acid Synthesis
+
+**Date:** 2026-04-17T03:48:19.848809
+
+**Quality Score:** 3.77/10  (E=5.75, D=1.8) [MODERATE]
+
+**Confidence:** MEDIUM
+
+## Description
+ST8SIA3 encodes a 380 aa alpha-N-acetylneuraminate alpha-2,8-sialyltransferase (UniProt O43173), a Golgi-resident enzyme that catalyzes alpha-2,8-linked polysialic acid (polySia) addition to glycoproteins and glycolipids. InterPro analysis reveals: (1) Glycosyl transferase family 29 catalytic domain (IPR001675, PF00777, aa 117-370) with sialyltransferase activity (GO:0008373); (2) Sialyltransferase family domain (IPR012163, aa 6-379); (3) GT29-like superfamily fold (IPR038578, G3DSA:3.90.1480.20, aa 88-380). AlphaFold predicts a high-confidence structure (pLDDT 86.6), indicating stable folding with defined catalytic cleft for CMP-sialic acid and acceptor substrate binding. STRING interactions confirm functional partnership with NCAM1 (0.800), the classic polysialylation target for neural plasticity, plus glycosylation enzymes MGAT5B (0.442), GALNT9 (0.417), GALNT13 (0.415), and NRP2 (0.405). HPA shows brain-enriched expression (23.5 nTPM), with pituitary (9.0 nTPM) and retina (7.0 nTPM) detection, localized to Golgi apparatus. ClinVar reports 34 pathogenic/likely pathogenic variants, predominantly 18q21.2-23 copy number losses/gains, though specific disease associations remain undefined. Literature (17 papers) reveals: (1) Novel ST8SIA3 mutation associated with familial obstructive sleep apnea (2025); (2) Functional sialylation of striatal dopamine D2 and adenosine A2A receptors regulating neurotransmission (2019, 23 citations); (3) A2B5 glycolipid recognition in glioblastoma cancer stem cells promoting proliferation and migration (2019-2023); (4) Aberrant methylation-driven expression changes in cancer. Mechanistically, ST8SIA3 adds polySia chains to: (1) NCAM1, reducing cell adhesion and enabling neural plasticity/migration; (2) Dopamine D2 and adenosine A2A receptors, modulating GPCR signaling and striatal function; (3) A2B5 gangliosides in glioblastoma stem cells, maintaining stemness and treatment resistance. In disease, ST8SIA3 dysfunction likely contributes to: sleep apnea via brainstem respiratory circuit glycosylation defects; neuropsychiatric disorders through altered dopaminergic signaling; glioblastoma progression via cancer stem cell maintenance. The high-confidence structure and brain-specific expression suggest ST8SIA3 as a therapeutic target for neural disorders and glioblastoma.
+
+## Evidence
+```
+UniProt: O43173 | Size: 380 aa | InterPro: IPR001675, IPR012163, IPR038578, IPR050943, PF00777, G3DSA:3.90.1480.20 | STRING: NCAM1(0.800), MGAT5B(0.442), GALNT9(0.417), GALNT13(0.415), NRP2(0.405) | HPA: Brain 23.5 nTPM, Pituitary 9.0 nTPM, Retina 7.0 nTPM, Golgi | ClinVar: 34 pathogenic variants (18q CNVs) | AlphaFold: pLDDT 86.6 | Literature: 17 papers - obstructive sleep apnea mutation, dopamine D2/A2A receptor sialylation, glioblastoma A2B5+ cancer stem cells, polysialic acid synthesis
+```

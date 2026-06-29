@@ -1,0 +1,13 @@
+# Ultra-Small 29aa Peptide with High-Confidence Structure but Undetectable Expression and X-Chromosome Dosage Sensitivity
+
+**Date:** 2026-03-27T14:12:39.070589
+
+**Quality Score:** 4.8/10  (E=3.5, D=6.1) [MODERATE]
+
+## Description
+LOC127933115 encodes an ultra-small 29 amino acid peptide (UniProt A0A804HIB5) located on chromosome Xp22.11, representing one of the smallest predicted human proteins. Despite its minimal length, AlphaFold predicts a well-folded structure with high confidence (global pLDDT 79.5), suggesting the peptide adopts a stable conformation rather than being intrinsically disordered. Human Protein Atlas classifies this as a novel protein with predicted intracellular localization, but critically shows no detectable RNA expression across all tissues, blood cells, or single cell types examined — raising questions about whether this ORF is genuinely translated under normal physiological conditions. No protein interaction partners were identified in STRING-DB, consistent with either extremely limited expression or a peptide that functions independently without stable complex formation. InterPro domain analysis failed to identify any conserved functional motifs, leaving the biochemical function unknown. ClinVar contains 78 pathogenic/likely pathogenic variants, but notably all are large copy number variations (gains, losses, inversions, duplications) spanning megabase-scale regions of chromosome X (e.g., Xp22.33-q28, Xp22.11-21.1), not gene-specific point mutations — suggesting the pathogenicity likely arises from disruption of neighboring genes rather than LOC127933115 itself. The combination of undetectable expression, lack of interaction partners, absence of recognizable domains, yet high-confidence structural prediction presents an enigmatic profile: this could represent a conditionally expressed micropeptide activated only under specific stress or developmental contexts, a translational artifact from a non-coding RNA, or a rapidly evolving lineage-specific peptide with specialized function. The X-chromosome location and association with large CNVs suggests potential involvement in X-linked disorders, though causality remains unproven. Future work should investigate conditional expression patterns, potential micropeptide functions in membrane regulation or signaling, and whether the structured 29aa conformation enables specific molecular interactions.
+
+## Evidence
+```
+UniProt: A0A804HIB5, 29 aa | HPA: Novel protein, predicted intracellular, NOT DETECTED in all tissues/blood/single cells | ClinVar: 78 pathogenic variants (all large CNVs on chrX, not gene-specific) | AlphaFold: pLDDT 79.5 (high confidence), 29 aa modeled | InterPro: No domains identified (lookup failed) | STRING: No interaction partners
+```

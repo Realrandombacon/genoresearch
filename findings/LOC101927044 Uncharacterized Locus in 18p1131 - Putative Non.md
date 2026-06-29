@@ -1,0 +1,13 @@
+# LOC101927044: Uncharacterized Locus in 18p11.31 - Putative Non-Coding Regulatory Element with No Known Clinical Variants
+
+**Date:** 2026-03-23T08:06:31.204871
+
+**Quality Score:** 3.83/10  (E=4.45, D=3.2) [MODERATE]
+
+## Description
+LOC101927044 (Gene ID: 101927044) is an uncharacterized genomic locus mapping to chromosome 18p11.31. Multiple evidence lines indicate this is likely a non-coding regulatory element rather than a protein-coding gene: (1) No UniProt accession found (not a characterized protein); (2) HPA could not resolve gene to Ensembl ID (non-coding or below detection threshold); (3) Genomic annotation as "uncharacterized LOC" indicates unknown function; (4) No STRING protein interactions detected (no protein product); (5) No ClinVar variants identified (no known clinical significance). The 18p11.31 region is associated with 18p deletion syndrome (deletion of 18p causes developmental delay, intellectual disability, short stature, and ptosis) and 18p duplication syndrome. Critical genes in this region include: TGIF1 (TGFB-induced factor homeobox 1, transcriptional corepressor - haploinsufficiency causes holoprosencephaly), MYOM2 (M-band myomesin-2, sarcomere structure), and multiple neuronal development genes. Mechanistic hypothesis: LOC101927044 may function as a cis-regulatory element (enhancer, silencer, or insulator) controlling long-range gene expression in the 18p11 topologically associating domain (TAD). The element could regulate TGIF1 expression critical for forebrain development - TGIF1 has complex regulatory landscape with multiple enhancers. Alternatively, this locus may represent: (1) a long non-coding RNA (lncRNA) with regulatory function; (2) a pseudogene or processed transcript; (3) an unannotated open reading frame with low/transient expression. Lack of ClinVar variants suggests: (1) this element may not be dosage-sensitive; (2) functional redundancy with other 18p regulatory elements; (3) limited clinical ascertainment for this specific locus; (4) sequence variation may be tolerated without phenotypic consequences. The absence of protein-coding evidence combined with chromosomal location in a clinically relevant region suggests potential regulatory function that may become apparent with future functional studies (MPRA, CRISPR screens, eQTL analyses). This represents a "dark gene" class of uncharacterized genomic loci that may harbor cryptic regulatory activity awaiting experimental validation.
+
+## Evidence
+```
+Genomic location: 18p11.31; ClinVar: 0 variants (no known clinical significance); No UniProt/InterPro/STRING/AlphaFold (non-coding/uncharacterized); HPA: could not resolve; 18p region contains TGIF1, MYOM2 - transcriptional corepressor, sarcomere protein
+```

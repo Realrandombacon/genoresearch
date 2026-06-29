@@ -1,0 +1,13 @@
+# ZSWIM9: Nuclear RNaseH-like Scaffold Protein with Brain-Enriched Expression and Dosage Sensitivity
+
+**Date:** 2026-03-19T18:59:35.192298
+
+**Quality Score:** 4.47/10  (E=5.45, D=3.5) [MODERATE]
+
+## Description
+ZSWIM9 (Q86XI8, 627 aa) encodes an uncharacterized nuclear protein containing a SWIM-type zinc finger domain (IPR040854) and a central RNaseH-like domain (IPR048315/PF17738, residues 148-317) flanked by DUF5575 N-terminal (IPR049217/PF20783, residues 13-135) and C-terminal domains (IPR049218/PF20784, residues 319-435). The AlphaFold structure (pLDDT=68.8) reveals medium confidence with partially disordered regions, consistent with a scaffold protein architecture. HPA data shows nucleoplasmic localization with brain-enriched expression (17.6 nTPM), classified as tissue-enhanced and detected in many tissues. STRING interactions reveal high-confidence association with ZSWIM1 (score 0.731) and medium-confidence links to ZSWIM5 (0.497), CABP5 (0.518), ELSPBP1 (0.517), and MAP3K1 (0.469), suggesting membership in a ZSWIM protein family complex potentially involved in kinase signaling cascades. ClinVar documents 10 pathogenic/likely pathogenic copy number gain variants across 19q13.33, indicating dosage sensitivity where gene duplication causes disease. Conservation data shows orthologs in mouse (Q6DI92, 447 aa, ~71% identity) and other mammals. FUNCTIONAL HYPOTHESIS: ZSWIM9 likely functions as a nuclear scaffold protein that coordinates nucleic acid processing activities through its RNaseH-like domain, potentially participating in DNA-RNA hybrid resolution (R-loop metabolism) or DNA repair pathways. The SWIM zinc finger suggests nucleic acid binding capability, while DUF5575 domains may mediate protein-protein interactions within a multi-subunit complex. Brain-enriched expression and interaction with MAP3K1 suggest roles in neuronal development or stress response signaling. Pathogenic copy number gains indicate that ZSWIM9 dosage must be tightly regulated, possibly because overexpression disrupts nucleic acid processing balance or sequesters interaction partners. MECHANISTIC PROPOSAL: ZSWIM9 may assemble with ZSWIM1/ZSWIM5 family members to form a nuclear complex that recruits MAP3K1 signaling components to sites of transcriptional stress or DNA damage, where its RNaseH-like domain processes RNA-DNA hybrids to maintain genome stability.
+
+## Evidence
+```
+Evidence: InterPro domains IPR040854/IPR048315/IPR049217/IPR049218/PF17738/PF20783/PF20784; STRING partners ZSWIM1(0.731)/CABP5(0.518)/ZSWIM5(0.497)/MAP3K1(0.469); HPA brain 17.6 nTPM/nucleoplasm; ClinVar 10 pathogenic CNV variants; AlphaFold pLDDT 68.8; UniProt Q86XI8 627aa; Mouse ortholog Q6DI92 447aa
+```

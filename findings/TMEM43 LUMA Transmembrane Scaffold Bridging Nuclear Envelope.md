@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-18T01:28:58.574111
 
-**Quality Score:** 10/10 (EXCELLENT)
+**Quality Score:** 4.8/10  (E=7.8, D=1.8) [MODERATE]
 
 ## Description
 TMEM43 (alias LUMA, ARVC5, ARVD5, EDMD7) encodes a 400 amino acid transmembrane protein 43 (UniProt Q9BTV4) belonging to the TMEM43 family (IPR012430, residues 4-398) with conserved transmembrane domain (PF07787, residues 121-373, PTHR13416). AlphaFold predicts a well-folded structure with high confidence (pLDDT 89.9), consistent with stable transmembrane architecture. HPA data shows ubiquitous expression across all tissues with cell type enhancement, classified as disease-related gene involved in cardiomyopathy, deafness, Emery-Dreifuss muscular dystrophy, and neuropathy. STRING interactions reveal strong associations with desmosomal and nuclear envelope proteins: junctional plakoglobin JUP (0.913), desmocollin-3 DSC3 (0.907), emerin EMD (0.891), SUN domain protein SUN2 (0.875), ryanodine receptor RYR2 (0.843), lamin A/C LMNA (0.805), plakophilin-2 PKP2 (0.754), desmoglein-2 DSG2 (0.728), desmocollin-2 DSC2 (0.597), and TGF-beta isoform TGFB3 (0.442). ClinVar reports 156 pathogenic variants including missense mutations (c.481T>G p.Phe161Val, c.986T>C p.Ile329Thr, c.1109T>C p.Phe370Ser, c.623T>G p.Leu208Arg), frameshift deletion (c.689del p.Asn230fs), splice site variant (c.882+2T>C), and copy number gains across 3p regions. The gene is highly conserved: mouse (Q9DBS1, 400 aa, ~98% identity), rat (Q5XIP9, 400 aa, ~97% identity), drosophila (Q9VSB9, 376 aa, ~65% identity).

@@ -1,0 +1,15 @@
+# COLEC12: Scavenger Collectin Receptor Regulating Neural Crest Migration, Lipid Metabolism, and Neurodegeneration via C-type Lectin Signaling
+
+**Date:** 2026-04-17T16:38:44.179978
+
+**Quality Score:** 3.0/10  (E=5.0, D=1.0) [WEAK]
+
+**Confidence:** MEDIUM
+
+## Description
+COLEC12 (Collectin-12/CL-P1) is a 742 aa type II transmembrane scavenger receptor (UniProt Q5KU26, AlphaFold pLDDT 69.3) belonging to the collectin subfamily of C-type lectins. Despite 79 papers in literature, COLEC12 remains incompletely characterized with emerging roles in development and disease. InterPro domains confirm structural architecture: IPR001304 C-type lectin-like domain (aa607-732), IPR008160 collagen triple helix repeats (aa443-497, 530-588), IPR058762 Collectin-12 domain (aa231-305), PF00059 Lectin C-type domain (aa625-732). STRING interactions reveal functional network: LIMK2 (0.926, actin cytoskeleton regulation), PILRA (0.826, paired immunoglobulin-like receptor), APOB (0.740, apolipoprotein B lipid metabolism), MARCO (0.546, macrophage scavenger receptor). HPA shows tissue-enhanced expression with cervix highest (25.9 nTPM), subcellular localization to Golgi apparatus, vesicles, and cell junctions. ClinVar contains 67 pathogenic variants (18p11.32-11.21 CNVs, deletions, duplications). FUNCTIONAL HYPOTHESIS: COLEC12 functions as a pattern recognition scavenger receptor that binds modified lipoproteins and glycosylated pathogens via C-type lectin domain, regulating lipid metabolism, innate immunity, and cell migration. MECHANISTIC PROPOSAL: (1) COLEC12-TRAIL signaling confines cranial neural crest cell trajectories during embryonic development (2023, 9 citations), (2) COLEC12 acts as diagnostic biomarker for pediatric focal segmental glomerulosclerosis (FSGS) distinguishing from minimal change disease (2025), (3) COLEC12 dysregulation implicated in late-onset Alzheimer's disease via brain cortex and peripheral blood expression changes (2024, 4 citations), (4) LIMK2 interaction suggests role in actin cytoskeleton remodeling during cell migration. CROSS-DOMAIN REASONING: Medium AlphaFold confidence (69.3) reflects flexible collagen-rich extracellular region; collagen triple helix repeats enable pathogen/lipoprotein binding; C-type lectin domain provides calcium-dependent carbohydrate recognition; 67 ClinVar variants suggest disease relevance despite limited mechanistic studies; APOB interaction links to atherosclerosis pathways. COLEC12 represents an emerging therapeutic target for neurodevelopmental disorders, kidney disease, and neurodegeneration.
+
+## Evidence
+```
+InterPro: IPR001304 (C-type lectin-like aa607-732), IPR008160 (collagen triple helix aa443-497/530-588), IPR058762 (Collectin-12 aa231-305), PF00059 (Lectin C-type aa625-732) | STRING: LIMK2(0.926), PILRA(0.826), APOB(0.740), NPDC1(0.610), PIANP(0.606), MARCO(0.546) | HPA: cervix 25.9 nTPM, Golgi/vesicles/cell junctions | ClinVar: 67 pathogenic variants (18p11.32-11.21 CNVs) | AlphaFold: pLDDT=69.3 | Literature: 79 papers (2023 neural crest migration/TRAIL, 2024 Alzheimer's biomarker, 2025 FSGS diagnostic marker)
+```

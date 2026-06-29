@@ -1,0 +1,13 @@
+# TMEM222: Conserved RTE1-like Transmembrane Protein with Synaptic Localization and Neurological Disease Association
+
+**Date:** 2026-03-23T01:32:37.130244
+
+**Quality Score:** 2.25/10  (E=4.2, D=0.3) [WEAK]
+
+## Description
+TMEM222 (Transmembrane Protein 222, alias C1orf160, NEDMOSBA) encodes a 208 amino acid single-pass membrane protein containing the RTE1-like domain (PF05608, residues 46-176) and TMEM222/RTE1 family signature (IPR008496, residues 26-204). The protein localizes to plasma membrane, cell junctions, and cytosol with ubiquitous expression across all tissues (low tissue specificity, cell type enhanced per HPA). STRING interaction network reveals 10 medium-confidence partners (scores 0.437-0.531): MUL1 (0.531, mitochondrial E3 ubiquitin ligase), ZFPL1 (0.492, centrosomal protein), SNRPA1 (0.484, spliceosomal component), SMAGP (0.475), FASTK (0.472, mitochondrial RNA kinase), SURF6 (0.461, nucleolar protein), MCRS1 (0.455, microtubule-associated), ELOF1 (0.446, transcription elongation factor), PSMD13 (0.443, proteasome subunit), and AAR2 (0.437, spliceosome assembly factor). This interaction profile suggests roles in RNA processing, mitochondrial function, and protein quality control. ClinVar documents 13 pathogenic/likely pathogenic variants including nonsense mutation p.Gln112Ter, frameshift p.Ile70fs, splice site c.539+2T>C, missense p.Gly72Ser, and in-frame deletion p.Val179del, plus multiple copy number variants affecting 1p36.11 region. HPA associates TMEM222 with epilepsy and intellectual disability, consistent with its dendritic localization. The RTE1-like domain is conserved from yeast to humans, suggesting ancient functional importance in membrane-associated processes. Structural prediction would likely reveal a compact extracellular domain with single transmembrane helix anchoring the C-terminal cytoplasmic tail. Functional hypothesis: TMEM222 serves as a synaptic scaffolding protein that recruits RNA-binding and ubiquitination machinery to dendritic membranes, coordinating local translation and protein turnover at postsynaptic sites. Disruption causes aberrant synaptic proteostasis leading to neurological phenotypes.
+
+## Evidence
+```
+InterPro: IPR008496 (26-204), PF05608 (46-176), PTHR20921 (26-204); STRING: MUL1(0.531), ZFPL1(0.492), SNRPA1(0.484), SMAGP(0.475), FASTK(0.472), SURF6(0.461), MCRS1(0.455), ELOF1(0.446), PSMD13(0.443), AAR2(0.437); HPA: Plasma membrane/Cell junctions/Cytosol, ubiquitous expression, epilepsy/intellectual disability association; ClinVar: 13 pathogenic variants (p.Gln112Ter, p.Ile70fs, c.539+2T>C, p.Gly72Ser, p.Val179del, CNVs); UniProt: Q9H0R3, 208 aa; Conservation: RTE1-like domain conserved across eukaryotes
+```

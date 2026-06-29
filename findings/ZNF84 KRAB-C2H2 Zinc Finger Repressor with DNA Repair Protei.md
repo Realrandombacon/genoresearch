@@ -1,0 +1,13 @@
+# ZNF84: KRAB-C2H2 Zinc Finger Repressor with DNA Repair Protein Interactions, Ubiquitous Nuclear Expression, and Chromosomal Rearrangement Disease Association
+
+**Date:** 2026-03-20T13:30:57.627679
+
+**Quality Score:** 2.8/10  (E=5.3, D=0.3) [WEAK]
+
+## Description
+ZNF84 encodes a 738 amino acid Krüppel-associated box (KRAB) domain-containing C2H2 zinc finger transcription factor (UniProt P51523). InterPro analysis reveals extensive domain architecture: N-terminal KRAB repressor domain (IPR001909, PF01352, residues 8-79) that recruits TRIM28/KAP1 corepressor complex for heterochromatin formation via HP1 binding and H3K9me3 histone methylation, followed by multiple tandem C2H2 zinc finger DNA-binding domains (IPR013087, PF00096, residues 207-313+) conferring sequence-specific genomic targeting with high DNA-binding avidity. HPA data indicates ubiquitous expression across all tissues with low specificity and exclusive nucleoplasmic localization—consistent with canonical nuclear transcriptional repressor function. STRING interactions identify 9 protein partners including TRIM28 (0.585, canonical KRAB cofactor), multiple related KRAB-ZFPs (ZNF200, ZNF280A, ZNF382, ZNF668, ZNF260; scores 0.40-0.52), and notably DNA repair proteins POLI (0.481, DNA polymerase iota) and PARP2 (0.408, poly-ADP-ribose polymerase)—this interaction pattern suggests ZNF84 may couple transcriptional repression to DNA damage response pathways, potentially silencing genomic loci during replication stress or coordinating chromatin remodeling with repair machinery. ClinVar documents 24 pathogenic/likely pathogenic variants including large copy number gains spanning 12q24.22-24.33 and 12q24.31-24.33, indicating strong dosage sensitivity and disease association through chromosomal rearrangement mechanisms affecting the 12q terminal region. The combination of KRAB-mediated repression, DNA repair protein interactions, and ubiquitous expression suggests ZNF84 functions as a genome stability transcriptional silencer that integrates DNA damage signaling with epigenetic gene regulation, with pathogenic CNVs disrupting this regulatory circuit leading to genomic instability phenotypes.
+
+## Evidence
+```
+InterPro: IPR001909 (KRAB), IPR013087 (C2H2 ZF), IPR036051 (KRAB superfamily), PF01352 (KRAB box), PF00096 (ZF C2H2); STRING: TRIM28(0.585), ZNF200(0.517), ZNF280A(0.506), POLI(0.481), ZNF382(0.457), ZNF668(0.447), KIAA0408(0.441), PARP2(0.408), ZNF260(0.400); HPA: Detected in all tissues, nucleoplasm localization, transcription factor; ClinVar: 24 pathogenic variants including 12q CNVs; AlphaFold: Server error (500); UniProt: P51523, 738aa
+```

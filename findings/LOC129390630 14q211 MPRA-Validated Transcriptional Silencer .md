@@ -1,0 +1,13 @@
+# LOC129390630: 14q21.1 MPRA-Validated Transcriptional Silencer with Triplosensitivity Near L2HGDH Region
+
+**Date:** 2026-03-19T03:06:47.262506
+
+**Quality Score:** 2.7/10  (E=3.9, D=1.5) [WEAK]
+
+## Description
+LOC129390630 is a functionally characterized cis-regulatory element on chromosome 14q21.1 (genomic coordinates: 50237557-50237757 on NC_000014.9, spanning approximately 200 bp). This genomic region was experimentally validated as a transcriptional silencer using STARR-seq massively parallel reporter assays (MPRAs) in K562 erythroleukemia cells, demonstrating ability to repress activity of super core promoter SCP1. The element lacks protein-coding evidence (no UniProt entry, no STRING interactions, no HPA protein expression), confirming its identity as a non-coding regulatory element. The accessible chromatin subregion annotation indicates active regulatory function in hematopoietic cell lineages. ClinVar analysis identified 4 pathogenic/likely pathogenic variants with triplosensitivity pattern: 3 copy number gains (duplications, 75%) and 1 copy number loss (deletion, 25%), indicating triplosensitivity is the primary pathogenic mechanism. This duplication bias is consistent with other silencers showing triplosensitivity (LOC129390835: 100% duplications; LOC129390818: ~70% duplications). The 14q21 chromosomal region contains critical dosage-sensitive genes including L2HGDH (L-2-hydroxyglutarate dehydrogenase - mutations cause L-2-hydroxyglutaric aciduria, neurometabolic disorder), TRIP11 (thyroid hormone receptor interactor 11 - achondrogenesis type 1A), and SLC25A13 (mitochondrial citrulline transporter - citrullinemia type II). As an experimentally validated silencer, LOC129390630 likely functions to repress transcription of target genes in cis during erythroid differentiation and potentially metabolic regulation. Duplication of this silencer causes excessive repression of target genes (potentially L2HGDH or TRIP11), contributing to 14q21 duplication syndrome phenotypes including developmental delay, skeletal abnormalities, and metabolic disturbances. The triplosensitivity pattern suggests this element regulates genes where precise dosage is critical for metabolic and developmental processes.
+
+## Evidence
+```
+Evidence: NCBI Gene ID 129390630; Chromosome 14q21.1 (50237557-50237757); ~200 bp regulatory region; MPRA-validated silencer (STARR-seq in K562 cells); Represses SCP1 promoter activity; Accessible chromatin subregion; No UniProt entry (non-coding); ClinVar: 4 pathogenic CNVs (3 duplications, 1 deletion - triplosensitivity); 14q21 region contains L2HGDH, TRIP11, SLC25A13; Associated with 14q21 duplication syndrome, L-2-hydroxyglutaric aciduria, achondrogenesis, metabolic disorders
+```

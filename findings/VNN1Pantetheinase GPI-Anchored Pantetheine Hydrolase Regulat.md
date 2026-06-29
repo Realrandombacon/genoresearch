@@ -1,0 +1,15 @@
+# VNN1/Pantetheinase: GPI-Anchored Pantetheine Hydrolase Regulating CoA Recycling, Redox Homeostasis, and Emerging Biomarker in Inflammation, Cancer Progression, and Cardiovascular Disease
+
+**Date:** 2026-06-28T00:33:26.244952
+
+**Quality Score:** 7/10 (GOOD)
+
+**Confidence:** MEDIUM-HIGH
+
+## Description
+VNN1 (UniProt O95497) encodes a 513-amino acid GPI-anchored pantetheinase belonging to the biotinidase/vanin family (IPR003010/IPR012101/IPR040154/PTHR10609, aa 9-500) within the carbon-nitrogen hydrolase superfamily (IPR036526/G3DSA:3.60.110.10/SSF56317, aa 13-312). The enzyme contains an N-terminal catalytic biotinidase-like domain (cd07567/PF00795/PS50263, aa 25-330) and C-terminal vanin domain (IPR043957/PF19018, aa 333-483) essential for pantetheine hydrolysis into pantothenate (vitamin B5) and cysteamine. AlphaFold predicts an exceptionally well-folded structure (pLDDT: 92.4), among the highest confidence predictions indicating stable enzymatic architecture.\n\nSTRING interactions position VNN1 within CoA metabolism and redox regulation: strongest links to pantothenate kinases PANK3 (0.907), PANK1 (0.907), PANK2 (0.906)—the rate-limiting enzymes in CoA biosynthesis—plus SERPINE2 (0.770), SRY (0.637), PRRG4 (0.574), trace amine receptors TAAR2/TAAR5, and vanin family member VNN2 (0.435). HPA confirms liver-enriched expression (204.4 nTPM, group enriched) with intestine (128.3 nTPM) and gallbladder (83.9 nTPM) expression, vesicular localization, cancer-enhanced specificity, and immune cell enrichment.\n\nWith 234 papers, VNN1 is well-studied for CoA recycling and redox homeostasis but has emerging 2025 translational applications: (1) inflammation and redox balance target in immunometabolic diseases; (2) METTL3-mediated m6A modification drives Nectin-4-induced VNN1 upregulation in esophageal squamous cell carcinoma; (3) FOXA1-mediated VNN1 suppresses osteogenic differentiation in periodontal ligament stem cells; (4) biomarker for postoperative complications in cardiological patients via HIF-1α/VNN1 axis. ClinVar contains 12 pathogenic variants (6q23.2 CNVs including c.1360-242C>A splice variant and deletions). This positions VNN1 as a critical metabolic enzyme linking CoA metabolism, redox signaling, and inflammatory disease pathogenesis.
+
+## Evidence
+```
+InterPro: IPR003010, IPR012101, IPR036526, IPR040154, IPR043957, PF00795, PF19018, PS50263, PTHR10609, PIRSF011861, cd07567, G3DSA:3.60.110.10, SSF56317 | STRING: PANK3 (0.907), PANK1 (0.907), PANK2 (0.906), SERPINE2 (0.770), SRY (0.637), PRRG4 (0.574), TAAR2 (0.539), TAAR5 (0.518), STX7 (0.510), VNN2 (0.435) | HPA: Liver 204.4 nTPM, Intestine 128.3 nTPM, Gallbladder 83.9 nTPM (Group enriched), Vesicles, Cancer enhanced, Immune cell enhanced | ClinVar: 12 pathogenic variants (6q23.2 CNVs, c.1360-242C>A splice variant, deletions) | AlphaFold pLDDT: 92.4 (very high confidence) | UniProt: O95497 (513 aa) | Literature: 234 papers—Well-studied pantetheinase; emerging 2025: METTL3-m6A-ESCC axis, FOXA1-osteogenesis link, HIF-1α cardiovascular biomarker
+```

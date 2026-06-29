@@ -1,0 +1,15 @@
+# LGALS7B: High-Abundance Skin-Expressed Galectin Regulating Keratinocyte Adhesion, Apoptosis, and Cancer Progression via LGALS7 Paralog Interaction and Carbohydrate-Mediated Signaling
+
+**Date:** 2026-04-17T07:11:00.525054
+
+**Quality Score:** 3.75/10  (E=6.4, D=1.1) [MODERATE]
+
+**Confidence:** MEDIUM
+
+## Description
+LGALS7B encodes a 136 aa galectin (UniProt P47929) localized to the skin (stratified squamous epithelium) and plasma, functioning as a critical regulator of cell-cell adhesion, apoptosis, and cancer progression. InterPro analysis confirms its canonical galectin architecture: Carbohydrate Recognition Domain (CRD) (IPR001079, aa 4-136) with Galactoside-binding lectin fold (PF00337, aa 6-134), belonging to the Galectin family (IPR044156, PTHR11346). AlphaFold predicts a very high confidence structure (pLDDT 96.6), indicating a stable, well-folded protein essential for its carbohydrate-binding function. STRING interactions reveal a specialized network in keratinocytes and cancer cells: LGALS7 (0.986, primary paralog forming heterodimers or competing for substrates), LGALS3BP (0.905, binding protein), BCL2 (0.822, anti-apoptotic regulator), SMAD3 (0.705, TGF-beta signaling), and KRT2 (0.476, keratin). HPA expression shows extreme tissue specificity with massive enrichment in skin (5653.1 nTPM), consistent with roles in epidermal homeostasis, and cancer enhancement. ClinVar reports 5 pathogenic variants, predominantly large 19q copy number gains (x3), suggesting dosage sensitivity; specific intronic SNVs may affect splicing or stability. Literature (7 papers) confirms its role in keratinocyte adhesion and apoptosis but notes it is poorly characterized compared to LGALS7. Functional hypothesis: LGALS7B functions through: (1) Keratinocyte Adhesion - binding beta-galactosides on cell surface/matrix to maintain epithelial integrity; (2) Apoptosis Regulation - modulating BCL2 levels or interacting with LGALS7 to influence cell survival signals; (3) Cancer Progression - overexpression in HNSCC driving EMT and metastasis via SMAD3 activation; (4) Paralog Competition - competing with LGALS7 for carbohydrate substrates to fine-tune signaling. Disease implications include Skin Cancer (Basal Cell, Squamous Cell), Psoriasis, and Head & Neck Squamous Cell Carcinoma (HNSCC). Despite high expression and clinical variant burden, the specific glycan substrates and full signaling partners remain partially unexplored.
+
+## Evidence
+```
+UniProt: P47929 | Size: 136 aa | Location: 19q13.2 | InterPro: IPR001079 (CRD), IPR044156 (Galectin), PF00337 (Galactoside-binding) | STRING: LGALS7(0.986), LGALS3BP(0.905), BCL2(0.822), SMAD3(0.705) | HPA: Skin 5653.1 nTPM, Cancer enhanced | ClinVar: 5 pathogenic variants (19q CN gains) | AlphaFold: pLDDT 96.6 (very high confidence) | Literature: 7 papers - Keratinocyte adhesion (4 cit), Apoptosis (3 cit), Cancer (5 cit) | Function: Carbohydrate-binding galectin regulating skin adhesion, apoptosis, and cancer progression via LGALS7 interaction
+```

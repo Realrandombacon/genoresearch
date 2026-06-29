@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T16:08:22.838492
 
-**Quality Score:** 5/10 (GOOD)
+**Quality Score:** 2.6/10  (E=2.7, D=2.5) [WEAK]
 
 ## Description
 171 aa uncharacterized protein of the FAM209 family with testis-specific expression (108.0 nTPM). May play role in sperm acrosome biogenesis. AlphaFold structure shows medium confidence (pLDDT 58.3) suggesting partially structured protein. STRING interactions include FAM209A paralog and FMR1NB. No PubMed publications - truly understudied. Predicted membrane protein involved in spermatogenesis/differentiation.

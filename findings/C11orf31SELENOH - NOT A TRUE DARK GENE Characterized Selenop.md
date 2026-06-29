@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T13:23:43.691459
 
-**Quality Score:** 4/10 (MODERATE)
+**Quality Score:** 1.3/10  (E=1.6, D=1.0) [POOR]
 
 ## Description
 C11orf31 is SELENOH (Selenoprotein H), a 122aa selenocysteine-containing redox protein. Domain architecture: glutaredoxin fold (aa 31-121, G3DSA:3.40.30.10), Rdx-type selenoprotein domain (aa 35-119, IPR011893), thioredoxin-like superfamily (aa 35-121). Function: may be involved in redox-related processes (exact substrates unknown). BLAST shows strong mammalian conservation: M. fascicularis (94.3%), M. musculus (81.1%), and distant Drosophila homolog dSelM (39.1%). STRING reveals exclusive interactions with OTHER selenoproteins: SELENOT (0.886), SELENOK (0.859), SELENOO (0.833), SELENOW (0.828), SELENOS (0.803), SELENOF (0.799), SEPHS2 (0.782) - suggesting coordinated selenoprotein network. HPA shows ubiquitous expression (all tissues), nucleoplasmic/nucleolar localization. This is NOT a true dark gene - it has clear domain architecture and protein family membership, though precise biochemical function remains incompletely defined.

@@ -1,0 +1,13 @@
+# Uncharacterized Locus at 20p11.21 within 20p Copy Number Variant Region with Pathogenic Duplications
+
+**Date:** 2026-03-19T03:54:56.084362
+
+**Quality Score:** 2.7/10  (E=3.2, D=2.2) [WEAK]
+
+## Description
+LOC101926889 is an uncharacterized genomic locus on chromosome 20p11.21 (NC_000020.11:25196891-25184671) spanning approximately 12.2 kb. Comprehensive database searches reveal no evidence of protein-coding function: no UniProt accession was identified, precluding InterPro domain analysis and AlphaFold structure prediction. STRING database returned no protein interaction partners, confirming absence of canonical protein-coding function. Human Protein Atlas could not resolve this locus to an Ensembl ID, indicating no detectable protein expression in surveyed tissues. However, ClinVar analysis reveals 6 pathogenic/likely pathogenic variants in this region, all copy number gains (duplications) encompassing the short arm of chromosome 20. These structural variants include large duplications ranging from focal events (chr20:22061586-30285812, ~8.2 Mb; chr20:9811433-39316956, ~29.5 Mb) to whole-arm trisomies (chr20:80927-26324843, ~26.2 Mb; chr20:99557-64277321, ~64.2 Mb; chr20:80106-30227427, ~30.1 Mb; chr20:89939-25697564, ~25.6 Mb). These duplications are associated with 20p duplication syndrome phenotypes including developmental delay, intellectual disability, hypotonia, craniofacial dysmorphism, and cardiac defects. The 20p11.21 region contains several dosage-sensitive genes including MACROD2 (mono-ADP-ribosyltransferase diphtheria toxin-like 2), involved in DNA repair and chromatin regulation, and TNFRSF6B (TNF receptor superfamily member 6B/decoy receptor 3), an immunomodulator. LOC101926889 likely functions as part of the 20p11.21 cis-regulatory landscape or encodes a non-coding RNA whose copy number gain contributes to 20p duplication syndrome pathogenesis through gene dosage effects or disruption of topologically associating domains (TADs). The absence of protein-coding features combined with a consistent burden of pathogenic duplications (6 variants) indicates this locus resides within a dosage-sensitive genomic region where increased copy number disrupts neurodevelopmental processes, potentially via overexpression of flanking critical genes or alteration of chromatin architecture.
+
+## Evidence
+```
+ClinVar: 6 pathogenic/likely pathogenic variants (duplications at chr20:80927-26324843, chr20:99557-64277321, chr20:80106-30227427, chr20:22061586-30285812, chr20:9811433-39316956, chr20:89939-25697564); Genomic location: 20p11.21 (NC_000020.11:25196891-25184671, ~12.2 kb); No UniProt/InterPro/STRING/HPA protein data; Within 20p duplication syndrome critical region containing MACROD2/TNFRSF6B
+```

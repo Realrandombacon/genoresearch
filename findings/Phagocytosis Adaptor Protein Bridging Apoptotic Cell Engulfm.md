@@ -1,0 +1,15 @@
+# Phagocytosis Adaptor Protein Bridging Apoptotic Cell Engulfment to Cytoskeletal Remodeling Through PTB Domain-Mediated Protein Interactions
+
+**Date:** 2026-06-27T09:05:04.753344
+
+**Quality Score:** 9/10 (EXCELLENT)
+
+**Confidence:** HIGH
+
+## Description
+GULP1 (GULP PTB domain containing engulfment adaptor 1, CED-6 homolog) is a 304 amino acid intracellular adaptor protein essential for phagocytic engulfment of apoptotic cells. The protein contains a canonical phosphotyrosine-binding domain (PTB/PID, IPR006020, PF00640, positions 22-158) within a PH-like fold superfamily (IPR011993, SSF50729) that mediates protein-protein interactions during engulfment signaling. AlphaFold prediction shows high structural confidence (pLDDT 74.4), indicating a well-folded adaptor with stable interaction interfaces. HPA data reveals tissue-enhanced expression with highest levels in epididymis (77.9 nTPM), detected in many tissues, with vesicular subcellular localization consistent with phagocytic cup formation and endocytic trafficking functions. STRING interaction network identifies 10 partners in engulfment and cytoskeletal pathways: DOCK1 (0.927), amyloid precursor protein APP (0.917), ELMO family members ELMO3 (0.907), ELMO2 (0.532), ELMO1 (0.532), the related engulfment receptor MEGF10 (0.870), scavenger receptor STAB2 (0.682), adaptor CRK (0.573), and endocytic receptor LRP1 (0.567). ClinVar reports 28 pathogenic/likely pathogenic variants including copy number losses/gains and splice site mutations, though specific disease phenotypes remain undefined. Literature (97 papers) establishes roles as diagnostic/prognostic biomarker in hepatocellular carcinoma and pancreatic cancer; GULP1 knockout promotes bladder carcinogenesis via NRF2-KEAP1 axis regulation; essential for tendon cell proliferation and maturation affecting motor coordination in mice. GULP1 likely functions as a molecular bridge connecting engulfment receptors to downstream cytoskeletal remodeling machinery through PTB domain-mediated recruitment of DOCK1-ELMO Rac-GEF complexes, enabling actin polymerization necessary for phagocytic cup extension around apoptotic targets—with additional roles in cancer progression through oxidative stress regulation.
+
+## Evidence
+```
+InterPro domains: IPR006020 (PTB/PI domain), IPR011993 (PH-like superfamily), IPR051133 (Adapter and Engulfment Domain-Containing Protein), PF00640 (PTB/PID domain), PS01179 (PID profile), SM00462 (PTB domain), SSF50729 (PH domain-like). STRING interactions: DOCK1 (0.927), APP (0.917), ELMO3 (0.907), MEGF10 (0.870), STAB2 (0.682), CRK (0.573), LRP1 (0.567), ELMO2 (0.532), ELMO1 (0.532), IFT122 (0.431). HPA expression: Tissue enhanced, epididymis 77.9 nTPM, vesicles localization, detected in many tissues. ClinVar: 28 pathogenic/likely pathogenic variants (CNVs, SNVs). AlphaFold: pLDDT 74.4 (high confidence, well-folded). UniProt: Q9UBP9 (304 aa). Literature: 97 papers on GULP1 in apoptotic cell engulfment, cancer biomarkers, and tendon development.
+```

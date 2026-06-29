@@ -1,0 +1,13 @@
+# TMEM102: Mab-21 Domain Transmembrane Protein Regulating Apoptosis and T-cell Migration via RAB3 Pathway
+
+**Date:** 2026-03-27T11:06:58.051555
+
+**Quality Score:** 2.83/10  (E=4.55, D=1.1) [WEAK]
+
+## Description
+TMEM102 (Transmembrane Protein 102, aliases CBAP/D2B) is a 508-amino acid transmembrane protein located on chromosome 17p13.1. The protein contains a highly conserved Mab-21 nucleotidyltransferase-like domain (IPR024810, positions 214-478; SM01265) belonging to the ITPRIP/mab-21 family (PTHR10656, positions 24-495), suggesting potential nucleotide-binding or transferase activity despite lacking canonical catalytic residues. AlphaFold predicts a well-folded structure with global pLDDT score of 74.6 (confident range), indicating stable tertiary structure suitable for protein-protein interactions.\n\nSTRING interaction network reveals strong association with RAB3IL1 (score 0.786, high confidence), a guanine nucleotide exchange factor for Rab-3A, and RAB3IP (0.443), placing TMEM102 within the RAB3 GTPase regulatory pathway involved in vesicle trafficking and exocytosis. Additional interactions include GDF5 (0.630, growth differentiation factor), IL3/CSF2 (cytokines), and ITPRIPL1 (0.498, inositol trisphosphate receptor interacting protein), suggesting roles in cytokine signaling and calcium-mediated processes.\n\nFunctional annotations indicate involvement in mitochondrial outer membrane permeabilization during apoptotic signaling, response to cytokines, and positive regulation of T-cell migration and cell adhesion. ClinVar documents 27 pathogenic/likely pathogenic variants, predominantly copy number losses and gains spanning 17p13.1, implicating TMEM102 dosage sensitivity in disease pathogenesis though specific phenotypes remain undefined.\n\nConservation analysis: The Mab-21 domain is evolutionarily ancient, with homologs in Drosophila (mab-21) and C. elegans, suggesting fundamental cellular function preserved across ~600 million years of evolution.
+
+## Evidence
+```
+InterPro: IPR024810 (Mab-21/Cyclic GMP-AMP synthase-like receptor, aa 214-478), PTHR10656 (ITPRIP/mab-21 nucleotidyltransferase, aa 24-495), SM01265 (Mab-21 domain, aa 214-478), G3DSA:1.10.1410.40 (homologous superfamily, aa 329-477). STRING partners: RAB3IL1 (0.786), GDF5 (0.630), ITPRIPL1 (0.498), IL3 (0.454), PCMT1 (0.446), RAB3IP (0.443), GIMAP8 (0.433), PHF23 (0.432), ZNF524 (0.431), CSF2 (0.400). ClinVar: 27 pathogenic/likely pathogenic variants (copy number losses/gains on 17p13.1). AlphaFold: AF-Q8N9M5-F1, pLDDT 74.6, modeled residues 1-508. UniProt: Q8N9M5, 508 aa. Gene ID: 284114. Location: NC_000017.11 (7435434-7437678).
+```

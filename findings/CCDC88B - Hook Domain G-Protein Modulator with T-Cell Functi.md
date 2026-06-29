@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T12:07:02.031485
 
-**Quality Score:** 8/10 (EXCELLENT)
+**Quality Score:** 3.0/10  (E=2.8, D=3.2) [WEAK]
 
 ## Description
 1476aa coiled-coil protein with N-terminal Hook domain (aa 56-177) and CH domain. Member of CCDC88 family (related to Girdin/CCDC88A and Daple/CCDC88C). Functions as positive regulator of T-cell maturation and inflammatory function in both CD4+ and CD8+ compartments. Localizes to nucleoplasm/centrosome/cytosol. RNA expression enriched in brain (85.3 nTPM) and lymphoid tissue (84.4 nTPM). Interacts with HOOK1 (cytoskeletal), GNAI3 (G-protein alpha), and other trafficking proteins. Has 9 ClinVar pathogenic variants but no specific disease associations yet - true dark gene with clinical relevance.

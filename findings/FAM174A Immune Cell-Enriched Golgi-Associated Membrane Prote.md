@@ -1,0 +1,13 @@
+# FAM174A: Immune Cell-Enriched Golgi-Associated Membrane Protein with 5q21 Copy Number Variants
+
+**Date:** 2026-03-19T20:49:33.611611
+
+**Quality Score:** 4.05/10  (E=5.8, D=2.3) [MODERATE]
+
+## Description
+FAM174A encodes a 190 amino acid uncharacterized membrane protein (UniProt Q8TBP5) localized to Golgi apparatus and cytosol. InterPro analysis reveals a conserved FAM174-like membrane protein family domain (IPR009565/PF06679, residues 11-190) and PANTHER family match (PTHR28607), indicating evolutionary constraint across vertebrates despite lack of detailed functional annotation. AlphaFold predicts a medium-confidence structure (pLDDT 59.0), characteristic of partially structured membrane proteins with flexible regions typical of small transmembrane regulators. HPA data reveals immune cell-enriched expression with cell type specificity, ubiquitous detection across all tissues, low cancer specificity, and predicted membrane protein classification, suggesting roles in immune cell trafficking and Golgi-mediated protein sorting. STRING interactions identify 10 medium-confidence partners (0.433-0.533 scores): TMEM168 (transmembrane protein), RIOK2 (RNA kinase), ST8SIA4 (sialyltransferase), SEZ6L (seizure-like protein), GLYATL3 (glycine acyltransferase), VSIG10 (V-set immunoglobulin protein), OR10V1 (olfactory receptor), RGMB (repulsive guidance molecule), LIX1 (centrosomal protein), and HEATR5B (HEAT repeat protein). This diverse network suggests FAM174A functions as a Golgi membrane scaffold coordinating vesicular trafficking, protein glycosylation, and immune receptor processing. ClinVar contains 20 pathogenic/likely pathogenic variants, predominantly copy number losses/gains spanning 5q14.3-21.2 region, indicating dosage sensitivity and disease relevance. The 5q21 chromosomal location overlaps with multiple disease-associated regions including immunodeficiency loci. Mechanistic hypothesis: FAM174A acts as a Golgi-associated membrane scaffold protein that recruits glycosylation enzymes (ST8SIA4), vesicular trafficking components (TMEM168), and immune signaling molecules (VSIG10, RGMB) to coordinate protein maturation with immune cell surface receptor expression, explaining its disease-associated copy number variants affecting the 5q21.1 genomic region and potential role in immunodeficiency or autoimmune disorders.
+
+## Evidence
+```
+InterPro: IPR009565/PF06679/PTHR28607 (FAM174 membrane, aa11-190) | STRING: TMEM168(0.533)/RIOK2(0.527)/ST8SIA4(0.514)/SEZ6L(0.474)/GLYATL3(0.471)/VSIG10(0.452)/OR10V1(0.447)/RGMB(0.446)/LIX1(0.437)/HEATR5B(0.433) | HPA: Golgi+Cytosol/immune-enriched/ubiquitous | ClinVar: 20 pathogenic CNVs (5q14.3-21.2) | AlphaFold: pLDDT 59.0 (partially structured) | UniProt: Q8TBP5 (190aa)/5q21.1
+```

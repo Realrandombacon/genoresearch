@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-18T01:19:13.973266
 
-**Quality Score:** 10/10 (EXCELLENT)
+**Quality Score:** 5.05/10  (E=7.3, D=2.8) [SOLID]
 
 ## Description
 TMEM53 encodes a 277 amino acid transmembrane protein (UniProt Q6P2H8) containing a DUF829 domain (IPR008547, PF05705, residues 36-271) with an alpha/beta hydrolase fold (G3DSA:3.40.50.1820, residues 28-273). AlphaFold predicts a well-folded structure with high confidence (pLDDT 89.4). HPA data shows ubiquitous expression with liver enrichment (56.1 nTPM), Golgi apparatus and focal adhesion localization. STRING interactions reveal associations with ACBD6 (0.552), TMEM238 (0.548), RNF220 (0.545), ERI3 (0.534), and other transmembrane proteins. ClinVar reports 8 pathogenic variants including copy number gains/losses and frameshift mutations. The gene is conserved across vertebrates: mouse (Q9D0Z3, 276 aa, ~99% identity), zebrafish (Q6DHN0, 281 aa, ~85% identity). Disease association includes craniotubular dysplasia Ikegawa type and dwarfism.

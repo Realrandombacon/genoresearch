@@ -1,0 +1,13 @@
+# FLJ38576: Glycine-Arginine-Rich Intrinsically Disordered Scaffold with Extreme Dosage Sensitivity
+
+**Date:** 2026-03-18T21:45:52.994869
+
+**Quality Score:** 4.85/10  (E=5.7, D=4.0) [MODERATE]
+
+## Description
+FLJ38576 encodes a 238 amino acid uncharacterized protein (UniProt Q8N913) located at chromosome 4q35.1. AlphaFold structure prediction reveals extremely low confidence (pLDDT=35.5), indicating the protein is predominantly intrinsically disordered rather than globular. Sequence analysis shows elevated glycine (36/238, 15.1%), arginine (34/238, 14.3%), proline (24/238, 10.1%), and serine (23/238, 9.7%) content—collectively 49.2%—which is highly characteristic of intrinsically disordered regions that lack stable tertiary structure. Charged residues comprise 26.1% (62/238) while hydrophobic residues are 26.9% (64/238), yielding a low hydrophobicity ratio consistent with disorder propensity. The glycine-arginine richness suggests potential nucleic acid binding or roles in phase-separated biomolecular condensates. ClinVar contains 53 pathogenic/likely pathogenic copy number variants (CNVs) spanning 4q32.1-35.2 regions, including both deletions (e.g., chr4:157628420-189863176, chr4:177853624-190036305, chr4:170899124-190036318) and duplications (e.g., chr4:134935616-190036318, chr4:168119317-190095391), demonstrating extreme dosage sensitivity where both haploinsufficiency and triplosensitivity cause disease. No InterPro domains were detected, STRING interactions returned no partners, and HPA expression data is unavailable—consistent with poor annotation of dark genes. The combination of intrinsic disorder, glycine-arginine richness, moderate size (238 aa), and extensive clinical CNV associations suggests FLJ38576 functions as a disordered scaffold or adaptor protein that mediates transient protein-protein or protein-nucleic acid interactions in chromatin remodeling or transcriptional regulation complexes. The 4q35.2 subtelomeric region is associated with facioscapulohumeral muscular dystrophy (FSHD), and FLJ38576 dosage alterations may contribute to chromatin architecture defects in this locus. Disordered scaffolds often regulate pathway flux through multivalent weak interactions, and dosage alterations may disrupt stoichiometric balance of interacting partners or phase separation properties.
+
+## Evidence
+```
+Evidence: UniProt Q8N913 (238 aa); AlphaFold pLDDT=35.5 (disordered); Sequence: G=36, R=34, P=24, S=23 (49.2% disorder-promoting); Charged=62 (26.1%), Hydrophobic=64 (26.9%); ClinVar: 53 pathogenic CNVs (deletions chr4:157628420-189863176, chr4:177853624-190036305; duplications chr4:134935616-190036318); InterPro: failed; STRING: no partners; HPA: no data; Location: 4q35.1
+```

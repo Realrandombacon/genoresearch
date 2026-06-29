@@ -1,0 +1,13 @@
+# LOC113939970: 19p Repressive Enhancer with High Dosage Sensitivity
+
+**Date:** 2026-03-19T02:53:10.378970
+
+**Quality Score:** 4.35/10  (E=5.2, D=3.5) [MODERATE]
+
+## Description
+LOC113939970 is a Sharpr-MPRA regulatory region 13254 located on chromosome 19p13.3 (genomic coordinates: 3876950-3877244 on NC_000019.10). This 295 bp genomic sequence was predicted as a transcriptional regulatory region based on ENCODE chromatin state analysis and experimentally validated as a functional repressive element (silencer) using Sharpr-MPRA in HepG2 liver carcinoma cells. As a non-coding regulatory element, it lacks protein-coding potential (no UniProt entry, no InterPro domains, no AlphaFold structure, no STRING interactions, no HPA protein expression). ClinVar analysis identified 11 pathogenic/likely pathogenic variants: 7 copy number losses (deletions) and 4 copy number gains (triplifications), indicating strong balanced dosage sensitivity where both under-dosage and over-dosage disrupt cellular homeostasis. The high variant count (11 vs 3 for LOC113960610, 5 for LOC114004388, 21 for LOC114004412) suggests intermediate-to-high clinical penetrance. The 19p13.3 chromosomal region is gene-dense and contains CACNA1A (P/Q-type calcium channel alpha-1A subunit at 19p13.3, mutations cause episodic ataxia type 2, familial hemiplegic migraine, spinocerebellar ataxia type 6), INSRR (insulin receptor-related receptor), and multiple tumor suppressor candidates. As a repressive enhancer/silencer, this element likely suppresses expression of one or more target genes in cis within the 19p domain. The balanced pathogenicity pattern (7 losses, 4 gains) with deletion predominance suggests this silencer regulates genes requiring tight repression - haploinsufficiency of the silencer leads to oncogene overexpression or developmental gene dysregulation. This element may contribute to 19p deletion syndromes (including 19p13.3 microdeletion syndrome featuring overgrowth, intellectual disability, and distinctive facial features), cerebellar ataxias through CACNA1A dysregulation, or cancer predisposition through loss of tumor suppressor repression control.
+
+## Evidence
+```
+Evidence: NCBI Gene ID 113939970; Chromosome 19p13.3 (3876950-3877244); 295 bp regulatory region; ENCODE chromatin state prediction; Sharpr-MPRA validated repressive element in HepG2 cells; ClinVar: 11 pathogenic CNVs (7 losses, 4 gains - balanced dosage sensitivity with deletion predominance); No protein-coding potential (non-coding regulatory element); Target region contains CACNA1A, INSRR, tumor suppressor candidates
+```

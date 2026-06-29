@@ -1,0 +1,13 @@
+# TMEM143: Mitochondrial Transmembrane Scaffold Protein with DUF3754 Domain Regulating Hematopoietic Progenitor Differentiation
+
+**Date:** 2026-03-23T01:02:39.844091
+
+**Quality Score:** 4.95/10  (E=4.6, D=5.3) [MODERATE]
+
+## Description
+TMEM143 encodes a 459 amino acid transmembrane protein (UniProt Q96AN5) containing a conserved domain of unknown function DUF3754 (IPR022227, PF12576, residues 243-351) within the TMEM143 family (PTHR16095, residues 30-425). AlphaFold predicts a well-folded structure with high confidence (pLDDT 81.1), indicating stable transmembrane topology suitable for organelle membrane integration. Despite gene summary predicting mitochondrial localization, Human Protein Atlas data shows nucleoli fibrillar center localization, suggesting dual targeting or context-dependent relocalization. Expression is tissue-enhanced with highest levels in skeletal muscle (89.4 nTPM), tongue (57.1 nTPM), and heart muscle (41.6 nTPM), indicating enrichment in striated muscle tissues with high metabolic demand. ClinVar documents 10 pathogenic/likely pathogenic variants, all 19q13.33 copy number gains (duplications), demonstrating dosage sensitivity where increased gene copy number causes disease. The DUF3754 domain is conserved across vertebrates, with Panther family PTHR16095 indicating orthologs in mouse and zebrafish. Functional hypothesis: TMEM143 acts as a transmembrane scaffold protein that regulates hematopoietic progenitor cell differentiation through modulation of mitochondrial-nuclear crosstalk. The nucleoli fibrillar center localization suggests involvement in ribosomal RNA processing or ribosome biogenesis, potentially linking mitochondrial metabolic state to translational capacity. Mechanistic proposal: TMEM143 anchors protein complexes at mitochondrial outer membrane or nuclear envelope, recruiting differentiation factors (e.g., GATA1, RUNX1) or metabolic sensors (e.g., mTOR components) to couple cellular energy status with hematopoietic lineage commitment. Dosage sensitivity (ClinVar duplications) suggests precise TMEM143 levels are critical for maintaining progenitor cell quiescence versus differentiation balance, with overexpression driving aberrant differentiation or proliferation.
+
+## Evidence
+```
+Evidence: InterPro IPR022227/PF12576 DUF3754 domain (243-351 aa), PTHR16095 TMEM143 family (30-425 aa); UniProt Q96AN5 (459 aa); AlphaFold pLDDT 81.1; HPA skeletal muscle 89.4 nTPM, tongue 57.1 nTPM, heart muscle 41.6 nTPM, nucleoli fibrillar center localization; ClinVar 10 pathogenic variants (19q13.33 CNVs); Gene ontology: mitochondrial location, hematopoietic progenitor cell differentiation; Tissue-enhanced RNA expression pattern
+```

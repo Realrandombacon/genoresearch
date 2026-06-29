@@ -1,0 +1,13 @@
+# C7orf61/SPACDR: Testis-Enriched Acrosomal Scaffold Protein with Spermatogenesis Interaction Network
+
+**Date:** 2026-03-30T00:18:33.674257
+
+**Quality Score:** 4.85/10  (E=3.7, D=6.0) [MODERATE]
+
+## Description
+C7orf61, now annotated as SPACDR (Sperm acrosome developmental regulator, UniProt Q8IZ16), is a 206-amino acid protein located on chromosome 7. InterPro analysis identifies this gene as the founding member of the sperm acrosome developmental regulator family (IPR031534) containing a domain of unknown function DUF4703 (PF15775, residues 22-206) that spans nearly the entire protein. AlphaFold structure prediction shows medium confidence (pLDDT 60.1), indicating partial disorder consistent with scaffold proteins that require conformational flexibility for multivalent binding during acrosome biogenesis. Human Protein Atlas reveals strong testis-specific expression (66.0 nTPM) with tissue-enriched RNA specificity and subcellular localization to vesicles and the acrosome, the cap-like structure covering the sperm head essential for egg penetration. STRING interaction network reveals 10 partners strongly enriched for spermatogenesis functions: TSC22D4 (0.926, high confidence transcriptional regulator), SPATA16 (0.679, spermatogenesis-associated protein required for acrosome formation), C2CD6 (0.678, C2 domain protein), DNAH17 (0.540, axonemal dynein heavy chain), CCDC62 (0.507, coiled-coil protein), DPY19L2 (0.437, glycosyltransferase critical for acrosome assembly), and ZPBP (0.420, zona pellucida binding protein). ClinVar contains no pathogenic variants, suggesting either functional redundancy, recessive inheritance patterns not captured in clinical databases, or that mutations cause male infertility not typically submitted to ClinVar. Conservation across mammals (macaque, bear, mink, naked mole rat) indicates ancient evolutionary origin tied to reproductive fitness. SPACDR likely functions as a structural scaffold during acrosome vesicle fusion and maturation, potentially coordinating membrane trafficking proteins with cytoskeletal elements. Disruption would impair sperm-egg recognition and fertilization capacity.
+
+## Evidence
+```
+UniProt: Q8IZ16 (SPACDR), 206 aa; InterPro: IPR031534 (sperm acrosome developmental regulator, aa 1-206), PF15775/DUF4703 (aa 22-206); STRING: 10 interactions - TSC22D4 (0.926), SPATA16 (0.679), C2CD6 (0.678), DNAH17 (0.540), CCDC62 (0.507), PILRB (0.474), ZCWPW1 (0.455), DPY19L2 (0.437), ZPBP (0.420), PPP1R35 (0.405); HPA: Testis 66.0 nTPM, tissue-enriched, acrosome+vesicles localization; ClinVar: 0 pathogenic variants; AlphaFold: pLDDT 60.1 (medium confidence), residues 1-206; Location: chromosome 7; Conservation: Macaque H9F2V5, Bear A0A384CP84, Mink U6CYT0, Naked mole rat A0A0P6J1V5
+```

@@ -1,0 +1,13 @@
+# LOC101928338: 11p14.1 Uncharacterized Genomic Region with No Clinical Variants Suggesting Non-Essential or Redundant Regulatory Function
+
+**Date:** 2026-03-19T02:33:42.675385
+
+**Quality Score:** 4.42/10  (E=3.85, D=5.0) [MODERATE]
+
+## Description
+LOC101928338 is an uncharacterized genomic region at chromosome 11p14.1 (genomic coordinates 30730285-30805071, ~75kb span). This locus lacks functional characterization and shows no evidence of protein-coding potential. Comprehensive analysis reveals: (1) No UniProt accession — not a characterized protein; (2) No STRING interactions — not a protein or lacks interaction data; (3) ZERO ClinVar pathogenic variants — no known clinical significance; (4) HPA could not resolve — not protein-coding or not in Ensembl database. The complete absence of pathogenic ClinVar variants suggests this region may be non-essential, functionally redundant, or under strong purifying selection preventing observable variation. The 11p14.1 region contains several critical genes including BDNF (brain-derived neurotrophic factor, neuronal survival and plasticity, neurodegenerative disorders when dysregulated), WT1 (Wilms tumor 1, urogenital development, Denys-Drash and Frasier syndromes when mutated), and multiple other developmental loci. LOC101928338 may represent intergenic sequence, unannotated non-coding RNA, or redundant regulatory elements buffered by neighboring functional sequences. The lack of clinical variants contrasts sharply with functionally validated enhancers (LOC1268xxxxx series showing 5-43 pathogenic CNVs) and LOC105371414 (30 pathogenic variants). This represents a genuinely dark genomic region with minimal functional characterization — the absence of disease variants suggests either biological redundancy or location in a genomic neighborhood buffered against pathogenic variation.
+
+## Evidence
+```
+Evidence: (1) Gene location: 11p14.1, 30730285-30805071 (NC_000011.10, ~75kb); (2) Functional annotation: uncharacterized (no STARR-seq validation); (3) Cofactor dependency: unknown (no functional assay data); (4) ClinVar: 0 pathogenic variants — no clinical significance; (5) No UniProt accession (not characterized protein); (6) STRING: no protein interactions; (7) HPA: could not resolve to Ensembl ID; (8) PubMed: likely 0 publications for this specific locus; (9) Variant pattern: ZERO pathogenic variants suggests non-essential or redundant function; (10) Clinical context: 11p14.1 near BDNF (neurotrophic factor, neurodegeneration), WT1 (Wilms tumor, urogenital development); (11) Mechanistic insight: absence of disease variants indicates biological redundancy or purifying selection
+```

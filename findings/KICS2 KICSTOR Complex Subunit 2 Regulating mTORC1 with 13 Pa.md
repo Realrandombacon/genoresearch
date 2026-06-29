@@ -1,0 +1,15 @@
+# KICS2: KICSTOR Complex Subunit 2 Regulating mTORC1 with 13 Pathogenic Variants Causing Intellectual Disability and Epilepsy
+
+**Date:** 2026-04-27T01:07:07.481794
+
+**Quality Score:** 4.3/10  (E=6.1, D=2.5) [MODERATE]
+
+**Confidence:** HIGH
+
+## Description
+KICS2 (KICSTOR Subunit 2, also known as C12orf66) encodes a 445-amino acid protein that is a core component of the KICSTOR complex, a critical regulator of mTORC1 signaling in response to amino acid availability. This GENUINE DARK gene has only 6 literature references despite clear clinical significance. A landmark 2025 study (5 citations) identified bi-allelic KICS2 mutations as causative of intellectual disability and epilepsy through impaired KICSTOR complex-mediated mTORC1 regulation. InterPro analysis reveals KICS2-specific family domains (IPR018544, PF09404, PTHR31581) spanning residues 4-444, with central domain superfamily (IPR038060, residues 112-310) and FLJ32549 domain-like structures (SSF158548: 123-293, SSF160651: 295-440). AlphaFold predicts a well-folded structure with high confidence (pLDDT 88.9), consistent with stable complex formation. Human Protein Atlas shows ubiquitous expression across all tissues with low specificity, localized to lysosomes and cytokinetic bridge—localizations matching its role in nutrient sensing and cell division. STRING interactions reveal the complete KICSTOR-GATOR1 axis: KICS2 binds SZT2 (0.999), KPTN (0.999), ITFG2 (0.825) forming the KICSTOR complex, which recruits GATOR1 subunits DEPDC5 (0.999), NPRL2 (0.966), NPRL3 (0.856), and interacts with MIOS (0.829) and Ragulator components WDR59 (0.505), WDR24 (0.498). ClinVar documents 13 pathogenic variants including missense mutations (p.Tyr393Cys, p.Asp296Glu), frameshift deletion (p.Lys260fs), splice site mutation (c.236-2del), nonsense mutation (p.Glu3Ter), and copy number losses at 12q14-15. Functional hypothesis: KICS2 serves as a scaffold protein anchoring the KICSTOR complex to lysosomal membranes, enabling amino acid starvation signals to inhibit mTORC1 via GATOR1 recruitment. Mechanistic proposal: Loss-of-function mutations disrupt KICSTOR complex assembly, preventing GATOR1 lysosomal localization, causing constitutive mTORC1 activation even during amino acid deprivation, leading to neuronal hyperexcitability (epilepsy) and impaired neurodevelopment (intellectual disability). The cytokinetic bridge localization suggests additional roles in cell division, potentially explaining multi-system phenotypes.
+
+## Evidence
+```
+UniProt: Q96MD2 (445 aa) | InterPro: IPR018544, PF09404, PTHR31581, IPR038060, SSF158548, SSF160651 | AlphaFold: pLDDT 88.9 (1-445) | HPA: Detected in all tissues, lysosomes + cytokinetic bridge | ClinVar: 13 pathogenic variants (missense, frameshift, nonsense, CNV at 12q14-15) | STRING: DEPDC5 (0.999), SZT2 (0.999), KPTN (0.999), NPRL2 (0.966), NPRL3 (0.856), MIOS (0.829), ITFG2 (0.825), WDR59 (0.505), WDR24 (0.498) | Literature: 6 papers (2025 bi-allelic mutations cause ID/epilepsy via mTORC1 dysregulation)
+```

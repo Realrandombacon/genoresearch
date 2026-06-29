@@ -1,0 +1,13 @@
+# DUF4677 Domain Protein with Mitochondrial Localization and Brain-Enriched Expression in Chromosome 12 Copy Number Variant Regions
+
+**Date:** 2026-03-28T06:45:05.525355
+
+**Quality Score:** 4.62/10  (E=4.75, D=4.5) [MODERATE]
+
+## Description
+CCDC184 (UniProt Q52MB2) is a 194 amino acid coiled-coil domain-containing protein characterized by a domain of unknown function DUF4677 (IPR031458/PF15726, positions 1-194) that spans the entire protein length. Despite the 'unknown function' designation, AlphaFold predicts a medium-confidence folded structure (global pLDDT 66.9), indicating this small protein adopts a stable conformation likely critical for its biological role. HPA data shows tissue-enhanced expression with brain enrichment (32.4 nTPM), classified as cancer-enhanced, localized to both mitochondria and cytosol suggesting dual compartmentalization potentially linking mitochondrial function with cytoplasmic processes. STRING interaction network reveals associations with diverse proteins including ZGRF1 (score 0.441), a large zinc finger genome stability factor; ZNF280D (0.431), a C2H2 zinc finger transcription factor; PDZRN4 (0.426), an E3 ubiquitin ligase with PDZ domains involved in receptor signaling; RIMKLA (0.422), involved in NF-kappaB signaling; RPUSD3 (0.416), a pseudouridine synthase modifying RNA; PRR15L (0.408), a proline-rich protein; and ANKRD24 (0.408), an ankyrin repeat protein. ClinVar contains 9 pathogenic/likely pathogenic variants, predominantly large copy number gains and losses spanning chromosome 12p13.33-q24.33 regions (chr12:173787-133777902), demonstrating strong dosage sensitivity though no specific monogenic disease is yet attributed solely to CCDC184. The convergence of mitochondrial localization, brain-enriched expression, cancer-enhanced patterns, and interactions with genome stability factors (ZGRF1), transcriptional regulators (ZNF280D), and ubiquitin ligases (PDZRN4) suggests CCDC184 may function as a mitochondrial-cytosolic adaptor protein involved in cellular stress responses, potentially linking mitochondrial metabolism with nuclear gene regulation pathways dysregulated in malignancy and neurodevelopmental contexts.
+
+## Evidence
+```
+InterPro domains: DUF4677 IPR031458/PF15726 (1-194), PTHR31554 (1-194) | STRING partners: ZGRF1 (0.441), ZNF280D (0.431), PDZRN4 (0.426), RIMKLA (0.422), RPUSD3 (0.416), PRR15L (0.408), ANKRD24 (0.408) | HPA: tissue enhanced, brain 32.4 nTPM, cancer enhanced, mitochondria/cytosol | ClinVar: 9 pathogenic variants (CNVs at 12p13.33-q24.33 chr12:173787-133777902, 12q11-13.12 chr12:37857750-49791459) | AlphaFold: pLDDT 66.9 (medium confidence), 194 aa modeled | UniProt: Q52MB2
+```

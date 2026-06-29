@@ -1,0 +1,13 @@
+# ZNF214: KRAB Zinc Finger Transcriptional Repressor with Chromatin Remodeling Complex Interactions and 11p15.4 CNV Associations
+
+**Date:** 2026-03-23T06:01:53.260089
+
+**Quality Score:** 2.85/10  (E=4.7, D=1.0) [WEAK]
+
+## Description
+ZNF214 encodes a 606 amino acid C2H2 zinc finger transcription factor (UniProt Q9UL59) with canonical KRAB repressor architecture. InterPro analysis reveals: (1) N-terminal KRAB domain (IPR001909, PF01352, residues 3-83) - a transcriptional repression module that recruits co-repressors; (2) Multiple C2H2 zinc finger domains (IPR013087, PF00096) at positions 247-274, 275-302, 303-330, 358-380, 386-408 - providing sequence-specific DNA binding capability. HPA localizes ZNF214 to nucleoplasm and midbody, with cell type enhanced expression pattern and low tissue specificity, consistent with regulatory function. STRING identifies 10 high-confidence interactions including chromatin regulators BAZ2B (0.807), BAZ2A (0.802), BAZ1A (0.683), BAZ1B (0.660), and co-repressor TRIM28 (0.403) - the BAZ family proteins contain bromodomains and PHD fingers involved in chromatin remodeling, while TRIM28/KAP1 is the canonical KRAB domain co-receptor. ClinVar contains 16 pathogenic/likely pathogenic variants, all copy number gains spanning 11p15.4 region (230kb-33Mb duplications), overlapping the Beckwith-Wiedemann syndrome chromosome region-2 (BWSCR2). Mouse ortholog not identified via NCBI search, suggesting rapid evolution of this zinc finger family. FUNCTIONAL HYPOTHESIS: ZNF214 functions as a sequence-specific transcriptional repressor that recruits chromatin remodeling complexes via KRAB-TRIM28 interactions. The multiple C2H2 zinc fingers confer DNA binding specificity to target gene promoters/enhancers. Interaction with BAZ family bromodomain proteins suggests coupling of transcriptional repression with histone modification and nucleosome positioning. Midbody localization indicates potential additional role in cytokinesis or cell division regulation. Pathogenic 11p15.4 CNVs causing ZNF214 dosage alterations may disrupt transcriptional repression of imprinted genes in the Beckwith-Wiedemann region, potentially contributing to overgrowth phenotypes. Testis-predominant expression (from gene_info) suggests specialized role in germ cell chromatin regulation.
+
+## Evidence
+```
+Evidence: UniProt Q9UL59 (606aa, nucleoplasm/midbody); InterPro IPR001909/PF01352 (KRAB 3-83), IPR013087/PF00096 (C2H2 zinc fingers 247-408); HPA (transcription factor, nucleoplasm/midbody, cell type enhanced); STRING (BAZ2B 0.807, BAZ2A 0.802, BAZ1A 0.683, BAZ1B 0.660, TRIM28 0.403, NAP1L4 0.590); ClinVar (16 pathogenic variants, 11p15.4 CNVs overlapping BWSCR2); Conservation (mouse ortholog not identified); AlphaFold (API error)
+```

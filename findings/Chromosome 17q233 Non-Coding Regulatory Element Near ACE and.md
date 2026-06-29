@@ -1,0 +1,13 @@
+# Chromosome 17q23.3 Non-Coding Regulatory Element Near ACE and Growth Hormone Locus
+
+**Date:** 2026-03-18T23:07:59.120768
+
+**Quality Score:** 3.4/10  (E=4.5, D=2.3) [WEAK]
+
+## Description
+LOC101927898 is an uncharacterized non-coding genetic locus on chromosome 17q23.3 (NC_000017.11, positions 63690996-63682335, ~8.6 kb region) with no current evidence of protein-coding function or clinical significance. No UniProt accession exists, preventing InterPro domain analysis and AlphaFold structure prediction. No mRNA transcript was identified in NCBI nucleotide databases, and Human Protein Atlas could not resolve the gene to an Ensembl ID, indicating no detectable protein expression. STRING-DB detected no protein-protein interactions. ClinVar contains zero pathogenic variants, suggesting no established disease association. The 17q23.3 chromosomal location places this locus in proximity to several functionally important genes including ACE (angiotensin I converting enzyme, cardiovascular and renal homeostasis, target of ACE inhibitors), GH1 (growth hormone 1, somatotroph function, growth regulation), ERN1/IRE1 (endoplasmic reticulum to nucleus signaling 1, unfolded protein response, apoptosis), PECAM1 (platelet and endothelial cell adhesion molecule 1, leukocyte transendothelial migration), and DDX5 (DEAD-box helicase 5, RNA splicing and transcriptional coactivation). Functional hypothesis: LOC101927898 likely represents a cis-regulatory element (enhancer, silencer, or locus control region) controlling expression of ACE and/or GH1 in the 17q23.3 region. The absence of clinical variants in ClinVar suggests either functional redundancy, tissue-specific expression not captured in current databases, or that this locus represents a recently evolved regulatory element without strong evolutionary constraint. Disease mechanism, if any, would likely involve subtle modulation of ACE expression affecting cardiovascular function and blood pressure regulation, or GH1 expression affecting growth and metabolism. The genomic context near multiple endocrine and cardiovascular genes suggests this locus may function as part of a transcriptional regulatory hub controlling hormonal and vascular homeostasis. Further investigation using chromatin conformation capture (Hi-C), epigenetic marks (H3K27ac, H3K4me1), and eQTL analysis would be needed to confirm enhancer activity and target genes.
+
+## Evidence
+```
+Genomic: chr17q23.3 (63690996-63682335, NC_000017.11); Size: ~8.6 kb; ClinVar: 0 variants; UniProt/InterPro/AlphaFold: no accession; Transcript: none found; STRING/HPA: no data; Neighborhood: ACE, GH1, ERN1/IRE1, PECAM1, DDX5
+```

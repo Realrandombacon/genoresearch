@@ -1,0 +1,13 @@
+# LOC124909442: Uncharacterized Non-Coding Locus at 3q23 with No Protein-Coding Evidence
+
+**Date:** 2026-03-23T07:05:08.791222
+
+**Quality Score:** 4.08/10  (E=3.65, D=4.5) [MODERATE]
+
+## Description
+LOC124909442 (Gene ID: 124909442) is an uncharacterized genomic locus mapping to chromosome 3q23 (141,934,360-141,938,421 bp, ~4.1 kb genomic span on reverse strand). Multiple evidence lines support non-coding classification: (1) No UniProt accession - no protein product identified; (2) No STRING protein interactions - not translated into functional protein; (3) No HPA expression data - not detected in tissue proteome; (4) No ClinVar variants - no known disease associations, suggesting either true non-coding function or lack of phenotypic impact when disrupted; (5) Genomic span of ~4 kb is consistent with long non-coding RNA (lncRNA) or regulatory element rather than protein-coding gene. The 3q23 region contains several protein-coding genes including SATB1 (special AT-rich binding protein 1, chromatin organizer, T-cell development), CLDN16 (claudin-16, tight junction protein, renal magnesium wasting), and FOXK1 (forkhead box K1, transcription factor). Functional hypothesis: LOC124909442 likely represents a long non-coding RNA (lncRNA) or cis-regulatory element (enhancer/silencer) that modulates expression of neighboring genes in 3q23. The lack of disease-associated variants in ClinVar suggests either: (a) functional redundancy with paralogs, (b) subtle regulatory effects not captured by current clinical genetics, (c) tissue-specific or context-dependent function not assayed in standard clinical panels, or (d) true non-functional genomic sequence retained in RefSeq due to automated annotation pipelines. If functional as lncRNA, potential mechanisms include: transcriptional interference with SATB1 or FOXK1 promoters, chromatin looping to distal enhancers, or scaffolding for chromatin-modifying complexes. The 3q23 region is associated with 3q23 duplication/deletion syndromes featuring intellectual disability, growth abnormalities, and dysmorphic features - though LOC124909442 itself has no ClinVar entries, it may contribute to phenotypes when large CNVs disrupt the locus alongside neighboring genes. This represents a "dark gene" in the truest sense - annotated in RefSeq but lacking any experimental evidence for molecular function, protein product, or disease association.
+
+## Evidence
+```
+RefSeq: uncharacterized LOC124909442; Genomic location: NC_000003.12 (141934360-141938421, 4.1 kb); Chromosome: 3q23; No UniProt/STRING/HPA/ClinVar data (non-coding); 3q23 region contains SATB1, CLDN16, FOXK1
+```

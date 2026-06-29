@@ -1,0 +1,15 @@
+# Lysosomal Trafficking Adaptor Coordinating Kinesin-1-Mediated Transport Through RUN-PH Domain Architecture and Programmed Ribosomal Frameshifting
+
+**Date:** 2026-06-27T09:03:14.202914
+
+**Quality Score:** 9/10 (EXCELLENT)
+
+**Confidence:** HIGH
+
+## Description
+PLEKHM2 (Pleckstrin homology and RUN domain containing M2, also known as SKIP) is a 1019 amino acid adaptor protein that bridges lysosomes to the kinesin-1 microtubule motor machinery for plus-end directed transport away from the microtubule-organizing center. The protein contains an N-terminal RUN domain (IPR004012, PF02759, positions 36-158) that binds the lysosomal GTPase ARL8B, and two pleckstrin homology domains: a canonical C-terminal PH domain (IPR001849, PF00169, positions 771-875) and a novel internal PH-like domain (PF23142, positions 580-718). AlphaFold prediction shows medium structural confidence (pLDDT 64.5), consistent with a flexible adaptor architecture requiring conformational plasticity for multi-protein complex assembly. HPA data reveals tissue-enhanced expression with highest levels in brain (159.3 nTPM), detected across all tissues, supporting ubiquitous lysosomal trafficking functions. STRING interaction network identifies 10 partners in vesicular transport: small GTPases ARL5B (0.954), RAB9A (0.941), RAB9B (0.904), ARL8B (0.899), and all four kinesin light chains KLC1 (0.865), KLC2 (0.781), KLC3 (0.749), KLC4 (0.450), plus heavy chain KIF5B (0.449). ClinVar reports 44 pathogenic/likely pathogenic variants including missense, splice site, and copy number variations, though specific disease phenotypes remain under investigation. Recent literature (42 papers) reveals remarkable biology: programmed ribosomal frameshifting during mRNA translation generates a constitutively active proteoform supporting myocardial function; PLEKHM2 deficiency causes impaired mitophagy, elevated ROS, and early-onset dilated cardiomyopathy in human iPSC-derived cardiomyocytes; homozygous truncations cause recessive cardiomyopathy. PLEKHM2 likely functions as a molecular clutch that engages kinesin-1 motors upon ARL8B activation on lysosomal surfaces, enabling regulated dispersal of lysosomes throughout the cytoplasm for autophagic clearance, antigen presentation, and metabolic signaling—with particular importance in post-mitotic tissues like heart and brain.
+
+## Evidence
+```
+InterPro domains: IPR004012 (RUN domain), IPR001849 (PH domain), IPR011993 (PH-like superfamily), IPR037213 (RUN superfamily), IPR047327 (PLEKHM2 RUN), IPR053015 (PLEKHM2 family), IPR057288 (PLEKHM2 PH-like), PF00169 (PH domain), PF02759 (RUN domain), PF23142 (PLEKHM2 PH-like). STRING interactions: ARL5B (0.954), RAB9A (0.941), RAB9B (0.904), ARL8B (0.899), KLC1 (0.865), KLC2 (0.781), KLC3 (0.749), KLC4 (0.450), KIF5B (0.449). HPA expression: Tissue enhanced, brain 159.3 nTPM, detected in all tissues. ClinVar: 44 pathogenic/likely pathogenic variants (SNVs, CNVs). AlphaFold: pLDDT 64.5 (medium confidence, flexible adaptor). UniProt: Q8IWE5 (1019 aa). Literature: 42 papers on lysosomal trafficking, programmed ribosomal frameshifting, and cardiomyopathy.
+```

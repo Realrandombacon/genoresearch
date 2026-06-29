@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T14:24:54.194729
 
-**Quality Score:** 9/10 (EXCELLENT)
+**Quality Score:** 2.5/10  (E=2.8, D=2.2) [WEAK]
 
 ## Description
 233aa transmembrane protein with Claudin domain (PF26158). Highly conserved across vertebrates (93.6% mouse, 62.7% zebrafish). Localizes to mitochondria. Enriched in pituitary gland (71.1 nTPM) and brain (60.6 nTPM). Cancer-enhanced expression. Interacts with TMEM88B, TMEM151A, TMEM128 (other transmembrane proteins). 57 pathogenic/likely pathogenic ClinVar variants (mostly chr14 CNVs). Claudin domain suggests role in membrane organization/cell junctions.

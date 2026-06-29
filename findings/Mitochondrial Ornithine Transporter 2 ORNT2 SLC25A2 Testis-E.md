@@ -1,0 +1,13 @@
+# Mitochondrial Ornithine Transporter 2 (ORNT2) SLC25A2: Testis-Enriched ADMA Transporter Regulating Nitric Oxide Bioavailability with 5q CNV Burden
+
+**Date:** 2026-04-16T09:31:46.666834
+
+**Quality Score:** 4.3/10  (E=6.5, D=2.1) [MODERATE]
+
+## Description
+SLC25A2 encodes a 301 amino acid mitochondrial ornithine transporter 2 (ORNT2, UniProt Q9BXI2), a member of the SLC25 mitochondrial carrier family. InterPro analysis confirms canonical mitochondrial carrier architecture including IPR050567 (Mitochondrial Carrier, aa 8-294), PTHR45624 (Mitochondrial Carrier, aa 8-294), IPR023395 (Mitochondrial carrier protein domain superfamily, aa 2-300), IPR018108 (Mitochondrial carrier protein transmembrane region, aa 7-94/104-199/207-296), and PF00153 (Mitochondrial carrier protein, 3 repeats at aa 10-94/107-199/207-296), indicating the characteristic 3-repeat structure with 6 transmembrane helices. AlphaFold structure (AF-Q9BXI2-F1) predicts a well-folded, stable 3D structure with high confidence (global pLDDT 88.4), consistent with functional mitochondrial transport. HPA expression reveals testis-enriched specificity (6.3 nTPM) with tissue-restricted distribution, suggesting a specialized role in male germ cell metabolism. STRING interactions identify 8 partners including MTCH1 (0.641), MTCH2 (0.565), OAT (0.546, ornithine aminotransferase), SLC25A53 (0.470), and TMEM210 (0.493), linking it to mitochondrial carrier network and ornithine metabolism. ClinVar contains 12 pathogenic/likely pathogenic variants, predominantly large chromosome 5q31-35 copy number variations (gains and losses), though no specific disease phenotype is currently annotated. Critically, literature (only 6 papers) identifies SLC25A2 as a transporter of asymmetric dimethylarginine (ADMA), an endogenous inhibitor of nitric oxide synthase, with a rare stopgain variant associated with low nitric oxide and poor clinical outcome in hypoplastic left heart syndrome. The combination of mitochondrial carrier structure, testis-enriched expression, ADMA transport function, OAT interaction, and 5q CNV burden suggests SLC25A2 functions as a mitochondrial ADMA/ornithine antiporter regulating intracellular nitric oxide bioavailability, with large deletions potentially contributing to congenital heart defects and male infertility via disruption of NO signaling and ornithine metabolism pathways.
+
+## Evidence
+```
+Evidence: InterPro domains (IPR050567, PF00153, IPR018108, PTHR45624), AlphaFold structure (AF-Q9BXI2-F1, pLDDT 88.4), HPA expression (Testis-enriched, 6.3 nTPM), STRING interactions (MTCH1 0.641, MTCH2 0.565, OAT 0.546, SLC25A53 0.470), ClinVar variants (12 pathogenic, 5q CNVs), Literature (6 papers, ADMA transporter, hypoplastic left heart syndrome association).
+```

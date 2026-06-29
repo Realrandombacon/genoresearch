@@ -1,0 +1,15 @@
+# MICU3: Mitochondrial Calcium Uniporter Regulatory Subunit Modulating Cardiac Hypertrophy, Neurodegeneration, and Skeletal Muscle Aging via Calcium-Dependent Antioxidant Response
+
+**Date:** 2026-05-06T10:25:06.357541
+
+**Quality Score:** 10/10 (EXCELLENT)
+
+**Confidence:** HIGH
+
+## Description
+MICU3 (Q86XE3) is a 530-aa mitochondrial calcium uptake protein with confident AlphaFold structure (pLDDT 71.2), indicating a stable well-folded EF-hand calcium-binding protein. InterPro analysis reveals multiple EF-hand calcium-binding domains (IPR002048: positions 232-267, 451-505; IPR011992: positions 185-500; IPR018247: positions 483-495; PF13499: positions 451-500), calcium uptake protein family signature (IPR039800: positions 56-529), and EF-hand domain pair superfamily (G3DSA:1.10.238.10: positions 131-257, 320-372, 378-506), characteristic of calcium sensor proteins regulating mitochondrial calcium uptake. HPA expression shows tissue-enhanced distribution with highest expression in brain (27.6 nTPM), localized to mitochondria. STRING interactions demonstrate very high-confidence binding to mitochondrial calcium uniporter complex components: SMDT1 (0.996), MICU1 (0.995), MCUB (0.994), MCUR1 (0.992), MICU2 (0.987), MCU (0.951), plus FGF9 (0.775), FGF20 (0.767), SLC8B1 (0.667), SLC25A23 (0.464). Literature (51 papers) establishes MICU3 as regulatory subunit of mitochondrial calcium uniporter (MCU) complex that sets threshold for calcium-induced calcium uptake, preventing mitochondrial calcium overload at resting cytosolic calcium concentrations. Recent 2021-2025 studies document MICU3 regulating cardiac hypertrophy through mitochondrial calcium-dependent signaling, MICU3-mediated mitochondrial calcium influx driving trichosanthin antitumor activity, MICU3 loss contributing to Alzheimer's disease pathogenesis via impaired mitochondrial calcium homeostasis, and MICU3 regulating mitochondrial calcium-dependent antioxidant response in skeletal muscle aging. ClinVar contains 82 pathogenic/likely pathogenic variants including splice site deletions (c.985-4del) and copy number gains/losses at 8p23.3-21.2, though specific monogenic disease associations remain undefined. The confident structure (pLDDT 71.2) and EF-hand architecture suggest MICU3 functions as calcium sensor that heterodimerizes with MICU1/MICU2 to gate MCU channel activity, coupling cytosolic calcium signals to mitochondrial metabolism while preventing calcium-induced oxidative damage, explaining its roles in cardiac hypertrophy, neurodegeneration, and age-related muscle decline.
+
+## Evidence
+```
+InterPro: IPR002048, IPR011992, IPR018247, IPR039800, PF13499, G3DSA:1.10.238.10, cd16175, PS00018, PS50222, PTHR12294, SM00054 | STRING: SMDT1(0.996), MICU1(0.995), MCUB(0.994), MCUR1(0.992), MICU2(0.987), MCU(0.951), FGF9(0.775), FGF20(0.767), SLC8B1(0.667), SLC25A23(0.464) | HPA: tissue enhanced, brain 27.6 nTPM, mitochondria | ClinVar: 82 pathogenic variants | AlphaFold: pLDDT 71.2 | UniProt: Q86XE3, 530 aa | Literature: 51 papers, MCU complex regulation, cardiac hypertrophy, Alzheimer's disease, skeletal muscle aging, calcium-dependent antioxidant response
+```

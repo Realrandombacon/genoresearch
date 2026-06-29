@@ -1,0 +1,13 @@
+# Testis-Enriched Coiled-Coil Scaffold Protein CCDC54 with Clinical Significance
+
+**Date:** 2026-03-27T12:49:52.262594
+
+**Quality Score:** 4.1/10  (E=5.4, D=2.8) [MODERATE]
+
+## Description
+CCDC54 encodes a 328 amino acid coiled-coil domain-containing protein (UniProt Q8NEL0) located on chromosome 3q13.12. InterPro analysis reveals the protein belongs to family IPR037758/PF27943/PTHR37880, with the entire sequence (positions 1-328) forming a coiled-coil structural domain. AlphaFold prediction shows medium confidence structure (pLDDT 59.4), suggesting a partially ordered coiled-coil architecture typical of scaffold proteins that mediate protein-protein interactions.\n\nHPA expression data demonstrates striking testis-specific enrichment at 116.0 nTPM with 'tissue enriched' RNA specificity, indicating a specialized role in spermatogenesis or testicular function. This expression pattern aligns with several interaction partners from STRING-DB including TNP1 (transition protein 1, involved in chromatin remodeling during spermatogenesis) and RIMBP3 (retina inner membrane binding protein 3, also testis-expressed). Other medium-confidence interactors (scores 0.512-0.625) include TMCO2, C22orf23, C12orf50, ADAM29, C20orf173, CCDC187, CABS1, and FAM71F1—many are themselves uncharacterized coiled-coil proteins, suggesting CCDC54 may function as part of a larger scaffold complex.\n\nClinVar contains 15 pathogenic/likely pathogenic variants, predominantly copy number losses and gains spanning the 3q13 region, indicating clinical relevance though specific disease associations remain undefined. Conservation across mammals is evident from orthologs in chimpanzee (324 aa), bat (324 aa), and rabbit (302 aa), suggesting functional constraint over ~100 million years of evolution.\n\nFUNCTIONAL HYPOTHESIS: CCDC54 likely serves as a coiled-coil scaffold protein organizing multi-protein complexes during spermatogenesis, potentially facilitating chromatin remodeling or cytoskeletal organization in developing germ cells. The coiled-coil domain enables dimerization or oligomerization, while the testis-specific expression and interaction with TNP1 suggest involvement in the histone-to-protamine transition critical for sperm maturation.
+
+## Evidence
+```
+InterPro: IPR037758, PF27943, PTHR37880 (coiled-coil domain, aa 1-328); STRING: TMCO2(0.625), C22orf23(0.597), C12orf50(0.563), ADAM29(0.551), C20orf173(0.549), CCDC187(0.543), CABS1(0.525), TNP1(0.519), FAM71F1(0.517), RIMBP3(0.512); HPA: testis 116.0 nTPM, tissue enriched; ClinVar: 15 pathogenic variants (CNVs); AlphaFold: pLDDT 59.4; UniProt: Q8NEL0 (328 aa); Conservation: Pan troglodytes (324 aa), Myotis lucifugus (324 aa), Oryctolagus cuniculus (302 aa)
+```

@@ -1,0 +1,15 @@
+# Di-N-acetylchitobiase (CTBS): Lysosomal Glycosidase with Mitochondrial Interaction Network and Clinical Variants
+
+**Date:** 2026-06-27T09:15:56.188861
+
+**Quality Score:** 9/10 (EXCELLENT)
+
+**Confidence:** MEDIUM
+
+## Description
+CTBS encodes a 385 amino acid di-N-acetylchitobiase (UniProt Q01459), a reducing-end exoglycosidase involved in glycan degradation within the lysosome. The enzyme hydrolyzes N,N'-diacetylchitobiose (GlcNAc2) and higher chitin-oligosaccharides to monomeric GlcNAc, playing a critical role in the catabolism of asparagine-linked oligosaccharides on glycoproteins.\n\nSTRUCTURAL FEATURES: AlphaFold predicts a well-folded structure (pLDDT 91.6, very high confidence) across all 385 residues. InterPro analysis reveals a GH18_chitobiase catalytic domain (cd02875, positions 39-378) belonging to Glycoside Hydrolase Family 18 (PF00704, IPR001223). The active site spans residues 135-143 (IPR001579), containing the catalytic machinery for O-glycosyl bond hydrolysis. Additional domains include Chitinase II/V-like catalytic domain (IPR011583, positions 58-359) and Chitinase insertion domain superfamily (IPR029070).\n\nINTERACTION NETWORK: STRING-DB identifies 10 high-confidence interaction partners, notably GNG5 (score 0.970), suggesting potential coupling to G-protein signaling. Unexpectedly, multiple mitochondrial cytochrome c oxidase subunits appear as interactors: MT-CO3 (0.665), MT-CO2 (0.663), COX5B (0.654), COX7C (0.608), COX5A (0.588), COX6B1/COX6B2 (0.541). This suggests CTBS may localize near or interact with mitochondrial membranes, potentially linking lysosomal glycan degradation to mitochondrial energy metabolism.\n\nEXPRESSION & LOCALIZATION: HPA shows low tissue specificity with detection across many tissues, cytosolic localization (though functionally lysosomal), and cell type-enhanced expression patterns. Not detected in immune cells.\n\nCLINICAL SIGNIFICANCE: ClinVar reports 17 pathogenic/likely pathogenic variants, predominantly copy number losses and gains on chromosome 1p22.3. While specific diseases are not yet annotated, the variant burden suggests CTBS dysfunction contributes to genomic disorders.\n\nHYPOTHESIS: CTBS may serve dual roles: (1) canonical lysosomal glycan recycling during glycoprotein turnover, and (2) non-canonical regulation of mitochondrial function through direct interaction with cytochrome c oxidase complex components. The GNG5 interaction suggests possible integration with G-protein coupled receptor signaling pathways. Copy number variants affecting CTBS may disrupt both lysosomal homeostasis and mitochondrial energetics, potentially contributing to metabolic or neurodevelopmental phenotypes.
+
+## Evidence
+```
+InterPro: IPR001223, IPR001579, IPR011583, IPR029070, PF00704, cd02875 | STRING: GNG5(0.970), MT-CO3(0.665), MT-CO2(0.663), COX5B(0.654), COX7C(0.608), COX5A(0.588) | HPA: cytosol, low tissue specificity, detected in many | ClinVar: 17 pathogenic variants (CNVs) | AlphaFold: pLDDT 91.6 | UniProt: Q01459, 385aa
+```

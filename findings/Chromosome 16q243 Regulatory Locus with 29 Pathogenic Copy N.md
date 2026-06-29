@@ -1,0 +1,13 @@
+# Chromosome 16q24.3 Regulatory Locus with 29 Pathogenic Copy Number Variants
+
+**Date:** 2026-03-18T22:49:32.045268
+
+**Quality Score:** 4.6/10  (E=5.5, D=3.7) [MODERATE]
+
+## Description
+LOC100287036 is an uncharacterized genetic locus on chromosome 16q24.3 (NC_000016.10, positions 89320451-89324916, ~4.5 kb region) with substantial clinical significance despite lacking protein-coding features. No UniProt accession exists, preventing InterPro domain analysis and AlphaFold structure prediction. No mRNA transcript was identified in NCBI nucleotide databases, and Human Protein Atlas found no expression data (ENSG00000261253). STRING-DB detected no protein-protein interactions. However, ClinVar contains 29 pathogenic/likely pathogenic variants, all representing large-scale copy number variations spanning the 16q24 region (variants include 2503469, 2503468, 2503467, 155557, 155358, 154631, 154535, 154511, 153239, 152591). These CNVs range from focal deletions to multi-megabase duplications (300 kb to 37 Mb). The 16q24.3 chromosomal location is clinically notable as this terminal region is associated with 16q24.3 microdeletion syndrome, characterized by developmental delay, intellectual disability, autism spectrum disorder, and dysmorphic features. The region contains multiple dosage-sensitive genes including ANKRD11 (16q24.3, associated with KBG syndrome), CDH3 (cadherin-3), and FTO (fat mass and obesity-associated gene). Functional hypothesis: LOC100287036 likely represents a cis-regulatory element or chromatin boundary controlling expression of neighboring dosage-sensitive genes in the 16q24.3 critical region. The 29 pathogenic CNVs indicate extreme dosage sensitivity where copy number alterations disrupt normal transcriptional regulation of neurodevelopmental genes. Disease mechanism likely involves haploinsufficiency or triplosensitivity of ANKRD11, CDH3, or other 16q24.3 genes through enhancer disruption, silencer deletion, or chromatin topology alteration. The absence of protein-coding features combined with strong ClinVar evidence and neurodevelopmental disease association suggests this locus functions in brain development through position effects on critical regulatory networks.
+
+## Evidence
+```
+Genomic: chr16q24.3 (89320451-89324916, NC_000016.10); Size: ~4.5 kb; Ensembl: ENSG00000261253; ClinVar: 29 pathogenic CNVs (2503469, 2503468, 2503467, 155557, 155358, 154631, 154535, 154511, 153239, 152591); UniProt/InterPro/AlphaFold: no accession; Transcript: none found; STRING/HPA: no data; Disease: 16q24.3 microdeletion syndrome; Neighborhood: ANKRD11, CDH3, FTO
+```

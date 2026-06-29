@@ -1,0 +1,13 @@
+# CCDC51/MITOK: Mitochondrial ATP-Gated Potassium Channel in 3p21.31 Tumor Suppressor Region
+
+**Date:** 2026-03-23T06:42:37.577674
+
+**Quality Score:** 2.55/10  (E=4.1, D=1.0) [WEAK]
+
+## Description
+CCDC51 (Gene ID: 79714, UniProt Q96ER9, alias MITOK) encodes a 411 aa mitochondrial inner membrane potassium channel mapping to chromosome 3p21.31 (48,432,172-48,446,651 bp). Multiple evidence lines support classification as a mitochondrial ion channel critical for cellular energetics and volume homeostasis: (1) InterPro domains confirm coiled-coil architecture: coiled-coil domain-containing protein 51 family (IPR037660, PTHR28624, aa 8-410)—coiled-coil domains mediate oligomerization required for channel pore formation; (2) HPA data shows tissue-enriched expression with highest levels in choroid plexus (60.3 nTPM), ubiquitous across all tissues, with subcellular localization to mitochondria, nucleoplasm, and centrosome—mitochondrial localization consistent with ion channel function; (3) ClinVar contains 12 pathogenic variants including 3p21.31 copy number losses/gains (spanning 2-50 Mb) and intronic SNVs, linking CCDC51 dosage to 3p21.31 tumor suppressor region syndromes; (4) Gene ontology annotations confirm mitochondrial ATP-gated potassium channel activity (GO:0005267), potassium ion transmembrane transport (GO:0071805), and cell volume homeostasis (GO:0006885). The 3p21.31 region is a well-known tumor suppressor locus containing multiple cancer-associated genes (BAP1, PBRM1, SETD2, RASSF1). Mechanistic hypothesis: CCDC51/MITOK functions as an ATP-regulated potassium channel in the mitochondrial inner membrane that modulates mitochondrial membrane potential, matrix volume, and reactive oxygen species (ROS) production. Under metabolic stress, ATP-gated K+ influx causes mild mitochondrial uncoupling, reducing ROS and protecting against apoptosis. Choroid plexus enrichment suggests roles in cerebrospinal fluid ion homeostasis and blood-brain barrier function. 3p21.31 deletions disrupt CCDC51 dosage alongside tumor suppressors, potentially contributing to cancer predisposition through altered mitochondrial metabolism and apoptosis resistance. Interaction with mitochondrial permeability transition pore (mPTP) components may regulate cell death decisions. This represents a "dark" mitochondrial ion channel with emerging roles in cancer metabolism and neuroprotection.
+
+## Evidence
+```
+UniProt: Q96ER9 (411 aa); InterPro: coiled-coil domain (IPR037660, PTHR28624, aa 8-410); HPA: choroid plexus 60.3 nTPM, mitochondrial/nucleoplasmic/centrosomal; ClinVar: 12 pathogenic variants (3p21.31 CNVs/SNVs); GO: mitochondrial ATP-gated K+ channel, cell volume homeostasis; 3p21.31 tumor suppressor region
+```

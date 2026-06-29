@@ -1,0 +1,13 @@
+# OR4D10: Well-Structured Class A GPCR Olfactory Receptor with Canonical Signaling Partners
+
+**Date:** 2026-03-30T00:13:58.066131
+
+**Quality Score:** 4.4/10  (E=4.1, D=4.7) [MODERATE]
+
+## Description
+OR4D10 (Olfactory receptor 4D10, UniProt Q8NGI6) is a 311-amino acid G protein-coupled receptor located on chromosome 11p11.12-q12.2. InterPro analysis confirms canonical olfactory receptor architecture with 7-transmembrane helix topology (G3DSA:1.20.1070.10, residues 20-308), rhodopsin-like GPCR domains (IPR000276, IPR017452), and olfactory receptor-specific signatures (IPR000725/PF13853, residues 33-300). AlphaFold structure prediction achieves exceptional confidence (pLDDT 90.1), indicating a well-folded stable 7TM bundle characteristic of functional chemosensory receptors. STRING interaction network reveals 10 high-confidence partners defining the complete olfactory transduction cascade: GNAL/ Golfα (0.691) for G protein coupling, ARRB1/ARRB2 (0.679) for receptor desensitization/internalization, GNG7/GNG13 (0.566-0.678) as Gβγ subunits, PRKACA/PRKACB (0.649-0.650) as cAMP-dependent protein kinases downstream of adenylyl cyclase activation, and GRK2/GRK3 (0.547-0.569) for receptor phosphorylation. Human Protein Atlas shows no detection in standard tissues with cell type-enhanced specificity, consistent with exclusive expression in olfactory sensory neurons of the nasal epithelium. ClinVar contains 9 pathogenic copy-number variants (duplications and deletions) across 11p-q, suggesting OR4D10 resides in a dosage-sensitive genomic region where CNVs cause developmental anomalies. The high structural confidence and conserved signaling machinery indicate OR4D10 functions as a bona fide odorant detector, likely responding to specific volatile organic compounds through ligand-binding pocket residues in TM3-TM7. Conservation across mouse (Q7TQS1), platypus, and snake orthologs suggests ancient evolutionary origin of this chemosensory lineage.
+
+## Evidence
+```
+UniProt: Q8NGI6, 311 aa; InterPro: IPR000276 (GPCR rhodopsin-like), IPR000725/PF13853 (olfactory receptor, aa 33-300), IPR017452 (7TM, aa 41-287), GO:0004984 (olfactory receptor activity); STRING: 10 interactions - GNAL (0.691), ARRB2/ARRB1 (0.679), GNG7 (0.678), PRKACA (0.650), PRKACB (0.649), GRK2 (0.569), GNG13 (0.566), GRK3 (0.547), GNB1 (0.503); HPA: Cell type enhanced, not detected in standard tissues (olfactory neuron-restricted); ClinVar: 9 pathogenic CNV variants [4279315, 3063215, 3063189, 1707422, 1704646, 997825, 563873, 441904, 441903]; AlphaFold: pLDDT 90.1 (very high), residues 1-311; Location: 11p11.12-q12.2; Conservation: Mouse Q7TQS1, Platypus A0A6I8PKS4, Snake A0A670ZI12
+```

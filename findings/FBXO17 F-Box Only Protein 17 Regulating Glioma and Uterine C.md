@@ -1,0 +1,15 @@
+# FBXO17: F-Box Only Protein 17 Regulating Glioma and Uterine Cancer Progression via CUL1-RBX1 E3 Ligase Assembly and Wnt/β-Catenin Pathway Activation
+
+**Date:** 2026-04-17T06:58:36.366534
+
+**Quality Score:** 4.03/10  (E=6.25, D=1.8) [MODERATE]
+
+**Confidence:** MEDIUM
+
+## Description
+FBXO17 encodes a 278 aa F-box only protein (UniProt Q96EF6) localized to the 19q11.2 chromosomal region, functioning as a critical substrate recognition component of the Cullin-RING E3 ubiquitin ligase complex. InterPro analysis confirms its canonical F-box domain architecture (IPR001810, aa 15-62) and F-box-associated region (PF04300, aa 100-273), with GO annotations for protein binding (GO:0005515) and involvement in the Ubl conjugation pathway. AlphaFold predicts a very high confidence structure (pLDDT 90.2), indicating a stable, well-folded protein essential for its role in protein degradation. STRING interactions reveal a specialized E3 ligase assembly: CUL1 (0.966, primary scaffold), COPS4/COPS5/COPS7B/COPS6/COPS2 (0.772-0.828, adaptor proteins), RBX1 (0.797, RING finger domain), and FBXW2 (0.729, paralog), forming a high-confidence complex responsible for ubiquitination. HPA expression shows tissue enhancement (liver: 70.5 nTPM) and cancer enhancement, with specific upregulation in glioma, uterine corpus endometrial carcinoma (UCEC), renal cell carcinoma (RCC), and hepatocellular carcinoma (HCC). ClinVar reports 7 pathogenic variants, predominantly large 19q copy number gains (x3), suggesting dosage sensitivity; specific intronic SNVs (e.g., c.-17-2025A>G) may affect splicing or stability. Literature (26 papers) confirms FBXO17 as a tumor suppressor in UCEC (inhibits Wnt/β-catenin) but a pro-oncogene in Glioma (promotes Akt/GSK-3β/Snail pathway) and RCC (circRNA-mediated upregulation). Functional hypothesis: FBXO17 acts as a context-dependent regulator of cell fate by: (1) E3 Ligase Assembly - recruiting CUL1-RBX1 to target specific substrates for ubiquitination; (2) Context-Specific Signaling - promoting proliferation in Glioma via Akt activation while inhibiting UCEC growth by suppressing Wnt/β-catenin; (3) Cancer Metastasis - facilitating migration and invasion through Snail pathway induction; (4) Dosage Sensitivity - 19q amplification driving oncogenesis in multiple cancers. Disease implications include Glioma progression, Uterine Cancer, and RCC metastasis. Despite clinical variant burden, the precise substrate repertoire and mechanistic switch between tumor suppressor/pro-oncogene roles remain partially unexplored.
+
+## Evidence
+```
+UniProt: Q96EF6 | Size: 278 aa | Location: 19q11.2 | InterPro: IPR001810 (F-box), PF04300 (FBA) | STRING: CUL1(0.966), COPS4(0.828), COPS5(0.827), COPS7B(0.798), RBX1(0.797), FBXW2(0.729) | HPA: Liver 70.5 nTPM, Cancer enhanced | ClinVar: 7 pathogenic variants (19q CN gains) | AlphaFold: pLDDT 90.2 (very high) | Literature: 26 papers - PARTIALLY CHARACTERIZED | Function: E3 Ligase substrate recognition regulating Glioma/Uterine Cancer via Wnt/Akt pathways
+```

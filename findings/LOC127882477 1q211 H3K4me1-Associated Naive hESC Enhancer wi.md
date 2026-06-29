@@ -1,0 +1,13 @@
+# LOC127882477: 1q21.1 H3K4me1-Associated Naive hESC Enhancer with No Clinical Variants — Putative Lineage Priming Regulatory Element
+
+**Date:** 2026-03-19T03:16:39.458582
+
+**Quality Score:** 2.15/10  (E=1.6, D=2.7) [WEAK]
+
+## Description
+LOC127882477 is a functionally characterized cis-regulatory element on chromosome 1q21.1 (genomic coordinates: 31434511-31435315 on NC_000001.11, spanning approximately 804 bp). This genomic region was validated as an active enhancer by ChIP-STARR-seq massively parallel reporter assays (MPRAs) in naive human embryonic stem cells (hESCs), where it is marked by the H3K4me1 histone modification (histone H3 lysine 4 monmethylation — canonical enhancer lineage mark). The H3K4me1 mark without concurrent H3K27ac suggests a poised or primed enhancer state characteristic of naive pluripotency (pre-implantation epiblast-like state), preparing genes for activation upon lineage commitment. A subregion was also identified as an uncharacterized cis-regulatory element (CRE) lacking promoter, enhancer, or CTCF-bound insulator chromatin signature, and validated as a silencer that could repress activity of super core promoter SCP1 by STARR-seq MPRAs in K562 erythroleukemia cells. The element lacks protein-coding evidence (no UniProt entry, no STRING interactions, no HPA protein expression), confirming its identity as a non-coding regulatory element with dual enhancer/silencer activity depending on cellular context. ClinVar analysis identified 0 pathogenic/likely pathogenic variants, indicating no known clinical significance to date. This absence of ClinVar entries is consistent with other hESC enhancers in this series and contrasts with silencers showing strong triplosensitivity or haploinsufficiency patterns. The 1q21 chromosomal region contains critical dosage-sensitive genes including BCL9 (B-cell CLL/lymphoma 9 - Wnt signaling), MCL1 (induced myeloid leukemia cell differentiation protein - apoptosis regulation), and multiple developmental transcription factors. As a naive hESC-specific enhancer marked by H3K4me1, LOC127882477 likely functions to prime transcription of target genes in cis during early embryonic development and naive pluripotency maintenance.
+
+## Evidence
+```
+Evidence: NCBI Gene ID 127882477; Chromosome 1q21.1 (31434511-31435315); ~804 bp regulatory region; H3K4me1-marked naive hESC enhancer (ChIP-STARR-seq in naive hESCs); MPRA-validated silencer (STARR-seq in K562 cells); Represses SCP1 promoter activity; Accessible chromatin subregion; No UniProt entry (non-coding); ClinVar: 0 pathogenic variants (no clinical significance identified); 1q21 region contains BCL9, MCL1; Associated with embryonic stem cell naive pluripotency, Wnt signaling, apoptosis regulation
+```

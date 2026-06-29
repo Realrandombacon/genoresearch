@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T12:52:48.907787
 
-**Quality Score:** 4/10 (MODERATE)
+**Quality Score:** 3.8/10  (E=1.6, D=6.0) [MODERATE]
 
 ## Description
 C10orf109 (ADARB2-AS1) encodes a 147aa putative uncharacterized protein. No InterPro domains detected. No STRING protein interactions found. No HPA expression data available. BLAST shows only self-hit. Likely a non-coding RNA or pseudogene with minimal protein-coding potential. Represents a true "dark gene" with no molecular functional evidence.

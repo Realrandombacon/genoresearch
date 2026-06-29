@@ -1,0 +1,15 @@
+# COL21A1: FACIT Collagen with VWA Domain Regulating Extracellular Matrix Organization in Vasculature and Placenta
+
+**Date:** 2026-04-24T22:23:04.366758
+
+**Quality Score:** 4.4/10  (E=7.0, D=1.8) [MODERATE]
+
+**Confidence:** MEDIUM
+
+## Description
+COL21A1 encodes Collagen alpha-1(XXI) chain (957 aa, Q96P44), a FACIT (Fibril-Associated Collagen with Interrupted Triple helices) family member functioning in extracellular matrix organization. InterPro analysis reveals characteristic collagen architecture: von Willebrand factor type A domain (IPR002035, PF00092, positions 35-212) mediating protein-protein interactions, thrombospondin-like N-terminal domain (IPR048287, positions 230-412), and multiple collagen triple helix repeats (IPR008160, PF01391 at positions 449-507, 730-785, 825-882) providing structural integrity. STRING interactions confirm collagen network membership with high-confidence partners: COL22A1 (0.849, another FACIT collagen), PLOD2 (0.838, lysyl hydroxylase for collagen crosslinking), COL4A2 (0.798, basement membrane collagen), COLGALT2 (0.750, collagen galactosyltransferase), COL26A1 (0.727), COL14A1 (0.679), CRTAP (0.674, collagen chaperone), and PLOD1/3 (0.547-0.581). HPA shows vascular/placental enrichment: blood vessel (28.5 nTPM), placenta (26.6 nTPM), tissue-enhanced expression pattern, cytosol/subcellular location with predicted secreted function. ClinVar documents 8 pathogenic variants including splice mutation c.1278+2T>G and multiple chromosome 6p CNVs (gains/losses) indicating dosage sensitivity, though specific disease phenotypes remain uncharacterized. AlphaFold structure shows medium confidence (pLDDT 66.9) with partially ordered architecture typical of interrupted triple-helix collagens. Literature (48 papers) reveals emerging roles in gastric cancer metastasis via ACTG1-COL21A1 axis (2026), vulvar carcinoma differential expression, nonsyndromic cleft lip/palate susceptibility (TOX3-COL21A1 locus in Malay families), and oviduct remodeling via RBPJ/Notch pathway. Functional hypothesis: COL21A1 acts as a matrix-associated regulator modulating collagen fibril organization in vascular and placental tissues, with dysregulation contributing to cancer metastasis (EMT promotion), developmental defects (craniofacial), and potentially vascular/placental insufficiency. Mechanistic proposal: VWA domain mediates interactions with other ECM components while triple-helix regions provide structural scaffolding; PLOD-mediated hydroxylation enables crosslinking; disruption alters tissue mechanics and cell-ECM signaling promoting invasion.
+
+## Evidence
+```
+InterPro: IPR002035 (VWA), IPR008160 (collagen triple helix), PF00092, PF01391 | STRING: COL22A1(0.849), PLOD2(0.838), COL4A2(0.798), COLGALT2(0.750), COL26A1(0.727), COL14A1(0.679), CRTAP(0.674) | HPA: blood vessel 28.5 nTPM, placenta 26.6 nTPM | ClinVar: 8 pathogenic variants (splice + CNVs) | AlphaFold: pLDDT 66.9 | UniProt: Q96P44 (957 aa) | Literature: 48 papers (gastric cancer metastasis, cleft lip/palate, vulvar cancer)
+```

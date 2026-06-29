@@ -1,0 +1,13 @@
+# CD8B2: Dark CD8 Beta Paralog with High-Confidence Ig Structure and T-Cell Coreceptor Function
+
+**Date:** 2026-04-14T17:29:56.623462
+
+**Quality Score:** 3.78/10  (E=5.2, D=2.35) [MODERATE]
+
+## Description
+CD8B2 (CD8b2 molecule, Gene ID: 927) is a genuine dark gene with only 5 publications on Semantic Scholar, representing an understudied paralog of the canonical CD8 beta chain located on chromosome 2q12.2. The gene encodes a 210 amino acid T-cell surface glycoprotein (UniProt A6NJW9) with well-preserved immunoglobulin domain architecture. InterPro analysis reveals extensive Ig superfamily domains: IPR003599 (Immunoglobulin subtype, 26-135), IPR007110 (Ig-like domain, 3-118), IPR013106 (Ig V-set domain, 24-135), PF07686 (Ig V-set, 24-135), and IPR042414 (CD8 beta chain family, 1-210). GO annotations include coreceptor activity (GO:0015026), MHC class I protein binding (GO:0042288), and regulation of immune response (GO:0050776). AlphaFold predicts high-confidence structure (global pLDDT 81.4), indicating a well-folded Ig V-set domain characteristic of T-cell coreceptors. STRING interactions reveal 10 high-confidence partners including CD8A (0.982), HLA-B (0.923), HLA-C (0.922), HLA-A (0.922), LCK (0.912), and ZAP70 (0.907) - the canonical CD8 signaling complex. HPA shows lymphoid tissue expression at 6.9 nTPM with blood cell group enrichment. ClinVar contains 7 pathogenic/likely pathogenic variants (all CNVs: deletions and copy number gains/losses on 2q11-13), suggesting genomic instability at this locus may contribute to immune dysfunction. CD8B2's preserved structure and interaction profile suggest it functions as an alternative CD8 beta chain that can heterodimerize with CD8A to form MHC class I coreceptors. Unlike canonical CD8B, CD8B2 may provide: (1) altered affinity for MHC class I molecules affecting T-cell activation thresholds, (2) differential LCK kinase recruitment modulating TCR signaling strength, (3) tissue-specific expression in lymphoid compartments fine-tuning adaptive immunity, or (4) susceptibility to CNV-mediated dosage effects contributing to autoimmune or immunodeficiency phenotypes. The 7 ClinVar CNVs (all with uncertain significance) warrant functional investigation for immune disease associations.
+
+## Evidence
+```
+UniProt A6NJW9 210aa; AlphaFold pLDDT 81.4; InterPro IPR003599/IPR007110/IPR013106/PF07686/IPR042414 Ig domains; 5 publications (Semantic Scholar); 7 ClinVar pathogenic CNVs; STRING: CD8A 0.982, HLA-B 0.923, HLA-C 0.922, HLA-A 0.922, LCK 0.912, ZAP70 0.907; HPA lymphoid tissue 6.9 nTPM; Chromosome 2q12.2; GO:0015026 coreceptor, GO:0042288 MHC-I binding, GO:0050776 immune regulation
+```

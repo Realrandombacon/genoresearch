@@ -1,0 +1,13 @@
+# FAM246C: Intrinsically Disordered 22q11.21 Dosage-Sensitive Regulatory Protein Associated with Neurodevelopmental Phenotypes
+
+**Date:** 2026-03-19T16:52:54.562851
+
+**Quality Score:** 3.2/10  (E=3.6, D=2.8) [WEAK]
+
+## Description
+FAM246C encodes a 240 amino acid uncharacterized protein (UniProt: P0DSO1) localized to chromosome 22q11.21, a well-known dosage-sensitive genomic region. AlphaFold structural prediction reveals medium-to-low confidence (pLDDT 52.8), characteristic of intrinsically disordered proteins (IDPs) that lack stable tertiary structure but maintain functional flexibility through conformational dynamics. HPA expression profiling shows tissue-enhanced RNA expression with highest levels in brain (1.6 nTPM), retina (1.1 nTPM), liver (1.0 nTPM), and testis (1.0 nTPM), classified as predicted intracellular proteins with no immune cell detection, suggesting neuronal and developmental regulatory roles. ClinVar documents 175 pathogenic/likely pathogenic variants, predominantly copy number variations (gains and losses) spanning 22q11.21 coordinates (18.9-21.1 Mb range), indicating extreme dosage sensitivity where both duplications and deletions disrupt normal function. The absence of STRING interaction partners suggests either transient weak interactions typical of IDPs or incomplete interactome mapping. The combination of intrinsically disordered architecture, brain-enriched expression, 22q11.21 chromosomal location within the DiGeorge syndrome critical region, and high CNV pathogenicity suggests FAM246C functions as a conformationally flexible scaffold protein that facilitates assembly of multiprotein complexes involved in neurodevelopmental gene regulation. IDP characteristics enable dynamic binding to multiple partners through coupled folding-and-binding mechanisms, allowing rapid cellular responses to developmental cues. Dosage sensitivity implies precise stoichiometric requirements for complex assembly, with both haploinsufficiency and triplosensitivity causing neurodevelopmental phenotypes characteristic of 22q11.21 deletion/duplication syndromes.
+
+## Evidence
+```
+Evidence: (1) UniProt: P0DSO1, 240 aa; (2) AlphaFold: pLDDT 52.8 medium/low confidence, IDP signature; (3) HPA: tissue enhanced, brain 1.6 nTPM, retina 1.1, liver 1.0, testis 1.0, predicted intracellular, not in immune cells; (4) ClinVar: 175 pathogenic variants, CNV gains/losses 22q11.21 18.9-21.1Mb; (5) Chromosome 22q11.21 location (DiGeorge critical region); (6) STRING: no interactions detected; (7) InterPro: lookup failed; (8) Conservation: orthologs in Vulpes vulpes 236aa, Vicugna pacos 224aa, Odocoileus virginianus 246aa, Bos indicus 227aa
+```

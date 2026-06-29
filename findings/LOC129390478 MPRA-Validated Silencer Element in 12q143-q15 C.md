@@ -1,0 +1,13 @@
+# LOC129390478: MPRA-Validated Silencer Element in 12q14.3-q15 Chromatin Regulatory Region
+
+**Date:** 2026-03-23T06:52:51.680997
+
+**Quality Score:** 1.7/10  (E=2.1, D=1.3) [POOR]
+
+## Description
+LOC129390478 (Gene ID: 129390478) is not a protein-coding gene but a functionally validated cis-regulatory silencer element mapping to chromosome 12q14.3-q15 (68,508,774-68,508,974 bp, ~200 bp span). RefSeq annotation explicitly states: "MPRA-validated peak1778 silencer" - validated by STARR-seq massively parallel reporter assays in K562 erythroleukemia cells as repressing super core promoter SCP1 activity. Multiple evidence lines confirm non-coding regulatory function: (1) No UniProt accession (not a protein); (2) Genomic span of 200 bp is far too small for protein-coding gene; (3) ClinVar contains 3 pathogenic copy number variants spanning 12q14.3-12q15 region (deletions 65-71 Mb, 68-75 Mb; duplication 12p-12q spanning entire chromosome arm), associated with 12q deletion/duplication syndromes featuring developmental delay, intellectual disability, growth abnormalities, and skeletal defects. The 12q14-q15 region contains critical dosage-sensitive genes including MDM2 (E3 ubiquitin ligase, p53 regulation, oncogene), CDK4 (cyclin-dependent kinase 4, cell cycle G1-S transition), and HMGA2 (high mobility group protein, chromatin architecture, growth regulation). Mechanistic hypothesis: LOC129390478 functions as a transcriptional silencer that represses gene expression in hematopoietic or mesenchymal contexts. The element likely recruits co-repressor complexes (e.g., Polycomb repressive complex 2, NuRD, or HDAC-containing complexes) via sequence-specific DNA-binding proteins to establish repressive chromatin (H3K27me3, H3K9me3, DNA methylation). Pathogenic 12q CNVs disrupt silencer-enhancer balance and chromatin topology, causing MDM2/CDK4/HMGA2 dosage alterations leading to cell cycle dysregulation, growth abnormalities, and cancer predisposition. The 12q14-q15 region is a known oncogenic amplicon in sarcomas and gliomas - altered silencer function may contribute to tumorigenesis. This represents a critical class of "dark genes" that are actually functional non-coding regulatory elements misannotated as genes due to automated pipeline predictions. The MPRA validation provides direct functional evidence of regulatory activity in erythroid lineage.
+
+## Evidence
+```
+RefSeq: MPRA-validated silencer (peak1778); Genomic location: NC_000012.12 (68508774-68508974, 200 bp); Validated in: K562 cells via STARR-seq; ClinVar: 3 pathogenic CNVs (12q14.3-12q15 rearrangements); No UniProt data (non-coding); 12q14-q15 region contains MDM2, CDK4, HMGA2
+```

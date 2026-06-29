@@ -1,0 +1,15 @@
+# LOC127898562: Bone Marrow-Enriched 27-aa Micropeptide with Immune Cell Enhancement and Clinical Deletion Variants
+
+**Date:** 2026-04-17T04:40:22.289486
+
+**Quality Score:** 5.35/10  (E=4.4, D=6.3) [SOLID]
+
+**Confidence:** MEDIUM-HIGH
+
+## Description
+LOC127898562 encodes a 27 aa uncharacterized micropeptide (UniProt A0A804HID5) located at 13q22.3, representing a genuine dark gene with zero publications in Semantic Scholar. This is a small open reading frame (smORF) encoded within an 84 bp genomic region, producing a novel predicted intracellular protein. AlphaFold predicts a confident structure (pLDDT 70.8) despite the small size, suggesting this micropeptide adopts a stable folded conformation rather than being intrinsically disordered. HPA reveals group-enriched expression pattern: bone marrow (9.7 nTPM, highest), retina (2.5 nTPM), with immune cell enhancement classification, indicating potential roles in hematopoiesis or immune cell function. ClinVar reports 2 pathogenic/likely pathogenic deletion variants, including a large 40.4 Mb deletion (NC_000013.11:g.46968080_87381985del40413906) and a smaller single-allele deletion, suggesting clinical relevance though specific disease phenotypes remain undefined. InterPro scan returned no domain matches (expected for peptides under 30 aa), and STRING found no interaction partners (typical limitation for uncharacterized micropeptides). Functional hypothesis: LOC127898562 likely functions as a regulatory micropeptide in bone marrow hematopoietic cells or immune cells, potentially: (1) Modulating protein-protein interactions through its stable 3D structure; (2) Acting as a signaling peptide in hematopoietic differentiation; (3) Regulating immune cell activation or proliferation; (4) Serving as a tissue-specific regulatory element in bone marrow microenvironment. The bone marrow-enriched expression (9.7 nTPM) combined with immune cell enhancement and clinical deletion variants suggests this micropeptide may contribute to hematologic or immunologic phenotypes when disrupted. The confident AlphaFold structure (pLDDT 70.8) is notable for a 27 aa peptide and indicates evolutionary selection for structural stability, supporting functional importance. This represents a genuine dark gene candidate requiring experimental validation through: peptide detection by mass spectrometry, subcellular localization studies, interaction partner identification via co-IP, and phenotypic characterization in knockout models.
+
+## Evidence
+```
+UniProt: A0A804HID5 | Size: 27 aa | Location: 13q22.3 (84 bp region) | InterPro: None (peptide too small) | STRING: No interactions detected | HPA: Bone marrow 9.7 nTPM (group-enriched), Retina 2.5 nTPM, immune cell enhanced, predicted intracellular | ClinVar: 2 pathogenic variants (deletions including 40.4 Mb 13q deletion) | AlphaFold: pLDDT 70.8 (confident for 27 aa) | Literature: 0 papers (genuine dark gene) | Function: Hypothesized bone marrow/immune regulatory micropeptide with stable 3D structure
+```

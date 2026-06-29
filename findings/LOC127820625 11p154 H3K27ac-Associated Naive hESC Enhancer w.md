@@ -1,0 +1,13 @@
+# LOC127820625: 11p15.4 H3K27ac-Associated Naive hESC Enhancer with No Clinical Variants — Putative Active Pluripotency Regulatory Element
+
+**Date:** 2026-03-19T03:19:41.538314
+
+**Quality Score:** 2.5/10  (E=2.0, D=3.0) [WEAK]
+
+## Description
+LOC127820625 is a functionally characterized cis-regulatory element on chromosome 11p15.4 (genomic coordinates: 20384909-20385543 on NC_000011.10, spanning approximately 634 bp). This genomic region was validated as an active enhancer by ChIP-STARR-seq massively parallel reporter assays (MPRAs) in naive human embryonic stem cells (hESCs), where it is marked by the H3K27ac histone modification (histone H3 lysine 27 acetylation — canonical active enhancer mark distinguishing active from poised enhancers). The H3K27ac mark indicates active transcriptional regulatory function in naive pluripotent stem cells (pre-implantation epiblast-like state). An overlapping subregion was also identified as an uncharacterized cis-regulatory element (CRE) lacking promoter, enhancer, or CTCF-bound insulator chromatin signature, and validated as a silencer that could repress activity of super core promoter SCP1 by STARR-seq MPRAs in K562 erythroleukemia cells. The element lacks protein-coding evidence (no UniProt entry, no STRING interactions, no HPA protein expression), confirming its identity as a non-coding regulatory element with dual enhancer/silencer activity depending on cellular context. ClinVar analysis identified 0 pathogenic/likely pathogenic variants, indicating no known clinical significance to date. This absence of ClinVar entries is consistent with other hESC enhancers in this series. The 11p15 chromosomal region contains critical dosage-sensitive genes including RASD1 (RAS dexamethasone-induced 1 - GTPase signaling), TH (tyrosine hydroxylase - catecholamine biosynthesis, Parkinson disease), and multiple developmental transcription factors. As a naive hESC-specific enhancer marked by H3K27ac, LOC127820625 likely functions to activate transcription of target genes in cis during early embryonic development and naive pluripotency maintenance.
+
+## Evidence
+```
+Evidence: NCBI Gene ID 127820625; Chromosome 11p15.4 (20384909-20385543); ~634 bp regulatory region; H3K27ac-marked naive hESC enhancer (ChIP-STARR-seq in naive hESCs); MPRA-validated silencer (STARR-seq in K562 cells); Represses SCP1 promoter activity; Accessible chromatin subregion; No UniProt entry (non-coding); ClinVar: 0 pathogenic variants (no clinical significance identified); 11p15 region contains RASD1, TH; Associated with embryonic stem cell naive pluripotency, GTPase signaling, catecholamine biosynthesis
+```

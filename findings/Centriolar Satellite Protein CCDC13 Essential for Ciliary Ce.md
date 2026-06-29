@@ -1,0 +1,15 @@
+# Centriolar Satellite Protein CCDC13 Essential for Ciliary Central Microtubule Assembly and Genome Stability
+
+**Date:** 2026-04-24T18:55:58.195286
+
+**Quality Score:** 4.28/10  (E=4.5, D=4.05) [MODERATE]
+
+**Confidence:** MEDIUM
+
+## Description
+CCDC13 (Coiled-Coil Domain Containing 13) is a 715-amino acid centriolar satellite protein with only 11 publications confirming its dark gene status. The protein contains a conserved CCDC13 family coiled-coil domain (IPR038929, positions 32-620; PTHR31935) that mediates protein-protein interactions within the centrosome-cilium complex. AlphaFold predicts a well-folded structure (pLDDT 75.4), consistent with extensive coiled-coil architecture typical of centrosomal scaffolding proteins. HPA reveals tissue-enhanced expression with highest levels in retina (4.0 nTPM), testis (2.9 nTPM), and fallopian tube (2.7 nTPM), with subcellular localization to nucleoplasm, centriolar satellite, basal body, and cytosol—matching its ciliogenesis function. STRING interactions show high-confidence connections to AASDH (0.816), NDUFAB1 (0.807), PIBF1 (0.659), CCDC14 (0.641), CCDC18 (0.622), TCHP/Sevenless-like (0.596), CEP72 (0.538), KRBA1 (0.529), PALB2 (0.498), and CEP131 (0.425), placing CCDC13 within the centriolar satellite network alongside PCM1 and ciliopathy-associated proteins. ClinVar documents 9 pathogenic/likely pathogenic variants (primarily chromosome 3p copy number gains/losses), though specific disease phenotypes remain uncharacterized. Critically, recent 2025 studies established CCDC13 as essential for assembly of ciliary central microtubules, with Ccdc13 mutant mice developing progressive optic neuropathy caused by impaired axoplasmic transport at the optic nerve head. A landmark 2014 study (47 citations) identified CCDC13 as a novel human centriolar satellite protein required for ciliogenesis and genome stability. We hypothesize CCDC13 functions as a structural scaffold within centriolar satellites that recruits tubulin and microtubule-associated proteins to the basal body during ciliogenesis, enabling central pair microtubule assembly critical for ciliary motility and sensory function. The retina-enriched expression and optic neuropathy phenotype suggest CCDC13 is particularly important in photoreceptor connecting cilia, while PALB2 interaction hints at a secondary role in DNA damage response coordination at centrosomes.
+
+## Evidence
+```
+InterPro: IPR038929 (CCDC13 family coiled-coil, aa 32-620), PTHR31935; STRING: AASDH (0.816), NDUFAB1 (0.807), PIBF1 (0.659), CCDC14 (0.641), CCDC18 (0.622), TCHP (0.596), CEP72 (0.538), KRBA1 (0.529), PALB2 (0.498), CEP131 (0.425); HPA: Retina (4.0 nTPM), testis (2.9 nTPM), fallopian tube (2.7 nTPM); nucleoplasm/centriolar satellite/basal body/cytosol; ClinVar: 9 pathogenic/likely pathogenic variants (3p CNVs); AlphaFold: pLDDT 75.4 (high confidence, well-folded); UniProt: Q8IYE1 (715 aa); Literature: 11 papers (2025 ciliary central microtubule assembly, 2024 optic neuropathy in mutant mice, 2014 centriolar satellite protein for ciliogenesis/genome stability)
+```

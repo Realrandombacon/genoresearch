@@ -1,0 +1,13 @@
+# C1orf21/PIG13: Skeletal Muscle-Enriched DUF4612 Protein with Protein Phosphatase 2A Interactions and 1q25 Copy Number Variants
+
+**Date:** 2026-03-19T20:46:11.124663
+
+**Quality Score:** 5.05/10  (E=5.8, D=4.3) [SOLID]
+
+## Description
+C1orf21 (alias PIG13) encodes a 121 amino acid uncharacterized protein (UniProt Q9H246) localized to nucleoplasm and cytosol. InterPro analysis reveals a conserved Domain of Unknown Function 4612 (DUF4612, IPR027967/PF15389, residues 1-119) and PANTHER family match (PTHR14974), indicating evolutionary constraint across vertebrates despite lack of functional annotation. AlphaFold predicts a medium-confidence structure (pLDDT 66.2), characteristic of partially structured proteins with both ordered domains and flexible regions typical of small regulatory proteins. HPA data reveals skeletal muscle-enriched expression (36.2 nTPM) with tissue-enhanced specificity, detection in many tissues, low cancer specificity, and group enrichment in blood cells, suggesting roles in muscle physiology and hematopoiesis. STRING interactions identify 7 medium-confidence partners (0.412-0.622 scores): PPP2R5A (protein phosphatase 2A regulatory subunit), TMEM131L (transmembrane protein), TMEM185A (transmembrane protein), PPP2R5B (phosphatase 2A regulatory subunit), SPPL2C (signal peptide peptidase-like), PPP2R5E (phosphatase 2A regulatory subunit), and NKAPD1 (NKAP domain protein). The enrichment of PP2A regulatory subunits (PPP2R5A/B/E) in the interaction network strongly suggests C1orf21 functions as a phosphatase regulator or substrate. ClinVar contains 24 pathogenic/likely pathogenic variants, predominantly large copy number losses/gains spanning 1q25.3-32.1 region, indicating dosage sensitivity and disease relevance. The 1q25 chromosomal location overlaps with multiple disease-associated regions. Mechanistic hypothesis: C1orf21/PIG13 acts as a small cytosolic/nucleoplasmic regulatory protein containing DUF4612 that modulates protein phosphatase 2A (PP2A) holoenzyme assembly or substrate recruitment through direct interaction with regulatory subunits (PPP2R5A/B/E), coordinating dephosphorylation signaling in skeletal muscle contraction and blood cell differentiation, explaining its disease-associated copy number variants affecting the 1q25.3 genomic region and potential role in myopathies and hematologic disorders.
+
+## Evidence
+```
+InterPro: IPR027967/PF15389/PTHR14974 (DUF4612, aa1-119) | STRING: PPP2R5A(0.622)/TMEM131L(0.477)/TMEM185A(0.456)/PPP2R5B(0.453)/SPPL2C(0.434)/PPP2R5E(0.425)/NKAPD1(0.412) | HPA: Skeletal muscle 36.2 nTPM/nucleoplasm+cytosol/tissue-enhanced | ClinVar: 24 pathogenic CNVs (1q25.3-32.1) | AlphaFold: pLDDT 66.2 (partially structured) | UniProt: Q9H246 (121aa)/PIG13 alias
+```

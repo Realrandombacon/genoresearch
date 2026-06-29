@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T14:01:35.480603
 
-**Quality Score:** 4/10 (MODERATE)
+**Quality Score:** 2.55/10  (E=1.6, D=3.5) [WEAK]
 
 ## Description
 Uncharacterized 156aa protein from chromosome 14. No significant sequence homology, no known domains, no tissue expression data, no protein interactions. Classic true dark gene with minimal functional annotation.

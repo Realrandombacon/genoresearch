@@ -1,0 +1,15 @@
+# RTF1: PAF1 Complex Component Regulating Transcription Elongation and Histone Modification
+
+**Date:** 2026-04-26T07:09:39.121919
+
+**Quality Score:** 2.23/10  (E=4.15, D=0.3) [WEAK]
+
+**Confidence:** MEDIUM
+
+## Description
+RTF1 (RTF1 Homolog, PAF1/RNA Polymerase II Complex Component) is a 710 amino acid nuclear protein (UniProt Q92541) with moderate characterization (207 papers) that functions in transcription elongation, histone modification, and Wnt signaling. The protein contains a conserved Plus-3 domain (IPR004343/PF03126/SM00719, residues 353-484) with DNA-binding capability (GO:0003677), indicating capacity for direct nucleic acid interactions during transcription. STRING interactions reveal ultra-high confidence partnerships with PAF1 complex members CDC73 (0.999), WDR61 (0.999), CTR9 (0.998), LEO1 (0.987), PAF1 (0.985), and RNA polymerase II subunit POLR2A (0.993), plus elongation factors SUPT5H (0.999), SUPT4H1 (0.961), and FACT complex components SUPT16H (0.729) and SSRP1 (0.729), placing RTF1 centrally in transcriptional machinery. HPA data shows ubiquitous expression across all tissues with nucleoplasmic and cytosolic localization, classified as an essential protein involved in transcription regulation and Wnt signaling. ClinVar contains 10 pathogenic variants including copy number gains/losses and deletions at 15q11.2-26.3, though no specific diseases are yet assigned—suggesting potential developmental or hematological phenotypes. AlphaFold structure (pLDDT 67.0) indicates a partially structured protein with ordered Plus-3 domain and potentially disordered regulatory regions. Functional hypothesis: RTF1 acts as a critical PAF1 complex component that recruits histone modification enzymes (H2B monoubiquitination machinery) to actively transcribed genes through Plus-3 domain-mediated DNA binding, facilitating transcription elongation by RNA polymerase II, regulating Wnt signaling target genes, and coordinating chromatin remodeling during development, with loss-of-function potentially causing transcriptional dysregulation phenotypes through defective histone modification and elongation control.
+
+## Evidence
+```
+InterPro: IPR004343 (Plus-3 domain, 353-484, DNA binding GO:0003677), PF03126 (Plus-3 domain, 358-459), SM00719 (Short conserved domain in transcriptional regulators, 353-461), IPR036128 (Plus3-like superfamily, 351-484), PTHR13115 (RNA polymerase-associated protein RTF1 homolog, 29-709); STRING: CDC73 (0.999), WDR61 (0.999), SUPT5H (0.999), CTR9 (0.998), POLR2A (0.993), LEO1 (0.987), PAF1 (0.985), SUPT4H1 (0.961), SUPT16H (0.729), SSRP1 (0.729); HPA: detected in all tissues, nucleoplasm/cytosol, essential protein, transcription/Wnt signaling; ClinVar: 10 pathogenic variants (CNV gains/losses, deletions, duplications at 15q11.2-26.3); AlphaFold: pLDDT 67.0 (medium confidence, partially structured); UniProt: Q92541 (710 aa); Literature: 207 papers - Chd1 interaction controlling nucleosome positioning, CLK occupancy at circadian clock genes, Th17 cell differentiation via H2B monoubiquitination, ulcerative colitis risk, Cryptococcus neoformans virulence
+```

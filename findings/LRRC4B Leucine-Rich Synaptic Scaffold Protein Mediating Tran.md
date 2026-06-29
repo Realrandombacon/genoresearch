@@ -1,0 +1,13 @@
+# LRRC4B: Leucine-Rich Synaptic Scaffold Protein Mediating Trans-Synaptic Adhesion via LRR-Ig Domain Architecture
+
+**Date:** 2026-03-20T02:02:45.313835
+
+**Quality Score:** 4.1/10  (E=6.7, D=1.5) [MODERATE]
+
+## Description
+LRRC4B encodes a 713 amino acid leucine-rich repeat-containing protein (UniProt Q9NT99) with a modular domain architecture optimized for synaptic scaffolding. InterPro analysis reveals 12 distinct domain signatures: an N-terminal LRR domain (IPR000372, residues 56-90), 3 canonical LRR repeats (IPR001611 at positions 88-146, 159-229, 230-252), a cysteine-rich flanking region (IPR000483, 311-362), and a C-terminal immunoglobulin I-set domain (IPR013098, 364-453). AlphaFold predicts a well-folded structure (pLDDT 71.7) spanning all 713 residues, with the LRR region forming a solenoid scaffold and the Ig domain providing membrane-proximal stability.\n\nSTRING interaction network identifies 10 high-confidence partners centered on postsynaptic density assembly: DLG4/PSD-95 (0.714), NRXN1/neurexin-1 (0.645), PTPRS (0.643), NLGN1/neuroligin-1 (0.592), IL1RAPL1 (0.512), PTPRD (0.451), NTNG2 (0.428), PTPRF (0.425), NRXN2 (0.402), and NTNG1 (0.402). This interaction profile places LRRC4B within the core synaptic adhesion complex, bridging presynaptic neurexins to postsynaptic scaffolds.\n\nHPA expression profiling shows extreme brain specificity (99.9 nTPM) with secondary expression in cervix (35.5 nTPM), consistent with a neuronal function. ClinVar documents 14 pathogenic/likely pathogenic variants, predominantly 19q13.33 copy number gains, suggesting dosage sensitivity in neurodevelopmental contexts.\n\nMechanistic hypothesis: LRRC4B functions as a trans-synaptic adhesion molecule that stabilizes glutamatergic synapses through LRR-mediated heterophilic binding to presynaptic partners (neurexins, netrin-G ligands) while anchoring to the postsynaptic density via PDZ-domain interactions with PSD-95. The Ig domain mediates cis-dimerization or homophilic adhesion, creating a molecular zipper that maintains synaptic cleft integrity. Dosage alterations disrupt synaptic stoichiometry, leading to neurodevelopmental phenotypes.
+
+## Evidence
+```
+InterPro: IPR000372 (LRR N-term 56-90), IPR001611 (LRR 88-252), IPR000483 (Cys-rich 311-362), IPR013098 (Ig I-set 364-453); STRING: DLG4(0.714), NRXN1(0.645), PTPRS(0.643), NLGN1(0.592), IL1RAPL1(0.512), PTPRD(0.451), NTNG2(0.428), PTPRF(0.425), NRXN2(0.402), NTNG1(0.402); HPA: brain 99.9 nTPM, cervix 35.5 nTPM; ClinVar: 14 pathogenic variants (CNVs); AlphaFold: pLDDT 71.7 (1-713 aa); UniProt: Q9NT99 (713 aa); Conservation: LRR/Ig architecture conserved in mouse (P0C192, 709 aa, 98% identity), rat (P0CC10, 709 aa)
+```

@@ -1,0 +1,15 @@
+# INTS2: Large Scaffold Subunit of the Integrator Complex mediating snRNA 3'-End Processing with 30 ClinVar Pathogenic Variants
+
+**Date:** 2026-06-26T12:48:02.023592
+
+**Quality Score:** 10/10 (EXCELLENT)
+
+**Confidence:** HIGH
+
+## Description
+INTS2 encodes a 1,196 amino acid integrator complex subunit 2 protein (UniProt Q9H0H0) that serves as a critical scaffold component of the multi-subunit Integrator complex responsible for 3'-end processing of small nuclear RNAs (snRNAs) and enhancer RNAs. The protein contains conserved metazoan-specific Integrator complex subunit 2 domains (IPR026236 at positions 121-141, 161-178, 302-320; IPR029321 spanning positions 2-1193; PF14750 at positions 26-1129) that enable assembly with other INTS subunits.\n\nSTRING interaction analysis reveals INTS2 forms an exceptionally tight complex with all major Integrator subunits: INTS6 (score 0.999), INTS3 (0.999), INTS5 (0.999), INTS1 (0.999), INTS8 (0.998), INTS11 (0.997), INTS4 (0.996), INTS7 (0.995), INTS9 (0.988), and INTS13 (0.947). This interaction network positions INTS2 as a central structural hub coordinating snRNA transcription termination through recruitment of RNA polymerase II and the INTAC (Integrator-PP2A) phosphatase complex.\n\nHPA expression data shows INTS2 is ubiquitously expressed across many tissues with low tissue specificity, consistent with its essential housekeeping role in snRNA biogenesis. The protein is classified as essential and predicted intracellular. AlphaFold structure prediction (AF-Q9H0H0-F1) yields a global pLDDT score of 78.6 (high confidence), indicating a well-folded stable structure across residues 1-1204.\n\nClinVar documents 30 pathogenic/likely pathogenic variants including splice site mutations (c.2778+1G>T), intronic variants (c.1698+74A>G, c.2456+31A>G), copy number losses and gains at 17q23.1-23.2, and deletions. Despite clinical significance, no specific disease phenotype has been definitively assigned—suggesting INTS2 dysfunction may cause pleiotropic developmental disorders through disrupted snRNA processing.\n\nStrong conservation is evident: mouse ortholog Q80UK8 (1,198 aa) and Drosophila Q9VX31 (1,105 aa) maintain similar architecture. With only 4 publications (vs. 393 for HUS1, 119 for SIPA1), INTS2 represents genuine dark biology—its specific role in cancer (gastric cancer associations noted), precise molecular mechanism in INTAC recruitment, and disease phenotypes from loss-of-function mutations remain poorly characterized.
+
+## Evidence
+```
+InterPro domains: IPR026236 (Integrator complex subunit 2, metazoa), IPR029321, PF14750, PR02105, PTHR28608; STRING partners: INTS6 (0.999), INTS3/5/1 (0.999), INTS8 (0.998), INTS11 (0.997), INTS4 (0.996), INTS7 (0.995), INTS9 (0.988), INTS13 (0.947); HPA: ubiquitous expression, essential protein, intracellular; ClinVar: 30 pathogenic variants (splice sites, CNVs, deletions); AlphaFold: pLDDT 78.6 (high confidence); UniProt: Q9H0H0 (1,196 aa); Conservation: mouse Q80UK8 (1,198 aa), Drosophila Q9VX31 (1,105 aa); Literature: only 4 papers—genuine dark gene
+```

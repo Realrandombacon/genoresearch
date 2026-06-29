@@ -1,0 +1,15 @@
+# ENSG00000269026 (M0R1X1): 148 aa KRAB Domain-Containing Protein with No Literature, No ClinVar Variants, and Medium-Confidence Structure (pLDDT 51.7) — A Truly Dark Gene with Potential Transcriptional Regulation Role
+
+**Date:** 2026-04-18T09:51:22.601000
+
+**Quality Score:** 4.35/10  (E=5.2, D=3.5) [MODERATE]
+
+**Confidence:** MEDIUM-HIGH
+
+## Description
+ENSG00000269026 (UniProt M0R1X1) is a 148 amino acid protein containing a single KRAB (Kruppel-associated box) domain (IPR001909, PF01352, positions 14-89), characterized by a C2H2-type zinc-finger (IPR050169, positions 10-143). This gene is a genuine 'dark gene' with zero publications on Semantic Scholar, no ClinVar entries, and no HPA expression data, representing a significant gap in our knowledge of human transcriptional regulation. InterPro analysis confirms the presence of a canonical KRAB domain (cd07765, PS50805, SSF109640) known for recruiting KAP1/TRIM28 to repress DNA-templated transcription (GO:0006355), alongside a homologous superfamily (G3DSA:6.10.140.140, IPR036051). STRING interactions are sparse, identifying only two low-to-medium confidence partners: ZNF474 (0.478) and ZNF90 (0.400), suggesting potential co-regulation within the zinc-finger protein family but lacking high-confidence complex formation. AlphaFold structure (AF-M0R1X1-F1, pLDDT 51.7, medium confidence, 1-148 aa fully modeled) indicates a partially structured protein with a low confidence score, consistent with the known structural flexibility of KRAB domains which often exist in disordered states to facilitate dynamic interactions with KAP1 and other co-repressors. FUNCTIONAL HYPOTHESIS: ENSG00000269026 functions as a transcriptional repressor via its KRAB domain, recruiting KAP1/TRIM28 to silence specific gene loci, potentially involved in developmental gene regulation or genomic imprinting given the absence of disease associations. MECHANISTIC PROPOSAL: The 148 aa protein utilizes its KRAB domain (aa 14-89) to bind DNA and recruit the KAP1 co-repressor complex, which mediates histone deacetylation and chromatin compaction to repress transcription. The low pLDDT score (51.7) and lack of high-confidence STRING interactions suggest a dynamic, transient interaction mechanism typical of transcription factors that do not form stable multi-protein complexes but rather recruit modular repressor machinery. The absence of literature and clinical data implies this gene may be a lineage-specific regulator or a non-coding RNA-derived protein with limited functional annotation, representing a prime candidate for functional genomics screens to identify novel transcriptional targets.
+
+## Evidence
+```
+UniProt: M0R1X1, 148 aa, KRAB domain-containing protein. InterPro: IPR001909 (KRAB, 14-89, GO:0006355), IPR050169 (C2H2 zinc-finger, 10-143), PF01352 (KRAB box, 14-54), G3DSA:6.10.140.140 (homologous superfamily), IPR036051 (KRAB superfamily). STRING: ZNF474 0.478, ZNF90 0.400. AlphaFold: pLDDT 51.7 (medium confidence/partially structured), 1-148 aa fully modeled. Literature: 0 papers (genuine dark gene). ClinVar: 0 variants. HPA: No data.
+```

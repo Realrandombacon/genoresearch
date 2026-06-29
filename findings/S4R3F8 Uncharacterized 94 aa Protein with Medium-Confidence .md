@@ -1,0 +1,15 @@
+# S4R3F8: Uncharacterized 94 aa Protein with Medium-Confidence AlphaFold Structure Suggesting Potential Role as Intrinsically Disordered Regulatory Peptide
+
+**Date:** 2026-04-17T10:00:00.752562
+
+**Quality Score:** 5.25/10  (E=3.7, D=6.8) [SOLID]
+
+**Confidence:** MEDIUM-HIGH
+
+## Description
+S4R3F8 encodes an uncharacterized 94 aa protein (UniProt S4R3F8) representing a genuine dark gene with zero publications (Semantic Scholar: 0 papers). The protein lacks recognizable InterPro domains, has no STRING interaction partners, shows no HPA expression data, and has zero ClinVar variants - all consistent with a truly unstudied gene product. AlphaFold predicts a medium-confidence structure (pLDDT 60.9), suggesting a partially folded protein with both ordered and disordered regions, characteristic of intrinsically disordered proteins (IDPs) that undergo conformational changes upon binding partners. The 94 aa length places this in the small protein category, potentially functioning as a regulatory peptide rather than a structured enzyme or receptor. Functional hypothesis: S4R3F8 may function through: (1) Intrinsically Disordered Protein Mechanism - IDPs often serve as hubs in protein interaction networks, undergoing disorder-to-order transitions upon binding, explaining the lack of detectable interactions in standard STRING assays which favor stable complexes; (2) Transcriptional Co-regulator - small disordered proteins frequently interact with chromatin modifiers or transcription factors through short linear motifs (SLiMs) not captured by domain databases; (3) Signaling Modulator - may act as a scaffold bringing together signaling components transiently; (4) Stress Response - many uncharacterized small proteins are induced under specific cellular stresses not captured in standard HPA tissue panels; (5) Disease Relevance - absence of ClinVar variants suggests either essential function (lethal when mutated) or redundant/conditional role only manifesting under specific environmental challenges. The medium-confidence AlphaFold structure (pLDDT 60.9) is notable - higher than expected for a completely disordered peptide, suggesting evolutionary selection for partial folding. This structural feature, combined with complete lack of characterization, makes S4R3F8 a high-priority candidate for experimental validation. Critical unknowns include: subcellular localization, tissue-specific expression under stress conditions, interaction partners requiring specialized detection methods (e.g., crosslinking mass spectrometry), and phenotypic consequences of knockout. This represents a genuine dark gene with mechanistic hypotheses based on structural predictions and protein biophysics principles.
+
+## Evidence
+```
+UniProt: S4R3F8 | Size: 94 aa | Location: Unknown | InterPro: None detected | STRING: No interactions | HPA: Not detected | ClinVar: 0 variants | AlphaFold: pLDDT 60.9 (medium confidence, partially structured) | Literature: 0 papers - genuine dark gene | Function: Uncharacterized small protein with partial folding suggesting IDP-like regulatory role
+```

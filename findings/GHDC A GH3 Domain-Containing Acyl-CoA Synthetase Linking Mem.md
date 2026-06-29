@@ -1,0 +1,15 @@
+# GHDC: A GH3 Domain-Containing Acyl-CoA Synthetase Linking Membrane Lipid Metabolism to STAT-Mediated Signaling
+
+**Date:** 2026-06-26T16:44:24.660965
+
+**Quality Score:** 9/10 (EXCELLENT)
+
+**Confidence:** MEDIUM
+
+## Description
+GHDC (GH3 domain-containing protein, UniProt Q8N2G8), also known as LGP1 or D11LGP1, is a 530-amino acid intracellular enzyme predicted to function as an acid-amino acid ligase (acyl-CoA synthetase) involved in lipid metabolism and membrane-associated signaling. InterPro analysis reveals a characteristic GH3 domain architecture conserved across vertebrates: a central GH3 family domain (IPR004993, aa 196-530) with three subdomains including an N-terminal domain (IPR056985, PF25146, aa 213-278), a middle catalytic domain (IPR055377, PF23571, aa 313-385), and a C-terminal domain (IPR055378, PF23572, aa 428-498). This tripartite organization is typical of ATP-dependent acyl-CoA synthetases that activate fatty acids or other carboxylic acids for downstream metabolism. The AlphaFold predicted structure shows high confidence (pLDDT 82.6), confirming a well-folded enzymatic scaffold. STRING interaction data places GHDC at the intersection of membrane dynamics and transcriptional regulation: strongest association with CAVIN1 (0.832), a key component of caveolae membrane microdomains, followed by STAT5A (0.713), STAT3 (0.537), and STAT5B (0.520)—transcription factors activated by cytokine and growth factor signaling. Links to the RNA helicase DHX58 (0.697) and hypocretin HCRT (0.504) suggest potential roles in RNA processing or neuropeptide metabolism. HPA expression profiles show ubiquitous presence ('Detected in all') with classification as plasma proteins, consistent with secretory or membrane-associated function. ClinVar records document 6 pathogenic variants, predominantly large copy number gains and losses at 17q, implying dosage sensitivity. We hypothesize that GHDC functions as a membrane-localized acyl-CoA synthetase that activates specific fatty acid substrates within caveolar microdomains, where CAVIN1 scaffolding concentrates lipid metabolism enzymes near signaling receptors. The produced acyl-CoA products may serve dual roles: as metabolic intermediates for beta-oxidation or lipid synthesis, and as signaling molecules that modulate STAT transcription factor activity through protein acylation or second messenger generation. This positions GHDC as a metabolic checkpoint linking cellular lipid status to inflammatory and proliferative gene expression programs. Disruption of GHDC dosage may alter caveolar lipid composition, impairing receptor signaling and contributing to the phenotypes associated with 17q copy number variants.
+
+## Evidence
+```
+InterPro: IPR004993 (GH3 family), IPR055377/8 (GH3 middle/C-terminal), IPR056985 (GH3 N-terminal), PF23571/2, PF25146; STRING: CAVIN1 (0.832), STAT5A (0.713), DHX58 (0.697), STAT3 (0.537), HCRT (0.504); HPA: Ubiquitous, Plasma proteins; ClinVar: 6 pathogenic variants (17q CNVs); AlphaFold: pLDDT 82.6; Function: Acyl-CoA synthetase linking lipid metabolism to STAT signaling
+```

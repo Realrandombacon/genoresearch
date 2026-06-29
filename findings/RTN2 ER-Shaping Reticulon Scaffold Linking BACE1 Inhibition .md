@@ -1,0 +1,15 @@
+# RTN2: ER-Shaping Reticulon Scaffold Linking BACE1 Inhibition, Atlastin-Mediated Membrane Fusion, and Hereditary Spastic Paraplegia SPG12 Pathogenesis
+
+**Date:** 2026-04-26T20:25:08.683892
+
+**Quality Score:** 3.23/10  (E=5.65, D=0.8) [WEAK]
+
+**Confidence:** HIGH
+
+## Description
+RTN2 (Reticulon-2, UniProt O75298) is a 545 aa endoplasmic reticulum (ER) membrane protein that functions as a key regulator of ER morphology, amyloid precursor protein processing, and axonal integrity through interactions with atlastin GTPases and the β-secretase BACE1. Structurally, AlphaFold predicts a partially ordered membrane-associated architecture (pLDDT=51.2) featuring a conserved reticulon domain (IPR003388/PF02453/PS50845, aa 345-545) within the reticulon 1-4 family (IPR046964/PTHR45799, aa 189-529), characteristic of ER-shaping proteins that generate membrane curvature through hydrophobic hairpin insertion. Functionally, STRING interactions reveal tight coupling to ER morphology machinery: atlastin GTPases ATL1 (0.846), ATL3 (0.702), ATL2 (0.687) mediating ER membrane fusion; reticulon family members RTN1 (0.832) and RTN4 (0.817); REEP proteins REEP5 (0.835), REEP1 (0.774), REEP2 (0.759) stabilizing ER tubules; the microtubule-severing ATPase SPAST (0.826) mutated in SPG4; and BACE1 (0.754) supporting the documented inhibitory relationship. HPA shows skeletal muscle-enriched expression (477.7 nTPM) and tongue expression (194.0 nTPM) with vesicular localization, classified with disease involvement in hereditary spastic paraplegia, neurodegeneration, and neuropathy. ClinVar identifies 47 pathogenic/likely pathogenic variants including nonsense mutations (p.Trp277Ter, p.Gly27Ter), frameshift deletions (p.Arg91fs, p.Asp408fs), and missense variants (p.Ser111Asn, p.Asp126Val, p.Ser24Tyr, p.Ala462Ser, p.Asp420Asn) causing autosomal dominant SPG12 and autosomal recessive distal motor neuropathy. Literature (51 papers) reveals emerging mechanistic insights: RTN2 deficiency causes autosomal recessive distal motor neuropathy with lower limb spasticity (2024), inhibits BACE1 activity to reduce amyloid-β production (PubMed:15286784), enhances SLC1A1/EAAC1 glutamate transporter trafficking, and functions as a circadian clock gene highly expressed in ovarian cancer (2022). The gene represents a 'semi-dark' ER-shaping factor where canonical reticulon function is established, but specific mechanisms linking RTN2's unique contributions to axonal ER continuity, BACE1 regulation in Alzheimer's pathogenesis, and tissue-specific vulnerability in spastic paraplegia remain underexplored therapeutic targets.
+
+## Evidence
+```
+UniProt O75298 (545 aa); InterPro [IPR003388, IPR046964, PF02453, PS50845, PTHR45799, G3DSA:1.20.5.2480]; STRING [ATL1 0.846, REEP5 0.835, RTN1 0.832, SPAST 0.826, RTN4 0.817, REEP1 0.774, BACE1 0.754]; HPA [skeletal muscle 477.7 nTPM, tongue 194.0 nTPM, vesicles, SPG12/neurodegeneration]; ClinVar [47 pathogenic variants including nonsense/frameshift/missense]; AlphaFold [pLDDT 51.2]; Lit [51 papers, ER-shaping/BACE1/SPG12 focus]"}
+```

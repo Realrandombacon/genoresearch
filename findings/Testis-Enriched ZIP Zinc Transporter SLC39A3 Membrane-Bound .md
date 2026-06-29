@@ -1,0 +1,13 @@
+# Testis-Enriched ZIP Zinc Transporter SLC39A3: Membrane-Bound Zinc Influx Regulator with 19p CNV Burden and Emerging Immune Function
+
+**Date:** 2026-04-16T09:43:42.302440
+
+**Quality Score:** 3.8/10  (E=5.5, D=2.1) [MODERATE]
+
+## Description
+SLC39A3 encodes a 314 amino acid zinc transporter ZIP3 (UniProt Q9BRY0), a member of the SLC39/ZIP family of zinc influx transporters. InterPro analysis confirms canonical ZIP transporter architecture including IPR003689 (Zinc/iron permease, aa 7-308), PF02535 (ZIP Zinc transporter, aa 7-308), and PTHR11040 (Zinc Iron Permease, aa 7-307), indicating conserved metal ion transmembrane transport function. AlphaFold structure (AF-Q9BRY0-F1) predicts a well-folded, stable 3D structure with high confidence (global pLDDT 81.4), consistent with a functional multi-pass membrane transporter. HPA expression reveals testis-enriched specificity (97.1 nTPM) with tissue-enhanced distribution across all tissues and vesicular subcellular localization, suggesting specialized roles in male reproduction and intracellular zinc trafficking. STRING interactions identify 10 partners exclusively from the SLC39/ZIP family including SLC39A11 (0.779), SLC39A4 (0.750), SLC39A9 (0.733), SLC39A7 (0.719), SLC39A13 (0.684), SLC39A12 (0.684), SLC39A10 (0.658), SLC39A8 (0.649), SLC39A6 (0.446), and SLC39A5 (0.437), forming a coherent zinc transporter network with potential functional redundancy and co-regulation. ClinVar contains 15 pathogenic/likely pathogenic variants, all chromosome 19p13.3 copy number gains, though no specific disease phenotype is currently annotated. Literature (22 papers) identifies SLC39A3 as essential for zinc reuptake from alveolar lumen in lactating mammary gland and as critical for encephalitogenic function of pTh17 cells via intracellular zinc regulation, linking it to autoimmune neuroinflammation. The combination of ZIP transporter domains, testis-enriched expression, vesicular localization, exclusive ZIP family interaction network, 19p CNV burden, and emerging immune function suggests SLC39A3 functions as a specialized zinc influx transporter coordinating zinc homeostasis in reproductive tissues and T cell pathogenicity, with copy number gains potentially contributing to zinc dyshomeostasis-associated developmental and immune phenotypes.
+
+## Evidence
+```
+Evidence: InterPro domains (IPR003689, PF02535, PTHR11040), AlphaFold structure (AF-Q9BRY0-F1, pLDDT 81.4), HPA expression (Testis-enriched 97.1 nTPM, Vesicles), STRING interactions (SLC39A11 0.779, SLC39A4 0.750, SLC39A9 0.733, SLC39A7 0.719, SLC39A13 0.684), ClinVar variants (15 pathogenic, 19p13.3 CNVs), Literature (22 papers, mammary gland zinc reuptake, pTh17 encephalitogenic function).
+```

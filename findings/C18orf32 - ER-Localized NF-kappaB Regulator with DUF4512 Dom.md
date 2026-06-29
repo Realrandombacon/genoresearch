@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T07:20:23.787036
 
-**Quality Score:** 8/10 (EXCELLENT)
+**Quality Score:** 3.02/10  (E=3.75, D=2.3) [WEAK]
 
 ## Description
 C18orf32 (Q8TCD1) is a 76-aa dark gene encoding UPF0729 family protein with DUF4512 domain. Located in endoplasmic reticulum and lipid droplets. Functions in positive regulation of NF-kappaB signaling. STRING interactions show connections to mitochondrial proteins (ATP5ME, UQCR10, NDUFS5) and ribosomal components. HPA shows ubiquitous expression with nucleoplasm/vesicle localization. CRITICALLY: 39 pathogenic ClinVar variants indicate strong disease association. This dark gene likely functions as an ER-membrane regulator linking lipid metabolism to inflammatory signaling.

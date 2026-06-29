@@ -1,0 +1,13 @@
+# ZNF674: X-Linked KRAB-Zinc Finger Repressor Associated with Cognitive Disability and Chromatin Remodeling
+
+**Date:** 2026-03-20T01:08:43.764231
+
+**Quality Score:** 2.1/10  (E=3.5, D=0.7) [WEAK]
+
+## Description
+ZNF674 (Zinc Finger Protein 674, alias MRX92) encodes a 581 amino acid Krüppel-associated box (KRAB) domain-containing zinc finger protein (UniProt Q2M3X9) located on chromosome Xp11.3, implicated in nonsyndromic X-linked cognitive disabilities. InterPro analysis reveals a canonical KRAB domain (IPR001909, PF01352, residues 7-79) for transcriptional repression plus 11 tandem C2H2-type zinc fingers (IPR013087, PF00096, residues 224-478) for sequence-specific DNA binding. AlphaFold prediction shows medium structural confidence (pLDDT 65.8), consistent with modular domain architecture with flexible linker regions typical of zinc finger arrays. HPA data indicates nucleoplasmic localization with expression detected in many tissues (low tissue specificity) and cell type-enhanced pattern. STRING interaction network identifies 10 partners including CHST7 (0.842, high confidence, carbohydrate sulfotransferase), SLC9A7 (0.708, X-linked Na+/H+ exchanger linked to intellectual disability), TRIM28 (0.547, canonical KRAB coreceptor KAP1), PHF8 (0.535, X-linked histone demethylase mutated in Siderius syndrome), and other zinc finger proteins (ZNF283, ZNF713, ZNF385B, ZKSCAN3). ClinVar contains 148 pathogenic/likely pathogenic variants, predominantly X chromosome copy number losses and gains spanning Xp11.3-q28, indicating strong dosage sensitivity. Conservation across mammals (mouse, rat, bovine, primate orthologs 576-581 aa) demonstrates functional constraint. ZNF674 likely functions as a KRAB-ZNF transcriptional silencer that recruits TRIM28/KAP1 to establish repressive H3K9me3 heterochromatin at target neuronal genes. The interaction with SLC9A7 and PHF8 (both X-linked intellectual disability genes) suggests ZNF674 participates in X-chromosome dosage compensation or neuronal gene regulation networks. Pathogenic CNVs causing haploinsufficiency could disrupt epigenetic silencing programs in developing brain, contributing to X-linked cognitive disability phenotypes (MRX92).
+
+## Evidence
+```
+Evidence: UniProt Q2M3X9 (581 aa); InterPro IPR001909 (KRAB), IPR013087 (C2H2-ZF), PF01352, PF00096; STRING partners: CHST7 (0.842), SLC9A7 (0.708), ZNF283 (0.555), TRIM28 (0.547), NBPF1 (0.540), PHF8 (0.535), ZNF713 (0.526), ZNF385B (0.480), NXF5 (0.465), ZKSCAN3 (0.426); HPA: nucleoplasm, detected in many tissues, cell type enhanced; ClinVar: 148 pathogenic CNVs on Xp11.3-q28; AlphaFold pLDDT 65.8; X-linked locus associated with MRX92 cognitive disability
+```

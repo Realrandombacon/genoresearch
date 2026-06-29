@@ -1,0 +1,13 @@
+# LOC129388646: MPRA-Validated Silencer Element in 1q25 Chromatin Regulatory Region
+
+**Date:** 2026-03-23T06:59:22.860885
+
+**Quality Score:** 3.3/10  (E=4.6, D=2.0) [WEAK]
+
+## Description
+LOC129388646 (Gene ID: 129388646) is a functionally validated cis-regulatory silencer element mapping to chromosome 1q25.2 (178,942,679-178,942,879 bp, ~200 bp span). RefSeq annotation explicitly states: "MPRA-validated peak477 silencer" - validated by STARR-seq massively parallel reporter assays in K562 erythroleukemia cells as repressing super core promoter SCP1 activity. Multiple evidence lines confirm non-coding regulatory function: (1) No UniProt accession (not a protein); (2) Genomic span of 200 bp is far too small for protein-coding gene; (3) ClinVar contains 7 pathogenic copy number variants spanning 1q23.3-1q31.3 region (deletions 164-187 Mb, 170-191 Mb, 175-186 Mb, 176-196 Mb; duplications 149-180 Mb, 164-180 Mb, 171-186 Mb), associated with 1q deletion/duplication syndromes featuring intellectual disability, developmental delay, growth abnormalities, craniofacial dysmorphism, cardiac/renal defects, and skeletal anomalies. The 1q23-31 region contains critical dosage-sensitive genes including MDM4 (MDM4 regulator of p53, cell cycle control), F3 (tissue factor/coagulation factor III), and ITGA10 (integrin alpha-10, chondrocyte function); (4) No HPA expression or STRING interactions (non-coding). Mechanistic hypothesis: LOC129388646 functions as a transcriptional silencer that represses gene expression in hematopoietic or neural contexts. The element likely recruits co-repressor complexes (e.g., Polycomb repressive complex 2, NuRD, or HDAC-containing complexes) via sequence-specific DNA-binding proteins to establish repressive chromatin (H3K27me3, H3K9me3, DNA methylation). Pathogenic 1q CNVs disrupt silencer-enhancer balance and topologically associating domain (TAD) architecture, causing long-range dysregulation of MDM4, F3, and other 1q genes leading to neurodevelopmental phenotypes and hematologic abnormalities. MDM4 is a critical p53 regulator - silencer disruption may alter MDM4 expression contributing to cancer predisposition in 1q deletion carriers. This represents a critical class of "dark genes" that are actually functional non-coding regulatory elements misannotated as genes due to automated pipeline predictions. The MPRA validation provides direct functional evidence of regulatory activity in erythroid lineage.
+
+## Evidence
+```
+RefSeq: MPRA-validated silencer (peak477); Genomic location: NC_000001.11 (178942679-178942879, 200 bp); Validated in: K562 cells via STARR-seq; ClinVar: 7 pathogenic CNVs (1q23-31 rearrangements); No UniProt/STRING/HPA data (non-coding); 1q25 region contains MDM4, F3, ITGA10
+```

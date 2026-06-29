@@ -1,0 +1,13 @@
+# ZNF624: KRAB-Zinc Finger Transcriptional Repressor on 17p11.2 with Extensive CNV Burden
+
+**Date:** 2026-03-20T15:09:32.385516
+
+**Quality Score:** 2.2/10  (E=4.4, D=0.0) [WEAK]
+
+## Description
+ZNF624 (zinc finger protein 624, Gene ID: 57547) is an 865 amino acid transcriptional repressor located on chromosome 17p11.2 (UniProt: Q9P2J8). InterPro analysis reveals a canonical KRAB domain (IPR001909, PF01352, positions 53-125) that recruits corepressors, plus three C2H2-type zinc finger domains (IPR013087, PF00096, positions 276-359) for sequence-specific DNA binding. STRING database identifies 6 protein interactions: TXNRD3NB (score 0.718, high confidence), TRIM28/KAP1 (0.679), ZNF235 (0.520), FAM183A (0.514), ZNF22 (0.510), and TRIM10 (0.422). The TRIM28 interaction confirms canonical KRAB corepressor recruitment mechanism, while interactions with other zinc finger proteins (ZNF235, ZNF22) suggest potential heterodimerization or co-regulatory complexes. HPA data shows expression in many tissues (low tissue specificity) with cell type-enhanced pattern and vesicular subcellular localization - unusual for transcription factors which typically localize to nucleus. ClinVar contains 27 pathogenic variants, predominantly large copy number losses (3063517, 2685597, 980120, 815908) and gains (3063486, 441816, 441815) spanning 17p12-11.2 and 17p13.3-q25.3 regions, plus duplications and complex rearrangements (1707454, 1703602, 1703553). The 17p11.2 region is associated with Potocki-Lupski syndrome (duplication) and Smith-Magenis syndrome (deletion), suggesting ZNF624 may contribute to these neurodevelopmental phenotypes. The KRAB domain mediates heterochromatin formation via TRIM28 recruitment, while zinc fingers confer DNA sequence specificity. ZNF624 functions as a chromatin-associated transcriptional silencer, potentially regulating neurodevelopmental genes. Unusual vesicular localization may indicate shuttle mechanism or membrane-associated regulatory function. AlphaFold structure prediction and conservation data not computed.
+
+## Evidence
+```
+Evidence: (1) UniProt Q9P2J8, 865 aa, chromosome 17p11.2, Gene ID 57547; (2) InterPro: KRAB domain IPR001909/PF01352 (aa 53-125), C2H2 zinc fingers IPR013087/PF00096 (aa 276-359); (3) STRING: 6 interactions - TXNRD3NB (0.718), TRIM28 (0.679), ZNF235 (0.520), FAM183A (0.514), ZNF22 (0.510), TRIM10 (0.422); (4) HPA: vesicles localization, detected in many tissues, cell type-enhanced; (5) ClinVar: 27 pathogenic CNVs on 17p11.2-13.3 region including deletions/duplications; (6) 17p11.2 clinical context: Potocki-Lupski/Smith-Magenis syndrome regions
+```

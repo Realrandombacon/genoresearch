@@ -1,0 +1,13 @@
+# TMEM217B: Testis-Enriched DUF4534 Transmembrane Protein with Dosage Sensitivity
+
+**Date:** 2026-03-28T01:47:29.768658
+
+**Quality Score:** 5.5/10  (E=4.4, D=6.6) [SOLID]
+
+## Description
+TMEM217B (Transmembrane Protein 217B, UniProt A0A494BZU4) is a 170 amino acid integral membrane protein containing a conserved Domain of Unknown Function DUF4534 (IPR027862/PF15049, residues 1-169/4-164) that defines the TMEM217 protein family (PTHR34928). AlphaFold structure prediction shows confident folding (global pLDDT 76.4), indicating a stable transmembrane architecture despite the domain being functionally uncharacterized. HPA expression reveals testis-enriched pattern with 9.9 nTPM in testis, classified as tissue-enriched and detected in some tissues—suggesting specialized role in male germline development or spermatogenesis. The testis-specific expression pattern is characteristic of genes involved in meiosis, sperm differentiation, or blood-testis barrier function. ClinVar contains 1 pathogenic copy number variant—a large duplication spanning 6p25.3-12.3 (chr6:156974-46789291)x3—indicating dosage sensitivity where gene overexpression may be deleterious, though no specific disease phenotype is yet defined. STRING interaction network returned no partners, consistent with this being an orphan membrane protein without well-characterized interaction network. Mechanistic hypothesis: TMEM217B functions as a testis-specific transmembrane protein potentially involved in spermatogenic cell differentiation, meiotic progression, or sperm maturation processes. The DUF4534 domain conservation across vertebrates suggests essential but uncharacterized molecular function, possibly as a membrane transporter, channel, or scaffold protein in germ cell membranes. Testis enrichment parallels expression patterns of fertility-associated genes, and the pathogenic CNV suggests precise TMEM217B dosage is critical for normal reproductive development. The confident AlphaFold structure (pLDDT 76.4) indicates well-ordered transmembrane topology suitable for specific molecular interactions or transport functions. Future studies should investigate subcellular localization within germ cells, potential roles in blood-testis barrier integrity, and whether TMEM217B mutations contribute to male infertility phenotypes.
+
+## Evidence
+```
+UniProt: A0A494BZU4 (170 aa); InterPro: IPR027862 (DUF4534, 1-169), PF15049 (DUF4534, 4-164), PTHR34928 (TMEM217 family, 1-169); HPA: tissue enriched, detected in some, testis 9.9 nTPM; ClinVar: 1 pathogenic CNV (6p25.3-12.3 gain); AlphaFold: AF-A0A494BZU4-F1, pLDDT 76.4; STRING: no interactions found
+```

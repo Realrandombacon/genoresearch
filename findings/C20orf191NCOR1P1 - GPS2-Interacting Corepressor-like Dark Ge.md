@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T16:41:30.296153
 
-**Quality Score:** 5/10 (GOOD)
+**Quality Score:** 0.85/10  (E=0.7, D=1.0) [POOR]
 
 ## Description
 102aa Nuclear Receptor Corepressor-like Protein with GPS2-Binding Domain and Medium-Confidence AlphaFold Structure

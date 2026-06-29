@@ -1,0 +1,13 @@
+# ZNF726: KRAB-C2H2 Zinc Finger Transcriptional Repressor with Blood Cell-Enriched Expression and TRIM28 Corepressor Interaction
+
+**Date:** 2026-03-28T01:36:35.601579
+
+**Quality Score:** 3.2/10  (E=5.1, D=1.3) [WEAK]
+
+## Description
+ZNF726 (Zinc Finger Protein 726, UniProt A6NNF4) is a 616 amino acid Krüppel-associated box (KRAB) domain-containing zinc finger protein with canonical transcriptional repressor architecture. InterPro analysis reveals an N-terminal KRAB-A box domain (PF01352, residues 4-44; IPR001909, residues 4-75) that mediates transcriptional repression through recruitment of TRIM28/KAP1 corepressor complexes, followed by multiple C2H2-type zinc finger domains (PF00096, IPR013087) spanning residues 139-346 providing sequence-specific DNA binding capability. AlphaFold structure prediction shows confident folding (global pLDDT 74.1), consistent with well-ordered KRAB-ZFP architecture featuring structured zinc finger domains. HPA expression demonstrates low tissue specificity with detection in many tissues and blood cell group enrichment, suggesting potential roles in hematopoietic gene regulation. STRING interaction network identifies TRIM28 (score 0.522) as the primary partner—the essential cofactor for KRAB-mediated heterochromatin formation—alongside fellow zinc finger proteins ZNF492 (0.555), ZNF638 (0.445), ZNF716 (0.404), and J3QRE1 (0.609). ClinVar contains 9 pathogenic variants including a splice site deletion (NM_001244038.2:c.227-3del) and multiple copy number gains spanning 19p12, suggesting dosage sensitivity. Mechanistic hypothesis: ZNF726 functions as a sequence-specific transcriptional repressor that binds target gene promoters/enhancers via its C2H2 zinc finger array and recruits the TRIM28-SETDB1 histone methyltransferase complex through its KRAB domain, establishing H3K9me3-marked heterochromatin. Blood cell-enriched expression suggests specialized roles in hematopoietic differentiation, potentially silencing lineage-inappropriate genes or regulating immune response programs. The interaction with multiple ZNF family members may indicate cooperative binding or formation of repressive complexes at shared target loci.
+
+## Evidence
+```
+UniProt: A6NNF4 (616 aa); InterPro: IPR001909 (KRAB, 4-75), IPR013087 (C2H2 ZF, 173-256), PF01352 (KRAB box, 4-44), PF00096 (C2H2 ZF, 201-223/257-279/285-307), G3DSA:3.30.160.60 (Classic ZF); STRING: J3QRE1(0.609), ZNF492(0.555), TRIM28(0.522), ZNF638(0.445), DEFB115(0.440), ZNF716(0.404), NXPE4(0.402), REP15(0.400); HPA: low tissue specificity, detected in many, blood cell group enriched; ClinVar: 9 pathogenic variants including c.227-3del splice variant and CNV gains 19p12; AlphaFold: AF-A6NNF4-F1, pLDDT 74.1
+```

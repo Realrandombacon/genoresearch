@@ -1,0 +1,13 @@
+# LOC124909410: 3q13.2 Uncharacterized Locus with No Current Molecular or Clinical Data
+
+**Date:** 2026-03-28T02:11:48.136922
+
+**Quality Score:** 3.05/10  (E=4.3, D=1.8) [WEAK]
+
+## Description
+LOC124909410 (Gene ID: 124909410) is an uncharacterized genetic locus located on chromosome 3q13.2 (NC_000003.12, positions 113617743-113623432, ~5.7kb region). Despite having an Entrez Gene ID, this locus lacks protein-level characterization across all major databases. No UniProt entry exists, preventing domain analysis via InterPro and structure prediction via AlphaFold. Human Protein Atlas could not resolve this gene to an Ensembl ID, indicating it is either not annotated in Ensembl, not expressed in surveyed tissues, or may not encode a stable protein product. STRING database returns no protein-protein interactions, consistent with complete absence of protein characterization. ClinVar contains zero pathogenic variants, suggesting either no clinical associations have been identified or the gene resides in a genomic region not typically captured in clinical sequencing panels. The 3q13 chromosomal location places LOC124909410 within a region that has been implicated in developmental disorders when deleted or duplicated - 3q13 deletion syndrome features include growth retardation, intellectual disability, and craniofacial anomalies. Functional hypothesis: LOC124909410 likely represents either (1) a very lowly expressed or tissue-restricted protein-coding gene that evades detection by standard proteomic surveys, (2) a long non-coding RNA with regulatory function where structural variants disrupt enhancer/promoter architecture affecting neighboring genes, or (3) a pseudogene or gene fragment. The complete absence of clinical variants may reflect limited phenotypic consequences or insufficient study rather than true lack of disease association. Priority experiments include transcript identification via RNA-seq across diverse tissues and developmental stages, ORF prediction and conservation analysis across vertebrates to assess functional constraint, CRISPR-based functional assays in developmental models, and investigation of expression changes in 3q13 deletion/duplication syndrome patients to determine if LOC124909410 contributes to phenotype.
+
+## Evidence
+```
+Gene ID: 124909410; Location: 3q13.2 (113617743-113623432, ~5.7kb); UniProt: No entry; HPA: Could not resolve to Ensembl ID; STRING: No interactions; ClinVar: 0 pathogenic variants; Conservation: Unknown; AlphaFold: No structure (no UniProt accession); Clinical context: 3q13 deletion/duplication syndrome region
+```

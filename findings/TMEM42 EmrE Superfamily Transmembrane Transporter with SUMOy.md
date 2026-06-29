@@ -1,0 +1,13 @@
+# TMEM42: EmrE Superfamily Transmembrane Transporter with SUMOylation Network Links to Ciliary Function
+
+**Date:** 2026-03-28T01:39:19.038487
+
+**Quality Score:** 2.85/10  (E=4.6, D=1.1) [WEAK]
+
+## Description
+TMEM42 (Transmembrane Protein 42, UniProt Q69YG0) is a 159 amino acid integral membrane protein belonging to the EmrE multidrug transporter superfamily. InterPro analysis reveals a conserved EmrE-like transmembrane domain (IPR037185/SSF103481, residues 44-145) characteristic of small multidrug resistance (SMR) transporters that typically function as proton-driven efflux pumps for toxic compounds. The protein also contains a TMEM42-specific family domain (IPR039632/PTHR31965, residues 1-159) defining this vertebrate-specific subfamily. AlphaFold structure prediction shows confident folding (global pLDDT 72.5), consistent with a stable transmembrane architecture featuring multiple membrane-spanning helices. STRING interaction network identifies UBE2I (score 0.746, high confidence) as the primary partner—a SUMO-conjugating enzyme (UBC9) critical for protein sumoylation—alongside cilia-associated proteins CFAP97D1 (0.512), IQCE (0.400), and kinesin motor KIF15 (0.446), suggesting potential roles in ciliary trafficking or assembly. Additional partners include C5orf52 (0.541), CCDC24 (0.412), WFDC5 (0.401), and TLCD5 (0.401). ClinVar contains 5 pathogenic copy number variants spanning chromosome 3p21.31-3p26.3 regions, indicating dosage sensitivity though no specific disease associations are yet defined. HPA expression data unavailable. Mechanistic hypothesis: TMEM42 functions as a proton-coupled transmembrane transporter that may efflux small molecules from intracellular compartments, potentially localized to ciliary membranes given its interaction network. The strong UBE2I interaction suggests TMEM42 undergoes SUMOylation, which could regulate its trafficking, stability, or transport activity. Cilia-related interactors (CFAP97D1, IQCE) and kinesin KIF15 indicate potential involvement in intraflagellar transport or ciliogenesis, processes critical for developmental signaling pathways. The EmrE superfamily membership suggests ancestral function in toxin/drug efflux that may have been adapted for specialized metabolite transport in vertebrate ciliary biology.
+
+## Evidence
+```
+UniProt: Q69YG0 (159 aa); InterPro: IPR037185 (EmrE superfamily, 44-145), IPR039632 (TMEM42 family, 1-159), PTHR31965 (TMEM42, 1-159), SSF103481 (EmrE efflux transporter, 44-145); STRING: UBE2I(0.746), C5orf52(0.541), CFAP97D1(0.512), KIF15(0.446), CCDC24(0.412), WFDC5(0.401), TLCD5(0.401), IQCE(0.400); HPA: no data available; ClinVar: 5 pathogenic CNVs (3p26.3-14.3, 3p24.3-21.31, 3p26.3-q29, 3p22.2-21.31); AlphaFold: AF-Q69YG0-F1, pLDDT 72.5
+```

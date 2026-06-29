@@ -1,0 +1,13 @@
+# Uncharacterized Locus at 9q34.3 within Kleefstra Syndrome Critical Region with High Pathogenic Deletion Burden
+
+**Date:** 2026-03-19T03:47:43.245829
+
+**Quality Score:** 2.9/10  (E=3.3, D=2.5) [WEAK]
+
+## Description
+LOC101928932 is an uncharacterized genomic locus on chromosome 9q34.3 (NC_000009.12:138203452-138199932) spanning approximately 3.5 kb. Comprehensive database searches reveal no evidence of protein-coding function: no UniProt accession was identified, precluding InterPro domain analysis and AlphaFold structure prediction. STRING database returned no protein interaction partners, and Human Protein Atlas could not resolve this locus to an Ensembl ID, indicating no detectable protein expression. However, ClinVar analysis reveals 13 pathogenic/likely pathogenic variants in this region, all copy number losses (deletions) including large structural variants such as chr9:137505613-138394717 (~889 kb), chr9:136993278-138200863 (~1.2 Mb), chr9:137778047-138231664 (~454 kb), and chr9:135204722-138394717 (~3.2 Mb). These deletions encompass the 9q34.3 region and are associated with Kleefstra syndrome (9q34.3 deletion syndrome), a well-characterized neurodevelopmental disorder featuring intellectual disability, childhood hypotonia, distinctive facial features, congenital heart defects, and autistic features. The EHMT1 gene (euchromatic histone-lysine N-methyltransferase 1) within this region is the primary dosage-sensitive gene responsible for the core phenotype, with haploinsufficiency leading to dysregulation of histone methylation and gene expression. LOC101928932 likely functions as part of the 9q34.3 cis-regulatory landscape or encodes a non-coding RNA whose deletion contributes to Kleefstra syndrome pathogenesis through disruption of chromatin architecture or long-range regulation of EHMT1. The absence of protein-coding features combined with high pathogenic deletion burden (13 variants) indicates this locus resides within a critical dosage-sensitive genomic region where structural variation disrupts neurodevelopmental processes via epigenetic dysregulation.
+
+## Evidence
+```
+ClinVar: 13 pathogenic/likely pathogenic variants (deletions at chr9:137505613-138394717, chr9:136993278-138200863, chr9:137778047-138231664, chr9:137170000-138360000, chr9:137574569-138212068, chr9:135791488-138262981, chr9:137614558-138394717, chr9:135204722-138394717, chr9:138125938-138394717); Genomic location: 9q34.3 (NC_000009.12:138203452-138199932, ~3.5 kb); No UniProt/InterPro/STRING/HPA protein data; Within Kleefstra syndrome (9q34.3 deletion syndrome) critical region containing EHMT1
+```

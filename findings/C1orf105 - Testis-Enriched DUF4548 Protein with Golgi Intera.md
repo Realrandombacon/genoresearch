@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T15:34:01.350270
 
-**Quality Score:** 10/10 (EXCELLENT)
+**Quality Score:** 4.4/10  (E=5.0, D=3.8) [MODERATE]
 
 ## Description
 183aa uncharacterized protein containing DUF4548 domain (entire protein). Testis-enriched expression (24.6 nTPM) with vesicle subcellular localization. Evolutionarily conserved (56.6% identity in rat). STRING interactions reveal connections to Golgi apparatus (GOLGA8S), GPI anchor biosynthesis (PIGC), and mitochondrial translation (MTIF2). clinically significant with 45 pathogenic/likely pathogenic variants in ClinVar, suggesting disease association despite uncharacterized molecular function.

@@ -1,0 +1,13 @@
+# ZNF197: SCAN-KRAB Zinc Finger Transcriptional Repressor with Immune Cell-Enhanced Expression
+
+**Date:** 2026-03-23T05:54:53.511682
+
+**Quality Score:** 1.65/10  (E=3.0, D=0.3) [POOR]
+
+## Description
+ZNF197 encodes a 1029 amino acid nuclear transcriptional repressor protein (UniProt: O14709) belonging to the SCAN domain-containing Krüppel-associated box (KRAB) zinc finger protein family. The protein architecture features an N-terminal SCAN oligomerization domain (aa 38-150, IPR003309, cd07936) that mediates homo- and hetero-dimerization with other SCAN family members, enabling combinatorial regulatory complex formation. A central KRAB-A repression domain (aa 216-289, IPR001909, cd07765) recruits corepressor complexes including TRIM28/KAP1 and histone deacetylases to establish heterochromatin. The C-terminal region contains 20 tandemly arrayed C2H2-type zinc finger DNA-binding motifs (IPR013087) spanning residues 362-575, providing sequence-specific recognition of target gene promoters.\n\nHuman Protein Atlas data indicates ZNF197 localizes to the nucleoplasm with low tissue specificity, being detected in all tissues but showing immune cell-enhanced expression in blood cells. The protein is classified as a transcription factor and plasma protein involved in transcription regulation and DNA binding. This expression pattern suggests roles in immune cell differentiation and function.\n\nClinVar documents 5 pathogenic/likely pathogenic variants, all being copy number gains on chromosome 3p regions (3p26.3-14.3, 3p24.3-21.31, 3p26.3-q29), indicating that ZNF197 dosage alterations contribute to disease phenotypes. The rapid mRNA turnover mediated by 3′ UTR AUUUA motifs suggests tight post-transcriptional regulation. Mechanistically, ZNF197 likely functions as a sequence-specific transcriptional silencer where the SCAN domain mediates partner selection, the KRAB domain recruits chromatin modifiers, and the zinc finger array determines DNA target specificity, collectively repressing genes involved in immune cell proliferation and differentiation.
+
+## Evidence
+```
+InterPro domains: IPR001909 (KRAB box, aa 216-289), IPR003309 (SCAN domain, aa 38-150), IPR013087 (C2H2 zinc finger, aa 370-397/398-425/426-453 and additional repeats), cd07765 (KRAB-A box, aa 217-256), cd07936 (SCAN oligomerization, aa 39-121). HPA: nucleoplasm localization, low tissue specificity, detected in all tissues, immune cell enhanced in blood cells, transcription factor class, plasma protein. ClinVar: 5 pathogenic variants (copy number gains on 3p26.3-14.3, 3p24.3-21.31, 3p26.3-q29). UniProt: O14709, 1029 aa. Gene ID: 10168, chr3:44625035-44648470. Aliases: D3S1363E, P18, VHLaK, ZKSCAN9, ZNF166, ZSCAN41.
+```

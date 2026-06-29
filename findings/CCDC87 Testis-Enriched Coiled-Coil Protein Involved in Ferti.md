@@ -1,0 +1,13 @@
+# CCDC87: Testis-Enriched Coiled-Coil Protein Involved in Fertilization with MAP65 Domain Architecture
+
+**Date:** 2026-03-23T05:41:29.071619
+
+**Quality Score:** 3.05/10  (E=5.1, D=1.0) [WEAK]
+
+## Description
+CCDC87 (Coiled-Coil Domain Containing 87) is an 849-amino acid intracellular protein encoded on chromosome 11q13.2 (UniProt Q9NVE4). InterPro analysis reveals membership in the CCDC87 protein family (IPR037383, PTHR16078) spanning residues 2-843, and contains a microtubule-associated protein domain (PF03999, MAP65/ASE1 family, residues 710-823) with a coiled-coil structural fold (G3DSA:1.20.58.1520, residues 712-838). This domain architecture suggests CCDC87 functions as a microtubule-binding protein involved in cytoskeletal organization. Human Protein Atlas confirms testis-enriched expression (13.3 nTPM) with low tissue distribution (detected in some tissues only), dual nucleoplasmic/nucleolar plus cytosolic localization, and functional annotation in differentiation, fertilization, and spermatogenesis biological processes. STRING database identifies 8 protein interaction partners with medium confidence scores (0.431-0.562), including DCDC2B (0.562), CCDC58 (0.513), PRR14L (0.480), CCDC97 (0.479), FAM184B (0.451), SUN2 (0.447), RTL5 (0.442), and CCDC155 (0.431). Several partners are coiled-coil domain proteins or nuclear envelope components (SUN2), suggesting potential roles in nuclear-cytoskeletal coupling. ClinVar documents 11 pathogenic/likely pathogenic variants encompassing CCDC87, including large-scale copy number gains and losses on chromosome 11 (11q12.1-13.3, 11q13.1-13.2, 11p15.5-q25 regions), duplications, and deletions, indicating dosage sensitivity. Given testis-specific expression, MAP65 microtubule-binding domain, and gene ontology annotations for acrosome reaction and fertilization regulation, CCDC87 likely functions as a microtubule-associated protein critical for spermatogenesis, potentially stabilizing microtubule arrays during sperm maturation or mediating acrosomal vesicle trafficking. The coiled-coil architecture enables oligomerization and protein-protein interactions necessary for cytoskeletal scaffold formation. Haploinsufficiency or overexpression may impair fertility through disrupted sperm differentiation or acrosome biogenesis.
+
+## Evidence
+```
+UniProt: Q9NVE4 (849 aa); InterPro: IPR037383 (CCDC87 family), PF03999 (MAP65/ASE1), G3DSA:1.20.58.1520 (coiled-coil); STRING: DCDC2B (0.562), CCDC58 (0.513), PRR14L (0.480), CCDC97 (0.479), FAM184B (0.451), SUN2 (0.447), RTL5 (0.442), CCDC155 (0.431); HPA: Testis-enriched (13.3 nTPM), nucleoplasm/nucleoli/cytosol, fertilization/spermatogenesis; ClinVar: 11 pathogenic variants (CNVs, duplications, deletions on chr11); Chromosome: 11q13.2
+```

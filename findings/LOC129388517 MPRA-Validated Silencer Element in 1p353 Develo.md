@@ -1,0 +1,13 @@
+# LOC129388517: MPRA-Validated Silencer Element in 1p35.3 Developmental and Cancer Critical Region
+
+**Date:** 2026-03-23T07:34:52.170138
+
+**Quality Score:** 3.28/10  (E=3.35, D=3.2) [WEAK]
+
+## Description
+LOC129388517 (Gene ID: 129388517) is a functionally validated cis-regulatory silencer element mapping to chromosome 1p35.3 (51,786,942-51,787,142 bp, ~200 bp span). RefSeq annotation explicitly states: "MPRA-validated peak222 silencer" - validated by STARR-seq massively parallel reporter assays in K562 erythroleukemia cells as repressing super core promoter SCP1 activity. Multiple evidence lines confirm non-coding regulatory function: (1) No UniProt accession (not a protein); (2) Genomic span of 200 bp is far too small for protein-coding gene; (3) ClinVar contains 1 pathogenic variant - chromosomal inversion affecting 1p35.3 region; (4) No HPA expression expected (non-coding); (5) No STRING interactions or InterPro domains (non-coding). The 1p35.3 region contains critical developmental genes: PEX19 (1p35.3, peroxisomal biogenesis factor 19, peroxisome assembly, Zellweger spectrum disorders), ITGA6 (1p35.3, integrin alpha-6, laminin receptor, epidermal stem cell adhesion), and multiple tumor suppressors. 1p35 deletions cause developmental delay, intellectual disability, craniofacial dysmorphism, and cardiac defects; 1p35 amplifications occur in neuroblastoma and breast cancer. Mechanistic hypothesis: LOC129388517 functions as a transcriptional silencer that represses gene expression in hematopoietic or developmental contexts. The element likely recruits co-repressor complexes (e.g., Polycomb repressive complex 2, NuRD, or HDAC-containing complexes) via sequence-specific DNA-binding proteins to establish repressive chromatin (H3K27me3, H3K9me3, DNA methylation). K562 erythroleukemia validation suggests activity in erythroid/myeloid lineage. 1p35.3 is gene-dense with peroxisomal biogenesis factors and integrin receptors; silencer disruption via inversion alters TAD architecture and long-range regulation of PEX19, ITGA6, and neighboring genes. PEX19 haploinsufficiency causes peroxisome biogenesis defects; ITGA6 loss impairs epidermal stem cell maintenance. This represents a critical class of "dark genes" that are actually functional non-coding regulatory elements misannotated as genes.
+
+## Evidence
+```
+RefSeq: MPRA-validated silencer (peak222); Genomic location: NC_000001.11 (51786942-51787142, 200 bp); Validated in: K562 cells via STARR-seq; ClinVar: 1 pathogenic inversion (1p35.3); No UniProt/STRING/HPA/InterPro data (non-coding); 1p35.3 region contains PEX19, ITGA6
+```

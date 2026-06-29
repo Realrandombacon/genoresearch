@@ -1,0 +1,13 @@
+# LOC127827216: 14q11.2 H3K27ac-Associated Primed hESC Enhancer with No Clinical Variants — Putative Lineage Priming Regulatory Element
+
+**Date:** 2026-03-19T03:17:24.562268
+
+**Quality Score:** 2.15/10  (E=1.6, D=2.7) [WEAK]
+
+## Description
+LOC127827216 is a functionally characterized cis-regulatory element on chromosome 14q11.2 (genomic coordinates: 21541896-21542397 on NC_000014.9, spanning approximately 501 bp). This genomic region was validated as an active enhancer by ChIP-STARR-seq massively parallel reporter assays (MPRAs) in primed human embryonic stem cells (hESCs), where it is marked by the H3K27ac histone modification (histone H3 lysine 27 acetylation — canonical active enhancer mark distinguishing active from poised enhancers). The H3K27ac mark indicates active transcriptional regulatory function in primed pluripotent stem cells (post-implantation epiblast-like state). A subregion was also identified as an uncharacterized cis-regulatory element (CRE) lacking promoter, enhancer, or CTCF-bound insulator chromatin signature, and validated as a silencer that could repress activity of super core promoter SCP1 by STARR-seq MPRAs in K562 erythroleukemia cells. The element lacks protein-coding evidence (no UniProt entry, no STRING interactions, no HPA protein expression), confirming its identity as a non-coding regulatory element with dual enhancer/silencer activity depending on cellular context. ClinVar analysis identified 0 pathogenic/likely pathogenic variants, indicating no known clinical significance to date. This absence of ClinVar entries is consistent with other hESC enhancers in this series and contrasts with silencers showing strong triplosensitivity or haploinsufficiency patterns. The 14q11 chromosomal region contains critical dosage-sensitive genes including TTR (transthyretin - thyroid hormone transport, amyloidosis), PAX9 (paired box 9 - tooth development, ectodermal dysplasia), and multiple developmental transcription factors. As a primed hESC-specific enhancer marked by H3K27ac, LOC127827216 likely functions to activate transcription of target genes in cis during early embryonic development and lineage priming.
+
+## Evidence
+```
+Evidence: NCBI Gene ID 127827216; Chromosome 14q11.2 (21541896-21542397); ~501 bp regulatory region; H3K27ac-marked primed hESC enhancer (ChIP-STARR-seq in primed hESCs); MPRA-validated silencer (STARR-seq in K562 cells); Represses SCP1 promoter activity; Accessible chromatin subregion; No UniProt entry (non-coding); ClinVar: 0 pathogenic variants (no clinical significance identified); 14q11 region contains TTR, PAX9; Associated with embryonic stem cell primed pluripotency, thyroid hormone transport, tooth development
+```

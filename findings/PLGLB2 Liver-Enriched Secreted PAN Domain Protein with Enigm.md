@@ -1,0 +1,15 @@
+# PLGLB2: Liver-Enriched Secreted PAN Domain Protein with Enigmatic Role in Fibrinolysis and Cancer
+
+**Date:** 2026-06-27T12:45:31.524613
+
+**Quality Score:** 9/10 (EXCELLENT)
+
+**Confidence:** MEDIUM
+
+## Description
+PLGLB2 (Plasminogen-Like Protein B2, also known as PLGP1) is a 96-amino acid secreted protein (UniProt Q02325) that represents a genuine dark gene with only 3 publications despite clear structural characterization and tissue-specific expression. Structurally, PLGLB2 consists almost entirely of a single PAN/Apple domain (IPR003609/PF00024, residues 16-96), a compact ~80-residue module characterized by four conserved disulfide bonds that mediate protein-protein interactions in coagulation and fibrinolysis factors. This domain places PLGLB2 within the plasminogen-related protein family (IPR016351/PIRSF002483), homologous to hepatocyte growth factor activator and coagulation factor XI. AlphaFold predicts an exceptionally confident structure (pLDDT 91.2) reflecting the stable disulfide-bonded PAN domain fold. Functionally, PLGLB2 shows striking liver-specific expression (HPA: 122.6 nTPM in liver, tissue-enriched) with predicted secretion and vesicular localization, consistent with a circulating plasma factor. Despite only 2 ClinVar pathogenic variants (copy number loss/gain at 2p11.2-p12), no specific disease phenotype has been defined. STRING interactions reveal unexpected connections to cancer-testis antigens (GAGE12C:0.571, GAGE12D:0.541, GAGE12E:0.476, GAGE2E:0.447) and PPP5D1 (0.608), suggesting potential roles in immune privilege or tumor biology. The literature (3 papers) links PLGLB2 to scrub typhus susceptibility via GWAS (2021), pancreatic cancer prognosis signatures (2022), and 2p11.2 deletion syndrome (2009). The mechanistic hypothesis: PLGLB2 functions as a regulatory module in the fibrinolytic cascade, potentially modulating plasminogen activation or inhibitor interactions through its PAN domain—similar to how factor XI uses PAN domains for substrate recognition. Its liver-restricted expression mirrors other coagulation factors, while the cancer-testis antigen interactions suggest aberrant re-expression in malignancy. The absence of Mendelian disease despite structural conservation implies functional redundancy with other PAN domain proteins (e.g., PLGLB1, HGFAC) or subtle phenotypes detectable only under stress conditions like infection or thrombosis.
+
+## Evidence
+```
+InterPro Domains: IPR003609 (PAN/Apple domain), IPR016351 (Plasminogen-related), PF00024 (PAN domain), cd01099 (PAN_AP_HGF), PS50948, SM00473. STRING Partners: PPP5D1 (0.608), GAGE12C (0.571), GAGE12D (0.541), FAM47B (0.512), DHRS7C (0.497), GAGE12E (0.476), IGFL3 (0.448). HPA: Liver-enriched (122.6 nTPM), Vesicles localization, Predicted secreted, Cancer-enriched. ClinVar: 2 pathogenic variants (CNV loss/gain 2p11.2), 0 diseases associated. AlphaFold: pLDDT 91.2 (very high). Literature: 3 papers (scrub typhus GWAS 2021, pancreatic cancer prognosis 2022, 2p11.2 deletion 2009). UniProt: Q02325, 96 aa.
+```

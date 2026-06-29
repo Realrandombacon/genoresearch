@@ -1,0 +1,13 @@
+# TMEM255B: Conserved Transmembrane Scaffold Protein with Ubiquitin Pathway Links and Dosage-Sensitive Pathogenicity
+
+**Date:** 2026-03-19T12:07:39.223477
+
+**Quality Score:** 4.6/10  (E=8.1, D=1.1) [MODERATE]
+
+## Description
+TMEM255B (UniProt Q8WV15) encodes a 326 amino acid transmembrane protein (chromosome 13q34) with conserved FAM70-like structural signatures. InterPro analysis reveals membership in the transmembrane protein 255 family (IPR028014, residues 2-326; PTHR33721, residues 2-326) with a conserved FAM70 protein domain (PF14967, residues 8-323) characteristic of multi-pass transmembrane scaffold proteins. STRING interactions show medium-confidence associations with ubiquitin-related and membrane regulatory pathways: TMEM225B (0.506, transmembrane protein 225B, membrane organization), WWP1 (0.457, WW domain-containing E3 ubiquitin protein ligase 1, ubiquitin-mediated proteolysis), UBALD2 (0.431, ubiquitin-associated domain-containing protein 2, ubiquitin-like modifier regulation), and PHYHIP (0.422, phosphatidylinositol-3,4,5-trisphosphate 5-phosphatase-interacting protein, membrane signaling). HPA expression data is currently unavailable, but the protein is predicted to be intracellular and membrane-associated. ClinVar contains 116 pathogenic/likely pathogenic variants, predominantly large copy number losses on 13q34 (e.g., chr13:89779269-114338054)x1, indicating strong dosage sensitivity and haploinsufficiency as a disease mechanism. AlphaFold structure prediction shows medium confidence (pLDDT 70.8) across the full 326 aa sequence, consistent with a well-folded multi-pass transmembrane architecture. Conservation data shows strong vertebrate conservation: mouse ortholog (349 aa, ~95% identity). The convergence of transmembrane scaffold domain, interaction with ubiquitin ligase WWP1 and ubiquitin regulator UBALD2, dosage-sensitive pathogenicity, and conserved membrane topology suggests TMEM255B functions as a transmembrane scaffold protein that organizes ubiquitin-mediated membrane protein turnover complexes, potentially regulating endosomal sorting or ER-associated degradation (ERAD). Its interaction with WWP1 places it within the HECT-type E3 ubiquitin ligase network; 13q34 CNV pathogenicity implicates TMEM255B in neurodevelopmental disorders or cancer predisposition due to disrupted protein homeostasis.
+
+## Evidence
+```
+InterPro: IPR028014, PF14967, PTHR33721 | STRING: TMEM225B(0.506), WWP1(0.457), UBALD2(0.431), PHYHIP(0.422) | ClinVar: 116 pathogenic variants (13q34 CNVs, dosage-sensitive) | AlphaFold: pLDDT 70.8 (medium confidence) | UniProt: Q8WV15 | Length: 326 aa | Chromosome: 13q34 | Transmembrane | Conservation: mouse ~95%
+```

@@ -1,0 +1,15 @@
+# KRT222: Type I Intermediate Filament Keratin with Brain-Retina Expression and Coiled-Coil Structure in Cytoskeletal Organization
+
+**Date:** 2026-05-06T10:42:46.357722
+
+**Quality Score:** 9/10 (EXCELLENT)
+
+**Confidence:** MEDIUM
+
+## Description
+KRT222 (Q8N1A0) is a 295-aa type I keratin intermediate filament protein with confident AlphaFold structure (pLDDT 74.6), indicating a well-folded coiled-coil architecture typical of cytoskeletal proteins. InterPro analysis reveals canonical intermediate filament architecture with type I keratin domain (IPR002957: positions 64-79, 90-116), intermediate filament rod domain (IPR039008/PS51842/PF00038: positions 1-150) enabling coiled-coil dimerization, conserved IF rod signature (IPR018039/PS00226: positions 136-144), and intermediate filament keratin-like family membership (IPR052857/PTHR47082: positions 1-290). HPA expression shows tissue-enhanced pattern with highest expression in brain (11.4 nTPM) and retina (7.4 nTPM), localized to vesicles and lipid droplets, with cancer-enhanced expression pattern suggesting potential oncogenic roles. STRING interactions reveal moderate-confidence connections to SMARCE1/BAF57 (0.837, chromatin remodeling SWI/SNF complex component), EPB41/erythrocyte membrane protein band 4.1 (0.459, cytoskeletal linker), ANKRD34A (0.412, ankyrin repeat protein), and ZNF808 (0.406, zinc finger transcription factor), suggesting KRT222 may bridge cytoskeletal organization with chromatin regulation and membrane dynamics. ClinVar contains 7 pathogenic/likely pathogenic variants including copy number gains at 17q12-21.2, 17p13.3-q25.3, 17q23.1-25.1, 17q12-21.31, 17q21.33-24.2 and copy number loss at 17q12-22, establishing clinical significance though specific disease phenotypes remain undefined. Literature shows only 6 papers (genuine dark gene) with mentions in cisplatin nephrotoxicity, glioma genomic characterization, inflammatory bowel disease risk loci, and cattle breed selection signatures. The confident coiled-coil structure (pLDDT 74.6), type I keratin domains, brain-retina enriched expression, vesicle/lipid droplet localization, and pathogenic CNV burden suggest KRT222 functions as intermediate filament component providing mechanical stability and cytoskeletal organization in neural tissues, potentially linking cytoskeletal dynamics to chromatin remodeling via SMARCE1 interaction, with disruption contributing to neurological phenotypes and cancer through altered intermediate filament assembly and cellular mechanics.
+
+## Evidence
+```
+InterPro: IPR002957, IPR018039, IPR039008, IPR052857, PF00038, PS00226, PS51842, PTHR47082, G3DSA:1.20.5.170, G3DSA:1.20.5.500, SSF64593, PR01248 | STRING: SMARCE1(0.837), EPB41(0.459), ANKRD34A(0.412), ZNF808(0.406) | HPA: tissue enhanced, detected in some, brain 11.4 nTPM, retina 7.4 nTPM, vesicles/lipid droplets, cancer enhanced | ClinVar: 7 pathogenic variants including CNVs at 17q12-21.2/17q12-22/17p13.3-q25.3/17q23.1-25.1/17q12-21.31/17q21.33-24.2 | AlphaFold: pLDDT 74.6 | UniProt: Q8N1A0, 295 aa | Literature: 6 papers, cisplatin nephrotoxicity, glioma, IBD risk loci, cattle selection
+```

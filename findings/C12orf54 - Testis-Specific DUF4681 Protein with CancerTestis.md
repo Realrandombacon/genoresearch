@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T06:34:14.167752
 
-**Quality Score:** 9/10 (EXCELLENT)
+**Quality Score:** 4.9/10  (E=4.0, D=5.8) [MODERATE]
 
 ## Description
 C12orf54 is a genuine dark gene (127 aa) containing DUF4681 domain of unknown function across entire sequence. HPA shows testis-enriched expression (49.9 nTPM) with intermediate filament/cytosol localization. STRING reveals interaction network with cancer/testis antigens: MAGEB1 (0.570), PAGE3 (0.474), VCX (0.446) - suggesting role in germline/reproductive biology or cancer immunology. BLAST shows conservation in Bos taurus (56.7% identity). ClinVar has 11 pathogenic CNV variants indicating clinical importance. AlphaFold shows medium confidence structure (pLDDT 67.3) suggesting partial disorder. Also known as HSD-29/HSD-30. Function may involve germ cell development, chromatin regulation, or cancer/testis antigen complex formation.

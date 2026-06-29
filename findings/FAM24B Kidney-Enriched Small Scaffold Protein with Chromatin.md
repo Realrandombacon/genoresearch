@@ -1,0 +1,13 @@
+# FAM24B: Kidney-Enriched Small Scaffold Protein with Chromatin Modifier Network
+
+**Date:** 2026-03-19T16:43:07.898802
+
+**Quality Score:** 4.95/10  (E=7.1, D=2.8) [MODERATE]
+
+## Description
+FAM24B encodes a 94 amino acid uncharacterized protein (UniProt: Q8N5W8) localized to chromosome 10q26.13, adjacent to its paralog FAM24A. InterPro analysis reveals membership in the FAM24 family (IPR028122, residues 1-94; PF15193, residues 22-94) and PTHR35860 family, indicating strong evolutionary conservation. AlphaFold predicts a partially structured conformation with medium confidence (pLDDT 64.4), consistent with scaffold/adaptor protein architecture containing both ordered and disordered regions. HPA expression demonstrates kidney enrichment (15.1 nTPM) with detection in many tissues, classified as predicted intracellular protein, cancer-enriched expression, and low immune cell specificity. This kidney-predominant pattern contrasts sharply with FAM24A testis specificity, suggesting tissue-specific paralog functional divergence. STRING database identifies 7 interaction partners: RWDD2B (0.570), FAM200A (0.506), TDRD15 (0.439), CCNI2 (0.433), ZNF525 (0.418), ZNF572 (0.404), and HLA-DQB2 (0.400). Notably, RWDD2B is a RWD domain-containing protein involved in SUMOylation, TDRD15 is a tudor domain protein implicated in piRNA pathways and germ cell development, and ZNF525/572 are C2H2 zinc finger transcription factors. This interaction network suggests FAM24B may function as a chromatin-associated scaffold recruiting SUMOylation machinery and transcriptional regulators in renal epithelial cells. ClinVar documents 49 pathogenic copy number variants (deletions and duplications spanning 10q26), indicating dosage sensitivity. Conservation data shows mouse ortholog Q9DAL9 (119 aa, 78% identity). The kidney-enriched expression combined with chromatin modifier interactions suggests FAM24B functions in renal transcriptional regulation, potentially modulating nephron development or kidney homeostasis through SUMO-dependent chromatin remodeling.
+
+## Evidence
+```
+Evidence: (1) InterPro: IPR028122/PF15193 FAM24 family aa 1-94/22-94, PTHR35860 aa 1-94; (2) UniProt: Q8N5W8, 94 aa; (3) AlphaFold: pLDDT 64.4 medium confidence; (4) HPA: kidney-enriched 15.1 nTPM, tissue enhanced, predicted intracellular, cancer-enriched; (5) STRING: 7 interactions RWDD2B 0.570/FAM200A 0.506/TDRD15 0.439/CCNI2 0.433/ZNF525 0.418/ZNF572 0.404/HLA-DQB2 0.400; (6) ClinVar: 49 pathogenic CNV variants; (7) Conservation: mouse Q9DAL9 119 aa 78% identity; (8) Chromosome 10q26.13 location, paralog of FAM24A
+```

@@ -1,0 +1,13 @@
+# FAM81B: Testis-Enriched Scaffold Protein in Ciliogenesis and Spermatogenesis
+
+**Date:** 2026-03-20T14:52:59.374850
+
+**Quality Score:** 4.95/10  (E=7.8, D=2.1) [MODERATE]
+
+## Description
+FAM81B encodes a 452-amino acid intracellular protein (UniProt Q96LP2) belonging to the FAM81 family with a conserved FAM81B domain (PF28217, residues 114-441) and family signature (IPR029619, residues 75-452). AlphaFold predicts a well-folded structure with global pLDDT 75.6 (confident), indicating stable tertiary architecture suitable for protein-protein interactions. HPA expression reveals testis-enriched pattern (78.7 nTPM) with additional expression in choroid plexus (58.9 nTPM) and fallopian tube (45.4 nTPM), suggesting roles in ciliated epithelia and germ cell development. STRING interactions identify 10 high-confidence partners enriched for cilia/centrosome proteins: ARMC3 (0.706) - armadillo repeat protein implicated in spermatogenesis, ENKUR (0.654) - calcium-binding protein localizing to sperm annulus, WDR38 (0.620) - WD40 repeat protein required for cilia assembly, RSPH14 (0.605) - radial spoke head protein critical for ciliary motility, CFAP36 (0.542) - cilia and flagella associated protein, and PIFO (0.541) - planar cell polarity protein regulating ciliogenesis. ClinVar documents 23 pathogenic/likely pathogenic variants including copy number losses and gains on chromosome 5q14.3-23.3, though specific disease phenotypes remain unclassified. Conservation analysis shows bovine ortholog (Q0II90) at 414 aa with 91% length conservation. FUNCTIONAL HYPOTHESIS: FAM81B functions as a cytoplasmic scaffold protein that organizes multi-protein complexes at the ciliary base or centrosome during spermatogenesis and ciliated epithelial differentiation. MECHANISTIC PROPOSAL: FAM81B recruits ARMC3 and ENKUR to the sperm annulus through its FAM81B domain, while simultaneously interacting with WDR38 and RSPH14 to facilitate ciliary axoneme assembly. The testis-specific expression pattern suggests FAM81B is essential for sperm flagellum formation, and disruption may cause asthenozoospermia or ciliopathy phenotypes. Copy number variants affecting FAM81B likely impair ciliary function in multiple tissues including respiratory epithelium and neural tube (choroid plexus), potentially contributing to developmental disorders.
+
+## Evidence
+```
+InterPro: IPR029619/PF28217/PTHR22420 FAM81 family domain (75-452aa/114-441aa); STRING: ARMC3(0.706)/ENKUR(0.654)/WDR38(0.620)/RSPH14(0.605)/CFAP36(0.542)/PIFO(0.541); HPA: testis 78.7 nTPM, choroid plexus 58.9 nTPM, fallopian tube 45.4 nTPM; ClinVar: 23 pathogenic CNV/SNV variants; UniProt: Q96LP2, 452aa; AlphaFold: pLDDT 75.6 confident structure; Conservation: bovine ortholog 414aa (91%)
+```

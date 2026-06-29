@@ -1,0 +1,13 @@
+# Cilia-Flagella Scaffold Protein with Immunoglobulin Domain Architecture and Male Fertility Association
+
+**Date:** 2026-03-23T01:17:01.266353
+
+**Quality Score:** 3.5/10  (E=6.0, D=1.0) [MODERATE]
+
+## Description
+CFAP65 encodes a 1925 amino acid cilia and flagella associated protein localized to chromosome 2q35 (GRCh38: 219041550-219002845). InterPro domain analysis reveals extensive immunoglobulin-like fold architecture with 10+ Ig-like domains (G3DSA:2.60.40.10, PF22544, PF24291, PF24507) spanning residues 242-1409, plus a Major Sperm Protein (MSP) domain (IPR000535, residues 877-986) and CFAP65 family signature (IPR052614, residues 129-1884). This domain organization suggests a structural scaffolding role within the ciliary axoneme or basal body complex. Human Protein Atlas shows tissue-enhanced RNA expression with highest levels in fallopian tube (24.2 nTPM), choroid plexus (8.9 nTPM), testis (8.8 nTPM), and retina (8.5 nTPM), consistent with ciliated epithelia and sperm flagella function. The alias SPGF40 (Spermatogenic Failure 40) directly implicates CFAP65 in male fertility. ClinVar documents 38 pathogenic/likely pathogenic variants including truncating mutations (p.Trp1201Ter, p.Glu1840Ter), missense variants (p.Ile1240Phe, p.Ser907Leu, p.Pro410Ser), and large copy number gains spanning 2q35-37.3 megabase regions. Conservation is evidenced by orthologs in mouse (Q3V0B4, 1847 aa) and chicken (F1P4W9, 1775 aa). Mechanistic hypothesis: CFAP65 functions as a multi-domain scaffolding protein that stabilizes protein-protein interactions within the ciliary/flagellar axonemal complex through its tandem Ig-like domains, which typically mediate extracellular or luminal protein interactions. The MSP domain may enable membrane association or cytoskeletal cross-linking. Loss-of-function variants disrupt axonemal assembly or stability, causing immotile cilia syndrome phenotypes including asthenozoospermia (reduced sperm motility) and potentially respiratory ciliary dyskinesia. The chicken Rose-comb mutation (chromosome inversion affecting CFAP65 ortholog) demonstrates evolutionary conservation of cilia/flagella function across vertebrates.
+
+## Evidence
+```
+Evidence: UniProt Q6ZU64 (1925 aa), InterPro 10+ Ig-like domains G3DSA:2.60.40.10/PF22544 (242-1409aa), MSP domain IPR000535 (877-986aa), CFAP65 family IPR052614 (129-1884aa), HPA fallopian tube 24.2 nTPM/testis 8.8 nTPM, ClinVar 38 pathogenic variants including p.Trp1201Ter/p.Glu1840Ter truncations, Mouse ortholog Q3V0B4 (1847 aa), Chicken ortholog F1P4W9 (1775 aa), Alias SPGF40 (Spermatogenic Failure 40)
+```

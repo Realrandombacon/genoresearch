@@ -1,0 +1,13 @@
+# LOC101928491: Uncharacterized 6p22.3 Locus with Clinical Copy Number Variants
+
+**Date:** 2026-03-28T01:54:37.449009
+
+**Quality Score:** 3.45/10  (E=3.2, D=3.7) [WEAK]
+
+## Description
+LOC101928491 (Gene ID: 101928491) is an uncharacterized genetic locus located on chromosome 6p22.3 (NC_000006.12, positions 17511264-17501359, ~10kb region). Despite being assigned an Entrez Gene ID, this locus lacks protein-level characterization across major databases. No UniProt entry exists, preventing domain analysis via InterPro and structure prediction via AlphaFold. Human Protein Atlas has no expression data, indicating the gene is either not expressed at detectable levels in surveyed tissues, lacks validated antibodies, or may not encode a stable protein product. STRING database returns no protein-protein interactions, consistent with absence of a characterized protein. However, ClinVar contains 6 pathogenic/likely pathogenic variants, all copy number variations (CNVs) spanning the 6p22.3-25.3 region including deletions (chr6:14730556-17554091)x1 and duplications (chr6:156974-46789291)x3, suggesting dosage sensitivity of this genomic region. The 6p22.3 chromosomal location places it in a clinically significant region associated with developmental disorders - deletions in 6p22.3 are linked to intellectual disability, speech delay, and dysmorphic features in published literature. Genomic neighborhood includes genes involved in immune regulation (HLA class I region nearby) and neuronal development. Functional hypothesis: LOC101928491 likely represents either (1) a very lowly expressed or tissue-restricted protein-coding gene that evades detection by standard proteomic surveys, (2) a long non-coding RNA with regulatory function where CNVs disrupt enhancer/promoter architecture, or (3) a component of a larger 6p22.3 critical region where dosage affects multiple genes. The ClinVar CNV burden suggests functional importance despite lack of molecular characterization. Priority for experimental validation includes transcript identification via RNA-seq across diverse tissues, ORF prediction and conservation analysis, and CRISPR-based functional assays to determine phenotypic consequences of loss. Until such validation, LOC101928491 should be classified as 'clinically-associated unverified locus' requiring molecular characterization.
+
+## Evidence
+```
+Gene ID: 101928491; Location: 6p22.3 (17511264-17501359); UniProt: No entry; HPA: No data; STRING: No interactions; ClinVar: 6 pathogenic variants (6p CNVs including deletions and duplications); NCBI: Uncharacterized LOC101928491
+```

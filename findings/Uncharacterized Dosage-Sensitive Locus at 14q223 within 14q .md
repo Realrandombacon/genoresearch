@@ -1,0 +1,13 @@
+# Uncharacterized Dosage-Sensitive Locus at 14q22.3 within 14q Duplication Syndrome Region with Pathogenic CNV Burden
+
+**Date:** 2026-03-19T04:07:37.164568
+
+**Quality Score:** 2.85/10  (E=3.5, D=2.2) [WEAK]
+
+## Description
+LOC101927690 is an uncharacterized genomic locus on chromosome 14q22.3 (NC_000014.9:56514330-56551308) spanning approximately 37.0 kb. Comprehensive database searches reveal no evidence of protein-coding function: no UniProt accession was identified, precluding InterPro domain analysis and AlphaFold structure prediction. STRING database returned no protein interaction partners, confirming absence of canonical protein-coding function. Human Protein Atlas identified Ensembl ID ENSG00000258803 but reported no detectable protein expression data, indicating this locus is not represented in the HPA protein atlas. However, ClinVar analysis reveals 3 pathogenic/likely pathogenic variants in this region, all large copy number gains (trisomy duplications): chr14:20043514-106877229 (~86.8 Mb whole-arm dup), chr14:39196172-56714461 (~17.5 Mb interstitial dup), chr14:20151149-106855263 (~86.7 Mb whole-arm dup). These structural variants are associated with 14q duplication syndrome featuring developmental delay, intellectual disability, craniofacial dysmorphism, skeletal anomalies, and cardiac defects. The 14q22.3 region contains several dosage-sensitive genes including SMO (smoothened homolog, Hedgehog signaling pathway critical for embryonic patterning), OTX2 (orthodenticle homeobox 2, critical for eye and brain development), and SIX6 (sine oculis homeobox homolog 6, optic nerve development). LOC101927690 likely functions as part of the 14q22.3 cis-regulatory landscape or encodes a non-coding RNA whose copy number gain contributes to 14q duplication syndrome pathogenesis through disruption of chromatin topology, topologically associating domain (TAD) boundaries, or long-range dysregulation of dosage-sensitive developmental genes. The presence of pathogenic CNV burden (3 variants) despite absence of protein evidence indicates this locus resides within a critical dosage-sensitive genomic region where trisomy disrupts embryonic patterning and neurodevelopmental processes via gene dosage effects and 3D genome reorganization.
+
+## Evidence
+```
+ClinVar: 3 pathogenic/likely pathogenic variants (CN gains at chr14:20043514-106877229, chr14:39196172-56714461, chr14:20151149-106855263); Genomic location: 14q22.3 (NC_000014.9:56514330-56551308, ~37.0 kb); HPA: ENSG00000258803 (no protein data); No UniProt/InterPro/STRING data; Within 14q duplication syndrome critical region containing SMO/OTX2
+```

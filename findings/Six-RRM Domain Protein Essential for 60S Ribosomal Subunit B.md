@@ -1,0 +1,15 @@
+# Six-RRM Domain Protein Essential for 60S Ribosomal Subunit Biogenesis and Cancer Progression
+
+**Date:** 2026-06-18T08:50:16.738121
+
+**Quality Score:** 9/10 (EXCELLENT)
+
+**Confidence:** HIGH
+
+## Description
+RBM19 (RNA Binding Motif Protein 19, also known as RBD-1 or MRPL41-interacting protein) is a 960 amino acid nucleolar protein critical for ribosome biogenesis and cell cycle regulation. InterPro analysis reveals an extraordinary modular architecture with six tandem RNA recognition motif (RRM) domains distributed across the protein: RRM1 (IPR000504, residues 2-79), RRM2 (residues 294-369), RRM3 (IPR003954, residues 402-480), RRM4 (residues 587-658), RRM5 (residues 730-809), and RRM6 (residues 832-910), belonging to the eukaryotic-type RRM superfamily (G3DSA:3.30.70.330). This six-RRM configuration is rare among human RNA-binding proteins and suggests multivalent RNA binding capacity for coordinating large ribonucleoprotein complexes. AlphaFold structure (AF-Q9Y4C8-F1) predicts medium confidence (pLDDT 70.0) across all 960 residues, consistent with structured RRM domains connected by flexible linkers typical of ribosome assembly factors. HPA data confirms ubiquitous expression with specific nucleolar localization, placing RBM19 at the site of pre-rRNA transcription and processing. STRING interactions reveal exclusive coupling to the ribosome biogenesis network: BMS1 (0.963), a GTPase essential for 60S subunit assembly; AATF (0.949), involved in rRNA processing; RRP12 (0.928), a nucleolar export factor; NOL10 (0.880), a nucleolar protein; PES1 (0.827), component of the PeBoW complex for 60S maturation; FTSJ3 (0.790), a methyltransferase for rRNA modification; SURF6 (0.699) and PDCD11 (0.688), both nucleolar ribosome assembly factors; IMP4 (0.669), U3 snoRNP component; and DDX10 (0.624), a DEAD-box helicase. ClinVar lists 13 pathogenic/likely pathogenic variants including splice site mutations (c.379-23C>T), missense variants (p.Gly465Arg, p.Arg551Cys), and large copy number gains/losses on chromosome 12q, though specific monogenic diseases remain undefined. Recent literature demonstrates RBM19 promotes hepatocellular carcinoma via MAX-mediated transcriptional regulation, drives prostate cancer progression under docetaxel treatment through the SNHG21/PIM1 axis, and enhances glioblastoma radioresistance. With only 21 publications despite essential ribosomal functions and clear oncogenic roles, RBM19 represents an undercharacterized master regulator of ribosome biogenesis linking nucleolar stress to cancer progression.
+
+## Evidence
+```
+InterPro: IPR000504, IPR003954, cd12318, cd12502, cd12564, cd12567, cd12569, cd12571, G3DSA:3.30.70.330 | STRING: BMS1(0.963), AATF(0.949), RRP12(0.928), NOL10(0.880), PES1(0.827), FTSJ3(0.790), SURF6(0.699), PDCD11(0.688), IMP4(0.669), DDX10(0.624) | HPA: UniProt Q9Y4C8, ubiquitous expression, nucleoli, RNA-binding | ClinVar: 13 pathogenic variants (CNVs, SNVs) | AlphaFold: AF-Q9Y4C8-F1, pLDDT 70.0, 960 aa | Literature: 21 papers (dark gene)
+```

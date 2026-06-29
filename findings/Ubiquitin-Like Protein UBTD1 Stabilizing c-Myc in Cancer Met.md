@@ -1,0 +1,15 @@
+# Ubiquitin-Like Protein UBTD1 Stabilizing c-Myc in Cancer Metabolism and Ferroptosis Regulation
+
+**Date:** 2026-06-28T13:15:19.152473
+
+**Quality Score:** 9/10 (EXCELLENT)
+
+**Confidence:** MEDIUM
+
+## Description
+UBTD1 (Ubiquitin Domain-Containing Protein 1) is a 227-amino acid intracellular protein featuring a bipartite domain architecture with an N-terminal DC-UbP/UBTD2 domain (IPR032752, positions 26-127; PF16455 ubiquitin-binding domain) and a C-terminal ubiquitin-like domain (IPR000626, 149-224; IPR019956 with three subdomains at 159-179, 180-200, 201-222; PF00240 ubiquitin family, 151-221), suggesting dual functionality in protein-protein interactions and potential ubiquitin pathway modulation. STRING interactions reveal connections to the ubiquitination machinery and cancer signaling: TRIM39 (0.676, E3 ligase regulator), UBE2D2 (0.660), UBE2D1 (0.578), UBE2D3 (0.544), UBE2D4 (0.432) (E2 conjugating enzymes), BTRC (0.611, β-TrCP E3 ligase component), KIAA2026 (0.555, RNF213 E3 ligase), YAP1 (0.529, Hippo pathway oncogene), CTNNB1 (0.489, β-catenin), and MID1 (0.467, E3 ligase), positioning UBTD1 within protein degradation networks controlling oncogenic transcription factors. HPA data shows ubiquitous expression across all tissues with low tissue specificity, immune cell enhancement in blood, and multi-compartment localization (vesicles, plasma membrane, cytosol), classified as a predicted intracellular protein. ClinVar contains 20 pathogenic/likely pathogenic variants including copy number gains and losses spanning 10q23-26 regions, though specific monogenic disease phenotypes remain under characterization (significance marked '?' for most variants). AlphaFold structure (AF-Q9HAC8-F1) predicts confident folding (pLDDT 74.7) consistent with a stable two-domain architecture. With only 20 papers, UBTD1 represents a 'gray' gene transitioning from dark: recent studies (2020-2025) reveal it promotes colorectal cancer progression by stabilizing c-Myc to upregulate glycolysis, mediates poor prognosis affecting proliferation and ferroptosis, and is downregulated by CXCR4-mediated matrix stiffness in hepatocellular carcinoma via YAP signaling—suggesting UBTD1 functions as a context-dependent ubiquitin-like modifier that competes with or regulates true ubiquitination of key oncogenic substrates (c-Myc, YAP1, β-catenin) to control protein stability, metabolic reprogramming, and cell death pathways in cancer.
+
+## Evidence
+```
+InterPro: IPR000626/Ubl-domain, IPR019956/Ubl-subdomains, IPR032752/DC-UbP-N-term, PF00240/Ubiquitin, PF16455/Ubl-binding | STRING: TRIM39(0.676), UBE2D2(0.660), BTRC(0.611), UBE2D1(0.578), KIAA2026(0.555), UBE2D3(0.544), YAP1(0.529), CTNNB1(0.489), MID1(0.467) | HPA: Ubiquitous, immune cell enhanced, vesicles/plasma membrane/cytosol | ClinVar: 20 pathogenic variants (CNVs 10q23-26) | AlphaFold: pLDDT 74.7 (confident) | UniProt: Q9HAC8 (227 aa) | Literature: 20 papers (c-Myc stabilization, colorectal cancer, ferroptosis, YAP signaling)
+```

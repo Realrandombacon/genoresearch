@@ -1,0 +1,13 @@
+# TMEM45B: DUF716 Domain Transmembrane Protein in Innate Immunity with High-Confidence AlphaFold Structure
+
+**Date:** 2026-03-20T17:25:04.975817
+
+**Quality Score:** 4.1/10  (E=6.4, D=1.8) [MODERATE]
+
+## Description
+TMEM45B (Gene ID: 120224) encodes a 275 amino acid transmembrane protein localized to chromosome 11q24.3. The protein contains a conserved DUF716 domain (InterPro IPR006904, Pfam PF04819) spanning residues 116-234, characteristic of the transmembrane protein 45 family (IPR042127). AlphaFold predicts a well-folded 3D structure with very high confidence (pLDDT: 90.8), indicating stable tertiary structure suitable for functional characterization. Human Protein Atlas data reveals tissue-enhanced RNA expression with highest levels in intestine (128.3 nTPM) and esophagus (64.1 nTPM), nucleoplasmic subcellular localization, and association with innate immunity pathways. STRING database identifies 6 medium-confidence protein interactions: SH2D7 (0.542), UBE2G2 (0.491), GPR160 (0.466), TMEM61 (0.439), PDCL2 (0.415), and BVES (0.405). Notably, UBE2G2 is an E2 ubiquitin-conjugating enzyme involved in ER-associated degradation (ERAD), suggesting TMEM45B may participate in protein quality control or immune signaling regulation. BVES (blood vessel epicardial substance) regulates cell adhesion and epithelial integrity. ClinVar documents 81 pathogenic/likely pathogenic variants including copy number losses/gains and missense mutations (e.g., c.176C>T p.Thr59Ile), indicating dosage sensitivity and functional importance. The combination of DUF716 domain architecture, nucleoplasmic/endosomal localization, innate immunity annotation, and ubiquitination machinery interactions suggests TMEM45B functions as a membrane-associated regulator of innate immune signaling, potentially modulating pathogen recognition receptor trafficking or cytokine production through protein-protein interactions in endolysosomal compartments.
+
+## Evidence
+```
+Evidence: (1) UniProt accession Q96B21, 275 aa length from uniprot_search; (2) InterPro domains: IPR006904 (DUF716, residues 116-234), IPR042127 (Transmembrane protein 45, residues 1-274), PF04819 from interpro_scan; (3) STRING interactions: SH2D7 (0.542), UBE2G2 (0.491), GPR160 (0.466), TMEM61 (0.439), PDCL2 (0.415), BVES (0.405) from string_interactions; (4) HPA expression: intestine 128.3 nTPM, esophagus 64.1 nTPM, nucleoplasm localization, innate immunity function from hpa_expression; (5) ClinVar: 81 pathogenic/likely pathogenic variants including CNVs and SNV c.176C>T (p.Thr59Ile) from clinvar_search; (6) AlphaFold pLDDT: 90.8 (very high confidence) from alphafold_structure; (7) Gene location: chromosome 11q24.3, genomic coordinates NC_000011.10:129815847-129860002 from gene_info.
+```

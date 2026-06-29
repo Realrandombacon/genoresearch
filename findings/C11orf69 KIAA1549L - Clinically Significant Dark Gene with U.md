@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T13:33:49.159158
 
-**Quality Score:** 10/10 (EXCELLENT)
+**Quality Score:** 4.42/10  (E=4.35, D=4.5) [MODERATE]
 
 ## Description
 WARNING: This finding reports <40% identity between variants of the same gene. This is near random chance for nucleotides and likely a tool artifact (unaligned comparison). Verify with proper alignment before trusting this result.

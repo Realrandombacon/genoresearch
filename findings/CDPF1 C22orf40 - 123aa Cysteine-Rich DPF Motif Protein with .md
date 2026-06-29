@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T03:33:42.740062
 
-**Quality Score:** 6/10 (GOOD)
+**Quality Score:** 3.98/10  (E=3.55, D=4.4) [MODERATE]
 
 ## Description
 CDPF1 encodes a 123 aa uncharacterized protein (UniProt Q6NVV7) containing conserved cysteine-rich DPF motif domain (IPR018785, residues 11-106) and UPF0595 uncharacterized protein family (PR01995) - represents genuine dark gene with uncharacterized cysteine-rich domain family. DPF motifs are known protein-protein interaction elements found in various signaling and trafficking proteins. Shows low tissue specificity with expression detected in all tissues - suggests ubiquitous housekeeping or fundamental cellular function. Low cancer and immune cell specificity indicates stable expression across conditions. Subcellular localization: nucleoplasm and cytosol - this dual localization suggests potential role in nucleocytoplasmic shuttling, transcriptional regulation, or signal transduction. Five medium-confidence protein-protein interactions detected including PKDREJ (polycystin receptor, 0.614 - calcium signaling), ATXN10 (ataxin-10, 0.536 - neuronal function), ZNF691 (zinc finger transcription factor, 0.485), OXLD1 (oxidized LDL-binding, 0.485), and WNT7B (Wnt ligand, 0.457 - developmental signaling) - interaction network suggests involvement in calcium signaling, neuronal processes, transcriptional regulation, and Wnt pathway. The combination of cysteine-rich DPF motif (potential zinc-binding or disulfide-stabilized structure), ubiquitous expression, nucleoplasmic localization, and interactions with signaling molecules makes this a compelling candidate for signaling adaptor or transcriptional co-regulator. Represents high-priority dark gene with cell signaling and gene regulation relevance.

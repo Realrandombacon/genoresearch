@@ -1,0 +1,13 @@
+# Chromosome 22q11.21 Locus in DiGeorge Syndrome Region with Pathogenic CNV Associations but No Confirmed Protein Product
+
+**Date:** 2026-03-18T22:27:14.468701
+
+**Quality Score:** 4.85/10  (E=4.0, D=5.7) [MODERATE]
+
+## Description
+LOC101929372 (Gene ID 101929372) is an uncharacterized locus on chromosome 22q11.21 (genomic coordinates NC_000022.11: 17589191-17580154, spanning approximately 9 kb). Despite having ClinVar entries, this gene represents a "dark gene" with no confirmed protein product characterization. No UniProt accession was identified, indicating no experimentally validated or high-confidence computationally predicted protein sequence. Human Protein Atlas found no expression data for Ensembl ID ENSG00000236754, and STRING database returned no protein interaction partners. ClinVar contains 22 pathogenic/likely pathogenic variants, with 21 being large chromosomal copy number variations (CNVs) spanning the 22q11.21 region (e.g., chr22:16804110-18162024 duplications, chr22:16916608-18179006 duplications, chr22:16367190-18178957 duplications). Notably, one variant is a single nucleotide variant in SLC25A18 (NM_031481.3:c.291-289T>G), a neighboring gene encoding a mitochondrial solute carrier. The 22q11.21 region is clinically critical as hemizygous deletion causes DiGeorge syndrome/velocardiofacial syndrome (22q11.2 deletion syndrome), characterized by cardiac defects, palatal abnormalities, hypocalcemia, thymic hypoplasia, and neurodevelopmental delays. Key dosage-sensitive genes in this region include TBX1 (T-box transcription factor), CRKL (adaptor protein), and DGCR8 (microprocessor complex subunit). The clinical significance likely derives from haploinsufficiency of these neighboring genes rather than LOC101929372 itself. This locus exemplifies the recurring pattern observed across LOC-prefixed genes in clinically significant genomic regions—genomic annotations that appear in ClinVar due to chromosomal context within the well-characterized 22q11.2 deletion syndrome region rather than intrinsic gene function. The absence of protein evidence (UniProt, HPA, STRING) combined with exclusive presence in large CNV regions suggests LOC101929372 may represent a genomic annotation artifact, pseudogene, or non-coding RNA locus rather than a functional protein-coding gene. This finding highlights the importance of distinguishing true protein-coding dark genes from genomic annotations that lack molecular evidence.
+
+## Evidence
+```
+Evidence: Gene ID 101929372 (22q11.21, 9 kb locus NC_000022.11:17589191-17580154); Ensembl ENSG00000236754; ClinVar 22 pathogenic variants (21 CNVs spanning 22q11.1-11.21, 1 SNV in neighboring SLC25A18); No UniProt accession; No HPA expression; No STRING interactions
+```

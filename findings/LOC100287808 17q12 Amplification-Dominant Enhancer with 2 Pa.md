@@ -1,0 +1,13 @@
+# LOC100287808: 17q12 Amplification-Dominant Enhancer with 2 Pathogenic CNVs Suggesting Oncogene or Dosage-Sensitive Gene Regulation Near HNF1B/ERBB2 Locus
+
+**Date:** 2026-03-19T02:34:20.950571
+
+**Quality Score:** 4.17/10  (E=4.05, D=4.3) [MODERATE]
+
+## Description
+LOC100287808 is an uncharacterized genomic region at chromosome 17q12 (genomic coordinates 38749033-38751751, ~2.7kb span). This locus shows MODERATE clinical significance with 2 pathogenic/likely pathogenic ClinVar variants — both large-scale chromosomal amplifications. Comprehensive analysis reveals: (1) No UniProt accession — not a characterized protein; (2) No STRING interactions — not a protein or lacks interaction data; (3) 2 ClinVar pathogenic variants — BOTH are copy number GAINS (17q23.1-25.1x3, 17q21.33-24.2x3); (4) HPA has Ensembl ID (ENSG00000277182) but no expression data. The AMPLIFICATION-DOMINANT pattern (2/2 gains, 100%) strongly suggests this region functions as an enhancer regulating an oncogene or dosage-sensitive gene where amplification drives pathogenic overexpression. The 17q12 region is clinically critical, containing HNF1B (hepatocyte nuclear factor 1-beta, renal cysts and diabetes syndrome when mutated), ERBB2/HER2 (receptor tyrosine kinase, breast cancer oncogene frequently amplified), and multiple other disease-associated genes. LOC100287808 likely functions as an enhancer regulating one or more of these 17q12 genes. The 2 pathogenic variants is intermediate between zero-variant dark regions (LOC102724802, LOC101928338) and high-variant enhancers (LOC105371414 with 30 variants, LOC1268xxxxx series with 5-43 variants). This represents a dark regulatory element with emerging clinical relevance — the amplification-dominant pattern suggests oncogene or growth-promoting gene regulation.
+
+## Evidence
+```
+Evidence: (1) Gene location: 17q12, 38749033-38751751 (NC_000017.11, ~2.7kb); (2) Functional annotation: uncharacterized regulatory element (inferred from CNV pattern); (3) ClinVar: 2 pathogenic variants — both gains [148363: 17q23.1-25.1x3, 57282: 17q21.33-24.2x3]; (4) Ensembl ID: ENSG00000277182 (HPA database entry); (5) No UniProt accession (not characterized protein); (6) STRING: no protein interactions; (7) HPA: no expression data despite Ensembl ID; (8) Variant pattern: AMPLIFICATION-DOMINANT (2/2 gains, 100%) suggests oncogene regulation; (9) Clinical context: 17q12 contains HNF1B (renal cysts/diabetes), ERBB2/HER2 (breast cancer oncogene); (10) Mechanistic insight: amplification pattern suggests enhancer driving oncogene overexpression; (11) Comparison: 2 variants intermediate between 0-variant dark regions and 30-43 variant high-burden enhancers
+```

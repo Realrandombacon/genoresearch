@@ -1,0 +1,13 @@
+# Uncharacterized Locus at 21q22.11 within Down Syndrome Critical Region with Extreme Pathogenic CNV Burden
+
+**Date:** 2026-03-19T03:50:27.443049
+
+**Quality Score:** 2.7/10  (E=3.2, D=2.2) [WEAK]
+
+## Description
+LOC101928126 is an uncharacterized genomic locus on chromosome 21q22.11 (NC_000021.9:33976381-33977690) spanning approximately 1.3 kb. Comprehensive database searches reveal no evidence of protein-coding function: no UniProt accession was identified, precluding InterPro domain analysis and AlphaFold structure prediction. STRING database returned no protein interaction partners, and Human Protein Atlas could not resolve this locus to an Ensembl ID, indicating no detectable protein expression. However, ClinVar analysis reveals 31 pathogenic/likely pathogenic variants in this region, all copy number alterations including whole chromosome 21 trisomies (chr21:13644166-44968483, ~31.3 Mb; chr21:7749532-46670405, ~38.9 Mb; chr21:7749532-46677460, ~38.9 Mb), large deletions (chr21:7817158-46670440, ~38.9 Mb), and focal 21q22.11 deletions (chr21:33361172-34048047, ~687 kb). These structural variants encompass the 21q22 region and are associated with Down syndrome (trisomy 21), 21q22 deletion syndrome, and 21q22 duplication syndrome phenotypes including intellectual disability, developmental delay, congenital heart defects (particularly atrioventricular septal defects), craniofacial dysmorphism, and hematologic abnormalities. The 21q22.11 region contains dosage-sensitive genes including RUNX1 (runt-related transcription factor 1) and ERG (ETS-related gene), whose dysregulation contributes to hematologic and developmental phenotypes. LOC101928126 likely functions as part of the 21q22 cis-regulatory landscape or encodes a non-coding RNA whose copy number alteration contributes to chromosome 21 aneuploidy syndromes through gene dosage effects or disruption of topologically associating domains. The absence of protein-coding features combined with extreme pathogenic CNV burden (31 variants) indicates this locus resides within the most dosage-sensitive region of chromosome 21 where copy number change profoundly disrupts neurodevelopmental, cardiac, and hematopoietic processes.
+
+## Evidence
+```
+ClinVar: 31 pathogenic/likely pathogenic variants (trisomies at chr21:13644166-44968483, chr21:7749532-46670405, chr21:7749532-46677460, chr21:7749532-46698247, chr21:7749532-46670346; deletions at chr21:7817158-46670440, chr21:33361172-34048047); Genomic location: 21q22.11 (NC_000021.9:33976381-33977690, ~1.3 kb); No UniProt/InterPro/STRING/HPA protein data; Within Down syndrome/21q22 deletion-duplication critical region containing RUNX1/ERG
+```

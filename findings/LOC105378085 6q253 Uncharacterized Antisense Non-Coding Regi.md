@@ -1,0 +1,13 @@
+# LOC105378085: 6q25.3 Uncharacterized Antisense Non-Coding Region Near ESR1 with No Clinical Variants Suggesting Redundant or Non-Essential Function
+
+**Date:** 2026-03-19T02:31:54.729518
+
+**Quality Score:** 3.72/10  (E=3.15, D=4.3) [MODERATE]
+
+## Description
+LOC105378085 is an uncharacterized genomic region at chromosome 6q25.3 (genomic coordinates 159595631-159586952, ~8.7kb span with reversed coordinates suggesting antisense orientation). This locus lacks functional characterization and shows no evidence of protein-coding potential. Comprehensive analysis reveals: (1) No UniProt accession — not a characterized protein; (2) No STRING interactions — not a protein or lacks interaction data; (3) ZERO ClinVar pathogenic variants — no known clinical significance; (4) HPA could not resolve — not protein-coding or not in Ensembl database. The complete absence of pathogenic ClinVar variants suggests this region may be non-essential, functionally redundant, or a non-functional transcriptional byproduct. The 6q25.3 region is genomically significant, located near ESR1 (estrogen receptor alpha, 6q25.1, breast cancer and endocrine signaling), ARL11 (ADP-ribosylation factor-like 11, tumor suppressor), and multiple other genes involved in hormone signaling and cancer. LOC105378085 may represent antisense non-coding RNA, intergenic sequence, or cryptic promoter activity without functional consequence. The lack of clinical variants contrasts with functionally validated enhancers (LOC1268xxxxx series) which showed 5-43 pathogenic CNVs each. This represents a genuinely dark genomic region — the absence of disease variants and protein-coding features suggests either biological redundancy, location in a buffered genomic neighborhood, or non-functional transcriptional noise.
+
+## Evidence
+```
+Evidence: (1) Gene location: 6q25.3, 159595631-159586952 (NC_000006.12, ~8.7kb, antisense orientation); (2) Functional annotation: uncharacterized (no STARR-seq validation); (3) Cofactor dependency: unknown (no functional assay data); (4) ClinVar: 0 pathogenic variants — no clinical significance; (5) No UniProt accession (not characterized protein); (6) STRING: no protein interactions; (7) HPA: could not resolve to Ensembl ID; (8) PubMed: likely 0 publications for this specific locus; (9) Variant pattern: ZERO pathogenic variants suggests non-essential or redundant function; (10) Clinical context: 6q25.3 near ESR1 (estrogen receptor, breast cancer), ARL11 (tumor suppressor); (11) Mechanistic insight: antisense orientation + absence of disease variants indicates non-coding RNA or transcriptional noise
+```

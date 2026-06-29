@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T06:24:50.092817
 
-**Quality Score:** 8/10 (EXCELLENT)
+**Quality Score:** 3.95/10  (E=5.1, D=2.8) [MODERATE]
 
 ## Description
 C2orf92 encodes a 265 aa uncharacterized protein with no characterized domains. STRING interactions reveal connections to phosphatase pathway proteins: C10orf120 (0.815 high confidence), PPP1R36 (0.570), and PPP3CC (0.480) - suggesting potential role in protein phosphatase regulation or signaling. ClinVar contains 4 pathogenic copy number gains on chromosome 2q11.2-13, indicating dosage sensitivity and clinical relevance though no specific disease phenotype is assigned. HPA expression data unavailable. BLAST shows limited conservation beyond human ortholog. The phosphatase interaction network combined with clinical CNVs suggests this dark gene may function as a regulatory subunit or scaffold in phosphatase signaling complexes, with copy number alterations potentially disrupting cellular signaling homeostasis.

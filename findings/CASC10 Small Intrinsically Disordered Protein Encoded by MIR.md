@@ -1,0 +1,13 @@
+# CASC10: Small Intrinsically Disordered Protein Encoded by MIR1915 Host Gene with Potential Regulatory Function
+
+**Date:** 2026-03-30T01:24:03.867062
+
+**Quality Score:** 4.05/10  (E=4.1, D=4.0) [MODERATE]
+
+## Description
+CASC10 (Cancer susceptibility candidate 10, UniProt Q5T4H9) is a 136-amino acid putative intracellular protein encoded within the MIR1915HG (MIR1915 host gene) locus. This genomic arrangement suggests CASC10 may function as a microRNA host gene-encoded peptide, a increasingly recognized class of regulatory proteins produced from transcripts primarily annotated as non-coding RNAs. AlphaFold structure prediction achieves low-medium confidence (pLDDT 53.1), indicating a partially structured to intrinsically disordered protein — consistent with small regulatory peptides that function through flexible protein-protein or protein-RNA interactions rather than stable enzymatic domains. InterPro domain analysis failed due to API limitations, and STRING interaction network returned no data, suggesting CASC10 has not been extensively characterized in proteomic studies. Human Protein Atlas could not resolve the gene symbol, indicating either very low/restricted expression or annotation challenges typical of genes embedded within miRNA host loci. ClinVar contains no pathogenic variants, suggesting either non-essential function, redundancy, or that disease associations have not yet been discovered. Conservation across primates (chimpanzee A0A6D2XBE3, 136 aa; gibbon A0A218UH71 homolog) indicates evolutionary preservation of this small ORF. The MIR1915HG locus produces both miR-1915 and the CASC10 peptide, raising the possibility of coordinated regulation where CASC10 may modulate miRNA processing, stability, or target recognition. Alternatively, CASC10 could function independently as a signaling peptide or transcriptional co-regulator. The intrinsically disordered nature suggests potential roles in phase separation, chromatin remodeling, or stress granule dynamics — processes where small disordered proteins frequently participate. Further experimental validation is needed to distinguish between CASC10 as a functional protein versus a translational byproduct of miRNA host gene expression.
+
+## Evidence
+```
+UniProt: Q5T4H9, 136 aa, MIR1915HG host gene; InterPro: API error (no data); STRING: No protein found (no interactions); HPA: Not resolved (no expression data); ClinVar: 0 pathogenic variants; AlphaFold: pLDDT 53.1 (low-medium confidence/partially disordered), residues 1-136; Location: MIR1915HG locus; Conservation: Pan troglodytes A0A6D2XBE3 (136 aa)
+```

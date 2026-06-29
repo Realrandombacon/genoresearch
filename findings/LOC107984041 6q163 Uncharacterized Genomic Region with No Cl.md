@@ -1,0 +1,13 @@
+# LOC107984041: 6q16.3 Uncharacterized Genomic Region with No Clinical Variants Suggesting Non-Essential or Redundant Regulatory Function
+
+**Date:** 2026-03-19T02:31:24.412539
+
+**Quality Score:** 3.72/10  (E=3.15, D=4.3) [MODERATE]
+
+## Description
+LOC107984041 is an uncharacterized genomic region at chromosome 6q16.3 (genomic coordinates 100881456-101248619, ~367kb span). Unlike the LOC1268xxxxx enhancers characterized in this study, this locus lacks STARR-seq functional validation and shows no evidence of protein-coding potential. Comprehensive analysis reveals: (1) No UniProt accession — not a characterized protein; (2) No STRING interactions — not a protein or lacks interaction data; (3) ZERO ClinVar pathogenic variants — no known clinical significance despite ~367kb genomic span; (4) HPA could not resolve — not protein-coding or not in Ensembl database. The complete absence of pathogenic ClinVar variants is striking and suggests this region may be non-essential for human health, functionally redundant, or under strong purifying selection preventing observable variation. The 6q16.3 region contains several characterized genes including SIM1 (single-minded homolog 1, hypothalamic development, Prader-Willi-like syndrome when disrupted), PROKR2 (prokineticin receptor 2, Kallmann syndrome), and multiple other genes. LOC107984041 may represent intergenic sequence, unannotated non-coding RNA, or redundant regulatory elements buffered by neighboring functional sequences. The lack of clinical variants contrasts sharply with the LOC1268xxxxx enhancers which showed 5-43 pathogenic CNVs each. This represents a genuinely dark genomic region with minimal functional characterization — the absence of disease variants suggests either biological redundancy or location in a genomic neighborhood buffered against pathogenic variation.
+
+## Evidence
+```
+Evidence: (1) Gene location: 6q16.3, 100881456-101248619 (NC_000006.12, ~367kb); (2) Functional annotation: uncharacterized (no STARR-seq validation); (3) Cofactor dependency: unknown (no functional assay data); (4) ClinVar: 0 pathogenic variants — no clinical significance; (5) No UniProt accession (not characterized protein); (6) STRING: no protein interactions; (7) HPA: could not resolve to Ensembl ID; (8) PubMed: likely 0 publications for this specific locus; (9) Variant pattern: ZERO pathogenic variants suggests non-essential or redundant function; (10) Clinical context: 6q16.3 contains SIM1 (Prader-Willi-like), PROKR2 (Kallmann syndrome); (11) Mechanistic insight: absence of disease variants indicates biological redundancy or purifying selection
+```

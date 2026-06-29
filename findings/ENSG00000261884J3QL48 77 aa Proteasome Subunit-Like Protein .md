@@ -1,0 +1,15 @@
+# ENSG00000261884/J3QL48: 77 aa Proteasome Subunit-Like Protein with N-Terminal Nucleophile Hydrolase Fold Representing Genuine Dark Gene with Zero Literature, No Clinical Variants, and Putative Role in Proteasome Core Complex Assembly or Regulation
+
+**Date:** 2026-04-26T21:01:27.805636
+
+**Quality Score:** 2.9/10  (E=3.0, D=2.8) [WEAK]
+
+**Confidence:** MEDIUM-HIGH
+
+## Description
+ENSG00000261884 (UniProt J3QL48) is a 77 aa uncharacterized protein representing a genuine dark gene with zero literature references and no clinical variant data. Structurally, InterPro analysis identifies proteasome subunit domain (IPR001353/PF00227, aa 2-41) characteristic of proteasome core complex alpha/beta subunits involved in protein catabolic process (GO:0030163), N-terminal nucleophile aminohydrolase superfamily (IPR029055/SSF56235, aa 1-45/2-42) with glutamine phosphoribosylpyrophosphate subunit 1 domain 1 fold (G3DSA:3.60.20.10, aa 1-45), suggesting catalytic or structural role in proteolytic complex. The small size (77 aa) compared to canonical proteasome subunits (200-300 aa) suggests this may represent a proteasome-associated regulatory factor, assembly chaperone, or proteasome activator rather than core catalytic subunit. Functionally, STRING interactions returned no data, HPA expression could not be resolved, ClinVar shows 0 pathogenic variants, and AlphaFold has no predicted structure - collectively indicating this is a truly unstudied dark gene. The proteasome subunit homology suggests potential involvement in: (1) proteasome core complex assembly as chaperone facilitating subunit incorporation, (2) proteasome regulation as inhibitory or activating factor modulating proteolytic activity, (3) specialized proteasome variant formation for substrate-specific degradation, or (4) proteasome-independent function where domain was exapted for alternative cellular role. The N-terminal nucleophile hydrolase fold typically employs N-terminal threonine/serine/cysteine as catalytic nucleophile in proteolysis, suggesting potential peptidase activity if catalytic residues are preserved. Zero literature references confirms genuine dark gene status - no functional characterization exists in human systems. No ClinVar variants suggests either essential gene with purifying selection, redundant function buffering loss, or simply insufficient clinical sequencing coverage. Therapeutic potential lies in proteasome modulation - if GIN1 regulates proteasome assembly or activity, targeting could enhance proteasome inhibitor efficacy in cancer or reduce proteotoxic stress in neurodegeneration. This gene exemplifies the 'dark proteome' where small proteins with recognizable domains remain functionally uncharacterized despite domain homology suggesting clear biochemical role.
+
+## Evidence
+```
+UniProt J3QL48 (77 aa); InterPro [IPR001353/PF00227/proteasome subunit aa2-41, IPR029055/SSF56235/Ntn hydrolase aa1-45/2-42, G3DSA:3.60.20.10/Gln-PRPPase aa1-45]; STRING [no interactions]; HPA [not resolved]; ClinVar [0 variants]; AlphaFold [no structure]; Lit [0 papers - GENUINE DARK GENE]"}
+```

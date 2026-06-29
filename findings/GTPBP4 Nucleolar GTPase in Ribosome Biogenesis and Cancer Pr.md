@@ -1,0 +1,15 @@
+# GTPBP4: Nucleolar GTPase in Ribosome Biogenesis and Cancer Progression
+
+**Date:** 2026-04-26T07:05:13.978061
+
+**Quality Score:** 3.55/10  (E=6.0, D=1.1) [MODERATE]
+
+**Confidence:** MEDIUM
+
+## Description
+GTPBP4 (GTP-Binding Protein 4, also known as NOG1) is a 634 amino acid nucleolar GTPase (UniProt Q9BZE4) with moderate characterization (45 papers) that functions in ribosome biogenesis, cell cycle progression, and cancer metastasis. The protein contains multiple GTP-binding domains including an OBG-type guanine nucleotide-binding domain (IPR031167, residues 169-340), small GTP-binding domain (IPR005225, residues 168-331), nucleolar GTP-binding protein 1 Rossman-fold domain (IPR010674, residues 235-292), N-terminal helical domain (IPR041623, residues 6-165), and C-terminal NOG domain (IPR012973, residues 395-446), indicating capacity for GTP hydrolysis-driven conformational changes during ribosome assembly. STRING interactions reveal ultra-high confidence partnerships with ribosome biogenesis factors MRTO4 (0.999), NSA2 (0.999), GNL2 (0.999), RPF2 (0.999), EIF6 (0.998), NMD3 (0.998), RSL24D1 (0.995), PES1 (0.907), BRIX1 (0.810), and NIFK (0.768), placing GTPBP4 in the 60S ribosomal subunit maturation pathway. HPA data shows ubiquitous expression across all tissues with nucleolar rim localization, consistent with ribosome biogenesis function. ClinVar contains 38 pathogenic variants including deletions and copy number losses/gains at 10p15.3-12.31, though no specific diseases are yet assigned—suggesting potential developmental or hematological phenotypes. AlphaFold structure (pLDDT 83.2) indicates a well-folded protein with stable GTPase architecture. Functional hypothesis: GTPBP4 acts as a nucleolar GTPase that orchestrates late-stage 60S ribosomal subunit maturation through GTP hydrolysis-driven conformational cycling, facilitating nuclear export of pre-60S particles via interactions with NMD3 and EIF6, with dysregulation promoting cancer progression through enhanced ribosome biogenesis and protein synthesis capacity, and loss-of-function potentially causing ribosomopathy phenotypes through defective 60S subunit assembly.
+
+## Evidence
+```
+InterPro: IPR031167 (OBG-type G domain, 169-340), IPR005225 (Small GTP-binding, 168-331), IPR006073 (GTP binding, 171-234), IPR010674 (NOG1 Rossman-fold, 235-292), IPR012973 (NOG C-terminal, 395-446), IPR024926 (Nucleolar GTP-binding protein 1, 2-634), IPR041623 (NOG1 N-terminal helical, 6-165), PF06858 (Nucleolar GTP-binding protein 1); STRING: MRTO4 (0.999), NSA2 (0.999), GNL2 (0.999), RPF2 (0.999), EIF6 (0.998), NMD3 (0.998), RSL24D1 (0.995), PES1 (0.907), BRIX1 (0.810), NIFK (0.768); HPA: detected in all tissues, nucleoli rim, ribosome biogenesis; ClinVar: 38 pathogenic variants (deletions, CNV losses/gains at 10p15.3-12.31); AlphaFold: pLDDT 83.2 (high confidence, well-folded GTPase); UniProt: Q9BZE4 (634 aa); Literature: 45 papers - hepatocellular carcinoma progression via PKM2-dependent glucose metabolism, non-small cell lung cancer EMT, oocyte maturation, myocardial fibrosis via ribosome biogenesis
+```

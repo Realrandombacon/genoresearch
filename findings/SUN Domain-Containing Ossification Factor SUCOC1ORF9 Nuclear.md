@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-18T03:28:38.561209
 
-**Quality Score:** 10/10 (EXCELLENT)
+**Quality Score:** 3.32/10  (E=5.85, D=0.8) [WEAK]
 
 ## Description
 SUCO (chromosome 1 open reading frame 9, now officially named SUN domain-containing ossification factor) encodes a 1254 amino acid nuclear envelope protein (UniProt Q9UBS9) with a canonical SUN domain (IPR012919, residues 284-453) and galactose-binding-like domain superfamily (IPR008979, residues 346-425). The SUN domain anchors the protein to the inner nuclear membrane, forming LINC complexes that connect nucleoskeleton to cytoskeleton. AlphaFold predicts a medium-confidence structure (pLDDT 52.4) consistent with partially disordered regions flanking structured domains. HPA shows ubiquitous expression with bone marrow enrichment (78.7 nTPM), supporting its annotated role in osteogenesis. STRING interactions reveal high-confidence partners including MYL3 (0.890), HIF1A (0.870), and FCGRT (0.735), plus chromatin regulator EP300 (0.687), suggesting dual roles in nuclear architecture and transcriptional regulation. ClinVar documents 45 pathogenic/likely pathogenic variants including missense mutations (p.Gln1144Arg, p.Pro680Thr, p.Pro607Thr, p.Ile353Thr) and copy number variations across 1q21-q31, indicating disease relevance though specific phenotypes remain under investigation. Conservation across primates (Macaca mulatta, Pan troglalodytes orthologs) confirms functional constraint. The hypervariable N/C-terminal regions (low pLDDT) may mediate tissue-specific protein interactions, while the structured SUN core (residues 284-453) provides constitutive nuclear envelope anchoring.

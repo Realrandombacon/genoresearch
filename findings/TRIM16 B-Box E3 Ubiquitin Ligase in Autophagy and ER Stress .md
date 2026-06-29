@@ -1,0 +1,13 @@
+# TRIM16: B-Box E3 Ubiquitin Ligase in Autophagy and ER Stress with 19 Pathogenic CNVs
+
+**Date:** 2026-03-23T10:30:25.767655
+
+**Quality Score:** 2.8/10  (E=5.3, D=0.3) [WEAK]
+
+## Description
+TRIM16 encodes a 564 amino acid tripartite motif protein (UniProt: O95361) at chromosome 17p12 that functions as an atypical E3 ubiquitin ligase lacking the canonical RING domain. The domain architecture features two B-box type zinc fingers (IPR000315, residues 72-122 and 126-165) and a C-terminal B30.2/SPRY domain (IPR001870, residues 355-553) mediating protein-protein interactions. This domain organization distinguishes TRIM16 from canonical RING-type TRIM E3 ligases.\n\nHPA expression profiling shows ubiquitous detection with esophagus enrichment (141.5 nTPM), tissue-enhanced RNA signature, and immune cell enrichment. Subcellular localization spans plasma membrane and cytosol, consistent with roles in membrane trafficking and cytoplasmic signaling. The broad expression pattern suggests housekeeping functions in protein quality control.\n\nSTRING interaction network identifies 10 high-confidence partners revealing autophagy and secretory pathway connections: SEC22B (0.936, SNARE complex), BECN1 (0.783, autophagy initiation), ATG16L1 (0.449, autophagosome elongation), LGALS8 (0.803, galectin damage sensor), and TRIM16L (0.740, paralog heterodimerization). This interactome positions TRIM16 at the intersection of autophagy, ER stress response, and cytokine secretion.\n\nClinVar contains 19 pathogenic/likely pathogenic copy number variants spanning 17p12, including both duplications (10 variants) and deletions (6 variants). The 17p12 region is associated with hereditary neuropathy with liability to pressure palsies (HNPP) and Charcot-Marie-Tooth disease type 1A; TRIM16 dosage may contribute to these peripheral neuropathy phenotypes through impaired protein homeostasis in Schwann cells.\n\nMechanistic hypothesis: TRIM16 functions as a substrate-specific E3 ubiquitin ligase recruiting autophagy machinery (BECN1, ATG16L1) via SPRY domain interactions to ubiquitinate misfolded secretory proteins or damaged endomembranes. The B-box domains mediate TRIM16L heterodimerization for complex assembly. TRIM16 may coordinate ER-associated degradation (ERAD) with selective autophagy during proteotoxic stress.
+
+## Evidence
+```
+Evidence: UniProt O95361 (564 aa) | InterPro: B-box ZF IPR000315 (72-165), B30.2/SPRY IPR001870 (355-553) | HPA: Esophagus 141.5 nTPM, tissue enhanced, plasma membrane/cytosol | STRING: SEC22B (0.936), LGALS8 (0.803), BECN1 (0.783), TRIM16L (0.740), ATG16L1 (0.449) | ClinVar: 19 pathogenic CNVs (17p12 gains/losses) | Chromosome 17p12 | AlphaFold: API error (structure unavailable)
+```

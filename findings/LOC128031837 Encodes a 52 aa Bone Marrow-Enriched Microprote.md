@@ -1,0 +1,17 @@
+# LOC128031837 Encodes a 52 aa Bone Marrow-Enriched Microprotein with Intrinsic Disorder and Clinical Significance, Representing a Genuine Dark Gene with Zero Literature References and 4 Pathogenic CNVs Implicated in Chromosome 7q Syndromes
+
+**Quality Score:** 5.45/10  (E=4.1, D=6.8) [SOLID]
+
+**Date:** 2026-04-27T16:24:40.066595
+
+**Quality Score:** 5.45/10  (E=4.1, D=6.8) [SOLID]
+
+**Confidence:** MEDIUM
+
+## Description
+LOC128031837 (uncharacterized LOC128031837) is a 52 aa microprotein representing a genuine dark gene with ZERO literature references, functioning as an uncharacterized intracellular protein with bone marrow-enriched expression and clinical significance. Multi-omics data reveals LOC128031837 as a small, potentially disordered microprotein encoded on chromosome 7q31.1, conserved across mammals yet completely unstudied in human biology despite clear disease associations. UniProt accession A0A6Q8PFC9 confirms the 52 aa length with homologs in minke whale (A0ABM3TVN7, 52 aa) and European hedgehog (A0ABM3XUD2, 51 aa), indicating evolutionary conservation across ~90 million years of mammalian divergence. InterPro scan failed (no domain matches), suggesting LOC128031837 lacks canonical protein domains and may function as an intrinsically disordered microprotein or linear motif carrier. AlphaFold predicts a low-medium confidence structure (pLDDT 57.6) across the full 52 aa length, consistent with intrinsic disorder or flexible conformational states typical of regulatory microproteins and signaling peptides. HPA shows tissue-enhanced expression with highest levels in bone marrow (25.6 nTPM), detected in many tissues, low cancer specificity, and classification as a predicted intracellular protein—suggesting roles in hematopoietic cell function or bone marrow microenvironment signaling. STRING interactions returned no partners, expected for an uncharacterized small protein without curated interaction data. ClinVar lists 4 pathogenic/likely pathogenic variants, exclusively large chromosome 7 copy number variations (duplication: chr7:102196924-121278641x2; losses: chr7:102196924-121278641x1, chr7:97419852-158923762x3, chr7:54185-159282390x1), implicating LOC128031837 dosage sensitivity in 7q deletion/duplication syndromes. The 7q31.1 location is notable—this region contains multiple disease-associated loci including FOXP2 (speech/language), MET (cancer), and IMMP2L (autism/Tourette). Zero publications confirm LOC128031837 as a genuine dark gene—present in databases, clinically significant, yet functionally unexplored.
+
+## Evidence
+```
+UNIPROT: A0A6Q8PFC9, 52 aa, Homo sapiens; homologs: A0ABM3TVN7 (Balaenoptera acutorostrata, 52 aa), A0ABM3XUD2 (Erinaceus europaeus, 51 aa). INTERPRO: No domains detected (scan failed—suggests no canonical domains). STRING: No interactions found (uncharacterized small protein). HPA: Tissue enhanced, Top tissue: Bone marrow (25.6 nTPM), Detected in many tissues, Low cancer specificity, Predicted intracellular proteins. CLINVAR: 4 pathogenic/LP variants (CNV duplication: chr7:102196924-121278641x2; CNV losses: chr7:102196924-121278641x1, chr7:97419852-158923762x3, chr7:54185-159282390x1). ALPHAFOLD: pLDDT 57.6 (Low-medium confidence), full-length model 1-52 aa, intrinsically disordered/flexible. LITERATURE: 0 papers (Semantic Scholar)—genuine dark gene. CONSERVATION: Mammalian conservation (human/whale/hedgehog), ~90+ million years divergence. GENOMIC: Chromosome 7q31.1, NC_000007.14 (112450486-112450644), 159 bp genomic region.
+```

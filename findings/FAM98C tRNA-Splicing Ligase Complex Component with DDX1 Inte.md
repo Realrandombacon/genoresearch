@@ -1,0 +1,13 @@
+# FAM98C: tRNA-Splicing Ligase Complex Component with DDX1 Interaction Network
+
+**Date:** 2026-03-20T13:07:03.684891
+
+**Quality Score:** 3.88/10  (E=5.95, D=1.8) [MODERATE]
+
+## Description
+FAM98C (Family with sequence similarity 98 member C) encodes a 349 amino acid protein (UniProt Q17RN3) localized to nucleoplasm, nucleoli, and cytosol. The protein contains the FAM98 family domain (IPR018797, residues 7-348) and DUF2465/PF10239 domain (residues 29-334), characteristic of this conserved eukaryotic protein family. AlphaFold structure prediction shows high confidence folding (pLDDT 79.2), indicating a stable tertiary structure. FAM98C is predicted to function as part of the tRNA-splicing ligase complex, suggesting a role in tRNA maturation and RNA metabolism. STRING interaction analysis reveals strong associations with DDX1 (score 0.795), RTRAF (0.749), and RTCB (0.594) - all RNA processing factors. DDX1 is a DEAD-box RNA helicase involved in pre-mRNA splicing and miRNA processing. RTRAF (RNA transcription, translation and transport factor) and RTCB (tRNA ligase catalytic subunit) directly participate in tRNA splicing pathways. FAM98C also interacts with paralogs FAM98A (0.555) and FAM98B (0.562), suggesting functional redundancy or heteromeric complex formation. HPA data shows ubiquitous expression across all tissues with low tissue specificity, consistent with a housekeeping RNA metabolism function. Clinical significance is demonstrated by 11 pathogenic/likely pathogenic variants in ClinVar, including nonsense mutation p.Arg282Ter and missense p.Ala62Val, plus multiple 19q copy number gains encompassing the locus. The 19q13.2 amplification is recurrent in gliomas and neuroblastomas, suggesting FAM98C dosage may contribute to oncogenesis through dysregulated tRNA splicing. Conservation across vertebrates is implied by FAM98 domain presence, though specific % identity requires ortholog alignment.
+
+## Evidence
+```
+Evidence: (1) UniProt Q17RN3, 349 aa [UniProt]; (2) InterPro IPR018797 FAM98 family (7-348), PF10239 DUF2465 (29-334), PTHR31353 [InterProScan]; (3) STRING interactions: DDX1 (0.795), RTRAF (0.749), RTCB (0.594), C2orf49 (0.563), FAM98B (0.562), FAM98A (0.555), ZBTB8OS (0.549), RNPEPL1 (0.529), YIPF6 (0.513), TXNDC15 (0.503) [STRING-DB]; (4) HPA: nucleoplasm/nucleoli/cytosol, detected in all tissues, low specificity [Human Protein Atlas ENSG00000130244]; (5) ClinVar: 11 pathogenic variants including NM_174905.4:c.844C>T (p.Arg282Ter), c.185C>T (p.Ala62Val), multiple 19q CNVs [ClinVar]; (6) AlphaFold AF-Q17RN3-F1, pLDDT 79.2 [AlphaFold DB]; (7) Gene ID 147965, chr19q13.2, NC_000019.10:38403092-38409087 [NCBI Gene]
+```

@@ -1,0 +1,17 @@
+# Testis-Specific Serine/Proline-Rich Protein (LOC122455342) Functions as a Skeletal Muscle-Enriched Intrinsically Disordered Scaffold Protein Potentially Regulating Sarcomere Assembly or Signaling via Low-Complexity Domain Interactions, with 17q24.3-25.3 Copy Number Gains Suggesting Dosage Sensitivity in Neurodevelopmental or Muscular Disorders
+
+**Quality Score:** 5.4/10  (E=3.5, D=7.3) [SOLID]
+
+**Date:** 2026-04-27T14:26:04.668044
+
+**Quality Score:** 5.4/10  (E=3.5, D=7.3) [SOLID]
+
+**Confidence:** MEDIUM
+
+## Description
+LOC122455342 (Testis-specific serine/proline-rich protein, also known as Novel protein ENSG00000284526) is a 283 aa intracellular protein representing a genuine dark gene with 0 literature references, making it one of the most unstudied proteins in the human genome. Multi-omics data reveals LOC122455342 as a likely intrinsically disordered protein (IDP) with tissue-enhanced expression in skeletal muscle. AlphaFold predicts low-confidence structure (global pLDDT 49.5), indicating a predominantly disordered architecture lacking stable globular domains, which is characteristic of scaffold proteins functioning through dynamic protein-protein interactions or phase separation. The protein name suggests high content of serine and proline residues, typical of low-complexity regions involved in signaling or structural flexibility. HPA shows tissue-enhanced expression with skeletal muscle as the top tissue (23.4 nTPM), detected in many tissues but enriched in muscle, suggesting a specific role in myocyte biology despite the 'testis-specific' nomenclature (which may reflect historical annotation errors or dual expression patterns). Subcellular localization is predicted as intracellular. STRING interactions returned no partners, consistent with the lack of characterization and potential IDP nature where interactions may be transient or condition-specific. ClinVar lists 2 pathogenic/likely pathogenic variants, both large copy number gains on 17q24.3-25.3 (chr17:69916435-83102552x3, chr17:69209079-83086677x3), encompassing the gene locus, suggesting dosage sensitivity where overexpression may contribute to disease phenotypes. InterPro scan failed to return domain annotations, reinforcing the absence of conserved enzymatic or structured domains and supporting the IDP hypothesis. The complete absence of literature (0 papers) combined with skeletal muscle enrichment and disorder makes LOC122455342 a paradigmatic dark gene awaiting discovery.
+
+## Evidence
+```
+INTERPRO: No domains identified (scan failed/empty), consistent with intrinsically disordered protein lacking conserved folds. STRING: No interactions found (0 partners), suggesting unstudied status or transient/conditional interactions typical of IDPs. HPA: Tissue enhanced, Skeletal muscle 23.4 nTPM (top), Detected in many tissues, Intracellular subcellular location, Novel protein class. CLINVAR: 2 pathogenic/LP variants (CNV gain: chr17:69916435-83102552x3, chr17:69209079-83086677x3), large duplications spanning 17q24.3-25.3 region. ALPHAFOLD: pLDDT 49.5 (Low confidence/Disordered), full-length model 1-283 aa, predominantly unstructured architecture. UNIPROT: A0A1W2PNU3, 283 aa, Uncharacterized protein. LITERATURE: 0 papers; No publications found on Semantic Scholar, confirming genuine dark gene status. CONSERVATION: Orthologs not well-defined in standard databases due to rapid evolution of low-complexity regions; likely primate-specific or rapidly evolving given lack of strong conservation signals.
+```

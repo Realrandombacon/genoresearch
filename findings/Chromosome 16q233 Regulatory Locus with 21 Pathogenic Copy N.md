@@ -1,0 +1,13 @@
+# Chromosome 16q23.3 Regulatory Locus with 21 Pathogenic Copy Number Variants
+
+**Date:** 2026-03-18T22:54:22.415188
+
+**Quality Score:** 3.45/10  (E=5.1, D=1.8) [WEAK]
+
+## Description
+LOC100129617 is an uncharacterized genetic locus on chromosome 16q23.3 (NC_000016.10, positions 81665353-81667275, ~1.9 kb region) with substantial clinical significance despite lacking protein-coding features. No UniProt accession exists, preventing InterPro domain analysis and AlphaFold structure prediction. No mRNA transcript was identified in NCBI nucleotide databases, and Human Protein Atlas could not resolve the gene to an Ensembl ID, indicating no detectable protein expression. STRING-DB detected no protein-protein interactions. However, ClinVar contains 21 pathogenic/likely pathogenic variants, all representing large-scale copy number variations spanning the 16q23-24 region (variants include 2665080, 155675, 155358, 154631, 154511, 153758, 153239, 152591, 150599, 150450). These CNVs range from focal deletions to multi-megabase duplications (4 Mb to 37 Mb). The 16q23.3 chromosomal location is clinically notable as this region is associated with 16q23.1-q24.3 deletion/duplication syndromes, characterized by developmental delay, intellectual disability, growth retardation, and dysmorphic features. The region contains multiple dosage-sensitive genes including WWOX (WW domain-containing oxidoreductase, tumor suppressor), FTO (fat mass and obesity-associated gene), and IRF8 (interferon regulatory factor 8, immune development). Functional hypothesis: LOC100129617 likely represents a cis-regulatory element or chromatin boundary controlling expression of neighboring dosage-sensitive genes in the 16q23.3 critical region. The 21 pathogenic CNVs indicate extreme dosage sensitivity where copy number alterations disrupt normal transcriptional regulation of developmental and metabolic genes. Disease mechanism likely involves haploinsufficiency or triplosensitivity of WWOX, FTO, or IRF8 through enhancer disruption, silencer deletion, or chromatin topology alteration. The absence of protein-coding features combined with strong ClinVar evidence and developmental disease association suggests this locus functions in embryonic development and metabolic homeostasis through position effects on critical regulatory networks.
+
+## Evidence
+```
+Genomic: chr16q23.3 (81665353-81667275, NC_000016.10); Size: ~1.9 kb; ClinVar: 21 pathogenic CNVs (2665080, 155675, 155358, 154631, 154511, 153758, 153239, 152591, 150599, 150450); UniProt/InterPro/AlphaFold: no accession; Transcript: none found; STRING/HPA: no data; Disease: 16q23.1-q24.3 deletion/duplication syndrome; Neighborhood: WWOX, FTO, IRF8
+```

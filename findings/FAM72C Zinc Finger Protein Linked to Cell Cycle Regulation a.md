@@ -1,0 +1,13 @@
+# FAM72C: Zinc Finger Protein Linked to Cell Cycle Regulation and 1q21.1 Genomic Instability
+
+**Date:** 2026-03-23T04:40:07.749155
+
+**Quality Score:** 3.4/10  (E=6.5, D=0.3) [WEAK]
+
+## Description
+FAM72C encodes a 149-amino acid cytosolic protein containing a Yippee homolog double zinc finger domain (IPR026768, PF14976, residues 2-149). This zinc finger motif suggests DNA/RNA-binding or protein-protein interaction capability, typical of chromatin-associated regulatory factors. The protein shows remarkable evolutionary conservation: 87.9% identity with mouse FAM72A, 87.2% with rat, and 89.9% with bovine orthologs, indicating strong purifying selection across ~100 million years of mammalian evolution.\n\nExpression profiling reveals tissue-enhanced RNA expression with highest levels in lymphoid tissue (4.9 nTPM) and bone marrow (2.7 nTPM), subcellular localization to vesicles, plasma membrane, and cytosol. Protein interaction mapping identifies 10 high-confidence partners: ARHGAP11B (0.665 score), SRGAP2B (0.590), TTK/Mps1 kinase (0.463), and paralogs FAM72B (0.483) and FAM72D (0.459). The TTK interaction is particularly notable—TTK is a spindle assembly checkpoint kinase essential for mitotic fidelity, suggesting FAM72C may regulate cell cycle progression.\n\nClinVar documents 22 pathogenic/likely pathogenic variants, predominantly 1q21.1 copy number gains spanning the FAM72C locus. The 1q21.1 region is a well-established genomic instability hotspot associated with developmental disorders, thrombocytopenia-absent radius syndrome, and cancer predisposition. FAM72C resides within this critical region, and its duplication may contribute to dosage-sensitive phenotypes.\n\nFunctional hypothesis: FAM72C acts as a zinc finger scaffold protein that modulates cell cycle checkpoint signaling through TTK kinase interaction, potentially stabilizing spindle assembly complex components. Paralog interactions (FAM72B/D) suggest functional redundancy within the FAM72 family. Elevated lymphoid expression implies immune cell-specific roles, possibly in lymphocyte proliferation control. 1q21.1 copy number gains may drive FAM72C overexpression, disrupting cell cycle regulation and contributing to genomic instability phenotypes.
+
+## Evidence
+```
+InterPro: IPR026768 (Yippee homolog double zinc finger, aa 2-149), PF14976, PTHR31841 | STRING: ARHGAP11B (0.665), SRGAP2B (0.590), TTK (0.463), FAM72B (0.483), FAM72D (0.459), SRGAP2C (0.517), ANKRD20A3 (0.518), CBWD3/6 (0.449) | HPA: lymphoid tissue 4.9 nTPM, bone marrow 2.7 nTPM, vesicles/plasma membrane/cytosol | ClinVar: 22 pathogenic variants (1q21.1 CNVs) | Conservation: 87.9% mouse, 87.2% rat, 89.9% bovine | UniProt: H0Y354 (149 aa)
+```

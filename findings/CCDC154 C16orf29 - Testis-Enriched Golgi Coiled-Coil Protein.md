@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T14:42:50.238507
 
-**Quality Score:** 8/10 (EXCELLENT)
+**Quality Score:** 2.05/10  (E=2.8, D=1.3) [WEAK]
 
 ## Description
 667aa coiled-coil domain protein localized to Golgi apparatus and plasma membrane. Testis-enriched expression (11.9 nTPM). Interacts with coiled-coil proteins (C2orf81, CCDC106, IQCN) suggesting structural/scaffolding role in vesicular trafficking. 47 pathogenic ClinVar variants indicate clinical significance but disease mechanism remains undefined. Weak laminin homology may suggest extracellular matrix interaction.

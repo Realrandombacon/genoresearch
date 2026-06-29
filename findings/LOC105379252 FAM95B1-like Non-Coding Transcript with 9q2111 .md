@@ -1,0 +1,13 @@
+# LOC105379252: FAM95B1-like Non-Coding Transcript with 9q21.11 Chromosomal Rearrangement Disease Association
+
+**Date:** 2026-03-23T06:57:44.418020
+
+**Quality Score:** 4.05/10  (E=3.9, D=4.2) [MODERATE]
+
+## Description
+LOC105379252 (Gene ID: 105379252) is annotated as "family with sequence similarity 95 member B1-like" mapping to chromosome 9q21.11 (66,047,084-66,052,733 bp, ~5.6 kb span). Multiple evidence lines indicate this is a non-coding transcript rather than a protein-coding gene: (1) No UniProt accession - no characterized protein product; (2) No HPA expression data - no detectable protein expression in any tissue; (3) No STRING interactions - no protein-protein interaction partners identified; (4) Genomic span of ~5.6 kb is consistent with long non-coding RNA architecture. ClinVar contains 20 pathogenic copy number variants spanning extensive chromosome 9 regions (9p24.3-q34.3 duplications spanning 200 kb-138 Mb, 9p21.1-q21.11 duplications 31-68 Mb, 9p22.2-q21.11 duplications 18-68 Mb), associated with 9p/9q duplication syndromes featuring intellectual disability, developmental delay, craniofacial dysmorphism, cardiac defects, and skeletal abnormalities. The 9q21.11 region contains dosage-sensitive genes including ALDH1A2 (retinoic acid synthesis, embryonic patterning), DMRTA2 (neural progenitor regulation), and multiple neural development genes. The FAM95 (Family with Sequence Similarity 95) gene family members are predominantly annotated as lncRNAs or processed pseudogenes with limited protein-coding potential. Functional hypothesis: LOC105379252 likely functions as a long non-coding RNA (lncRNA) that may regulate chromatin architecture, transcription, or post-transcriptional gene regulation through RNA-protein or RNA-DNA interactions. The FAM95 family shows low sequence conservation across vertebrates, suggesting primate-specific regulatory functions. Pathogenic 9q CNVs disrupt lncRNA dosage and chromatin topology, potentially altering long-range gene regulation of neural development genes (ALDH1A2, DMRTA2) contributing to neurodevelopmental phenotypes. Alternatively, LOC105379252 may be a processed pseudogene with regulatory RNA function (competing endogenous RNA mechanism, miRNA sponge activity). This represents a "dark gene" that is likely non-coding but has disease relevance through chromosomal position effects and dosage sensitivity of the 9q21 region.
+
+## Evidence
+```
+RefSeq: FAM95B1-like; Genomic location: NC_000009.12 (66047084-66052733, ~5.6 kb); ClinVar: 20 pathogenic CNVs (9p-q rearrangements); No UniProt data (non-coding); No HPA expression; No STRING interactions; 9q21.11 region contains ALDH1A2, DMRTA2; FAM95 family = lncRNA/pseudogene
+```

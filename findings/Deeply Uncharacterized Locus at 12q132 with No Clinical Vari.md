@@ -1,0 +1,13 @@
+# Deeply Uncharacterized Locus at 12q13.2 with No Clinical Variants Suggesting True Dark Gene or Non-Essential Genomic Element
+
+**Date:** 2026-03-19T04:21:50.457489
+
+**Quality Score:** 3.15/10  (E=3.5, D=2.8) [WEAK]
+
+## Description
+LOC101927484 is a deeply uncharacterized genomic locus on chromosome 12q13.2 (NC_000012.12:55035755-55023487) spanning approximately 12.3 kb. Comprehensive database searches reveal complete absence of functional evidence across all major resources: no UniProt accession was identified (precluding InterPro domain analysis and AlphaFold structure prediction), no STRING protein interaction partners were detected, Human Protein Atlas resolved this locus to Ensembl ID ENSG00000301788 but reported no detectable protein expression data in surveyed tissues, and critically, ClinVar contains zero pathogenic/likely pathogenic variants - indicating no known clinical significance. This represents a "true dark gene" - a genomic element with no characterized molecular function and no disease associations. The 12q13.2 region contains several important protein-coding genes including MED12 (Mediator complex subunit 12, transcriptional regulation, Opitz-Kaveggia syndrome), CDK8 (cyclin-dependent kinase 8, transcriptional regulation, colorectal cancer), DUSP6 (dual specificity phosphatase 6, MAPK signaling), and TUBD1 (tubulin delta 1, microtubule cytoskeleton). LOC101927484 likely represents: (1) a pseudogene or processed transcript with no functional protein product, (2) a lineage-specific genomic element without conserved function (explaining lack of disease variants), (3) a non-essential long non-coding RNA (lncRNA) with redundant or context-specific function, (4) a technical annotation artifact from genome assembly, or (5) a regulatory element (enhancer/silencer) with subtle phenotypic effects not captured by ClinVar. The complete absence of ClinVar variants (0 pathogenic variants) despite comprehensive clinical sequencing suggests this locus is either: (1) dispensable for human health/development, (2) functionally redundant with paralogs, (3) only essential in specific environmental/stress contexts, or (4) a non-coding element where variation has minimal phenotypic impact. This finding exemplifies the "dark genome" - genomic annotations without characterized function or disease relevance, representing priority targets for functional genomics studies.
+
+## Evidence
+```
+ClinVar: 0 pathogenic variants (no clinical significance); Genomic location: 12q13.2 (NC_000012.12:55035755-55023487, ~12.3 kb); HPA: ENSG00000301788 (no protein expression data); No UniProt/InterPro/STRING data; Neighboring genes: MED12, CDK8, DUSP6, TUBD1; Classification: true dark gene
+```

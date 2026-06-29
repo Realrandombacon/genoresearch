@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T13:29:30.840896
 
-**Quality Score:** 8/10 (EXCELLENT)
+**Quality Score:** 5.85/10  (E=5.7, D=6.0) [SOLID]
 
 ## Description
 217aa protein consisting entirely of DUF5552 domain (aa 1-217), a protein of unknown function. BLAST shows only self-hit indicating sequence uniqueness. No STRING interactions found, no HPA expression data available. ClinVar: 21 pathogenic/likely pathogenic variants identified, predominantly copy number gains on chromosome 11p15.5-15.4 region. Variants have uncertain significance but are classified as pathogenic, suggesting disease association though specific phenotypes not yet assigned. True dark gene with clinical relevance but unknown molecular mechanism.

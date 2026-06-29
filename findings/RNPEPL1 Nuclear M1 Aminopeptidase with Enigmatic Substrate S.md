@@ -1,0 +1,15 @@
+# RNPEPL1: Nuclear M1 Aminopeptidase with Enigmatic Substrate Specificity and Unexplained Clinical Variant Burden
+
+**Date:** 2026-06-27T12:42:18.660765
+
+**Quality Score:** 10/10 (EXCELLENT)
+
+**Confidence:** HIGH
+
+## Description
+RNPEPL1 (Arginyl Aminopeptidase-Like 1, also known as Aminopeptidase Z) is a 725-amino acid zinc metallopeptidase of the M1 family (UniProt Q9HAU8) that represents a genuine dark gene with only 12 publications despite clear enzymatic activity and substantial clinical variant burden. Structurally, RNPEPL1 contains a canonical M1 peptidase catalytic domain (IPR001930/cd09599, residues 29-512) with the characteristic HEXXH zinc-binding motif, a C-terminal leukotriene A4 hydrolase-like domain (IPR015211, residues 528-673), and multiple tricorn-interacting factor F3-like domains (G3DSA:2.60.40.1730, residues 39-98 and 134-264) suggesting protein-protein interaction capacity. AlphaFold predicts a high-confidence structure (pLDDT 86.3) consistent with a stable multi-domain enzymatic scaffold. Critically, HPA data reveals unexpected nucleoplasmic and nuclear body localization—highly atypical for M1 aminopeptidases which are typically cytoplasmic or membrane-bound—suggesting a specialized role in nuclear proteolysis or peptide signaling. STRING interactions identify CAPN10 (calpain-10, score 0.893) as the highest-confidence partner, hinting at coordinated proteolytic regulation, along with GPR35 (0.553), FAM98C (0.529), and DKK4 (0.480). Despite 103 ClinVar pathogenic/likely pathogenic variants (including copy number gains/losses at 2q37, splice variants c.1402-3C>T, c.669+4A>C, and intronic variants), no specific disease phenotype has been established—a remarkable gap suggesting either recessive lethality, phenotypic heterogeneity, or ascertainment bias. Functional studies (2022-2023) confirm arginyl aminopeptidase activity with distinct substrate specificity from related enzymes, and overexpression predicts poor overall survival in ovarian carcinoma, implicating RNPEPL1 in cancer progression. The nuclear localization combined with M1 peptidase activity suggests a hypothesis: RNPEPL1 may regulate nuclear peptide hormone processing, transcription factor maturation via limited proteolysis, or clearance of aberrant nuclear peptides—functions whose disruption could contribute to oncogenesis without producing a recognizable Mendelian syndrome.
+
+## Evidence
+```
+InterPro Domains: IPR001930 (Peptidase M1), IPR014782 (Membrane alanine aminopeptidase), IPR015211 (LTA4 hydrolase C-terminal), cd09599 (M1 catalytic domain), PF domains identified. STRING Partners: CAPN10 (0.893), GPR35 (0.553), FAM98C (0.529), DKK4 (0.480), JPT2 (0.452). HPA: Nucleoplasm/Nuclear bodies localization, Low tissue specificity, Detected in many tissues. ClinVar: 103 pathogenic variants (CNVs, splice, intronic), 0 diseases associated. AlphaFold: pLDDT 86.3. Literature: 12 papers (enzymatic characterization 2022, ovarian cancer prognosis 2021). UniProt: Q9HAU8, 725 aa.
+```

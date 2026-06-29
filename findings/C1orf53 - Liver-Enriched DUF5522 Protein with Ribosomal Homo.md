@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T15:58:10.499683
 
-**Quality Score:** 4/10 (MODERATE)
+**Quality Score:** 3.28/10  (E=2.85, D=3.7) [WEAK]
 
 ## Description
 Dark gene C1orf53 encodes a 145aa protein containing DUF5522 domain (aa 82-129). Panther classification suggests homology to universal ribosomal protein uL14. Liver-enriched expression (15.4 nTPM), immune cell enhanced. Localized to mitochondrion, vesicles, aggresome. STRING interactions with FAM243A, DENND1B, TMA16, TEX29, HIGD1C suggest potential roles in membrane trafficking or ribosome assembly.

@@ -1,0 +1,13 @@
+# Orphan Family Member on Chromosome 13 with Complete Lack of Molecular Characterization and No Disease Association
+
+**Date:** 2026-03-28T07:02:22.726487
+
+**Quality Score:** 3.85/10  (E=2.7, D=5.0) [MODERATE]
+
+## Description
+FAM230C (Family with sequence similarity 230 member C, GeneID: 26080) is an uncharacterized protein-coding gene on chromosome 13 (NC_000013.11) representing a member of the completely unknown FAM230 family. No UniProt accession exists, indicating no curated protein sequence in major databases, which prevents application of InterPro domain analysis and AlphaFold structure prediction. HPA expression data is unavailable (ENSG00000279516 not in database), suggesting either extremely low expression levels across all profiled tissues, expression restricted to cell types not included in HPA panels, or technical challenges in detection. STRING interaction network returns no protein partners, consistent with complete absence of functional annotation in any database. Critically, ClinVar contains ZERO variants of any kind - no pathogenic variants, no benign variants, no copy number variations - indicating this locus has never been implicated in any clinical sequencing study or disease association. The complete absence from ClinVar contrasts with most protein-coding genes which accumulate rare variants even if not disease-causing, suggesting FAM230C may be located in a genomic region rarely captured in clinical exome/genome panels, may tolerate all variation without phenotypic consequence, or may represent a recently evolved primate-specific gene without essential function. The FAM230 family (members A through F) remains among the most mysterious protein-coding families in the human genome, with no conserved domains identified, no clear orthologs beyond primates, and no biochemical function assigned to any family member. This gene exemplifies the deepest tier of the 'dark genome' - a confirmed protein-coding locus with zero molecular data, zero expression profile, zero interaction partners, zero disease associations, and zero structural information. Future characterization requires fundamental discovery work: transcript validation by RT-PCR, antibody generation for cellular localization, evolutionary analysis to identify orthologs, and potentially CRISPR screening to determine if loss produces any selectable phenotype.
+
+## Evidence
+```
+NCBI: FAM230C GeneID 26080 on chr13 (NC_000013.11) | UniProt: no accession found | HPA: no data (ENSG00000279516 not in database) | STRING: no protein found in species 9606 | ClinVar: 0 variants total (no entries of any kind) | AlphaFold: not applicable (no UniProt accession) | InterPro: no domains (no protein sequence) | Conservation: unknown, likely primate-specific
+```

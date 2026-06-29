@@ -1,0 +1,15 @@
+# LYRM9 (ENSG00000266202): LYR Motif-Containing Mitochondrial Complex I Assembly Factor with Partially Disordered Structure and 17p11.2-q25.3 Copy Number Variant Pathogenesis
+
+**Date:** 2026-04-26T20:36:31.865347
+
+**Quality Score:** 3.45/10  (E=5.1, D=1.8) [WEAK]
+
+**Confidence:** MEDIUM
+
+## Description
+LYRM9 (LYR Motif-Containing Protein 9, UniProt J3KTA2/A8MSI8) is a 159 aa mitochondrial protein functioning as a Complex I assembly factor through its conserved LYR (Leucine-Tyrosine-Arginine) motif domain, mediating electron transport chain biogenesis and oxidative phosphorylation complex maturation. Structurally, AlphaFold predicts a partially ordered architecture (pLDDT=53.2) featuring a canonical Complex I LYR protein domain (IPR008011/PF05347, aa 11-68) within the LYR motif-containing protein family (IPR045291/IPR052151/PTHR47061, aa 1-75), with the N-terminal LYR motif (cd20269, aa 13-73) enabling iron-sulfur cluster coordination and protein-protein interactions characteristic of mitochondrial assembly chaperones. Functionally, STRING interactions reveal tight coupling to mitochondrial Complex I machinery: LYR family paralogs LYRM2 (0.761), LYRM1 (0.743), LYRM7 (0.643), LYRM4 (0.613), electron transfer flavoprotein fixation factor ETFRF1 (0.707) mediating Complex I assembly, acyl carrier protein NDUFAB1 (0.606) as Complex I subunit, NDUFA6 (0.513) and NDUFB9 (0.438) as Complex I components, succinate dehydrogenase assembly factor SDHAF1 (0.487) for Complex II, and mitochondrial translation factor FMC1 (0.435). HPA shows ubiquitous expression across all tissues with low tissue and cancer specificity, classified as predicted intracellular protein with cell type-enhanced single cell specificity. ClinVar identifies 6 pathogenic/likely pathogenic copy number gains spanning 17p11.2-q25.3 (chr17:526-81041938, chr17:21690653-38772647, chr17:25274363-28450707), though no specific Mendelian disease is annotated - these large CNVs overlap with neurodevelopmental disorder, Potocki-Lupski syndrome, and mitochondrial disease regions. Literature search yields minimal publications, confirming 'dark gene' status despite conserved LYR domain function. The gene represents a 'semi-dark' mitochondrial assembly factor where canonical Complex I chaperone function is suggested from domain architecture and interaction partners, but specific mechanisms linking LYRM9-mediated Complex I assembly to human mitochondrial disease phenotypes, tissue-specific vulnerability in high-energy tissues, and potential roles in neurodevelopmental CNV syndromes remain underexplored therapeutic targets.
+
+## Evidence
+```
+UniProt J3KTA2/A8MSI8 (159 aa); InterPro [IPR008011, IPR045291, IPR052151, PF05347, PTHR47061, cd20269]; STRING [LYRM2 0.761, LYRM1 0.743, ETFRF1 0.707, LYRM7 0.643, LYRM4 0.613, NDUFAB1 0.606, NDUFA6 0.513, SDHAF1 0.487, NDUFB9 0.438, FMC1 0.435]; HPA [ubiquitous, low tissue specificity, intracellular]; ClinVar [6 pathogenic CNVs at 17p11.2-q25.3]; AlphaFold [pLDDT 53.2, partially structured]; Lit [minimal papers, mitochondrial Complex I focus]"}
+```

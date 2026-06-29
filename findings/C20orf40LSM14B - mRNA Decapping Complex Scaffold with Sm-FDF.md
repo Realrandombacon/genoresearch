@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T16:43:28.214337
 
-**Quality Score:** 5/10 (GOOD)
+**Quality Score:** 1.0/10  (E=2.0, D=0.0) [POOR]
 
 ## Description
 C20orf40 encodes LSM14B (385 aa, UniProt Q9BX40)

@@ -1,0 +1,13 @@
+# CCDC34: Testis-Specific Coiled-Coil Scaffold Protein Essential for Sperm Midpiece Assembly
+
+**Date:** 2026-03-20T08:39:20.697715
+
+**Quality Score:** 3.35/10  (E=5.4, D=1.3) [WEAK]
+
+## Description
+CCDC34 encodes a 373 amino acid coiled-coil domain-containing protein (UniProt Q96HJ3) with a prominent coiled-coil region (PF13904, IPR025259) spanning residues 142-321, characteristic of structural scaffold proteins that mediate protein-protein interactions through alpha-helical bundling. The protein belongs to the PTHR23247 family (NY-REN-41 antigen L15-related) and is classified as a disease-related gene. AlphaFold structure prediction shows medium confidence (pLDDT 68.9), consistent with extended coiled-coil architecture typical of structural proteins. HPA expression data reveals testis-specific enrichment (48.3 nTPM) with subcellular localization to sperm midpiece, connecting piece, calyx, and nuclear membrane structures—key components of the sperm flagellar apparatus. STRING interaction network identifies 10 protein partners including RABL2A (0.708), LGR4 (0.641), CCDC106 (0.605), LIN7C (0.567), and CCDC150 (0.549), suggesting CCDC34 functions in multiprotein complexes involved in spermatid differentiation and sperm tail assembly. RABL2A is a small GTPase implicated in ciliogenesis and intraflagellar transport, supporting a role for CCDC34 in flagellar structure. ClinVar documents 23 pathogenic/likely pathogenic variants including frameshift mutations (p.Glu267fs, p.Asn244fs) and large copy number losses/gains on chromosome 11p14.1-15.5, with CCDC34 implicated in spermatogenic failure 76 (SPGF76). The coiled-coil domain architecture, testis-specific expression, sperm midpiece localization, and disease association with male infertility collectively indicate CCDC34 functions as a structural scaffold protein that organizes protein complexes required for sperm midpiece assembly and mitochondrial sheath formation during spermiogenesis. Functional hypothesis: CCDC34 acts as a coiled-coil scaffold that anchors mitochondrial sheath proteins and axonemal components to the sperm midpiece, potentially interacting with RABL2A-mediated vesicle trafficking machinery to ensure proper flagellar assembly and sperm motility.
+
+## Evidence
+```
+InterPro: IPR025259 (coiled-coil domain 142-321), IPR045323, PF13904, PTHR23247 | STRING: RABL2A(0.708), LGR4(0.641), CCDC106(0.605), LIN7C(0.567), CCDC150(0.549) | HPA: Testis 48.3 nTPM, sperm midpiece/connecting piece/calyx localization | ClinVar: 23 pathogenic variants (frameshifts, CNVs on 11p14.1-15.5), SPGF76 | AlphaFold: Q96HJ3, pLDDT 68.9, 373 aa | UniProt: Q96HJ3
+```

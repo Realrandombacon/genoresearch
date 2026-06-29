@@ -1,0 +1,13 @@
+# Uncharacterized Locus at 9p11.2 within 9p Chromosomal Duplication Region with Pathogenic CNV Burden
+
+**Date:** 2026-03-19T04:01:39.581061
+
+**Quality Score:** 2.55/10  (E=2.9, D=2.2) [WEAK]
+
+## Description
+LOC107984035 is an uncharacterized genomic locus on chromosome 9p11.2 (NC_000009.12:41358861-41482100) spanning approximately 123.2 kb. Comprehensive database searches reveal no evidence of protein-coding function: no UniProt accession was identified, precluding InterPro domain analysis and AlphaFold structure prediction. STRING database returned no protein interaction partners, confirming absence of canonical protein-coding function. Human Protein Atlas could not resolve this locus to detectable expression data, indicating no measurable protein expression in surveyed tissues. However, ClinVar analysis reveals 19 pathogenic/likely pathogenic variants in this region, all large copy number gains (triple duplications) encompassing extensive 9p regions: chr9:208455-72054336 (~71.8 Mb), chr9:193412-138179445 (~138 Mb whole-arm trisomy), chr9:203862-138125937 (~138 Mb), chr9:193412-79877816 (~79.7 Mb), chr9:203861-88130444 (~88 Mb), chr9:203861-138125937 (~138 Mb), chr9:31426827-68257015 (~36.8 Mb), chr9:18344605-68257015 (~49.9 Mb), chr9:204104-67549861 (~67.3 Mb), chr9:193412-138159073 (~138 Mb). These structural variants are associated with 9p duplication syndrome featuring developmental delay, intellectual disability, craniofacial dysmorphism, skeletal anomalies, and cardiac defects. The 9p11.2 region lies within a dosage-sensitive chromosomal segment where trisomy disrupts multiple critical developmental genes. LOC107984035 likely functions as part of the 9p11.2 cis-regulatory landscape or encodes a non-coding RNA whose copy number gain contributes to 9p duplication syndrome pathogenesis through disruption of topologically associating domains (TADs), chromatin architecture reorganization, or dysregulation of flanking dosage-sensitive genes. The absence of protein-coding features combined with pathogenic CNV burden (19 variants) indicates this locus resides within a critical dosage-sensitive genomic region where increased copy number disrupts neurodevelopmental and morphogenetic processes via gene dosage effects and 3D genome reorganization.
+
+## Evidence
+```
+ClinVar: 19 pathogenic/likely pathogenic variants (CN gains at chr9:208455-72054336, chr9:193412-138179445, chr9:203862-138125937, chr9:193412-79877816, chr9:203861-88130444, chr9:203861-138125937, chr9:31426827-68257015, chr9:18344605-68257015, chr9:204104-67549861, chr9:193412-138159073); Genomic location: 9p11.2 (NC_000009.12:41358861-41482100, ~123.2 kb); No UniProt/InterPro/STRING/HPA protein data; Within 9p duplication syndrome critical region
+```

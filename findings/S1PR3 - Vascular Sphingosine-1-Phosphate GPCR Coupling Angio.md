@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T23:20:30.982322
 
-**Quality Score:** 7/10 (GOOD)
+**Quality Score:** 1.3/10  (E=1.8, D=0.8) [POOR]
 
 ## Description
 S1PR3 encodes a 378aa Class A G protein-coupled receptor (UniProt Q99500) characterized by a canonical 7-transmembrane rhodopsin-like fold (IPR000276, PF00001, aa 56-298) and specific sphingosine-1-phosphate binding motifs (IPR004061/IPR004062). AlphaFold predicts a high-confidence structure (pLDDT 79.3) across the full length

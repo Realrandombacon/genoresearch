@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T07:22:33.333171
 
-**Quality Score:** 10/10 (EXCELLENT)
+**Quality Score:** 3.75/10  (E=5.2, D=2.3) [MODERATE]
 
 ## Description
 CXorf58 (Q96LI9) is a 332-aa dark gene encoding a Mitochondrial Fission Inhibitor family protein (PTHR33504, residues 8-311). BLAST reveals strong conservation to mouse ortholog (56.3% identity) and homology to MFI/C11orf65 (mitochondrial fission factor interactor). STRING interactions link to 10 partners including C19orf81, SMLR1, GDE1. HPA shows testis-enriched expression (3.7 nTPM) with nucleoplasm localization. CRITICALLY: 152 pathogenic/likely pathogenic ClinVar variants (CNV gains/losses, inversions) indicate MAJOR clinical significance despite functional obscurity. This X-linked dark gene likely regulates mitochondrial dynamics and is strongly associated with disease. Priority target for mitochondrial functional studies.

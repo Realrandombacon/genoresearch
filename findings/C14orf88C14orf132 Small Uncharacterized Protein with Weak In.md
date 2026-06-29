@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-18T01:31:54.992932
 
-**Quality Score:** 8/10 (EXCELLENT)
+**Quality Score:** 3.65/10  (E=4.5, D=2.8) [MODERATE]
 
 ## Description
 C14orf88 (alias C14orf132) encodes an 83 amino acid uncharacterized protein (UniProt Q9NPU4) belonging to the C14orf132 family (IPR059849, PF28562, residues 20-77). AlphaFold predicts a partially structured protein with medium confidence (pLDDT 67.1), suggesting flexible regions flanking a structured core. HPA expression data could not be resolved, indicating limited transcript characterization. STRING interactions reveal weak associations with chromatin and nuclear proteins: FAM71E2 (0.506), FAM200A (0.446), BOD1L2 (0.434, bitoposin 1-like protein involved in rRNA methylation), SMCO2 (0.416, single-pass membrane protein), FAM200B (0.416), and C1orf210 (0.400). ClinVar reports no pathogenic variants, indicating no established disease associations. Conservation appears limited with no clear orthologs identified in standard model organisms beyond primates.

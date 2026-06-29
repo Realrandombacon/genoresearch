@@ -1,0 +1,13 @@
+# Coiled-Coil Centrosomal Scaffold Protein Linking Ciliogenesis, Mitotic Spindle Assembly, and Microtubule Organization
+
+**Date:** 2026-03-20T11:40:17.543347
+
+**Quality Score:** 3.4/10  (E=6.5, D=0.3) [WEAK]
+
+## Description
+CCDC66 encodes a 948 aa coiled-coil domain-containing scaffold protein (UniProt A2RUB6) that localizes to centrosomes, cilia, and the mitotic apparatus to coordinate microtubule-based cellular processes. The protein contains a defining CCDC66 domain (IPR040467, PF15236, residues 412-563) embedded within an extended coiled-coil region (IPR039183, residues 35-947) that mediates oligomerization and protein-protein interactions. AlphaFold predicts a partially structured conformation (pLDDT 56.8) with ordered coiled-coil segments interspersed with flexible linkers, consistent with scaffold protein architecture. HPA shows ubiquitous expression with dual localization to primary cilia and midbody rings—key structures for ciliogenesis and cytokinesis—plus vesicles and plasma membrane. STRING interactions reveal a centrosome/cilium interactome: CCDC14 (0.831, high confidence) is a centrosomal coiled-coil protein; CEP290 (0.610) and CEP72 (0.541) are ciliary transition zone scaffolds; PCM1 (0.469) anchors centrosomal satellites; STIL (0.519) regulates centriole duplication; BICD2 (0.499) mediates dynein-dependent cargo transport; and POLR2B (0.657) links to transcriptional elongation. Additional partners PRCD (0.574, photoreceptor cilium protein) and DXO (0.585, RNA decapping enzyme) suggest roles in photoreceptor maintenance and RNA surveillance. ClinVar documents 14 pathogenic variants including missense (p.Gln468Arg, p.Asp5Gly), splice, and copy number alterations, implicating CCDC66 dysfunction in human disease, potentially ciliopathies or microcephaly given the centrosomal interactome. Conservation is strong across vertebrates (mouse Q6NS45, 935 aa). Mechanistically, CCDC66 likely serves as a structural scaffold that tethers microtubule plus-ends at the ciliary base and mitotic spindle, recruiting CEP290/CEP72 to assemble the transition zone diffusion barrier while coordinating BICD2-dynein transport of ciliary cargo. During mitosis, CCDC66 may stabilize spindle microtubules and ensure proper chromosome alignment through PCM1-mediated centrosomal anchoring.
+
+## Evidence
+```
+Evidence: InterPro IPR039183/IPR040467/PF15236/PTHR22736; STRING CCDC14(0.831)/POLR2B(0.657)/CEP290(0.610)/DXO(0.585)/PRCD(0.574)/CEP72(0.541)/STIL(0.519)/BICD2(0.499)/PCM1(0.469); HPA ubiquitous/cilium+midbody; ClinVar 14 pathogenic variants; AlphaFold pLDDT 56.8; UniProt A2RUB6 948aa
+```

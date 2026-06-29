@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-18T01:20:30.906075
 
-**Quality Score:** 10/10 (EXCELLENT)
+**Quality Score:** 5.28/10  (E=6.95, D=3.6) [SOLID]
 
 ## Description
 C9orf85 encodes a 179 amino acid uncharacterized protein (UniProt Q96MD7) containing a DUF2039 domain (IPR019351, PF10217, residues 14-102) and a FAM138 N-terminal domain (residues 158-179). AlphaFold predicts a confident structure (pLDDT 74.8). HPA data shows ubiquitous expression with nucleoplasm, nucleoli, and Golgi apparatus localization. STRING interactions reveal strong associations with GVQW2 (0.717), C9orf57 (0.716), and components of the BRCC3 deubiquitination complex including BRCC3 (0.622), BABAM1 (0.611), BABAM2 (0.608), and ZFAND5 (0.610). ClinVar reports 40 pathogenic variants including copy number gains/losses, single nucleotide variants (e.g., c.164G>A p.Arg55His), and inversions. The gene is conserved across mammals: mouse (Q9CQ90, 155 aa, ~75% identity), rat (Q68FU5, 155 aa, ~73% identity).

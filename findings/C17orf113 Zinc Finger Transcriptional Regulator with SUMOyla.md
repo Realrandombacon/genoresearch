@@ -1,0 +1,13 @@
+# C17orf113: Zinc Finger Transcriptional Regulator with SUMOylation Activity and Chromosome 17 Dosage Sensitivity
+
+**Date:** 2026-03-19T16:48:31.328934
+
+**Quality Score:** 3.08/10  (E=3.85, D=2.3) [WEAK]
+
+## Description
+C17orf113 encodes a 675 amino acid uncharacterized protein (UniProt: A0A1B0GUU1) localized to chromosome 17q21.2. InterPro analysis reveals a probable C2H2 zinc finger domain (IPR057456, PF25431, residues 31-93) and membership in the transcription and SUMOylation regulatory protein family (PTHR46880, residues 17-665), indicating dual functionality in DNA binding and post-translational modification regulation. AlphaFold predicts a well-folded tertiary structure with high confidence (pLDDT 81.7), suggesting stable structural domains consistent with transcription factor architecture. HPA expression shows low tissue specificity with detection across many tissues, classified as predicted membrane proteins, and absence from immune cells, suggesting ubiquitous regulatory function rather than tissue-restricted roles. STRING database identifies 1 medium-confidence interaction partner (ENSP00000500339, score 0.414), though limited interaction data suggests either transient regulatory interactions or incomplete interactome mapping. ClinVar documents 3 pathogenic copy number gain variants spanning 17q regions (17q23.1-25.1, 17q12-21.31, 17q21.33-24.2), indicating gene dosage sensitivity where duplication disrupts normal regulation. The combination of zinc finger DNA-binding domain, SUMOylation regulatory family membership, high structural confidence, ubiquitous expression, and dosage-sensitive clinical variants suggests C17orf113 functions as a chromatin-associated transcriptional regulator that recruits SUMO E3 ligase complexes to target gene promoters, modulating transcriptional repression through SUMO-conjugation of histone modifiers or transcription factors. Dosage sensitivity implies precise stoichiometry is required for proper epigenetic regulation, with duplications causing dominant-negative effects or aberrant recruitment of repressive complexes.
+
+## Evidence
+```
+Evidence: (1) InterPro: IPR057456/PF25431 zinc finger aa 31-93, PTHR46880 transcription/SUMOylation regulatory aa 17-665; (2) UniProt: A0A1B0GUU1, 675 aa; (3) AlphaFold: pLDDT 81.7 high confidence; (4) HPA: low tissue specificity, detected in many, predicted membrane proteins, not in immune cells; (5) STRING: 1 interaction ENSP00000500339 score 0.414; (6) ClinVar: 3 pathogenic CNV gain variants 17q23.1-25.1/17q12-21.31/17q21.33-24.2; (7) Chromosome 17q21.2 location; (8) Conservation: homologs in Pan troglodytes, Felis catus, Sus scrofa, Lingula aninata
+```

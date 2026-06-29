@@ -1,0 +1,13 @@
+# ZNF727: KRAB Zinc Finger Transcriptional Repressor with Chromatin Modifier Interactions and 7q11.21 CNV Associations
+
+**Date:** 2026-03-23T06:03:46.054709
+
+**Quality Score:** 5.15/10  (E=7.0, D=3.3) [SOLID]
+
+## Description
+ZNF727 encodes a 499 amino acid C2H2 zinc finger transcription factor (UniProt A8MUV8) with canonical KRAB repressor architecture. InterPro analysis reveals: (1) N-terminal KRAB domain (IPR001909, PF01352, residues 4-75) - a transcriptional repression module that recruits co-repressors; (2) Multiple C2H2 zinc finger domains (IPR013087, PF00096, PF13894) at positions 143-390, providing sequence-specific DNA binding capability. HPA localizes ZNF727 to nucleoplasm with transcription factor classification, cancer-enhanced expression pattern, and low tissue specificity but group-enriched single cell type specificity, consistent with regulatory function. STRING identifies 8 medium-confidence interactions including chromatin regulator TRIM28 (0.522) - the canonical KRAB domain co-receptor, chromatin remodeler RBBP4 (0.441), and several uncharacterized proteins (C11orf1 0.576, C16orf87 0.571, FAM135A 0.434). ClinVar contains 13 pathogenic/likely pathogenic variants including a splice site mutation (c.226+1G>A) and large copy number variations spanning 7q11.21 region (deletions and duplications of 12-120Mb), overlapping the Williams-Beuren syndrome critical region. Mouse ortholog not identified via NCBI search, suggesting rapid evolution characteristic of primate-specific zinc finger families. FUNCTIONAL HYPOTHESIS: ZNF727 functions as a sequence-specific transcriptional repressor that recruits chromatin silencing complexes via KRAB-TRIM28 interactions. The multiple C2H2 zinc fingers confer DNA binding specificity to target gene promoters/enhancers. Interaction with RBBP4 (histone-binding chromatin remodeler) suggests coupling of transcriptional repression with nucleosome positioning and histone modification. Cancer-enhanced expression suggests potential oncogenic role through dysregulation of cell cycle or apoptosis genes. Pathogenic 7q11.21 CNVs causing ZNF727 dosage alterations may contribute to Williams-Beuren syndrome phenotypes or other developmental disorders through disrupted transcriptional regulation of neurodevelopmental genes.
+
+## Evidence
+```
+Evidence: UniProt A8MUV8 (499aa, nucleoplasm); InterPro IPR001909/PF01352 (KRAB 4-75), IPR013087/PF00096/PF13894 (C2H2 zinc fingers 143-390); HPA (transcription factor, nucleoplasm, cancer enhanced, group enriched); STRING (TRIM28 0.522, RBBP4 0.441, C11orf1 0.576, C16orf87 0.571, FAM135A 0.434); ClinVar (13 pathogenic variants, 7q11.21 CNVs overlapping Williams-Beuren region); Conservation (mouse ortholog not identified); AlphaFold (API error)
+```

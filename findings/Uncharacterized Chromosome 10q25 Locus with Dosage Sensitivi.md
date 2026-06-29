@@ -1,0 +1,13 @@
+# Uncharacterized Chromosome 10q25 Locus with Dosage Sensitivity Suggesting Essential Developmental Function
+
+**Date:** 2026-03-28T07:00:38.993449
+
+**Quality Score:** 2.65/10  (E=2.8, D=2.5) [WEAK]
+
+## Description
+LOC101927692 is an uncharacterized gene locus on chromosome 10q25.2-25.3 (NC_000010.11) with strong clinical evidence for dosage sensitivity despite lacking protein-level characterization. No UniProt accession exists, indicating no curated protein sequence in major databases, which prevents application of InterPro domain analysis, AlphaFold structure prediction, and STRING interaction mapping. HPA expression data is unavailable, suggesting either low expression levels across tissues or technical challenges in antibody/probe design. ClinVar contains 10 pathogenic/likely pathogenic variants consisting entirely of large copy number variations spanning the 10q25 region: deletions at chr10:110804735-114884010, chr10:112074094-115537174, chr10:107191100-118761489, chr10:114584882-117015907 and duplications at chr10:100600492-133622588, chr10:112701186-120970617, chr10:108102587-133620674, chr10:100194215-132432797, chr10:111313099-133620674, chr10:95112607-116776637. The pattern of both loss and gain CNVs being pathogenic suggests strict dosage requirements, typical of genes involved in developmental processes where haploinsufficiency and triplosensitivity both cause phenotypes. The 10q25 region is known to harbor genes important for neurodevelopment, and deletions/duplications in this region are associated with intellectual disability, growth abnormalities, and congenital anomalies. This locus exemplifies a 'dark gene' with clear clinical relevance but uncharacterized molecular function - the absence from protein databases may indicate it encodes a small peptide, non-coding RNA with regulatory function, or a rapidly evolving protein without conserved domains. Future characterization requires transcript identification, proteomic validation, and functional studies to determine whether this locus produces a functional protein product.
+
+## Evidence
+```
+NCBI: uncharacterized LOC101927692 on chr10 (NC_000010.11) | UniProt: no accession found | HPA: no data (gene not in database) | STRING: no protein found in species 9606 | ClinVar: 10 pathogenic variants (CNV losses at chr10:110804735-114884010/chr10:112074094-115537174/chr10:107191100-118761489/chr10:114584882-117015907; CNV gains at chr10:100600492-133622588/chr10:112701186-120970617/chr10:108102587-133620674/chr10:100194215-132432797/chr10:111313099-133620674/chr10:95112607-116776637) | AlphaFold: not applicable (no UniProt accession) | Conservation: unknown
+```

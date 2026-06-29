@@ -1,0 +1,13 @@
+# FAM149A: Disordered Golgi-Associated Scaffold Protein with Disease-Linked Chromosomal Rearrangements
+
+**Date:** 2026-03-19T11:36:24.688064
+
+**Quality Score:** 4.62/10  (E=4.75, D=4.5) [MODERATE]
+
+## Description
+FAM149A (MST119/MSTP119) encodes a 773 amino acid intrinsically disordered scaffold protein localized to the Golgi apparatus. The protein contains a domain of unknown function DUF3719 (IPR022194/PF12516, residues 292-357) embedded within a larger FAM149 family region (IPR039630/PTHR31997, residues 75-771). AlphaFold predicts low confidence structure (pLDDT 49.2), indicating extensive intrinsic disorder characteristic of scaffold/adaptor proteins that function through protein-protein interactions rather than enzymatic catalysis. STRING analysis reveals medium-confidence interactions with TLR3 (0.587), TRIML1 (0.583), HAL (0.541), SORBS2 (0.528), CYP4V2 (0.512), FRG2 (0.506), STOX2 (0.486), CCDC110 (0.485), C4orf47 (0.459), and FRG1 (0.429). This interaction profile suggests roles in innate immune signaling (TLR3), chromatin regulation (FRG1/FRG2 - FSHD region genes), and scaffolding complexes at Golgi membranes. HPA shows tissue-enhanced expression with liver predominance (46.8 nTPM), cancer-enhanced expression pattern, and Golgi apparatus localization. ClinVar documents 116 pathogenic/likely pathogenic variants, predominantly chromosome 4q35.1 copy number losses and gains affecting the FAM149A locus, though no specific monogenic disease phenotype is yet assigned. The chromosomal position (4q35.1) is adjacent to the D4Z4 repeat region implicated in facioscapulohumeral dystrophy (FSHD), and interaction with FRG1/FRG2 supports potential involvement in FSHD pathogenesis. Mouse ortholog Q8CFV2 (787 aa) demonstrates strong evolutionary conservation. The mechanistic hypothesis: FAM149A functions as a disordered scaffold protein at the Golgi membrane, recruiting TLR3 signaling components and chromatin regulatory factors through multivalent weak interactions. Chromosomal rearrangements disrupting FAM149A dosage may contribute to FSHD-related phenotypes or immune dysregulation.
+
+## Evidence
+```
+InterPro: IPR022194, IPR039630, PF12516 (292-357, DUF3719), PTHR31997 (75-771) | STRING: TLR3(0.587), TRIML1(0.583), HAL(0.541), SORBS2(0.528), CYP4V2(0.512), FRG2(0.506), STOX2(0.486), CCDC110(0.485), C4orf47(0.459), FRG1(0.429) | HPA: Golgi apparatus, Liver 46.8 nTPM, tissue-enhanced, cancer-enhanced | ClinVar: 116 pathogenic variants (4q35.1 CNVs) | AlphaFold: pLDDT 49.2 (intrinsically disordered) | UniProt: A5PLN7 (773 aa) | Conservation: Mouse Q8CFV2 (787 aa), Zebrafish orthologs
+```

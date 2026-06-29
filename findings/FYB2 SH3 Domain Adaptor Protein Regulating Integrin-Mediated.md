@@ -1,0 +1,13 @@
+# FYB2: SH3 Domain Adaptor Protein Regulating Integrin-Mediated Cell Adhesion and Sperm Motility
+
+**Date:** 2026-03-19T10:36:41.391090
+
+**Quality Score:** 4.85/10  (E=7.2, D=2.5) [MODERATE]
+
+## Description
+FYB2 (FYN binding protein 2, alias ARAP, C1orf168) encodes a 728-amino acid intracellular adaptor protein belonging to the FYN-binding protein family (IPR043443/PTHR16830, residues 1-719). The protein contains a C-terminal helically-extended SH3 domain (IPR029294/IPR001452/PF14603, residues 653-724) that mediates proline-rich motif protein-protein interactions, characteristic of signaling scaffolds. AlphaFold predicts medium confidence structure (pLDDT=53.0), indicating substantial intrinsically disordered regions typical of adaptor proteins that undergo coupled folding-binding upon partner interaction. HPA shows tissue-enhanced expression with highest levels in liver (16.0 nTPM), fallopian tube (12.9 nTPM), and choroid plexus (10.6 nTPM), with cancer-enhanced expression pattern. Notably, subcellular localization includes perinuclear theca, mid piece, and principal piece of sperm, suggesting specific roles in sperm motility and fertilization. STRING interactions reveal moderate-confidence partnerships with C1orf105 (0.479, uncharacterized protein), C1orf226 (0.455), CLBA1 (0.447, clathrin-binding protein), RALGAPA2 (0.429, Ral GTPase activating protein), and AR (0.425, androgen receptor), suggesting coordination with vesicular trafficking, small GTPase signaling, and hormone-responsive pathways. ClinVar documents 15 pathogenic/likely pathogenic variants including missense (p.Arg318Thr), splice site, and chromosome 1p copy number alterations, indicating dosage sensitivity. Conservation is strong across mammals: mouse (A2A995, 729 aa). Mechanistically, FYB2 likely functions as a phosphotyrosine-independent adaptor that recruits SH3-binding partners to integrin adhesion complexes, modulating cell adhesion and cytoskeletal dynamics. The sperm-specific localization suggests roles in flagellar assembly or motility regulation, potentially through interactions with axonemal proteins. The AR interaction indicates potential androgen-responsive regulation in reproductive tissues, while the RALGAPA2 partnership suggests coordination with Ral GTPase-mediated vesicular trafficking.
+
+## Evidence
+```
+Evidence: InterPro IPR043443/PTHR16830 (1-719aa FYN-binding family), IPR029294/IPR001452/PF14603 (653-724aa SH3 domain); STRING partners C1orf105(0.479)/C1orf226(0.455)/CLBA1(0.447)/RALGAPA2(0.429)/AR(0.425); HPA liver=16.0nTPM/fallopian_tube=12.9nTPM/choroid_plexus=10.6nTPM/sperm_localization; ClinVar 15 pathogenic variants on 1p; AlphaFold pLDDT=53.0; UniProt Q5VWT5; 728aa length; mouse A2A995 ortholog
+```

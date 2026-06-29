@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T13:41:48.970092
 
-**Quality Score:** 7/10 (GOOD)
+**Quality Score:** 2.25/10  (E=2.3, D=2.2) [WEAK]
 
 ## Description
 SPRYD7 (formerly C13orf1) encodes a 196aa protein containing a B30.2/SPRY domain (positions 62-176) implicated in protein-protein interactions. The protein localizes to vesicles and is expressed across all tissues with low specificity. STRING analysis reveals 10 interaction partners including TRIM13 (E3 ubiquitin ligase), PDZD3, and CCDC122, suggesting roles in ubiquitination and vesicular trafficking. Critically, ClinVar reports 63 pathogenic/likely pathogenic variants including copy number losses and gains, indicating clinical significance despite limited functional characterization. The SPRY domain (IPR001870) is known to mediate protein binding (GO:0005515), providing a molecular mechanism hypothesis.

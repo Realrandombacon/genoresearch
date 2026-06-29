@@ -1,0 +1,13 @@
+# FAM135B: Nuclear Lipase-like Esterase in Retinal Lipid Metabolism
+
+**Date:** 2026-03-19T11:54:58.025990
+
+**Quality Score:** 4.6/10  (E=5.4, D=3.8) [MODERATE]
+
+## Description
+FAM135B encodes a 1406 amino acid uncharacterized protein (UniProt Q49AJ0) with strong lipase/esterase structural signatures. InterPro analysis reveals multiple catalytic domain features: IPR007751 (DUF676 lipase-like, residues 1137-1330), PF05057 (putative serine esterase, residues 1137-1330), G3DSA:3.40.50.1820 and IPR029058 (alpha/beta hydrolase fold, residues 1140-1347), plus IPR022122/IPR044294 (FAM135 family, residues 111-172/132-1393), placing it within the lipase ROG1-related superfamily (PTHR12482). STRING interactions show medium-confidence associations with neuronal and membrane proteins: ADAM29 (0.664), ZDHHC17 (0.627), SLC6A17 (0.512), LRP1B (0.480), ZNF750 (0.449), ZFHX4 (0.449), CSMD3 (0.448), FAT1 (0.448), FAT2 (0.438), NXPH2 (0.421). HPA expression shows retina-enriched transcription (9.1 nTPM) with elevated brain (6.6 nTPM), testis (3.6 nTPM), and adrenal gland (2.5 nTPM) expression; subcellular localization to nucleoplasm and nuclear membrane. ClinVar contains 57 pathogenic/likely pathogenic variants, predominantly large copy number gains on 8q24 (spanning FAM135B locus), though no specific disease phenotypes are assigned. AlphaFold structure prediction shows medium confidence (pLDDT 60.9) across the full 1406 aa sequence, consistent with partially structured protein containing ordered catalytic domains plus disordered regions. The convergence of serine esterase/lipase catalytic machinery, nuclear envelope localization, retina/brain-enriched expression, and interactions with neuronal adhesion/palmitoylation proteins (ZDHHC17) suggests FAM135B functions as a nuclear lipid-processing enzyme, potentially hydrolyzing lipid substrates or modifying nuclear membrane phospholipids. Retinal enrichment implies specialized role in photoreceptor lipid homeostasis; disruption via 8q amplifications may contribute to retinal degeneration or neurodevelopmental phenotypes.
+
+## Evidence
+```
+InterPro: IPR007751, IPR022122, IPR029058, IPR044294, PF05057, PF12394, PTHR12482, G3DSA:3.40.50.1820, SSF53474 | STRING: ADAM29(0.664), ZDHHC17(0.627), SLC6A17(0.512), LRP1B(0.480), ZNF750(0.449), ZFHX4(0.449), CSMD3(0.448), FAT1(0.448), FAT2(0.438), NXPH2(0.421) | HPA: retina-enriched (9.1 nTPM), brain (6.6), testis (3.6), adrenal (2.5); nucleoplasm/nuclear membrane | ClinVar: 57 pathogenic variants (8q24 CNVs) | AlphaFold: pLDDT 60.9 (medium) | UniProt: Q49AJ0 | Length: 1406 aa | Chromosome: 8q24.23
+```

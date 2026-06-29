@@ -1,0 +1,13 @@
+# ZNF202: SCAN-KRAB-C2H2 Zinc Finger Transcriptional Repressor Regulating Lipid Metabolism and Chromatin Organization
+
+**Date:** 2026-03-27T11:13:25.713618
+
+**Quality Score:** 2.1/10  (E=3.5, D=0.7) [WEAK]
+
+## Description
+ZNF202 (Zinc Finger Protein 202, aliases ZKSCAN10/ZSCAN42) is a 648-amino acid transcriptional repressor located on chromosome 11q24.1. The protein exhibits modular SCAN-KRAB-ZFP architecture characteristic of the Krüppel-associated box zinc finger protein family. Domain organization includes an N-terminal SCAN oligomerization domain (IPR003309/PF02023, aa 42-154) enabling homo/hetero-dimerization with other SCAN-ZFPs, a central KRAB-A repression domain (IPR001909/PF01352, aa 236-308) that recruits KAP1/TRIM28 co-repressor complexes, and three C-terminal C2H2-type zinc finger DNA-binding domains (IPR013087/PF00096, aa 397-424, 425-452, 481-508) conferring sequence-specific DNA recognition.\n\nSTRING interaction network reveals strong associations with transcriptional regulators: MZF1 (score 0.797, high confidence; myeloid zinc finger protein), SCAND1 (0.687; SCAN domain-only protein that modulates SCAN-ZFP activity), ZNF474 (0.661), ZMYM3 (0.645; zinc finger MYM-type protein 3), and critically TRIM28/KAP1 (0.528; the universal KRAB domain co-repressor). Additional partners include ADTRP (0.618; androgen-dependent TFPI-regulating protein linking to lipid metabolism), LMO4 (0.610; LIM domain oncogene 4), and ZNF473/ZNF534, suggesting ZNF202 functions within multiprotein chromatin remodeling complexes.\n\nHPA data confirms ubiquitous expression across all tissues with low tissue specificity, consistent with housekeeping transcriptional regulation. Subcellular localization to nucleoli rim, nuclear bodies, and mitotic chromosomes indicates dynamic association with condensed chromatin during cell division. The nuclear body localization suggests potential involvement in PML body-related processes or heterochromatin organization.\n\nClinVar documents 52 pathogenic/likely pathogenic variants, exclusively large copy number losses and gains spanning 11q23.3-q25 (e.g., chr11:123345328-135064169 deletions, chr11:115887338-126148523 duplications). These megabase-scale CNVs disrupt ZNF202 dosage and are associated with Jacobsen syndrome (11q terminal deletion syndrome) featuring thrombocytopenia, congenital heart defects, and developmental delay—though ZNF202\'s specific contribution versus neighboring genes remains undefined.\n\nAlphaFold structure prediction yields moderate global confidence (pLDDT 59.0)
+
+## Evidence
+```
+IPR013087 (C2H2 zinc finger, aa 397-424/425-452/481-508)
+```

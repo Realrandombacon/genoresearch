@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T13:16:36.163516
 
-**Quality Score:** 4/10 (MODERATE)
+**Quality Score:** 1.25/10  (E=1.5, D=1.0) [POOR]
 
 ## Description
 C11orf1 is actually CFAP68 (Cilia- and flagella-associated protein 68), a well-studied protein. 150aa microtubule inner protein (MIP) part of dynein-decorated doublet microtubules in cilia axoneme. Required for motile cilia beating and flagellated sperm motility. InterPro confirms CFAP68 family domains (IPR009524, IPR037662, PF06608). BLAST shows high conservation across mammals (human to mouse 78.7% identity). This is NOT a dark gene - it has clear molecular function in cilia structure and motility.

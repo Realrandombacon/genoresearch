@@ -1,0 +1,13 @@
+# LOC129390899: 17q22 MPRA-Validated Transcriptional Silencer with Mixed Dosage Sensitivity
+
+**Date:** 2026-03-19T03:04:51.119250
+
+**Quality Score:** 2.83/10  (E=3.75, D=1.9) [WEAK]
+
+## Description
+LOC129390899 is a functionally characterized cis-regulatory element on chromosome 17q22 (genomic coordinates: 57422764-57422993 on NC_000017.11, spanning approximately 229 bp). This genomic region was experimentally validated as a transcriptional silencer using STARR-seq massively parallel reporter assays (MPRAs) in K562 erythroleukemia cells, demonstrating ability to repress activity of super core promoter SCP1. The element lacks protein-coding evidence (no UniProt entry, no STRING interactions, no HPA protein expression), confirming its identity as a non-coding regulatory element. The accessible chromatin subregion annotation indicates active regulatory function in hematopoietic cell lineages. ClinVar analysis identified 5 pathogenic/likely pathogenic variants with mixed dosage sensitivity: 3 copy number losses (deletions) and 2 copy number gains (duplications), indicating both haploinsufficiency and triplosensitivity are pathogenic mechanisms. The 17q22-23 chromosomal region contains critical dosage-sensitive genes including TBX2 (T-box transcription factor 2 - cardiac development, mesoderm patterning), TBX4 (T-box transcription factor 4 - limb development, small patella syndrome), PPM1F (protein phosphatase 1F - cell cycle regulation), and NFIA (nuclear factor I-A - neural development). As an experimentally validated silencer, LOC129390899 likely functions to repress transcription of target genes in cis during erythroid differentiation. Loss of this silencer may cause derepression/overexpression of target genes (haploinsufficiency of repressor function), while duplication may cause excessive repression (triplosensitivity). This 229 bp silencer may regulate genes involved in erythroid development, cardiac/limb development (via TBX2/TBX4), or neural development (via NFIA). The MPRAs validation in K562 cells suggests hematologic relevance, potentially contributing to 17q22 deletion/duplication syndrome phenotypes including developmental delay, cardiac defects, limb abnormalities, and immune abnormalities.
+
+## Evidence
+```
+Evidence: NCBI Gene ID 129390899; Chromosome 17q22 (57422764-57422993); ~229 bp regulatory region; MPRA-validated silencer (STARR-seq in K562 cells); Represses SCP1 promoter activity; Accessible chromatin subregion; No UniProt entry (non-coding); ClinVar: 5 pathogenic CNVs (3 deletions, 2 duplications - mixed dosage sensitivity); 17q22 region contains TBX2, TBX4, PPM1F, NFIA; Associated with 17q22 deletion/duplication syndrome, cardiac/limb development, erythroid development
+```

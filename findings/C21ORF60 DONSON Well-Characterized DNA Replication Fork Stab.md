@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T17:01:43.128636
 
-**Quality Score:** 7/10 (GOOD)
+**Quality Score:** 3.1/10  (E=4.9, D=1.3) [WEAK]
 
 ## Description
 C21ORF60 is the historical symbol for DONSON (Downstream neighbor of Son, Gene ID 55597), a well-characterized 566 amino acid protein (UniProt Q9NYP3) with essential function in DNA replication. InterPro analysis reveals a defining DONSON domain (IPR060529, PF27662, residues 156-564) spanning most of the C-terminal region, plus N-terminal family signature (IPR024861, residues 4-565). STRING interactions demonstrate extremely high-confidence binding to core DNA replication machinery: DNA primase large subunit PRIM2 (0.970), DNA polymerase delta subunits POLD2 (0.952) and POLD1 (0.938), DNA polymerase alpha subunits POLA1/POLA2 (0.938), DNA primase small subunit PRIM1 (0.928), and replication protein A complex RPA1/RPA2/RPA3 (0.908-0.917). This interaction network places DONSON directly at the DNA replication fork as a scaffold/stabilization factor. HPA localizes DONSON to nucleoplasm and classifies it as an essential protein and disease-related gene associated with dwarfism (microcephalic dwarfism syndromes). ClinVar contains 132 pathogenic variants including nonsense mutations (p.Gln101Ter), frameshifts (p.Leu186fs, p.Glu471fs), and splice variants, confirming critical clinical significance. The presence of defined domain architecture, established replication fork interaction network, essential protein classification, and substantial pathogenic variant burden indicates C21ORF60/DONSON is NOT a dark gene but a functionally annotated DNA replication factor with known mechanism in fork stabilization and human development.

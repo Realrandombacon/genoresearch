@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T14:10:39.419666
 
-**Quality Score:** 5/10 (GOOD)
+**Quality Score:** 1.6/10  (E=1.3, D=1.9) [POOR]
 
 ## Description
 793aa coiled-coil domain protein (P0C221) with conserved mammalian orthologs. InterPro confirms CCDC175 family (IPR038834). STRING interactions with JKAMP, TTLL9, ANKFN1 suggest roles in cellular organization. HPA shows brain-enriched expression (4.1 nTPM), nucleolar/nucleoplasmic localization. Potential chromatin or RNA processing function.

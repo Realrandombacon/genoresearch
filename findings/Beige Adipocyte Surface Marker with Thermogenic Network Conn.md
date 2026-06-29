@@ -1,0 +1,13 @@
+# Beige Adipocyte Surface Marker with Thermogenic Network Connections
+
+**Date:** 2026-03-27T13:43:35.273522
+
+**Quality Score:** 2.97/10  (E=4.85, D=1.1) [WEAK]
+
+## Description
+TMEM26 is a 368 amino acid multi-pass transmembrane protein (UniProt Q6ZUK4) that serves as a selective surface marker of brite/beige adipocytes, which coexist with classical brown adipocytes in brown adipose tissue. InterPro analysis identifies TMEM26 as a member of the transmembrane protein 26 family (IPR019169, PF09772, PTHR22168) spanning residues 1-366, with no additional characterized domains suggesting it represents a distinct structural class of membrane proteins. AlphaFold predicts a well-folded conformation (global pLDDT 77.6, high confidence) consistent with a stable transmembrane architecture containing multiple membrane-spanning helices. HPA data confirms tissue-enhanced expression with highest levels in lymphoid tissue (8.3 nTPM) and cancer-enhanced expression patterns. Critically, STRING interactions reveal strong connections to the brown/beige adipocyte thermogenic program: UCP1 (0.532), the hallmark uncoupling protein responsible for non-shivering thermogenesis; DIO2 (0.643), type 2 iodothyronine deiodinase that activates thyroid hormone in brown fat; PRDM16 (0.522), the master transcriptional regulator of beige adipocyte differentiation; PPARGC1A/PGC-1α (0.416), the coactivator driving mitochondrial biogenesis; and CIDEA (0.489), a lipid droplet protein essential for thermogenic function. Additional interactions include TNFRSF9 (0.723), HOXC9 (0.715), CITED1 (0.663), TBX1 (0.526), and ZIC1 (0.405). ClinVar documents 18 pathogenic/likely pathogenic variants including copy number losses and gains spanning 10q21.2, indicating dosage sensitivity. Conservation analysis shows orthologs in mouse (Q3UP23, 366 aa; Q149T4, 268 aa isoform). Mechanistically, TMEM26 likely functions as a transporter or channel protein embedded in the plasma membrane of thermogenic adipocytes, potentially facilitating metabolite flux required for uncoupled respiration or serving as a surface antigen for identification and isolation of beige adipocyte populations. Its tight co-expression network with thermogenic regulators suggests integration into the adaptive thermogenesis pathway.
+
+## Evidence
+```
+InterPro: TMEM26 family IPR019169/PF09772/PTHR22168 (aa 1-366); STRING partners: TNFRSF9 (0.723), HOXC9 (0.715), CITED1 (0.663), DIO2 (0.643), UCP1 (0.532), TBX1 (0.526), PRDM16 (0.522), CIDEA (0.489), PPARGC1A (0.416), ZIC1 (0.405); HPA: lymphoid tissue 8.3 nTPM, tissue-enhanced, cancer-enhanced; ClinVar: 18 pathogenic variants (CNVs 10q21.2); AlphaFold: pLDDT 77.6, 368 aa modeled; UniProt: Q6ZUK4
+```

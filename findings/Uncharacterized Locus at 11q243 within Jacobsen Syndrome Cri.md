@@ -1,0 +1,13 @@
+# Uncharacterized Locus at 11q24.3 within Jacobsen Syndrome Critical Region with High Pathogenic CNV Burden
+
+**Date:** 2026-03-19T03:45:19.238003
+
+**Quality Score:** 3.05/10  (E=3.6, D=2.5) [WEAK]
+
+## Description
+LOC101929538 is an uncharacterized genomic locus on chromosome 11q24.3 (NC_000011.10:128686921-128681239) spanning approximately 5.7 kb. No UniProt accession was identified, precluding InterPro domain analysis and AlphaFold structure prediction. STRING database returned no protein interaction partners, confirming absence of canonical protein-coding function. Human Protein Atlas resolved this locus to Ensembl ID ENSG00000245008 but found no detectable protein expression in surveyed tissues. However, ClinVar analysis reveals 35 pathogenic/likely pathogenic variants in this region, all copy number variations including large deletions (chr11:123345328-135064169, chr11:127915964-135068576, chr11:121806547-135068576, chr11:121611476-135068576, chr11:124315025-134818116, chr11:121689052-135075271, chr11:126199589-135075271, chr11:119424297-135075271) and duplications spanning 11q24.1-25. These structural variants are associated with Jacobsen syndrome (11q deletion syndrome), a well-characterized chromosomal disorder featuring developmental delay, intellectual disability, congenital heart defects, thrombocytopenia, and distinctive facial features. The 11q24.3 region contains dosage-sensitive genes including FLI1 (friend leukemia integration 1 transcription factor), whose haploinsufficiency drives the thrombocytopenia and cardiac phenotypes. LOC105370792 likely functions as part of the 11q24.3 cis-regulatory landscape or encodes a non-coding RNA whose disruption through copy number alteration contributes to Jacobsen syndrome pathogenesis. The absence of protein-coding features combined with extreme pathogenic CNV burden (35 variants) indicates this locus resides within a critical dosage-sensitive genomic region where copy number change disrupts neurodevelopmental and hematopoietic processes through long-range gene regulation or chromatin architecture disruption.
+
+## Evidence
+```
+ClinVar: 35 pathogenic/likely pathogenic variants (CNVs including deletions at chr11:123345328-135064169, chr11:127915964-135068576, chr11:121806547-135068576, chr11:121611476-135068576, chr11:124315025-134818116, chr11:121689052-135075271, chr11:126199589-135075271, chr11:119424297-135075271 and duplications); Genomic location: 11q24.3 (NC_000011.10:128686921-128681239, ~5.7 kb); Ensembl: ENSG00000245008; No UniProt/InterPro/STRING/HPA protein expression data; Within Jacobsen syndrome (11q deletion syndrome) critical region
+```

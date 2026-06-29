@@ -1,0 +1,13 @@
+# BICD2 (Bicaudal-D Homolog 2): Microtubule-Associated Cargo Adaptor Regulating Neurodegeneration, Golgi Transport, and Cytoskeletal Dynamics via High-Confidence Structural Fold and 140 Pathogenic Variants
+
+**Date:** 2026-04-16T10:29:52.351255
+
+**Quality Score:** 3.2/10  (E=5.3, D=1.1) [WEAK]
+
+## Description
+BICD2 encodes a 820 amino acid bicaudal-D homolog 2 (UniProt Q921C5), a microtubule-associated cargo adaptor protein. InterPro analysis confirms membership in the Bicaudal-D family (IPR018477, aa 1-819) and identifies a coiled-coil domain (PF09730, aa 83-797), consistent with its role as a cytoskeletal anchor and dynein complex binder (GO:0070840). AlphaFold structure (AF-Q921C5-F1) predicts a well-folded, stable 3D structure with high confidence (global pLDDT 78.6), supporting its function as a structural scaffold for intracellular transport. HPA expression reveals ubiquitous tissue distribution with enhanced expression in skin (nTPM 60.5) and involvement in neurodegeneration, localizing to the Golgi apparatus, plasma membrane, and cytosol, consistent with a role in mRNA and protein transport. STRING interactions identify 10 high-confidence partners exclusively from the cytoskeletal and motor protein network, including DCTN2 (0.999, dynactin subunit), DYNC1H1 (0.998, cytoplasmic dynein heavy chain), and DYNC1LI1 (0.670, dynein light intermediate chain), strongly implicating BICD2 in the assembly of the dynein-dynactin-BICD2 complex for anterograde transport. ClinVar contains 140 pathogenic/likely pathogenic variants with no specific disease annotation, yet the high frequency of truncating and frameshift mutations in the coiled-coil and interaction domains suggests a loss-of-function mechanism contributing to neurodegeneration. The convergence of dynein complex binding, Golgi localization, neurodegeneration association, and a high-confidence structural fold supports a functional hypothesis: BICD2 acts as a critical microtubule-anchoring adaptor that recruits dynein to cargo receptors (e.g., DCTN2) to facilitate vesicular transport from the Golgi to the plasma membrane; disruption of this complex via CNVs or point mutations likely causes transport failure, leading to axonal degeneration and neurodegenerative phenotypes.
+
+## Evidence
+```
+Evidence: InterPro domains (IPR018477, PF09730, PTHR31233), AlphaFold structure (AF-Q921C5-F1, pLDDT 78.6), HPA expression (Skin nTPM 60.5, Golgi/PM/Cytosol, Neurodegeneration), STRING interactions (DCTN2 0.999, DYNC1H1 0.998, DYNC1LI1 0.670), ClinVar variants (140 pathogenic, no specific disease), UniProt (Q921C5, 820 aa), NCBI (LOC115945156, chr2.1717).
+```

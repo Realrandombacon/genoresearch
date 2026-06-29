@@ -1,0 +1,13 @@
+# KIAA0087: Dual-Function LncRNA/Protein Gene with Intrinsically Disordered Structure and Osteosarcoma Suppression via JAK/STAT Pathway
+
+**Date:** 2026-04-15T00:26:20.715634
+
+**Quality Score:** 4.1/10  (E=4.2, D=4.0) [MODERATE]
+
+## Description
+KIAA0087 (Gene ID: 9808) is a fascinating dual-function gene located on chromosome 7p15.2 that appears to function primarily as a long non-coding RNA (lncRNA) but also has a UniProt-annotated 138-amino acid uncharacterized protein product (Q14695). Literature analysis reveals only 8 total papers (DARK status), with the most significant being a 2023 study demonstrating that lncRNA KIAA0087 suppresses osteosarcoma progression by mediating the SOCS1/JAK2/STAT3 signaling pathway. This mechanistic insight suggests KIAA0087 functions as a tumor suppressor through negative regulation of JAK/STAT signaling, a pathway frequently dysregulated in cancers. AlphaFold structure prediction shows extremely low confidence (global pLDDT 34.4), indicating the protein product is predominantly intrinsically disordered—a characteristic consistent with proteins that function through flexible protein-protein interactions or may not be the primary functional product. The disordered nature supports the hypothesis that KIAA0087's primary function is as a regulatory lncRNA rather than a structured protein. STRING database returned no interaction partners, and HPA has no expression data (ENSG00000122548 not in database), reflecting its understudied nature. ClinVar contains 10 pathogenic/likely pathogenic variants, all large copy number gains and losses spanning 7p15.2 and broader 7p regions with uncertain clinical significance—none specifically attributed to KIAA0087 alone. InterPro scan failed, suggesting no conserved protein domains. The gene's dual annotation (lncRNA in literature, protein in UniProt) represents an intriguing case of potential bifunctional genetics where the transcript itself regulates gene expression (via SOCS1/JAK2/STAT3 modulation) while a small peptide product may have independent or complementary functions. KIAA0087 likely functions as a tumor suppressor lncRNA in osteosarcoma and potentially other cancers, with its intrinsically disordered protein product possibly serving as a scaffold for protein complex assembly or representing a non-functional annotation artifact. Further experimental validation is needed to determine whether the 138 aa peptide is genuinely translated and functional.
+
+## Evidence
+```
+UniProt: Q14695 (138 aa); Location: 7p15.2; AlphaFold: pLDDT 34.4 (disordered); ClinVar: 10 pathogenic CNVs (7p15.2 region); STRING: no interactions; HPA: no data; Literature: 8 papers (DARK); Mechanism: lncRNA suppresses osteosarcoma via SOCS1/JAK2/STAT3 pathway
+```

@@ -1,0 +1,13 @@
+# HERVK_113: Endogenous Retrovirus K Element with Preserved Gag Polyprotein Structure and Zero Publications
+
+**Date:** 2026-04-14T17:27:01.500747
+
+**Quality Score:** 4.5/10  (E=5.2, D=3.8) [MODERATE]
+
+## Description
+HERVK_113 (Human Endogenous Retrovirus group K member 113) is a genuine dark gene with zero publications on Semantic Scholar, representing an unstudied endogenous retroviral element in the human genome. This locus encodes multiple retroviral proteins including Gag polyprotein (UniProt P62684, 666 aa), Pol protein (P63132, 959 aa), Env polyprotein (Q902F9, 699 aa), Pro protein (P63121, 156 aa), and Rec protein (P61574, 105 aa). InterPro analysis of the Gag polyprotein reveals extensive retroviral domain architecture: IPR001878 (Zinc finger CCHC-type, positions 544-561 and 581-597), IPR003322 (Beta-retroviral matrix protein, 12-93), IPR008916 (Retrovirus capsid C-terminal, 430-534), IPR008919 (Retrovirus capsid N-terminal, 255-434), and IPR010999 (Retroviral matrix protein, 1-95). GO annotations include nucleic acid binding (GO:0003676), zinc ion binding (GO:0008270), structural molecule activity (GO:0005198), and viral process (GO:0016032). AlphaFold predicts medium-confidence structure for Gag (global pLDDT 63.6), indicating partial folding with both ordered capsid/matrix domains and flexible linker regions. The gene shows no STRING interactions, no HPA expression data, and zero ClinVar variants - confirming dark gene status. HERV-K elements represent the most recently integrated endogenous retroviruses in humans (~200,000 years ago), and some retain coding capacity. HERVK_113's preserved Gag polyprotein structure with intact CCHC zinc fingers (critical for genomic RNA packaging) suggests it may function as: (1) a defective interfering particle competing with other HERV-K elements, (2) a source of retroviral-like particles affecting innate immunity via TLR recognition, (3) a regulatory element influencing neighboring gene expression through LTR promoter activity, or (4) a potential biomarker for cancer or autoimmune disease where HERV-K reactivation occurs. The medium-confidence AlphaFold structure supports partial functionality rather than complete degeneration.
+
+## Evidence
+```
+UniProt P62684 Gag 666aa, P63132 Pol 959aa, Q902F9 Env 699aa, P63121 Pro 156aa, P61574 Rec 105aa; AlphaFold P62684 pLDDT 63.6; InterPro IPR001878/IPR003322/IPR008916/IPR008919/IPR010999 retroviral domains; 0 publications (Semantic Scholar); 0 ClinVar variants; No STRING interactions; No HPA expression; GO:0003676 nucleic acid binding, GO:0008270 zinc ion binding, GO:0016032 viral process; CCHC zinc fingers at 544-561 and 581-597; Endogenous retrovirus K family
+```

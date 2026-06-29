@@ -1,0 +1,13 @@
+# C17orf75/Njmu-R1: Golgi Tethering Protein in ESCRT-Mediated Endosome-to-TGN Trafficking
+
+**Date:** 2026-04-16T13:25:06.233502
+
+**Quality Score:** 3.12/10  (E=4.45, D=1.8) [WEAK]
+
+## Description
+C17orf75 (alias Njmu-R1, SRI2; UniProt Q9HAS0) is a 396-amino acid protein encoded on chromosome 17q11.2. InterPro analysis identifies it as the founding member of the Njmu-R1 protein family (IPR028280/PF15053/PTHR14416), with GO annotations for vesicle tethering to Golgi (GO:0099041) and trans-Golgi network localization (GO:0005802). AlphaFold predicts a well-folded structure (global pLDDT 76.7), indicating a stable globular protein capable of specific protein-protein interactions. HPA data confirms Golgi apparatus and cytosolic localization with ubiquitous expression across all tissues. STRING interaction analysis reveals a highly coherent network of 10 partners centered on ESCRT machinery and vesicle trafficking: VPS25 (0.896), TBC1D23 (0.832), VPS4A (0.787), SNF8 (0.753), VPS36 (0.744), CHMP2A (0.681), WDR11 (0.647), FAS (0.607), VPS4B (0.484), and FAM91A1 (0.457). Notably, VPS25, VPS36, and SNF8 form the ESCRT-II complex, while VPS4A/VPS4B are AAA-ATPases that disassemble ESCRT-III, and TBC1D23 is a established Golgi tethering factor. ClinVar records 11 pathogenic/likely pathogenic variants, all large copy number gains and losses spanning 17q11.2, suggesting dosage sensitivity though no specific monogenic phenotype is yet defined. Literature is sparse (6 papers, DARK status), with recent work linking the WDR11 complex to AP-1-derived vesicle tethering from endosomes to TGN. We hypothesize C17orf75/Njmu-R1 functions as a tethering factor or regulatory subunit within the WDR11-ESCRT supercomplex that mediates retrograde trafficking from endosomes to the trans-Golgi network. Its interaction profile suggests it may bridge ESCRT-II/III components with the WDR11 complex, potentially coordinating cargo sorting with vesicle tethering. The high-confidence interaction with TBC1D23 (a RabGAP family tethering factor) and WDR11 places C17orf75 at a critical junction in the endosomal sorting pathway. Disruption of this protein likely impairs Golgi homeostasis and protein trafficking, which could explain the pathogenic CNVs observed in ClinVar. This represents a genuine dark gene with strong functional predictions based on interaction network topology.
+
+## Evidence
+```
+UniProt: Q9HAS0/396aa; InterPro: IPR028280/PF15053 (Njmu-R1 family); STRING: VPS25(0.896), TBC1D23(0.832), VPS4A(0.787), SNF8(0.753), VPS36(0.744), CHMP2A(0.681), WDR11(0.647); HPA: Golgi/Cytosol, ubiquitous; ClinVar: 11 pathogenic CNVs; AlphaFold: pLDDT 76.7; Lit: 6 papers (DARK).
+```

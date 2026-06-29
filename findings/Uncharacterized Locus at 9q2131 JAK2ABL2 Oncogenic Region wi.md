@@ -1,0 +1,13 @@
+# Uncharacterized Locus at 9q21.31 JAK2/ABL2 Oncogenic Region with No Pathogenic Variants - Potential Redundant Regulatory Element
+
+**Date:** 2026-03-19T04:30:06.283273
+
+**Quality Score:** 2.35/10  (E=3.2, D=1.5) [WEAK]
+
+## Description
+LOC105376101 is an uncharacterized genomic locus on chromosome 9q21.31 (NC_000009.12:79887881-79862206) spanning approximately 25.7 kb. Comprehensive database searches reveal no evidence of canonical protein-coding function: no UniProt accession was identified, precluding InterPro domain analysis and AlphaFold structure prediction. STRING database returned no protein interaction partners, confirming absence of characterized interactome. Human Protein Atlas could not resolve this locus to an Ensembl ID, indicating no detectable protein expression or antibody reactivity in surveyed tissues. ClinVar analysis reveals 0 pathogenic/likely pathogenic variants, indicating no documented clinical significance to date. The 9q21.31 region is a gene-dense locus containing dosage-sensitive oncogenes and tumor suppressors including JAK2 (Janus kinase 2, myeloproliferative neoplasms, polycythemia vera, essential thrombocythemia, primary myelofibrosis), ABL2 (c-ABL proto-oncogene 2, non-receptor tyrosine kinase, chronic myeloid leukemia), C9orf135 (chromosome 9 open reading frame 135), and multiple long non-coding RNAs. LOC105376101 likely functions as: (1) a cis-regulatory enhancer or silencer controlling 9q21.31 JAK2/ABL2 oncogene expression, (2) a long non-coding RNA (lncRNA) with post-transcriptional or epigenetic regulatory function, (3) a chromatin boundary/insulator element within the 9q21.31 topologically associating domain (TAD), or (4) a recombination hotspot boundary element affecting 9q genomic stability. The complete absence of pathogenic variants (0 ClinVar entries) despite location within an oncogenic region suggests: (1) this locus may be functionally redundant with neighboring regulatory elements, (2) variants may be tolerated without phenotypic consequence due to compensatory mechanisms, (3) clinical significance remains undocumented pending future studies, or (4) this represents a truly non-coding "dark" locus with subtle regulatory effects below current detection thresholds. The 9q21.31 region is critical for hematopoietic signaling via JAK2-STAT pathway, and dysregulation contributes to myeloproliferative neoplasms and leukemia.
+
+## Evidence
+```
+ClinVar: 0 pathogenic variants; Genomic location: 9q21.31 (NC_000009.12:79887881-79862206, ~25.7 kb); HPA: could not resolve (no protein data); No UniProt/InterPro/STRING data; Within 9q21.31 oncogenic region containing JAK2/ABL2/C9orf135; Classification: potential redundant regulatory element
+```

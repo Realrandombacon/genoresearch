@@ -1,0 +1,13 @@
+# FAM234B: Large Beta-Propeller ER Membrane Protein with Brain-Enriched Expression and 12p Dosage Sensitivity
+
+**Date:** 2026-03-19T19:32:13.861680
+
+**Quality Score:** 4.15/10  (E=6.5, D=1.8) [MODERATE]
+
+## Description
+FAM234B encodes a 622 amino acid large intracellular/membrane protein (UniProt A2RU67) located on chromosome 12p13.1. InterPro analysis identifies the quinoprotein alcohol dehydrogenase-like superfamily (IPR011047, residues 124-491), FAM234 family (IPR045232, residues 25-617), and FAM234A/B beta-propeller domain (IPR055409/PF23727, residues 151-615), indicating a conserved beta-propeller fold structurally related to dehydrogenase superfamilies despite lacking catalytic residues. AlphaFold structure prediction shows high confidence (pLDDT 77.6), confirming a stable well-folded beta-propeller tertiary structure. HPA expression analysis demonstrates brain-enriched expression (21.7 nTPM) with tissue enhanced specificity, detected in all tissues, cancer enhanced pattern, and endoplasmic reticulum localization, suggesting roles in neuronal function and secretory pathway membrane organization. STRING interactions identify 8 partners including LURAP1 (0.497, leucine-rich repeat protein), TM9SF2 (0.479, transmembrane 9 superfamily), LRRIQ3 (0.479, leucine-rich repeat protein), AMZ2 (0.448, archaeal metalloproteinase homolog), MANSC1 (0.448, mesoderm-specific transcript), C12orf60 (0.439), GLG1 (0.432, Golgi apparatus protein), and CREBL2 (0.407, cAMP-responsive element binding protein), suggesting connections to membrane trafficking, Golgi-ER transport, and transcriptional regulation. ClinVar contains 45 pathogenic/likely pathogenic variants at 12p, predominantly copy number gains and losses, implicating FAM234B dosage sensitivity in disease. The large size (622 aa), beta-propeller fold, ER localization, brain-enriched expression, and interactions with membrane trafficking proteins (GLG1, TM9SF2) suggest FAM234B functions as a beta-propeller scaffold organizing ER-Golgi membrane complexes, potentially facilitating vesicle trafficking or protein quality control in neuronal tissues. The extensive CNV burden indicates strong dosage sensitivity, consistent with critical roles in membrane organization where precise stoichiometry of scaffolding components is required for proper secretory pathway function.
+
+## Evidence
+```
+UniProt A2RU67 (622 aa); InterPro IPR011047 (quinoprotein ADH-like), IPR045232 (FAM234), IPR055409/PF23727 (beta-propeller); STRING: LURAP1 0.497, TM9SF2 0.479, LRRIQ3 0.479, AMZ2 0.448, MANSC1 0.448, C12orf60 0.439, GLG1 0.432, CREBL2 0.407; HPA: brain 21.7 nTPM, tissue enhanced, ER localization, cancer enhanced; ClinVar: 45 pathogenic CNVs 12p; AlphaFold pLDDT 77.6 (well-folded beta-propeller)
+```

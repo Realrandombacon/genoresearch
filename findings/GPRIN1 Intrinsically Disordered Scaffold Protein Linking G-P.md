@@ -1,0 +1,15 @@
+# GPRIN1: Intrinsically Disordered Scaffold Protein Linking G-Protein Signaling, MECP2-Dependent Neuronal Development, and 5q35 Copy Number Variant-Associated Neurodevelopmental Disorders
+
+**Date:** 2026-04-26T20:26:27.757765
+
+**Quality Score:** 3.7/10  (E=6.4, D=1.0) [MODERATE]
+
+**Confidence:** MEDIUM
+
+## Description
+GPRIN1 (G Protein-Regulated Inducer of Neurite Outgrowth 1, UniProt Q7Z2K8) is a 1008 aa intrinsically disordered scaffold protein that functions in neurite outgrowth, neuronal signal transduction, and oncogenic proliferation through G-protein coupling and transcriptional regulation. Structurally, AlphaFold predicts a predominantly disordered architecture (pLDDT=43.7) characteristic of intrinsically disordered proteins (IDPs) that function through protein-protein interactions rather than enzymatic catalysis, featuring a G protein-regulated inducer of neurite outgrowth family domain (IPR026646/PTHR15718, aa 262-1008) and a C-terminal GPRIN domain (IPR032745/PF15235, aa 878-1005). Functionally, STRING interactions reveal coupling to neuronal signaling machinery: the Rett syndrome transcriptional regulator MECP2 (0.862), G-protein alpha subunits GNAZ (0.776) and GNAO1 (0.601), the cadherin CDHR2 (0.584), guanidinoacetate methyltransferase GAMT (0.566), tubulin TUBA1B (0.551), RNA-binding protein RBFOX1 (0.549), FXYD1 (0.548), retrotransposon protein PEG10 (0.520), and TPGS1 (0.499). HPA shows brain-enriched expression (21.2 nTPM) with pituitary gland (7.6 nTPM) and retina (6.4 nTPM) expression, localized to vesicles and plasma membrane. ClinVar identifies 52 pathogenic/likely pathogenic variants predominantly as copy number gains and losses at 5q35.2-35.3, though no specific Mendelian disease is annotated - these CNVs overlap with Sotos syndrome and other neurodevelopmental disorder regions. Literature (35 papers) reveals emerging mechanistic insights: GPRIN1 sustains proliferation and mitochondrial homeostasis via dual-layer CDK1-PI3K/Akt signaling in gallbladder cancer (2026), promotes gastric cancer progression via the GPRIN1/NF-κB pathway (2021, retracted 2025), serves as a potential biomarker for non-small cell lung cancer (2020), and modulates neuronal signal transduction affecting mouse learning behavior (2018). The gene represents a 'semi-dark' neuronal scaffold where canonical neurite outgrowth function is suggested, but specific mechanisms linking GPRIN1's disordered structure to G-protein signaling specificity, MECP2-dependent transcriptional regulation, mitochondrial homeostasis in cancer, and 5q35 CNV-associated neurodevelopmental phenotypes remain underexplored therapeutic targets.
+
+## Evidence
+```
+UniProt Q7Z2K8 (1008 aa); InterPro [IPR026646, IPR032745, PF15235, PTHR15718]; STRING [MECP2 0.862, GNAZ 0.776, GNAO1 0.601, CDHR2 0.584, GAMT 0.566, TUBA1B 0.551]; HPA [brain 21.2 nTPM, pituitary 7.6 nTPM, retina 6.4 nTPM, vesicles/plasma membrane]; ClinVar [52 pathogenic CNVs at 5q35.2-35.3]; AlphaFold [pLDDT 43.7, disordered]; Lit [35 papers, neuronal/cancer signaling focus]"}
+```

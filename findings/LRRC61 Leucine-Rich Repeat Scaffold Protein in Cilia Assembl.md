@@ -1,0 +1,13 @@
+# LRRC61: Leucine-Rich Repeat Scaffold Protein in Cilia Assembly and 7q Chromosomal Instability
+
+**Date:** 2026-03-23T06:32:43.880676
+
+**Quality Score:** 2.15/10  (E=4.3, D=0.0) [WEAK]
+
+## Description
+LRRC61 (Gene ID: 65999, UniProt Q9BV99) encodes a 259 aa leucine-rich repeat (LRR) protein mapping to chromosome 7q36.1 (150.3-150.3 Mbp), within the 7q36.3 sonic hedgehog (SHH) limb-patterning region. Multiple evidence lines support classification as a dark scaffold protein with ciliary functions: (1) InterPro domains confirm canonical LRR architecture: multiple LRR repeats (PF13855, aa 55-109; IPR001611, aa 54-109) within a ribonuclease inhibitor-like fold (G3DSA:3.80.10.10, aa 14-174)—LRR domains mediate protein-protein interactions in signaling complexes; (2) Panther family annotation (PTHR18849) links to "cilia and flagella-associated tilB" proteins, consistent with gene summary predicting dynein heavy chain binding and outer dynein arm assembly; (3) HPA data shows ubiquitous expression across all tissues with nucleoplasmic localization; (4) ClinVar contains 68 pathogenic copy number variants (large 7q33-36.3 deletions/duplications spanning 10-20 Mb), linking LRRC61 dosage to 7q chromosomal instability syndromes including limb malformations and developmental delay; (5) STRING interactions reveal connections to KRBA1 (0.637, transcriptional repressor), ACTR3C (0.607, actin-related protein), and DNAJC27 (0.601, tetratricopeptide repeat co-chaperone)—suggesting roles in cytoskeletal organization and protein complex assembly. Mechanistic hypothesis: LRRC61 functions as an LRR scaffold protein that mediates assembly of dynein motor complexes at ciliary basal bodies. The LRR domain provides curved solenoid structure for multivalent protein binding, recruiting dynein heavy chains and assembly factors (DNAJC27) to build outer dynein arms. Ubiquitous expression suggests housekeeping ciliogenesis role, while 7q36.1 location near SHH raises possibility of Hedgehog pathway modulation via ciliary signaling. Dosage sensitivity (68 CNVs) indicates stoichiometric balance critical for dynein complex assembly—haploinsufficiency disrupts ciliary motility or signaling, causing developmental phenotypes. This represents a "dark" scaffold protein awaiting structural characterization and interaction partner validation.
+
+## Evidence
+```
+UniProt: Q9BV99 (259 aa); InterPro: LRR (PF13855, aa 55-109), ribonuclease inhibitor-like fold (G3DSA:3.80.10.10); Panther: cilia/flagella-associated tilB (PTHR18849); HPA: ubiquitous expression, nucleoplasmic; ClinVar: 68 pathogenic CNVs (7q33-36.3 deletions/duplications); STRING: KRBA1 (0.637), ACTR3C (0.607), DNAJC27 (0.601), FAM184A (0.613); AlphaFold: unavailable
+```

@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T13:22:45.983647
 
-**Quality Score:** 4/10 (MODERATE)
+**Quality Score:** 1.43/10  (E=1.85, D=1.0) [POOR]
 
 ## Description
 C11orf3 is EMC7 (ER membrane protein complex subunit 7), a 242aa essential component of the ER membrane protein complex. Function: enables energy-independent insertion of newly synthesized membrane proteins into ER membranes. Domain architecture: beta-sandwich domain (aa 57-168, IPR019008) with carbohydrate-binding-like fold (aa 42-116). BLAST shows deep eukaryotic conservation: C. elegans (39.7%), A. thaliana (28.5%), D. discoideum (25.5%). STRING reveals perfect confidence (0.999) interactions with ALL other EMC subunits: EMC1, EMC2, EMC3, EMC4, EMC6, EMC8, EMC9, EMC10, plus MMGT1 and C1orf43. HPA shows ubiquitous expression - detected in all tissues with low specificity. This is NOT a dark gene - it has clear molecular function as membrane protein insertase component.

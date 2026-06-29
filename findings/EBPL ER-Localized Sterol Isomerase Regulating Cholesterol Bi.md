@@ -1,0 +1,15 @@
+# EBPL: ER-Localized Sterol Isomerase Regulating Cholesterol Biosynthesis and Lipid Homeostasis via EXPERA Domain
+
+**Date:** 2026-04-17T16:41:29.481164
+
+**Quality Score:** 5.85/10  (E=7.4, D=4.3) [SOLID]
+
+**Confidence:** MEDIUM
+
+## Description
+EBPL (Emopamil-binding protein-like) is a 206 aa endoplasmic reticulum membrane protein (UniProt Q9BY08, AlphaFold pLDDT 94.0) belonging to the sterol isomerase superfamily. With only 28 papers in literature, EBPL remains a genuine dark gene with emerging roles in lipid metabolism. InterPro domains confirm enzymatic function: IPR007905 Emopamil-binding protein family (aa13-203) with cholestenol delta-isomerase activity (GO:0047750), IPR033118 EXPERA domain (aa39-187), PF05241 EXPERA/EXPanded EBP superfamily (aa77-187), PTHR14207 STEROL ISOMERASE. STRING interactions reveal sterol biosynthesis pathway membership: DHCR24 (0.563, 24-dehydrocholesterol reductase), SC5D (0.544, sterol-C5-desaturase), ATP6V1F/ATP6V0B/ATP6V0D1/ATP6V0D2 (0.540-0.576, V-type ATPase subunits). HPA shows tissue-enhanced expression with liver highest (92.8 nTPM), consistent with hepatic cholesterol biosynthesis, ER subcellular localization. ClinVar contains 31 pathogenic variants (13q13.1-21.32 CNVs, deletions, duplications). FUNCTIONAL HYPOTHESIS: EBPL functions as an ER-localized sterol delta-isomerase catalyzing double-bond migration during cholesterol biosynthesis, potentially converting cholestenol intermediates in the Kandutsch-Russell or Bloch pathway. MECHANISTIC PROPOSAL: (1) EBPL paralog of EBP (emopamil-binding protein/TMEM97) which catalyzes delta8-delta7 sterol isomerization, (2) EXPERA domain provides catalytic core for sterol substrate binding and isomerization, (3) DHCR24 and SC5D interactions place EBPL in late-stage cholesterol biosynthesis pathway, (4) V-ATPase interactions suggest pH-dependent regulation or ER-Golgi trafficking, (5) High liver expression (92.8 nTPM) indicates primary role in hepatic cholesterol homeostasis. CROSS-DOMAIN REASONING: Very high AlphaFold confidence (94.0) indicates stable transmembrane enzyme structure; EXPERA domain conservation across metazoans suggests essential catalytic function; 31 ClinVar variants imply disease relevance potentially in sterol metabolism disorders; liver-specific expression aligns with cholesterol biosynthesis organ specificity; EBP paralog is sigma-2 receptor and Niemann-Pick type C disease modifier. EBPL represents an uncharacterized enzyme in cholesterol biosynthesis with therapeutic potential for dyslipidemia and neurodegenerative diseases.
+
+## Evidence
+```
+InterPro: IPR007905 (Emopamil-binding protein aa13-203), IPR033118 (EXPERA aa39-187), PF05241 (EXPERA family aa77-187), PTHR14207 (STEROL ISOMERASE) | STRING: ATP6V1F(0.576), DHCR24(0.563), ATP6V0B(0.551), SC5D(0.544), ATP6V0D1/0D2(0.540) | HPA: liver 92.8 nTPM, ER localization | ClinVar: 31 pathogenic variants (13q13.1-21.32 CNVs) | AlphaFold: pLDDT=94.0 | Literature: 28 papers (2014 tumor proliferation, limited functional characterization)
+```

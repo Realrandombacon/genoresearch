@@ -1,0 +1,13 @@
+# Uncharacterized Locus at 6q24.2 within 6q Deletion/Duplication Syndrome Critical Region with Moderate Pathogenic CNV Burden (3 Variants)
+
+**Date:** 2026-03-19T04:16:54.150373
+
+**Quality Score:** 3.25/10  (E=4.0, D=2.5) [WEAK]
+
+## Description
+LOC153910 is an uncharacterized genomic locus on chromosome 6q24.2 (NC_000006.12:142637888-142526454) spanning approximately 111.4 kb. Comprehensive database searches reveal no evidence of canonical protein-coding function: no UniProt accession was identified, precluding InterPro domain analysis and AlphaFold structure prediction. STRING database returned no protein interaction partners, confirming absence of characterized interactome. Human Protein Atlas identified Ensembl ID ENSG00000236366 but reported no detectable protein expression data in surveyed tissues. However, ClinVar analysis reveals 3 pathogenic/likely pathogenic variants in this region, all copy number gains (trisomy) affecting 6q: large duplications spanning 6q23.2-27 (chr6:133537271-165875545, ~32.3 Mb), 6q23.3-25.3 (chr6:135358150-155455117, ~20.1 Mb), and 6q24.1-27 (chr6:141132990-169339571, ~28.2 Mb). These structural variants are associated with 6q deletion/duplication syndrome, characterized by developmental delay, intellectual disability, craniofacial dysmorphism, skeletal anomalies, cardiac defects, and genitourinary abnormalities. The 6q24.2 region contains several dosage-sensitive genes including IMMP2L (inner mitochondrial membrane peptidase-like 2, Tourette syndrome), PARK2 (parkin RBR E3 ubiquitin ligase, Parkinson disease), and AGR3 (anterior gradient 3, estrogen-responsive breast cancer). LOC153910 likely functions as: (1) part of the 6q24.2 cis-regulatory landscape controlling dosage-sensitive gene expression, (2) a long non-coding RNA (lncRNA) modulating 6q gene transcription, (3) a chromatin boundary element within the 6q24.2 topologically associating domain (TAD), or (4) an alternative transcript isoform of neighboring genes. The moderate pathogenic CNV burden (3 variants) despite absence of protein evidence indicates this locus resides within a critical 6q dosage-sensitive genomic region where trisomy disrupts neurodevelopmental processes via gene dosage effects and 3D genome reorganization affecting multiple 6q developmental genes.
+
+## Evidence
+```
+ClinVar: 3 pathogenic variants (CNVs at chr6:133537271-165875545 dup, chr6:135358150-155455117 dup, chr6:141132990-169339571 dup); Genomic location: 6q24.2 (NC_000006.12:142637888-142526454, ~111.4 kb); HPA: ENSG00000236366 (no protein data); No UniProt/InterPro/STRING data; Within 6q deletion/duplication syndrome critical region containing IMMP2L/PARK2/AGR3
+```

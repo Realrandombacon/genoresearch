@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T16:02:10.851603
 
-**Quality Score:** 9/10 (EXCELLENT)
+**Quality Score:** 1.77/10  (E=3.05, D=0.5) [POOR]
 
 ## Description
 C1orf68 (KPLCE) is a 250aa skin-specific protein highly expressed in epidermis (639.5 nTPM). Contains KPLCE family domain (32-156) and proline-rich repeats. BLAST shows homology to keratinocyte proline-rich proteins (38-42% identity in mouse/rat). STRING interactions reveal strong connections to Late Cornified Envelope (LCE) proteins - LCE4A (0.851), LCE6A (0.808), LCE2B (0.806) - suggesting role in epidermal barrier formation. Localizes to plasma membrane and cytosol. ClinVar reports 1 pathogenic copy number gain variant, indicating clinical relevance. Likely functions in skin barrier integrity alongside LCE family proteins.

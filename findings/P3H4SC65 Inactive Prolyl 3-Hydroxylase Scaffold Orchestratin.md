@@ -1,0 +1,15 @@
+# P3H4/SC65: Inactive Prolyl 3-Hydroxylase Scaffold Orchestrating Collagen Maturation, ECM Remodeling, and Cancer Progression
+
+**Date:** 2026-06-26T21:18:38.331970
+
+**Quality Score:** 10/10 (EXCELLENT)
+
+**Confidence:** HIGH
+
+## Description
+P3H4/SC65 (Q92791, 437 aa) is a well-folded (AlphaFold pLDDT: 83.1) endoplasmic reticulum protein functioning as a catalytically inactive member of the prolyl 3-hydroxylase family that serves as a critical scaffold for collagen maturation and extracellular matrix organization. InterPro analysis reveals a distinctive architecture dominated by tetratricopeptide repeat (TPR)-like helical domains (IPR011990, G3DSA:1.25.40.10, residues 34-339) forming a Leprecan-like alpha-helical domain (IPR056585, residues 35-340) within the collagen-modifying leprecan protein family (IPR052284/PF23557/PTHR13986, residues 4-430), indicating specialized protein-protein interaction capacity rather than enzymatic activity. HPA data confirms ER and vesicular localization with low tissue specificity but blood cell group enrichment, consistent with fundamental roles in secretory pathway protein folding. STRING interactions define a collagen biosynthesis network linking P3H4 to peptidyl-prolyl cis-trans isomerase PPIB/cyclophilin B (0.599), prolyl 4-hydroxylase P4HA3 (0.491), heat shock protein SERPINH1/HSP47 (0.487), lysyl hydroxylases PLOD1 (0.474) and PLOD3 (0.405), paralog P3H1 (0.435), and collagen substrates COLQ (0.441) and COL5A2 (0.425), positioning it as a central node in the collagen modification machinery. Literature (32 papers) establishes oncogenic functions across multiple cancers: P3H4 enhances hepatocellular carcinoma proliferation, invasion, and glycolysis; drives oral squamous cell carcinoma progression targetable by liposome-encapsulated 1,4-DPCA; regulates breast cancer apoptosis/autophagy via BCL-2/BAX/Caspase-3 and AMPK/mTOR/ULK1 pathways; promotes bladder cancer metastasis through METTL3-mediated m6A modification; and attenuates esophageal squamous cell carcinoma by remodeling ECM to modulate cell adhesion and junctions. ClinVar documents 7 pathogenic/likely pathogenic variants, including splice site mutations (c.1291+28G>A) and large CNVs on chromosome 17q, implicating P3H4 dosage sensitivity in developmental disorders though specific monogenic phenotypes remain undefined. The convergence of TPR-mediated scaffolding, collagen modification complex membership, and context-dependent cancer roles suggests P3H4 functions as a molecular chaperone coordinating collagen triple helix assembly and quality control, with therapeutic potential in fibrosis and metastatic disease.
+
+## Evidence
+```
+InterPro: IPR011990 (TPR-like), IPR052284/IPR056585 (Leprecan), PF23557 (Leprecan TPR), PTHR13986, G3DSA:1.25.40.10; STRING: PPIB(0.599), P4HA3(0.491), SERPINH1(0.487), PLOD1(0.474), COLQ(0.441), P3H1(0.435), COL5A2(0.425), FKBP10(0.422), PLOD3(0.405), COLGALT1(0.404); HPA: ER/vesicles, blood cell enriched; ClinVar: 7 pathogenic variants (17q CNVs, splice); AlphaFold: pLDDT 83.1; UniProt: Q92791; Literature: 32 papers (ECM remodeling, METTL3-m6A axis, AMPK/mTOR-autophagy)
+```

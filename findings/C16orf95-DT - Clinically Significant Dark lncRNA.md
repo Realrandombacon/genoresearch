@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T14:59:21.784915
 
-**Quality Score:** 5/10 (GOOD)
+**Quality Score:** 1.75/10  (E=2.2, D=1.3) [POOR]
 
 ## Description
 Divergent transcript at 16q24.2 with 24 pathogenic ClinVar variants but no protein coding evidence. Likely functional lncRNA with disease associations including copy number variants. No UniProt/HPA/PubMed data - true dark gene.

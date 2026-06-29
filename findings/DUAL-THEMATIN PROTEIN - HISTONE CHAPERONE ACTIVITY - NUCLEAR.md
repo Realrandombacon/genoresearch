@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-17T06:29:31.335856
 
-**Quality Score:** 10/10 (EXCELLENT)
+**Quality Score:** 3.9/10  (E=4.0, D=3.8) [MODERATE]
 
 ## Description
 ═══════════════════════════════════════════════════════════\nDUAL-THEMATIN: HISTONE CHAPERONE & NUCLEAR SCAFFOLD\n═══════════════════════════════════════════════════════════\n\nPROPERTIES:\n  • Length: 412 amino acids

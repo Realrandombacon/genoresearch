@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-18T06:11:38.873877
 
-**Quality Score:** 9/10 (EXCELLENT)
+**Quality Score:** 3.65/10  (E=6.5, D=0.8) [MODERATE]
 
 ## Description
 C7orf5 (SAMD9) encodes a 1589 amino acid sterile alpha motif domain-containing protein (UniProt Q5K651). InterPro reveals an N-terminal SAM domain (IPR001660/PF00536, aa 12-67) for protein-protein oligomerization and a central P-loop NTPase domain (IPR027417, aa 717-869) suggesting GTPase activity. AlphaFold structure (pLDDT 83.6) shows high-confidence folding across the full-length protein. HPA shows tissue-enhanced expression with highest levels in esophagus (36.7 nTPM), cytosolic/vesicular localization, and annotation to innate immunity processes. STRING interactions form a coherent antiviral defense network: DDX58/RIG-I (0.893) and IFIH1/MDA5 (0.837) cytosolic RNA sensors, DDX60 (0.893) helicase cofactor, RSAD2/viperin (0.858) and IFI44 (0.862) interferon-stimulated effectors, OAS2 (0.848) oligoadenylate synthase, plus paralog SAMD9L (0.781). ClinVar contains 386 pathogenic variants including missense (p.Lys338Thr, p.His581Pro, p.Ala1583Val) and frameshift mutations causing MIRAGE syndrome (myelodysplasia, infection, growth restriction, adrenal hypoplasia). SAMD9 functions as an interferon-induced restriction factor that inhibits cell proliferation and viral replication through GTPase-dependent mechanisms. The SAM domain mediates higher-order assembly into antiviral complexes, while the P-loop NTPase domain hydrolyzes GTP to drive conformational changes. SAMD9 senses cellular stress and restricts translation, linking innate immunity to tumor suppression—loss-of-function variants cause somatic reversion in myelodysplastic syndromes.

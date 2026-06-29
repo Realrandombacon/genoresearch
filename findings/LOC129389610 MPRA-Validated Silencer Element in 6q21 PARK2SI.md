@@ -1,0 +1,13 @@
+# LOC129389610: MPRA-Validated Silencer Element in 6q21 PARK2/SIM1 Neurodevelopmental Region
+
+**Date:** 2026-03-23T06:43:35.592213
+
+**Quality Score:** 1.9/10  (E=2.5, D=1.3) [POOR]
+
+## Description
+LOC129389610 (Gene ID: 129389610) is not a protein-coding gene but a functionally validated cis-regulatory silencer element mapping to chromosome 6q21 (110,493,411-110,493,611 bp, ~200 bp span). RefSeq annotation explicitly states: "MPRA-validated peak6024 silencer" - validated by STARR-seq massively parallel reporter assays in K562 erythroleukemia cells as repressing super core promoter SCP1 activity. Multiple evidence lines confirm non-coding regulatory function: (1) No UniProt accession (not a protein); (2) Genomic span of 200 bp is far too small for protein-coding gene; (3) ClinVar contains 9 pathogenic copy number variants (large 6q deletions spanning 5-50 Mb), associated with 6q deletion syndromes featuring developmental delay, intellectual disability, autism spectrum disorder, and Parkinson disease susceptibility. The 6q21 region contains critical dosage-sensitive genes including PARK2 (Parkinson disease 2, parkin E3 ubiquitin ligase), SIM1 (single-minded homolog 1, hypothalamic development), and multiple neurodevelopmental regulators. Mechanistic hypothesis: LOC129389610 functions as a transcriptional silencer that represses gene expression in hematopoietic or neural contexts. The element likely recruits co-repressor complexes (e.g., Polycomb repressive complex 2, NuRD, or HDAC-containing complexes) via sequence-specific DNA-binding proteins to establish repressive chromatin (H3K27me3, H3K9me3, DNA methylation). Pathogenic 6q CNVs disrupt silencer-enhancer balance and chromatin topology, causing PARK2 haploinsufficiency (Parkinson disease susceptibility) or SIM1 dysregulation (hypothalamic dysfunction, obesity, autism). The 6q21 locus is a known neurodevelopmental critical region—SIM1 deletions cause severe obesity and developmental delay. Altered silencer function may contribute to neurodegeneration and neurodevelopmental phenotypes. This represents a critical class of "dark genes" that are actually functional non-coding regulatory elements misannotated as genes due to automated pipeline predictions. The MPRA validation provides direct functional evidence of regulatory activity in erythroid lineage.
+
+## Evidence
+```
+RefSeq: MPRA-validated silencer (peak6024); Genomic location: NC_000006.12 (110493411-110493611, 200 bp); Validated in: K562 cells via STARR-seq; ClinVar: 9 pathogenic CNVs (6q16.3-22.31 deletions); No UniProt data (non-coding); 6q21 region contains PARK2 Parkinson disease gene, SIM1 hypothalamic development gene
+```

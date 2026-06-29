@@ -1,0 +1,13 @@
+# LOC127828551: 14q32.33 H3K4me1-Associated Naive hESC Enhancer with No Clinical Variants — Putative Lineage Priming Regulatory Element
+
+**Date:** 2026-03-19T03:17:01.777814
+
+**Quality Score:** 2.15/10  (E=1.6, D=2.7) [WEAK]
+
+## Description
+LOC127828551 is a functionally characterized cis-regulatory element on chromosome 14q32.33 (genomic coordinates: 99597987-99598869 on NC_000014.9, spanning approximately 882 bp). This genomic region was validated as an active enhancer by ChIP-STARR-seq massively parallel reporter assays (MPRAs) in naive human embryonic stem cells (hESCs), where it is marked by the H3K4me1 histone modification (histone H3 lysine 4 monomethylation — canonical enhancer lineage mark). The H3K4me1 mark without concurrent H3K27ac suggests a poised or primed enhancer state characteristic of naive pluripotency (pre-implantation epiblast-like state), preparing genes for activation upon lineage commitment. A subregion was also identified as an uncharacterized cis-regulatory element (CRE) lacking promoter, enhancer, or CTCF-bound insulator chromatin signature, and validated as a silencer that could repress activity of super core promoter SCP1 by STARR-seq MPRAs in K562 erythroleukemia cells. The element lacks protein-coding evidence (no UniProt entry, no STRING interactions, no HPA protein expression), confirming its identity as a non-coding regulatory element with dual enhancer/silencer activity depending on cellular context. ClinVar analysis identified 0 pathogenic/likely pathogenic variants, indicating no known clinical significance to date. This absence of ClinVar entries is consistent with other hESC enhancers in this series and contrasts with silencers showing strong triplosensitivity or haploinsufficiency patterns. The 14q32 chromosomal region contains critical dosage-sensitive genes including MEG3 (maternally expressed 3 - lncRNA, tumor suppressor), DLK1 (delta-like 1 homolog - adipogenesis, development), and multiple imprinted genes. As a naive hESC-specific enhancer marked by H3K4me1, LOC127828551 likely functions to prime transcription of target genes in cis during early embryonic development and naive pluripotency maintenance.
+
+## Evidence
+```
+Evidence: NCBI Gene ID 127828551; Chromosome 14q32.33 (99597987-99598869); ~882 bp regulatory region; H3K4me1-marked naive hESC enhancer (ChIP-STARR-seq in naive hESCs); MPRA-validated silencer (STARR-seq in K562 cells); Represses SCP1 promoter activity; Accessible chromatin subregion; No UniProt entry (non-coding); ClinVar: 0 pathogenic variants (no clinical significance identified); 14q32 region contains MEG3, DLK1; Associated with embryonic stem cell naive pluripotency, genomic imprinting, adipogenesis, tumor suppression
+```

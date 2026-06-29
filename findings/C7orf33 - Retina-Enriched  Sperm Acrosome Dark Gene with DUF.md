@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T05:44:22.474778
 
-**Quality Score:** 5/10 (GOOD)
+**Quality Score:** 3.62/10  (E=2.25, D=5.0) [MODERATE]
 
 ## Description
 C7orf33 encodes a 177 aa uncharacterized protein containing the DUF5548 domain (entire protein). BLAST reveals only human hit, suggesting human-specific or rapidly evolving gene. Critical functional clues from HPA: (1) Tissue-enriched expression in RETINA (1.3 nTPM), (2) Subcellular localization to ACROSOME and EQUATORIAL SEGMENT - sperm structures essential for egg penetration during fertilization. STRING interactions include IQCA1L (inversely associated with ciliopathy/spermatogenesis), suggesting connection to cilia-related processes. This represents a "partially lit" dark gene with compelling dual-tissue pattern: retinal expression combined with sperm acrosomal localization. Potential roles include: (a) sperm-egg recognition during fertilization via acrosomal function, (b) photoreceptor outer segment maintenance (structurally analogous to cilia), or (c) both via shared ciliary machinery. The DUF5548 domain remains uncharacterized but conserved in primates.

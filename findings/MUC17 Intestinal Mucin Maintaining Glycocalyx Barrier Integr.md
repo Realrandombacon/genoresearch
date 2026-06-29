@@ -1,0 +1,15 @@
+# MUC17: Intestinal Mucin Maintaining Glycocalyx Barrier Integrity in Crohn's Disease and Cancer
+
+**Date:** 2026-04-26T07:10:46.151878
+
+**Quality Score:** 3.15/10  (E=5.5, D=0.8) [WEAK]
+
+**Confidence:** MEDIUM
+
+## Description
+MUC17 (Mucin-17, Cell Surface Associated) is a 4493 amino acid transmembrane glycoprotein (UniProt Q685J3) with moderate characterization (193 papers) that functions in intestinal glycocalyx formation, mucosal barrier integrity, and cancer progression. The protein contains a SEA domain (IPR000082/PF01390/SM00200, residues 4182-4291) involved in autoproteolytic cleavage and cell surface localization, an EGF-like domain (IPR000742, residues 4131-4170) mediating protein-protein interactions, and belongs to the Mucosal Integrity Associated family (IPR053311/PTHR37999, residues 1-4491), indicating capacity for epithelial barrier maintenance and pathogen defense. STRING interactions reveal ultra-high confidence partnerships with other membrane mucins MUC13 (0.969), MUC2 (0.945), MUC15 (0.932), MUC12 (0.929), MUC20 (0.929), MUC16 (0.927), MUC5AC (0.925), MUC5B (0.918), MUC6 (0.905), and MUC1 (0.896), placing MUC17 in the glycocalyx barrier complex. HPA data shows tissue-enriched expression with highest levels in intestine (41.4 nTPM), cancer-enriched expression pattern, and cell type-enriched localization, consistent with gastrointestinal barrier function. ClinVar contains 22 pathogenic variants including copy number losses and deletions at 7q22.1-31.31, though no specific diseases are yet assigned—suggesting potential gastrointestinal or cancer phenotypes. AlphaFold structure is unavailable due to protein size (4493 aa), typical for large mucins. Functional hypothesis: MUC17 acts as a transmembrane mucin that forms the inner glycocalyx layer of small intestinal epithelial cells through SEA domain-mediated autoproteolysis and cell surface anchoring, creating a physical barrier against pathogens and maintaining mucosal homeostasis, with disruption causing Crohn's disease through bacterial translocation and barrier dysfunction, and overexpression promoting gastric cancer progression through altered cell adhesion and signaling, making it a potential CAR-T and ADC therapeutic target.
+
+## Evidence
+```
+InterPro: IPR000082 (SEA domain, 4182-4291), IPR000742 (EGF-like domain, 4131-4170), IPR036364 (SEA domain superfamily, 4187-4288), IPR053311 (Mucosal Integrity Associated, 1-4491), PF01390 (SEA domain, 4188-4282), SM00200 (SEA domain, 4182-4291), PTHR37999 (Mucosal Integrity Associated, 1-4491); STRING: MUC13 (0.969), MUC2 (0.945), MUC15 (0.932), MUC12 (0.929), MUC20 (0.929), MUC16 (0.927), MUC5AC (0.925), MUC5B (0.918), MUC6 (0.905), MUC1 (0.896); HPA: intestine 41.4 nTPM, tissue enriched, cancer enriched, cell type enriched, membrane protein; ClinVar: 22 pathogenic variants (CNV losses, deletions at 7q22.1-31.31); AlphaFold: Not available (large protein 4493 aa); UniProt: Q685J3 (4493 aa); Literature: 193 papers - Crohn's disease glycocalyx disruption, gastric cancer CAR-T target, gastric intraepithelial neoplasia biomarker, topoisomerase inhibitor ADC target
+```

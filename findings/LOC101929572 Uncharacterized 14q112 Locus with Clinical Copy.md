@@ -1,0 +1,13 @@
+# LOC101929572: Uncharacterized 14q11.2 Locus with Clinical Copy Number Variant
+
+**Date:** 2026-03-28T02:01:26.844569
+
+**Quality Score:** 2.6/10  (E=2.5, D=2.7) [WEAK]
+
+## Description
+LOC101929572 (Gene ID: 101929572) is an uncharacterized genetic locus located on chromosome 14q11.2 (NC_000014.9, positions 19421025-19424583, ~3.5kb region). Despite being assigned an Entrez Gene ID, this locus lacks protein-level characterization across major databases. No UniProt entry exists, preventing domain analysis via InterPro and structure prediction via AlphaFold. Human Protein Atlas has no expression data for this gene (ENSG00000276888), indicating the gene is either not expressed at detectable levels in surveyed tissues, lacks validated antibodies, or may not encode a stable protein product. STRING database returns no protein-protein interactions, consistent with absence of a characterized protein. However, ClinVar contains 1 pathogenic/likely pathogenic variant - a copy number gain spanning chromosome 14q11.2-12 (chr14:19100682-28730087), suggesting dosage sensitivity of this genomic region. The 14q11.2 chromosomal location places it in a region associated with T-cell receptor alpha locus and various developmental genes. The large CNV span (~9.6Mb) encompasses multiple genes beyond LOC101929572, making it difficult to attribute phenotypic effects specifically to this locus. Functional hypothesis: LOC101929572 likely represents either (1) a very lowly expressed or tissue-restricted protein-coding gene that evades detection by standard proteomic surveys, (2) a long non-coding RNA with regulatory function where CNVs disrupt enhancer/promoter architecture, or (3) a component of a larger 14q11.2 critical region where dosage affects multiple genes. The small genomic footprint (~3.5kb) suggests it could be a small protein or non-coding transcript. The ClinVar CNV association suggests functional importance despite lack of molecular characterization. Priority for experimental validation includes transcript identification via RNA-seq across diverse tissues (particularly immune cells given 14q11.2 TCR locus proximity), ORF prediction and conservation analysis across primates, and CRISPR-based functional assays to determine phenotypic consequences of loss. Until such validation, LOC101929572 should be classified as 'clinically-associated unverified locus' requiring molecular characterization.
+
+## Evidence
+```
+Gene ID: 101929572; Location: 14q11.2 (19421025-19424583, ~3.5kb); Ensembl: ENSG00000276888; UniProt: No entry; HPA: No data; STRING: No interactions; ClinVar: 1 pathogenic variant (chr14:19100682-28730087 copy number gain)
+```

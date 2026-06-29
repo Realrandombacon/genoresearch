@@ -1,0 +1,13 @@
+# LOC105371414: 16q24.3 Uncharacterized Regulatory Element with 30 Pathogenic CNVs Suggesting Dosage-Critical Gene Regulation Near FTO/IRF8 Locus
+
+**Date:** 2026-03-19T02:32:29.792575
+
+**Quality Score:** 3.92/10  (E=3.55, D=4.3) [MODERATE]
+
+## Description
+LOC105371414 is an uncharacterized genomic region at chromosome 16q24.3 (genomic coordinates 89296127-89298316, ~2.2kb span). This locus shows STRONG clinical significance with 30 pathogenic/likely pathogenic ClinVar variants — all large-scale chromosomal rearrangements (copy number variants). Comprehensive analysis reveals: (1) No UniProt accession — not a characterized protein; (2) No STRING interactions — not a protein or lacks interaction data; (3) 30 ClinVar pathogenic variants — HIGH clinical burden including copy number gains (16q12.2-24.3x3, 16q23.2-24.3x3, 16q21-24.3x3, 16q23.1-24.3x3) AND copy number losses (16q24.1-24.3x1, 16q24.3x1) plus multiple deletions; (4) HPA has Ensembl ID (ENSG00000260279) but no expression data. The bidirectional pathogenicity pattern (both gains and losses) indicates strict dosage requirements characteristic of critical regulatory elements. The 16q24.3 region contains FTO (fat mass and obesity-associated gene, adipogenesis and appetite regulation), IRF8 (interferon regulatory factor 8, immune cell differentiation), MAF (musculoaponeurotic fibrosarcoma oncogene, transcription factor), and multiple other disease-associated genes. LOC105371414 likely functions as an enhancer or silencer regulating one or more of these 16q24.3 genes. The 30 pathogenic variants contrast sharply with LOC107984041 and LOC105378085 which had ZERO ClinVar entries. This represents a genuinely dark but clinically critical regulatory element — the high variant burden suggests essential function in metabolic, immune, or developmental pathways.
+
+## Evidence
+```
+Evidence: (1) Gene location: 16q24.3, 89296127-89298316 (NC_000016.10, ~2.2kb); (2) Functional annotation: uncharacterized regulatory element (inferred from CNV pattern); (3) ClinVar: 30 pathogenic variants including gains [155358, 154631, 154511, 153239] AND losses [155557, 154535] plus deletions [2503469, 2503468, 2503467, 583986]; (4) Ensembl ID: ENSG00000260279 (HPA database entry); (5) No UniProt accession (not characterized protein); (6) STRING: no protein interactions; (7) HPA: no expression data despite Ensembl ID; (8) Variant pattern: BIDIRECTIONAL CNVs (gains + losses) indicates strict dosage sensitivity; (9) Clinical context: 16q24.3 contains FTO (obesity), IRF8 (immune), MAF (transcription factor); (10) Mechanistic insight: high CNV burden suggests essential enhancer/silencer function; (11) Comparison: 30 variants vs 0 variants in LOC107984041/LOC105378085 indicates functional importance
+```

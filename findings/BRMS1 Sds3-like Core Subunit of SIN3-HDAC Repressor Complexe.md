@@ -1,0 +1,15 @@
+# BRMS1: Sds3-like Core Subunit of SIN3-HDAC Repressor Complexes Suppressing Metastasis via Anoikis Induction and PI3K/AKT/mTOR Inhibition
+
+**Date:** 2026-06-17T23:25:09.617673
+
+**Quality Score:** 8/10 (EXCELLENT)
+
+**Confidence:** HIGH
+
+## Description
+BRMS1 (Breast Cancer Metastasis Suppressor 1, Q9HCU9) encodes a 246 aa nuclear protein functioning as a critical core subunit of the SIN3-histone deacetylase (HDAC) transcriptional repressor complex, essential for suppressing tumor metastasis and regulating anoikis (detachment-induced apoptosis). Structural architecture reveals a conserved Sds3-like domain (IPR013907/PF08598/SM01401, residues 12-244/61-180/60-228) mediating stable integration into the multi-protein SIN3A/B repressor machinery. AlphaFold prediction (pLDDT 78.6) confirms a well-folded structure compatible with protein-protein interaction scaffolding. STRING interactions definitively place BRMS1 within the epigenetic silencing apparatus, showing high-confidence binding to HDAC1 (0.992), SIN3A (0.983), SAP30 (0.974), SIN3B (0.952), RBBP7 (0.948), ARID4A (0.945), ING1 (0.926), ARID4B (0.925), and SINHCAF (0.925). HPA localizes BRMS1 to the centrosome and nucleus with ubiquitous expression across all tissues, classified as a transcriptional repressor involved in apoptosis and transcription regulation; disease involvement includes cancer and tumor suppression. ClinVar documents 14 pathogenic variants including 11q12-13 CNVs and missense mutations (p.Ser209Cys). Literature (375 papers) establishes BRMS1 as a potent metastasis suppressor that does not affect primary tumor growth but blocks colonization at distant sites: suppresses PI3K/AKT/mTOR pathway to induce autophagy in multiple myeloma (2025), upregulates DRG1 to inhibit breast cancer migration (2024), mediates M2 macrophage polarization in asthma via estrogen receptor signaling (2025), and functions as an anoikis regulator in glioblastoma microenvironments (2024). Mechanistic hypothesis: BRMS1 recruits the SIN3-HDAC complex to specific promoters (e.g., survivin, cyclin D1, or EMT drivers like SNAIL/SLUG) via direct interaction with SIN3A/B; the recruited HDAC1/2 deacetylates histones H3/H4, condensing chromatin and silencing pro-metastatic genes; concurrently, BRMS1 promotes anoikis sensitivity by repressing survival signals (PI3K/AKT), ensuring detached cells undergo apoptosis rather than surviving to form metastases.
+
+## Evidence
+```
+InterPro: IPR013907 (Sds3-like, 12-244), PF08598 (Sds3-like, 61-180), SM01401 (Sds3-like, 60-228); STRING: HDAC1 (0.992), SIN3A (0.983), SAP30 (0.974), SIN3B (0.952), RBBP7 (0.948), ARID4A (0.945), ING1 (0.926), ARID4B (0.925), SINHCAF (0.925); HPA: centrosome/nucleus, ubiquitous expression, transcriptional repressor/apoptosis, tumor suppressor; ClinVar: 14 pathogenic variants including 11q12-13 CNVs, p.Ser209Cys; AlphaFold: pLDDT 78.6; Literature: 375 papers - MM autophagy/PI3K-AKT-mTOR (2025), breast cancer DRG1 upregulation (2024), asthma M2 polarization (2025), GBM anoikis regulation (2024); Conservation: mouse Q99N20 (246 aa), rat Q5M7T3 (246 aa), bovine Q1LZE0 (246 aa)
+```

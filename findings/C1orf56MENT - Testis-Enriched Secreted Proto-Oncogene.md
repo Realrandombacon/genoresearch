@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T16:00:09.509482
 
-**Quality Score:** 5/10 (GOOD)
+**Quality Score:** 2.8/10  (E=2.1, D=3.5) [WEAK]
 
 ## Description
 Dark gene C1orf56 (MENT) encodes a 341aa secreted protein with MENT family domain (IPR029292) and MIS1 putative domain (PF15322). Testis-enriched expression (71.9 nTPM). Functions as proto-oncogene whose promoter is methylated by DNMT3B; hypomethylation in lymphomas leads to derepression. Controls cellular proliferation. Conserved in mammals (Rattus 65.2%, Mus 61.8%). STRING interactions with CDC42SE1 (cytoskeleton) and NOXRED1 suggest roles in cell structure or redox signaling.

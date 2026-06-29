@@ -1,0 +1,13 @@
+# LOC129391063: 19p13.2 MPRA-Validated Transcriptional Silencer with Mixed Dosage Sensitivity
+
+**Date:** 2026-03-19T03:04:14.756220
+
+**Quality Score:** 2.9/10  (E=4.6, D=1.2) [WEAK]
+
+## Description
+LOC129391063 is a functionally characterized cis-regulatory element on chromosome 19p13.2 (genomic coordinates: 12289272-12289540 on NC_000019.10, spanning approximately 268 bp). This genomic region was experimentally validated as a transcriptional silencer using STARR-seq massively parallel reporter assays (MPRAs) in K562 erythroleukemia cells, demonstrating ability to repress activity of super core promoter SCP1. The element lacks protein-coding evidence (no UniProt entry, no STRING interactions, no HPA protein expression), confirming its identity as a non-coding regulatory element. The accessible chromatin subregion annotation indicates active regulatory function in hematopoietic cell lineages. ClinVar analysis identified 7 pathogenic/likely pathogenic variants with mixed dosage sensitivity: 3 copy number losses (deletions) and 4 copy number gains (duplications), indicating both haploinsufficiency and triplosensitivity are pathogenic mechanisms. The 19p13 chromosomal region contains critical dosage-sensitive genes including TSC1 (tuberin - tuberous sclerosis complex, mTOR pathway regulation), PDCD1 (programmed cell death 1 - immune checkpoint), and multiple zinc finger transcription factors. As an experimentally validated silencer, LOC129391063 likely functions to repress transcription of target genes in cis during erythroid differentiation. Loss of this silencer may cause derepression/overexpression of target genes (haploinsufficiency of repressor function), while duplication may cause excessive repression (triplosensitivity). This 268 bp silencer may regulate genes involved in erythroid development, mTOR signaling (via TSC1), or immune function. The MPRAs validation in K562 cells suggests hematologic relevance, potentially contributing to 19p13 deletion/duplication syndrome phenotypes including developmental delay, tuberous sclerosis features, and immune abnormalities.
+
+## Evidence
+```
+Evidence: NCBI Gene ID 129391063; Chromosome 19p13.2 (12289272-12289540); ~268 bp regulatory region; MPRA-validated silencer (STARR-seq in K562 cells); Represses SCP1 promoter activity; Accessible chromatin subregion; No UniProt entry (non-coding); ClinVar: 7 pathogenic CNVs (3 deletions, 4 duplications - mixed dosage sensitivity); 19p13 region contains TSC1, PDCD1, ZNF genes; Associated with 19p13 deletion/duplication syndrome, tuberous sclerosis pathway, erythroid development
+```

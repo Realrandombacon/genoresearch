@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T14:29:11.899274
 
-**Quality Score:** 7/10 (GOOD)
+**Quality Score:** 1.9/10  (E=3.1, D=0.7) [POOR]
 
 ## Description
 Proline-rich protein 35 is a 571aa nuclear protein with zinc finger domains (IPR039064, IPR039363) suggesting nucleic acid binding function. Brain-enriched expression (137.2 nTPM) with 49 pathogenic ClinVar variants indicates clinical relevance. High-confidence interaction with NHLRC4 (0.815) and olfactory receptors suggests potential roles in neuronal development or chromatin regulation.

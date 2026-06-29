@@ -1,0 +1,13 @@
+# FAM135A: Lipase-Like Intracellular Protein with Alpha/Beta Hydrolase Domain and Dosage-Sensitive Chromosomal Rearrangements
+
+**Date:** 2026-03-19T11:40:21.838170
+
+**Quality Score:** 4.6/10  (E=6.4, D=2.8) [MODERATE]
+
+## Description
+FAM135A (KIAA1411) encodes a 1515 amino acid intracellular protein localized to nucleoplasm and cytosol. The protein contains a C-terminal DUF676 lipase-like domain (IPR007751/PF05057, residues 1245-1439) with putative serine esterase activity embedded within an alpha/beta hydrolase fold (IPR029058/SSF53474, residues 1249-1497). An N-terminal FAM135 family domain (IPR022122/PF12394, residues 111-172) is present. AlphaFold predicts medium confidence structure (pLDDT 59.5), indicating mixed ordered/disordered architecture typical of enzymes with flexible substrate-binding regions. STRING analysis reveals interactions with ABHD16B (0.407) and ABHD13 (0.400) - both alpha/beta hydrolase domain lipases - supporting functional relatedness in lipid metabolism. Additional partners include RND1 (0.579, Rho GTPase), FAM81A (0.442), and ZNF727 (0.434). HPA shows tissue-enhanced expression with esophagus predominance (28.1 nTPM), ubiquitous detection across tissues, and low cancer specificity. ClinVar documents 17 pathogenic/likely pathogenic variants, predominantly 6q12-14 copy number losses and gains affecting the FAM135A locus, though no specific monogenic disease phenotype is assigned. The chromosomal position (6q13) and variant pattern suggest dosage sensitivity. Mouse ortholog Q6NS59 (1506 aa) demonstrates strong evolutionary conservation. The mechanistic hypothesis: FAM135A functions as an intracellular lipase/esterase enzyme involved in lipid metabolic processes, potentially hydrolyzing specific lipid substrates in the nucleoplasm or cytosol. Interaction with ABHD family lipases suggests participation in coordinated lipid metabolism pathways. Chromosomal rearrangements disrupting FAM135A dosage may contribute to metabolic phenotypes or developmental defects through altered lipid homeostasis.
+
+## Evidence
+```
+InterPro: IPR007751, IPR022122, IPR029058, IPR044294, PF05057 (1245-1439, DUF676 lipase-like), PF12394 (111-172, FAM135), SSF53474 (1249-1497, alpha/beta hydrolase) | STRING: RND1(0.579), FAM81A(0.442), ZNF727(0.434), ABHD16B(0.407), ABHD13(0.400), MTRNR2L12(0.400) | HPA: Nucleoplasm, Cytosol, Esophagus 28.1 nTPM, tissue-enhanced, detected in all | ClinVar: 17 pathogenic variants (6q12-14 CNVs) | AlphaFold: pLDDT 59.5 (medium confidence, partially structured) | UniProt: Q9P2D6 (1515 aa) | Conservation: Mouse Q6NS59 (1506 aa)
+```

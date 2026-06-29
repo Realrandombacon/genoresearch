@@ -1,0 +1,13 @@
+# CCDC159: Coiled-Coil Scaffold Protein in Spermatid Development with Phospholipid and DNA Repair Interaction Partners
+
+**Date:** 2026-03-20T02:00:11.165253
+
+**Quality Score:** 3.5/10  (E=5.7, D=1.3) [MODERATE]
+
+## Description
+CCDC159 encodes a 297 amino acid coiled-coil domain-containing protein (UniProt P0C7I6) predicted to function as a protein-protein interaction scaffold in spermatid development and sperm flagellum assembly. The protein contains a canonical coiled-coil domain (InterPro IPR039284, PTHR34533 family, residues 3-297) that mediates oligomerization and complex formation, consistent with AlphaFold high-confidence structural prediction (pLDDT 76.8) indicating a well-folded stable structure. Tissue expression profiling (HPA) shows ubiquitous RNA expression across all tissues with low tissue specificity, classified as group-enriched at the single cell level, with subcellular localization to nucleoplasm, nuclear bodies, and cytosol. Gene ontology annotations predict involvement in spermatid development, sperm head-tail coupling apparatus formation, regulation of phosphatase activity, and fertilization processes. Protein interaction mapping (STRING) identifies 8 medium-confidence partners including PLPPR2 (score 0.634), a phospholipid phosphatase involved in lipid signaling, CCDC146 (0.517), another coiled-coil protein, SINHCAF (0.473), a SNF2 family chromatin regulator, and CIAO3 (0.469), a cytosolic iron-sulfur assembly factor, suggesting roles in lipid metabolism, chromatin remodeling, and iron-sulfur cluster biogenesis. Additional interactors UROS (0.468), TMEM205 (0.455), SWSAP1 (0.454), and RELT (0.428) further implicate CCDC159 in heme biosynthesis, DNA repair, and TNF receptor signaling. ClinVar documents 13 pathogenic/likely pathogenic variants including copy number losses and gains spanning 19p13.2 regions and splice site mutations (c.889+1G>T), indicating dosage sensitivity and potential disruption of spermatogenesis or developmental pathways. The coiled-coil architecture combined with diverse interaction partners supports a mechanistic model where CCDC159 serves as a modular scaffold organizing multiprotein complexes in reproductive development and cellular metabolism.
+
+## Evidence
+```
+InterPro: IPR039284 (coiled-coil), PTHR34533 | STRING: PLPPR2 (0.634), CCDC146 (0.517), SINHCAF (0.473), CIAO3 (0.469), UROS (0.468), TMEM205 (0.455), SWSAP1 (0.454), RELT (0.428) | HPA: detected in all, low specificity, nucleoplasm/nuclear bodies/cytosol, spermatogenesis | ClinVar: 13 pathogenic variants (CNVs, splice sites) | AlphaFold: P0C7I6, 297 aa, pLDDT 76.8 | UniProt: P0C7I6
+```

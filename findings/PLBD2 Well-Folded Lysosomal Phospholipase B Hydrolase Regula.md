@@ -1,0 +1,13 @@
+# PLBD2: Well-Folded Lysosomal Phospholipase B Hydrolase Regulating Phospholipid Catabolism and Adrenal Steroidogenesis
+
+**Date:** 2026-03-19T10:30:34.674913
+
+**Quality Score:** 2.08/10  (E=3.65, D=0.5) [WEAK]
+
+## Description
+PLBD2 (phospholipase B domain containing 2, alias PLBL2, P76) encodes a 589-amino acid lysosomal hydrolase belonging to the phospholipase B family (IPR007000/PF04916/PTHR12370, residues 76-586). The protein contains two catalytic domains characteristic of phospholipase B enzymes: a phospholipase B-like domain 1 (G3DSA:2.10.70.60, residues 42-109) and domain 2 (G3DSA:1.10.439.20, residues 110-243), which together form the active site for hydrolyzing both acyl chains from glycerophospholipids. AlphaFold predicts exceptional structural confidence (pLDDT=91.8), indicating a stable globular fold suitable for substrate binding and catalysis. HPA RNA-seq shows tissue-enhanced expression with highest levels in adrenal gland (130.6 nTPM), consistent with a role in adrenal steroidogenesis where phospholipid turnover regulates cholesterol availability for hormone synthesis. The protein is classified as intracellular and localized to lysosomes, supporting its function in phospholipid degradation. STRING interactions include PLB1 (0.468, phospholipase B homolog), RALBP1 (0.542, endocytic trafficking), ARL6IP6 (0.518, ER-Golgi transport), GRB2 (0.466, signaling adaptor), and RNASET2 (0.443, lysosomal ribonuclease), suggesting coordination with endolysosomal trafficking and lipid metabolism pathways. ClinVar documents 9 pathogenic/likely pathogenic variants, predominantly chromosome 12q copy number gains and losses, indicating dosage sensitivity. Conservation is strong across mammals: mouse (Q3TCN2, 594 aa), rat (Q4QQW8, 585 aa), and bovine (Q2KIY5, 589 aa). Mechanistically, PLBD2 likely functions as a lysosomal phospholipase B that hydrolyzes both sn-1 and sn-2 acyl chains from glycerophospholipids, generating lysophospholipids and free fatty acids for membrane remodeling and lipid signaling. The adrenal-enriched expression suggests specific roles in regulating cholesterol ester hydrolysis and steroid hormone production, potentially linking phospholipid catabolism to endocrine function.
+
+## Evidence
+```
+Evidence: InterPro IPR007000/PF04916/PTHR12370 (76-586aa) + G3DSA domains (42-109, 110-243aa); STRING partners PLB1(0.468)/RALBP1(0.542)/ARL6IP6(0.518)/GRB2(0.466)/RNASET2(0.443); HPA adrenal_gland=130.6nTPM/lysosomal_localization; ClinVar 9 pathogenic CNV variants on 12q; AlphaFold pLDDT=91.8; UniProt Q8NHP8; 589aa length; mouse Q3TCN2/rat Q4QQW8/bovine Q2KIY5 orthologs
+```

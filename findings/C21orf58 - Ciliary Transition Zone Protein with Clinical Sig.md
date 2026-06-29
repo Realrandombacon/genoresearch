@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T06:41:31.220931
 
-**Quality Score:** 8/10 (EXCELLENT)
+**Quality Score:** 2.27/10  (E=2.75, D=1.8) [WEAK]
 
 ## Description
 C21orf58 (Q0VAL7) is a 162 aa nuclear protein with proline-rich domain (IPR038915, pos 84-148). HPA shows localization to nucleoplasm, nuclear bodies, and PRIMARY CILIUM TRANSITION ZONE. Highly expressed in fallopian tube (24.9 nTPM) and pituitary gland (20.6 nTPM). STRING interactions with HEPACAM2 (ciliary protein), KCNQ1, YBEY. Remarkably, 96 pathogenic ClinVar variants (mostly CNVs) indicate strong disease association despite being "uncharacterized".

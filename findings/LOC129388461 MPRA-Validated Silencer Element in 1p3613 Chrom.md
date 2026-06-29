@@ -1,0 +1,13 @@
+# LOC129388461: MPRA-Validated Silencer Element in 1p36.13 Chromatin Regulatory Region
+
+**Date:** 2026-03-23T06:54:59.742837
+
+**Quality Score:** 2.95/10  (E=4.2, D=1.7) [WEAK]
+
+## Description
+LOC129388461 (Gene ID: 129388461) is not a protein-coding gene but a functionally validated cis-regulatory silencer element mapping to chromosome 1p36.13 (19,628,860-19,629,060 bp, ~200 bp span). RefSeq annotation explicitly states: "MPRA-validated peak101 silencer" - validated by STARR-seq massively parallel reporter assays in K562 erythroleukemia cells as repressing super core promoter SCP1 activity. Multiple evidence lines confirm non-coding regulatory function: (1) No UniProt accession (not a protein); (2) Genomic span of 200 bp is far too small for protein-coding gene; (3) ClinVar contains 6 pathogenic copy number variants spanning 1p36 region (deletions 15-22 Mb, 18-22 Mb, 19-20 Mb; duplication 99 kb-34 Mb), associated with 1p36 deletion syndrome - the most common terminal deletion syndrome in humans featuring intellectual disability, developmental delay, seizures, cardiomyopathy, and dysmorphic features. The 1p36 region contains critical dosage-sensitive genes including PRDM16 (cardiomyopathy, craniofacial development), GABRD (GABA receptor, seizures), MMP23B (immune function), and multiple neurodevelopmental genes; (4) No HPA expression or STRING interactions (non-coding). Mechanistic hypothesis: LOC129388461 functions as a transcriptional silencer that represses gene expression in hematopoietic or early developmental contexts. The element likely recruits co-repressor complexes (e.g., Polycomb repressive complex 2, NuRD, or HDAC-containing complexes) via sequence-specific DNA-binding proteins to establish repressive chromatin (H3K27me3, H3K9me3, DNA methylation). Pathogenic 1p36 CNVs disrupt silencer-enhancer balance and topologically associating domain (TAD) architecture, causing long-range dysregulation of PRDM16, GABRD, and other 1p36 genes leading to neurodevelopmental phenotypes, cardiac defects, and seizures. The 1p36 deletion syndrome critical region spans ~5 Mb - altered silencer function may contribute to position effects and chromatin topology disruption. This represents a critical class of "dark genes" that are actually functional non-coding regulatory elements misannotated as genes due to automated pipeline predictions. The MPRA validation provides direct functional evidence of regulatory activity in erythroid lineage.
+
+## Evidence
+```
+RefSeq: MPRA-validated silencer (peak101); Genomic location: NC_000001.11 (19628860-19629060, 200 bp); Validated in: K562 cells via STARR-seq; ClinVar: 6 pathogenic CNVs (1p36 rearrangements); No UniProt data (non-coding); 1p36 region contains PRDM16, GABRD, MMP23B
+```

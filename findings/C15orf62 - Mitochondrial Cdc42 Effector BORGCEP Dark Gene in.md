@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T00:39:37.601422
 
-**Quality Score:** 9/10 (EXCELLENT)
+**Quality Score:** 4.05/10  (E=4.4, D=3.7) [MODERATE]
 
 ## Description
 C15orf62 encodes a 175 aa mitochondrial uncharacterized protein containing a Cdc42 Effector Protein BORG/CEP domain (residues 1-167). Evolutionarily conserved with mouse homolog (86.3% identity). Functions in small GTPase binding and Rho protein signal transduction, regulating cell shape and cellular component biogenesis. Interacts with 10 partners including mitochondrial translation factors (GFM2, MTERF4, MRPS18A, MRPL53) and chaperones (DNAJC17, DNAJC11, DNAJC4) - suggesting role in mitochondrial protein synthesis/folding. Tissue-enhanced expression in esophagus (25.4 nTPM) and skin (16.6 nTPM). 6 pathogenic/likely pathogenic copy number variants in ClinVar indicate clinical significance. Potential role as mitochondrial Cdc42 effector linking Rho GTPase signaling to mitochondrial dynamics, translation, or cristae organization.

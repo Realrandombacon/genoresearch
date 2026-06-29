@@ -1,0 +1,13 @@
+# Chromosome 7q33 Regulatory Locus with 18 Pathogenic Variants Including Missense and CNVs
+
+**Date:** 2026-03-18T22:58:11.593732
+
+**Quality Score:** 5.0/10  (E=6.3, D=3.7) [SOLID]
+
+## Description
+LOC349160 is an uncharacterized genetic locus on chromosome 7q33 (NC_000007.14, positions 137164340-136898772, ~265 kb region) with substantial clinical significance despite lacking protein-coding features. No UniProt accession exists, preventing InterPro domain analysis and AlphaFold structure prediction. No mRNA transcript was identified in NCBI nucleotide databases, and Human Protein Atlas found no expression data (ENSG00000234352). STRING-DB detected no protein-protein interactions. However, ClinVar contains 18 pathogenic/likely pathogenic variants, including both single nucleotide variants and large-scale copy number variations (variants include 2056012, 453181, 452042, 373620, 155687, 155640, 154735, 152912, 150858, 149975). Notably, four missense and in-frame deletion variants (c.713G>C, c.874_882del, c.47G>A, c.67G>A) are annotated on NM_001006630.2, which corresponds to CHRM2 (cholinergic receptor muscarinic 2), located ~1.5 Mb upstream of LOC349160. The CNVs span the 7q32.3-36.3 region (131-159 Mb), with gains up to 28 Mb and one focal loss. The 7q33 chromosomal location places it in a neurodevelopmental critical region associated with autism, intellectual disability, and speech delay. Functional hypothesis: LOC349160 likely represents a cis-regulatory element or chromatin boundary controlling expression of neighboring genes in the 7q33-36 region, particularly CHRM2, a G-protein coupled receptor involved in synaptic signaling and cognitive function. The pathogenic missense variants in CHRM2 combined with large CNVs spanning this locus suggest dual mechanisms: direct protein-altering mutations in CHRM2 and structural variants disrupting regulatory architecture. Disease mechanism likely involves dysregulation of cholinergic signaling through enhancer hijacking, silencer deletion, or topological domain disruption affecting CHRM2 or other 7q33-36 genes such as IMMP2L or DOCK4. The absence of protein-coding features combined with strong ClinVar evidence and neurodevelopmental disease association suggests this locus functions in brain development through long-range gene regulation.
+
+## Evidence
+```
+Genomic: chr7q33 (137164340-136898772, NC_000007.14); Size: ~265 kb; Ensembl: ENSG00000234352; ClinVar: 18 pathogenic variants (2056012, 453181, 452042, 373620, 155687, 155640, 154735, 152912, 150858, 149975); UniProt/InterPro/AlphaFold: no accession; Transcript: none found; STRING/HPA: no data; Neighborhood: CHRM2 (1.5 Mb upstream), IMMP2L, DOCK4; Disease: 7q33-36 deletion/duplication syndrome
+```

@@ -1,0 +1,13 @@
+# WASH4P: Putative WASH Complex Protein with WAHD Domain in Actin Nucleation Machinery
+
+**Date:** 2026-03-30T01:20:12.438942
+
+**Quality Score:** 2.75/10  (E=3.7, D=1.8) [WEAK]
+
+## Description
+WASH4P (WAS protein family homolog 4, UniProt A8MWX3) is a 477-amino acid intracellular protein located on chromosome X. InterPro analysis reveals canonical WASH complex architecture with the WAHD domain (IPR021854/PF11945, aa 62-310), membership in the WASH1 family (IPR028290/PTHR23331, aa 62-477), and CXYORF1 family classification. GO annotations indicate roles in alpha-tubulin binding (GO:0043014), Arp2/3 complex-mediated actin nucleation (GO:0034314), and early endosome localization (GO:0005769). This domain architecture positions WASH4P within the WASH (Wiskott-Aldrich syndrome protein and SCAR homologue) complex that regulates actin polymerization on endosomal membranes. AlphaFold structure prediction achieves medium confidence (pLDDT 62.4), indicating a partially structured protein with both ordered domains (likely the WAHD core) and flexible/disordered regions — consistent with proteins that must adapt to dynamic membrane environments while maintaining specific binding interfaces for Arp2/3 complex activation. Human Protein Atlas has no data for WASH4P, suggesting restricted expression patterns not captured in standard tissue panels. STRING interaction network returned no data, limiting direct interactome inference. ClinVar contains no pathogenic variants, suggesting either non-essential function, redundancy with paralogs (WASHC4/WASHC5), or embryonic lethality when disrupted. The WAHD domain is characteristic of WASH complex subunits that bind and activate the Arp2/3 complex to nucleate actin filaments on endosomal surfaces, facilitating vesicle trafficking, receptor recycling, and organelle positioning. WASH4P likely functions as a regulatory component of the WASH complex, potentially modulating actin nucleation rates or providing specificity for particular endosomal cargo through its tubulin-binding capability, coordinating microtubule and actin cytoskeleton dynamics during vesicular transport.
+
+## Evidence
+```
+UniProt: A8MWX3, 477 aa; InterPro: IPR021854/PF11945 (WAHD domain, aa 62-310), IPR028290 (WASH1 family, aa 62-477), PTHR23331 (CXYORF1 family, aa 62-477); STRING: No data found; HPA: No data (not in database); ClinVar: 0 pathogenic variants; AlphaFold: pLDDT 62.4 (medium confidence/partially structured), residues 1-477; Location: Chromosome X; GO: GO:0043014 (alpha-tubulin binding), GO:0034314 (Arp2/3 actin nucleation), GO:0005769 (early endosome)
+```

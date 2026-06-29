@@ -1,0 +1,15 @@
+# AFMID: A Mitochondrial Kynurenine Formamidase Catalyzing the Final Step of Tryptophan-to-NAD+ Conversion via Alpha/Beta Hydrolase Architecture
+
+**Date:** 2026-06-26T16:46:53.477233
+
+**Quality Score:** 10/10 (EXCELLENT)
+
+**Confidence:** HIGH
+
+## Description
+AFMID (Arylformamidase, UniProt Q63HM1), also known as Kynurenine Formamidase (KF), is a 303-amino acid metabolic enzyme that catalyzes the hydrolysis of N-formylkynurenine to kynurenine, the committed step in the kynurenine pathway leading to NAD+ biosynthesis. InterPro analysis reveals a canonical alpha/beta hydrolase fold (IPR029058, IPR013094, PF07859, aa 25-299) with a specific vertebrate/fungal-type kynurenine formamidase family signature (IPR027519, MF_03014, aa 63-298). The structure belongs to the 'GDXG' lipolytic enzyme superfamily (IPR050300), indicating a catalytic mechanism involving a nucleophilic serine within a conserved G-X-S-X-G motif. The AlphaFold predicted structure exhibits exceptional confidence (pLDDT 94.0), confirming a rigid, well-defined catalytic core typical of efficient hydrolases. STRING interaction data places AFMID at the heart of the tryptophan catabolic metabolon with near-perfect associations to upstream and downstream enzymes: TDO2 (tryptophan 2,3-dioxygenase, 0.989), KMO (kynurenine 3-monooxygenase, 0.985), IDO1/2 (indoleamine 2,3-dioxygenases, 0.968/0.974), and transaminases KYAT1 (0.965) and AADAT (0.955). Links to DDC (dopa decarboxylase, 0.928) and MDH2 (malate dehydrogenase, 0.831) suggest cross-talk with neurotransmitter synthesis and the TCA cycle. HPA expression profiles show strong tissue enhancement in liver (166.7 nTPM)—the primary site of systemic tryptophan metabolism—with subcellular localization to mitochondria, consistent with the compartmentalization of kynurenine pathway enzymes. ClinVar records document 17 pathogenic variants including splice site mutations (c.395-2A>G, c.308+2T>G) and missense changes (p.Gly96Arg), implying that loss of function leads to metabolic disruption. We hypothesize that AFMID functions as the gatekeeper of the kynurenine pathway: by rapidly converting the unstable intermediate N-formylkynurenine (produced by IDO/TDO) into kynurenine, it prevents the accumulation of formylated species that could inhibit downstream enzymes or generate reactive oxygen species. The mitochondrial localization suggests tight coupling with the electron transport chain, where NAD+ produced by this pathway fuels oxidative phosphorylation. Dysregulation of AFMID may shift the balance between neuroprotective (kynurenic acid) and neurotoxic (quinolinic acid) metabolites, contributing to neurodegenerative and psychiatric disorders associated with 17q25 variants.
+
+## Evidence
+```
+InterPro: IPR027519 (Kynurenine formamidase), IPR013094 (Alpha/beta hydrolase), PF07859, MF_03014; STRING: TDO2 (0.989), KMO (0.985), IDO1 (0.968), KYAT1 (0.965), AADAT (0.955); HPA: Liver (166.7 nTPM), Mitochondria; ClinVar: 17 pathogenic variants (splice/missense); AlphaFold: pLDDT 94.0; Function: Hydrolysis of N-formylkynurenine in tryptophan-to-NAD+ pathway
+```

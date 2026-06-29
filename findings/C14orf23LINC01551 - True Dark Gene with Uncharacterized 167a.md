@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T14:06:32.468869
 
-**Quality Score:** 4/10 (MODERATE)
+**Quality Score:** 5.15/10  (E=4.3, D=6.0) [SOLID]
 
 ## Description
 C14orf23 (Gene ID: 145299) on chromosome 14q12 is a genuine dark gene. It encodes a 167 amino acid uncharacterized protein (UniProt Q86U37) with no known function. BLAST analysis found only self-hits (no homologs), no InterPro domains detected, no HPA expression data, and no STRING protein interactions. The gene is also annotated as LINC01551 (long intergenic non-coding RNA), suggesting potential dual coding/non-coding annotation ambiguity. Zero PubMed publications found.

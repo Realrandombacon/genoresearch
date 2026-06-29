@@ -1,0 +1,15 @@
+# EXOSC9: Exosome Complex Component RRP45 (Q06265), 439 aa Core Exoribonuclease with Dual PH Domains and RNase Active Sites, Nucleoplasmic/Nucleolar Localization in RNA Degradation Hub Linked to Pontocerebellar Hypoplasia Type 1D (PCH1D) via Spinal Motor Neuronopathy and Telomeric TERRA lncRNA Regulation through SUMO-Dependent Degradation Pathway in Endocrine Therapy Resistance
+
+**Date:** 2026-06-16T18:26:21.505768
+
+**Quality Score:** 9/10 (EXCELLENT)
+
+**Confidence:** MEDIUM-HIGH
+
+## Description
+EXOSC9 (Exosome complex component RRP45; UniProt Q06265, 439 aa) is a core RNA exosome component with ~41 publications representing PARTIALLY CHARACTERIZED status despite essential roles in RNA processing and neurodegeneration. While recent 2023 studies established EXOSC9 as initiating SUMO-dependent lncRNA TERRA degradation impacting telomeric integrity in endocrine therapy-insensitive hormone receptor-positive breast cancer [2023, 6 cites], demonstrated P-body formation and stress resistance regulation in cancer cells [2020, 28 cites], and identified mutations causing pontocerebellar hypoplasia type 1D (PCH1D) with spinal motor neuronopathy and cerebellar atrophy [2020, 20 cites; 2022, 1 cite], critical mechanistic gaps persist: (1) The specific RNA substrate recognition beyond TERRA lncRNA remains uncharacterized despite high-confidence STRING interactions with all core exosome components (EXOSC1-5, EXOSC7, EXOSC10 scores 0.997-0.999); (2) The functional distinction between EXOSC9's phosphorolytic exoribonuclease activity vs. hydrolytic DIS3/DIS3L nucleases in the exosome complex requires definition; (3) HPA data shows ubiquitous expression with nucleoplasmic and nucleolar localization [HPA], suggesting dual roles in nuclear RNA surveillance and ribosomal RNA processing not yet fully mapped; (4) The presence of 66 ClinVar pathogenic/likely pathogenic variants on chr4q21.21-31.21 including point mutations (p.Arg180Gly, p.Gln246Glu, p.Thr294Pro) and frameshifts (p.Gly376fs) causing PCH1D suggests genotype-phenotype correlations not yet cataloged [ClinVar]; (5) AlphaFold structure shows high confidence pLDDT: 77.0, indicating a well-folded protein with structured RRP45 domain (residues 6-264, InterPro cd11368) containing dual exoribonuclease PH domains (PF01138 positions 32-163, PF03725 positions 189-254), consistent with stable exosome core assembly; (6) The SUMO-dependency mechanism for TERRA recognition and the role in endocrine therapy resistance represents a novel regulatory layer whose molecular basis remains uncharacterized. This gene represents an essential but under-explored node in RNA metabolism with defined disease phenotypes requiring deeper mechanistic mapping.
+
+## Evidence
+```
+Evidence: InterPro domains (Q06265, cd11368/PF01138/PF03725), STRING interactions (EXOSC1-5/7/10 scores 0.997-0.999, DIS3L 0.996), HPA expression (nucleoplasm/nucleoli, neurodegeneration), ClinVar variants (66 P/LP on chr4q causing PCH1D), AlphaFold structure (pLDDT 77.0), Literature [2023, 2020, 2022]
+```

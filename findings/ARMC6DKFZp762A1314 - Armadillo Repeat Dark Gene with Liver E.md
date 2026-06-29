@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T12:28:43.418739
 
-**Quality Score:** 5/10 (GOOD)
+**Quality Score:** 3.9/10  (E=3.8, D=4.0) [MODERATE]
 
 ## Description
 ARMC6 (formerly DKFZp762A1314, Q68CW5) is a 443 aa armadillo repeat-containing protein on chromosome 19p13.11. BLAST shows 97% identity to ARMC6

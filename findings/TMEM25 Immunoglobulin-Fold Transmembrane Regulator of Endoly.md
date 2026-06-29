@@ -1,0 +1,13 @@
+# TMEM25: Immunoglobulin-Fold Transmembrane Regulator of Endolysosomal Protein Stability
+
+**Date:** 2026-03-20T10:24:55.742385
+
+**Quality Score:** 1.85/10  (E=3.7, D=0.0) [POOR]
+
+## Description
+TMEM25 (Transmembrane Protein 25) is a 366 amino acid type I transmembrane protein featuring a conserved immunoglobulin-like C2-set domain (residues 28-116, PF08205/CD80-like) within its extracellular/luminal region. InterPro analysis identifies 10 domain signatures including IPR007110 (immunoglobulin-like domain), IPR013162 (CD80-like C2-set), IPR036179 (Ig-like superfamily), and the TMEM25-specific family markers IPR042864 and PTHR47224 spanning the full-length protein. AlphaFold prediction yields medium confidence structure (pLDDT 62.8), consistent with a partially ordered transmembrane topology where the Ig-fold domain provides structural rigidity while cytoplasmic regions remain flexible. HPA subcellular localization places TMEM25 in the Golgi apparatus and vesicles, aligning with Gene Ontology predictions for late endosome/lysosome residence. The protein participates in negative regulation of excitatory postsynaptic potential and protein stability control, suggesting roles in synaptic vesicle trafficking or receptor turnover. STRING interaction network reveals 10 medium-confidence partners predominantly from the transmembrane protein family (TMEM116: 0.546, TMEM179B: 0.544, TMEM213: 0.542, TMEM91: 0.529, TMEM30B: 0.496, TMEM207: 0.433) plus ANKRD13B (0.533), HGD (0.531), NDC1 (0.480), and RTP3 (0.474), indicating TMEM25 operates within a multiprotein complex governing vesicular membrane dynamics. ClinVar documents 28 pathogenic/likely pathogenic variants including copy number gains, deletions, and duplications spanning 11q23.3-25, suggesting gene dosage sensitivity. The immunoglobulin fold architecture combined with vesicular localization supports a mechanistic model where TMEM25 functions as a scaffold protein mediating cargo recognition or SNARE complex assembly during endolysosomal trafficking, with Ig domains providing protein-protein interaction interfaces analogous to antibody-antigen recognition.
+
+## Evidence
+```
+Evidence: UniProt Q86YD3 (366 aa); InterPro: IPR007110, IPR013162, IPR036179, IPR042864, PTHR47224, PF08205 (Ig C2-set domain residues 28-116); STRING partners: TMEM116(0.546), TMEM179B(0.544), TMEM213(0.542), ANKRD13B(0.533), HGD(0.531), TMEM91(0.529), TMEM30B(0.496), NDC1(0.480), RTP3(0.474), TMEM207(0.433); HPA: Golgi apparatus/vesicles, low tissue specificity, detected in all; ClinVar: 28 pathogenic variants (CNVs, deletions, duplications); AlphaFold: pLDDT 62.8 (medium confidence); Chromosome 11q23.3; GeneID 84866
+```

@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-18T01:24:26.859828
 
-**Quality Score:** 10/10 (EXCELLENT)
+**Quality Score:** 3.05/10  (E=4.8, D=1.3) [WEAK]
 
 ## Description
 TSBP1 (alias C6orf10, TSBP) encodes a 563 amino acid testis-expressed basic protein 1 (UniProt Q5SRN2) belonging to the testis-expressed basic protein 1 family (IPR038754, PTHR14368, residues 1-563). AlphaFold predicts a predominantly disordered structure with low confidence (pLDDT 45.6), characteristic of intrinsically disordered proteins (IDPs). HPA data is unavailable, but gene name indicates testis-specific expression with nuclear localization. STRING interactions reveal associations with MHC class II molecules HLA-DRA (0.507), HLA-DRB1 (0.458), HLA-DQB1 (0.420), immune regulator BTNL2 (0.698), NOTCH4 (0.498), and extracellular matrix protein COL11A2 (0.424). ClinVar reports 5 pathogenic variants all being copy number gains on chromosome 6p21.32-6p25.3. The gene shows moderate conservation: rat (Q4V8H4, 386 aa, ~65% identity), though full-length orthologs vary across species.

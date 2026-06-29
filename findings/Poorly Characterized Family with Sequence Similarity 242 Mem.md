@@ -1,0 +1,13 @@
+# Poorly Characterized Family with Sequence Similarity 242 Member C with Chromosome 12 Dosage Sensitivity and Potential Renal Cell Carcinoma Association
+
+**Date:** 2026-03-27T14:20:35.741292
+
+**Quality Score:** 4.35/10  (E=4.4, D=4.3) [MODERATE]
+
+## Description
+FAM242C (Family with sequence similarity 242 member C, Gene ID: 112488744) is a poorly characterized protein-coding gene located on chromosome 12q13.13 (genomic coordinates NC_000012.12: 54126394-54121276). Despite extensive database queries, FAM242C lacks a UniProt accession number, has no reported protein-protein interactions in STRING-DB, and shows no expression data in the Human Protein Atlas, indicating this remains a truly 'dark' gene with minimal experimental characterization. No conserved protein domains were identified through InterPro analysis due to the absence of a curated UniProt entry. However, ClinVar contains 4 pathogenic/likely pathogenic variants associated with this locus: three large copy number variations spanning chromosome 12 regions (chr12q13.13-13.3 duplication, chr12p13.33-q24.33 gain, and chr12q13.13 deletion) plus one single nucleotide variant (NR_026656.1(LINC02381):n.20G>T), suggesting dosage sensitivity where altered FAM242C expression contributes to disease phenotypes. A PubMed search identified one relevant publication (PMID: 37275334) linking FAM242C to clear cell renal cell carcinoma (ccRCC) pathogenesis through integrated bioinformatics analysis, suggesting potential involvement in kidney cancer development or progression. The chromosomal location at 12q13.13 places FAM242C in a region subject to recurrent copy number alterations in various cancers. Given the complete absence of structural, interaction, and expression data combined with clinical variant evidence and cancer association, FAM242C represents a high-priority target for experimental characterization. The gene may encode a novel protein involved in renal cell biology or tumor suppression, with haploinsufficiency or overexpression contributing to disease through currently unknown mechanisms. Future studies should focus on determining subcellular localization, tissue expression patterns, protein structure, and functional roles in normal kidney physiology and renal carcinogenesis.
+
+## Evidence
+```
+UniProt: No accession found | STRING: No interactions detected | HPA: No expression data (ENSG00000250432 not in database) | ClinVar: 4 pathogenic variants (CNVs on chr12q13: chr12:53420606-56202942 x3, chr12:121271-133196807 x3, chr12:53224024-54222450 x1; SNV NR_026656.1(LINC02381):n.20G>T) | PubMed: PMID 37275334 (clear cell renal cell carcinoma association) | NCBI: Gene ID 112488744, chr12q13.13, NC_000012.12:54126394-54121276 | InterPro: No domains (no UniProt entry)
+```

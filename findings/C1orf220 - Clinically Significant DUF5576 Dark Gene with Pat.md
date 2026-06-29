@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T15:51:05.263249
 
-**Quality Score:** 8/10 (EXCELLENT)
+**Quality Score:** 5.25/10  (E=5.7, D=4.8) [SOLID]
 
 ## Description
 134 aa uncharacterized protein (Q5T0J3) encoded on chr1q25.2. Contains DUF5576 domain of unknown function across entire sequence (1-134). BLAST shows no homologs beyond self - true dark gene. No HPA expression data available. No STRING protein interactions found. CLINICALLY SIGNIFICANT: 8 pathogenic/likely pathogenic variants in ClinVar including copy number losses/gains and SNV. Disease associations unclear but variants suggest functional importance. This DUF5576 protein likely has critical biological function despite being uncharacterized.

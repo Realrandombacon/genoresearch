@@ -1,0 +1,15 @@
+# TRAPPC14: Trafficking Protein Particle Complex Subunit 14 (Q8WVR3), 580 aa Ciliary Tethering Factor with N-terminal/C-terminal Domains, Centriolar Satellite Localization in Preciliary Vesicle Transport Hub Linked to Primary Microcephaly via TRAPPII-Rabin8-Rab8 Cascade and Tubulin-Mediated Ciliogenesis Regulation through TRAPPC5-TRAPPC1-TRAPPC2 Complex Assembly
+
+**Date:** 2026-06-16T18:30:41.038855
+
+**Quality Score:** 10/10 (EXCELLENT)
+
+**Confidence:** HIGH
+
+## Description
+TRAPPC14 (Trafficking protein particle complex subunit 14; UniProt Q8WVR3, 580 aa) is a GENUINE DARK GENE with only 1 publication despite critical roles in ciliogenesis and neurodevelopment. The single 2019 study established TRAPPC14 as linking the TRAPPII complex to Rabin8 for preciliary vesicle tethering at the mother centriole during ciliogenesis [2019, 26 cites], yet critical mechanistic gaps persist: (1) The specific molecular mechanism of Rab11-Rab8 cascade coordination beyond the described Rabin8 interaction remains uncharacterized despite high-confidence STRING interactions with core TRAPP complex members (TRAPPC5 score 0.936, TRAPPC1 score 0.918, TRAPPC2 score 0.917, TRAPPC2L score 0.905, TRAPPC12 score 0.821); (2) HPA data reveals ubiquitous expression with specific subcellular localization to vesicles, plasma membrane, and centriolar satellites [HPA], suggesting a dual role in general vesicular trafficking and ciliary assembly not yet fully mapped; (3) The presence of 26 ClinVar pathogenic/likely pathogenic variants on chr7q22.1 including large deletions (NC_000007.14:g.99487704_102394107del), copy number losses, and splice variants (c.638-9C>G) with undefined clinical phenotypes beyond primary microcephaly suggests genotype-phenotype correlations requiring systematic cataloging [ClinVar]; (4) AlphaFold structure shows confident pLDDT: 70.2 across the full 580 aa, indicating a well-folded protein with structured N-terminal domain (residues 5-369, PF15806) and C-terminal domain (residues 370-579, PF23652), consistent with stable TRAPP complex integration; (5) InterPro domains confirm alpha-tubulin binding capability (GO:0043014) and cilium assembly function (GO:0060271), positioning TRAPPC14 as a microtubule-associated protein (PTHR16096 family) that may coordinate vesicle transport along cytoskeletal tracks; (6) The disease association with primary microcephaly suggests disrupted ciliogenesis in neural progenitor cells as a potential mechanism, but specific developmental windows and cell type requirements remain undefined. This gene represents a critical but severely under-explored node in ciliary biology with defined disease phenotypes requiring deep mechanistic characterization.
+
+## Evidence
+```
+Evidence: InterPro domains (Q8WVR3, IPR031626/IPR055452/IPR055453/PF15806/PF23652/PTHR16096), STRING interactions (TRAPPC5/TRAPPC1/TRAPPC2 scores 0.917-0.936), HPA expression (centriolar satellite/vesicles, primary microcephaly), ClinVar variants (26 P/LP on chr7q22.1), AlphaFold structure (pLDDT 70.2), Literature [2019, 26 cites, 1 total paper]
+```

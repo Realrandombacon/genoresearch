@@ -1,0 +1,13 @@
+# FAM242A: Uncharacterized Protein-Coding Gene on Chromosome 20p13-q13.33 with Dosage Sensitivity but No Molecular Characterization Data
+
+**Date:** 2026-03-27T14:29:00.237492
+
+**Quality Score:** 3.7/10  (E=3.1, D=4.3) [MODERATE]
+
+## Description
+FAM242A (Ensembl ID: ENSG00000231934) is an uncharacterized protein-coding gene located on chromosome 20, representing a truly 'dark' gene with minimal to no experimental molecular characterization. Despite extensive database queries, FAM242A lacks a UniProt accession number, has no reported protein sequence or structural data, shows no expression data in the Human Protein Atlas (ENSG00000231934 not in HPA database), and has no protein interaction partners identified in STRING (no protein found for FAM242A in Homo sapiens). The complete absence of curated protein data prevents InterPro domain analysis and AlphaFold structure prediction, as both tools require a valid UniProt accession. However, ClinVar contains 2 pathogenic/likely pathogenic variants associated with this locus, both large copy number gains spanning extensive chromosome 20 regions: chr20:99557-64277321 x3 (spanning nearly the entire short arm through most of the long arm, approximately 64 Mb) and chr20:9811433-39316956 x3 (spanning approximately 29.5 Mb of 20p12.2-q12). These large duplications demonstrate strong dosage sensitivity where overexpression of the chromosome 20 region containing FAM242A contributes to disease phenotypes, though the specific diseases are not annotated in ClinVar. The chromosomal location at 20p13-q13.33 places FAM242A in a region subject to recurrent copy number alterations; chromosome 20 duplications are associated with various developmental disorders, intellectual disability, and congenital anomalies. Given the complete absence of structural, interaction, and expression data combined with clinical variant evidence of dosage sensitivity, FAM242A represents a high-priority target for basic molecular characterization. Future studies should focus on determining transcript structure, protein sequence, subcellular localization, tissue expression patterns, and functional roles. The lack of any molecular data despite clinical evidence suggests this gene may encode a novel protein family (FAM242) with previously unrecognized biological functions that become pathogenic when dysregulated.
+
+## Evidence
+```
+UniProt: No accession found | STRING: No interactions (no protein found in species 9606) | HPA: No expression data (ENSG00000231934 not in database) | ClinVar: 2 pathogenic variants (CNVs on chr20: chr20:99557-64277321 x3 gain, chr20:9811433-39316956 x3 gain) | InterPro: No domains (no UniProt entry) | AlphaFold: No structure (no UniProt entry) | Ensembl: ENSG00000231934, chromosome 20
+```

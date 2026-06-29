@@ -1,0 +1,13 @@
+# LRRC40: Nucleolar Leucine-Rich Repeat Protein with Ribonuclease Inhibitor Fold and Protein Folding Network Connections
+
+**Date:** 2026-03-27T13:36:25.218118
+
+**Quality Score:** 3.97/10  (E=6.85, D=1.1) [MODERATE]
+
+## Description
+LRRC40 encodes a 602 amino acid leucine-rich repeat (LRR) protein (UniProt Q9H9A6) that functions as a protein-protein interaction scaffold with structural homology to ribonuclease inhibitors. InterPro analysis reveals extensive LRR architecture: multiple tandem LRR motifs (IPR001611, PF13855, PS51450) spanning residues 81-324, forming a curved solenoid structure for binding partner proteins. The protein belongs to the Small Leucine-Rich Proteoglycans family (IPR050333, PTHR45712, aa 143-362) and contains a Ribonuclease Inhibitor-like fold (G3DSA:3.80.10.10) across three regions (aa 29-163, 164-257, 258-366), suggesting potential RNA-binding or RNase regulation activity. AlphaFold prediction shows high confidence (pLDDT 82.9), indicating a well-folded stable LRR solenoid structure.\n\nHPA expression demonstrates ubiquitous tissue distribution with low tissue specificity and nucleolar localization. This subcellular positioning suggests LRRC40 may participate in ribosome biogenesis, rRNA processing, or nucleolar stress responses through its LRR-mediated protein interactions.\n\nSTRING interaction network reveals connections to protein folding and quality control machinery: CNPY3 (calnexin-like chaperone, 0.818—highest confidence partner), KCTD3 (BTB-kelch substrate adaptor for CUL3 E3 ligase, 0.741), MRI1 (methionine salvage pathway enzyme, 0.619), plus cytoskeletal components TUBB8 (tubulin beta-8 chain, 0.558) and MYL4 (myosin light chain 4, 0.521). The CNPY3 connection is particularly notable—CNPY3 is an ER chaperone that assists membrane protein folding, suggesting LRRC40 may function in protein quality control pathways despite its nucleolar localization.\n\nClinVar contains 25 pathogenic/likely pathogenic variants at 1p31.1, including copy number losses/gains and missense mutations (e.g., p.Arg581Leu). Given the LRR structure, nucleolar localization, and chaperone network connections, LRRC40 haploinsufficiency may disrupt ribosome biogenesis or protein folding homeostasis, potentially contributing to developmental disorders associated with 1p31 rearrangements.
+
+## Evidence
+```
+InterPro: IPR001611/LRR(aa83-265), IPR003591/LRR-typical(aa104-172), IPR050333/Small-LRP(aa143-362), G3DSA:3.80.10.10/RNase-inhibitor(aa29-366), PF13855; STRING: CNPY3(0.818), KCTD3(0.741), MRI1(0.619), SMIM12(0.600), TUBB8(0.558), MYL4(0.521), LUM(0.514); HPA: nucleoli, low tissue specificity, detected in all; ClinVar: 25 pathogenic variants at 1p31.1; AlphaFold: pLDDT 82.9; UniProt: Q9H9A6, 602 aa
+```

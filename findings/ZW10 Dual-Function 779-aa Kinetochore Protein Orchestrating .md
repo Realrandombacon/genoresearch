@@ -1,0 +1,15 @@
+# ZW10: Dual-Function 779-aa Kinetochore Protein Orchestrating Spindle Assembly Checkpoint Signaling and ER-Golgi Membrane Tethering via RINT1-NBAS-STX18 Complex with Emerging Cancer Biomarker Potential
+
+**Date:** 2026-06-28T00:37:44.014990
+
+**Quality Score:** 7/10 (GOOD)
+
+**Confidence:** MEDIUM-HIGH
+
+## Description
+ZW10 (UniProt O43264) encodes a 779-amino acid centromere/kinetochore protein belonging to the kinetochore-associated protein family (IPR009361/PTHR12205, aa 2-779) with modular domain architecture: N-terminal kinetochore targeting domain (PF06248, aa 27-119), middle domain (PF20665, aa 177-415), C-terminal domain (PF20666, aa 472-602), and C-terminal helical domain (PF22766, aa 624-778). The C-terminal region adopts the Zw10/DSL1 fold (IPR046362/G3DSA:1.10.357.150, aa 579-779) characteristic of membrane tethering factors. AlphaFold predicts a well-folded multi-domain structure (pLDDT: 81.2) consistent with stable protein-protein interaction platform.\n\nSTRING interactions reveal ZW10's dual functionality: strongest links to NRZ tethering complex members STX18 (0.999), NBAS (0.999), RINT1 (0.999), USE1 (0.985), SEC22B (0.944); spindle assembly checkpoint components ZWILCH (0.999), KNTC1/ROD (0.999), ZWINT (0.997); and ER membrane proteins BNIP1 (0.965), ZNF787 (0.946). HPA confirms ubiquitous expression (low tissue specificity, detected in all tissues) with endoplasmic reticulum and cytosol localization, functioning in cell cycle, mitosis, and ER-Golgi transport.\n\nWith 235 papers, ZW10 has established but incomplete characterization. The protein serves dual roles: (1) Mitotic function—recruits dynein-dynactin to kinetochores, silences spindle assembly checkpoint by transporting MAD1-MAD2 away from unattached kinetochores; PLK1 phosphorylation guides accurate chromosome segregation (2024, 10 citations). (2) Interphase function—forms NRZ tethering complex with NBAS-RINT1 for ER-Golgi membrane fusion. Emerging 2024-2026 research identifies ZW10 as orchestrator of organelle dynamics during cell division and potential prognostic biomarker in colon cancer. ClinVar contains 17 pathogenic variants including splice variants c.343-101A>T and c.343-99A>G. This positions ZW10 as a bifunctional protein linking chromosome segregation fidelity with membrane trafficking.
+
+## Evidence
+```
+InterPro: IPR009361, IPR046362, IPR048343, IPR048344, IPR055148, PF06248, PF20665, PF20666, PF22766, PTHR12205, G3DSA:1.10.357.150 | STRING: STX18 (0.999), ZWILCH (0.999), NBAS (0.999), KNTC1 (0.999), RINT1 (0.999), ZWINT (0.997), USE1 (0.985), BNIP1 (0.965), ZNF787 (0.946), SEC22B (0.944) | HPA: Ubiquitous (Low tissue specificity, Detected in all), Endoplasmic reticulum + Cytosol | ClinVar: 17 pathogenic variants (c.343-101A>T, c.343-99A>G splice variants, CNVs) | AlphaFold pLDDT: 81.2 (high confidence) | UniProt: O43264 (779 aa) | Literature: 235 papers—Moderately characterized; emerging 2024-2026: PLK1 phosphorylation mechanism, organelle dynamics orchestrator, colon cancer biomarker; dual mitotic/interphase functions
+```

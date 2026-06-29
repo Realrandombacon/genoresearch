@@ -1,0 +1,15 @@
+# SLITRK6: LRR-Containing Transmembrane Regulator of Neurite Outgrowth and Sensory Development with Oncogenic Potential in Urothelial and Lung Cancers
+
+**Date:** 2026-04-17T03:12:09.777115
+
+**Quality Score:** 3.83/10  (E=6.65, D=1.0) [MODERATE]
+
+**Confidence:** HIGH
+
+## Description
+SLITRK6 (UniProt Q9H5Y7) encodes an 841 amino acid type I transmembrane protein belonging to the SLITRK family, characterized by two N-terminal leucine-rich repeat (LRR) domains (residues ~30-271 and ~329-568, IPR001611, PF13855) and a cysteine-rich C-terminal flank (IPR000483). These LRR domains adopt a solenoid structure (G3DSA:3.80.10.10) typical for protein-protein interactions, likely mediating binding to presynaptic partners like PTPRD or neurotrophin receptors. STRING interactions confirm associations with NTRK1 (0.581), ADGRL1/LPHN1 (0.525), NTNG1 (0.502), and BDNF (0.467), placing SLITRK6 in complexes regulating synapse formation and axon guidance. HPA data shows tissue-enhanced expression highest in salivary gland (26.2 nTPM) and urinary bladder (13.8 nTPM), with subcellular localization to the plasma membrane; it is notably upregulated in urothelial, lung, and breast cancers. ClinVar lists 121 pathogenic/likely pathogenic variants, including missense mutations and large copy number losses at 13q14.3-q31.2, linked to dual sensory impairment (deafness and vision loss) and potentially neurodevelopmental disorders, though a specific syndrome name is not yet universally assigned. Recent literature (75 papers) highlights: (1) SLITRK6 promotes lung adenocarcinoma progression via PI3K/AKT/mTOR signaling and the Warburg effect; (2) It serves as a target for antibody-drug conjugates (e.g., PRO1106) in urothelial carcinoma; (3) Mutations cause hereditary deafness and ocular defects. AlphaFold structure (pLDDT 67.6) predicts a medium-confidence model with structured LRR solenoids and a flexible intracellular tail. FUNCTIONAL HYPOTHESIS: SLITRK6 acts as a context-dependent adhesion molecule that stabilizes specific synaptic connections in sensory neurons (cochlear hair cells, retina) via heterophilic binding to PTP-receptors or latrophilins, while in epithelial cancers, its overexpression drives metabolic reprogramming and metastasis through aberrant activation of growth factor pathways. MECHANISTIC PROPOSAL: In neurons, extracellular LRR domains of SLITRK6 bind presynaptic PTPRD or ADGRL1, triggering intracellular scaffolding that organizes active zones; in cancer, overexpressed SLITRK6 may dimerize or recruit unknown co-receptors to hyperactivate PI3K/AKT, enhancing glucose uptake (Warburg effect) and cell migration.
+
+## Evidence
+```
+Evidence: UniProt Q9H5Y7 (841 aa); InterPro: IPR001611 (LRR x2), IPR000483 (Cys-rich), PF13855; STRING: NTRK1 (0.581), ADGRL1 (0.525), BDNF (0.467); HPA: Salivary gland 26.2 nTPM, Bladder 13.8 nTPM; ClinVar: 121 pathogenic variants (sensory impairment, CNVs); AlphaFold: pLDDT 67.6; Literature: 75 papers (LUAD metastasis, UC target, deafness).
+```

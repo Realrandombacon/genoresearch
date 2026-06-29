@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T16:06:20.728644
 
-**Quality Score:** 6/10 (GOOD)
+**Quality Score:** 4.28/10  (E=4.35, D=4.2) [MODERATE]
 
 ## Description
 546 aa uncharacterized protein with 3 DUF5580 domains and EF-hand calcium-binding motif pair. Tissue-enriched in fallopian tube (28.2 nTPM) and cancer-enhanced. STRING interactions enriched for cilia/axoneme proteins (PIH1D3, TEKT1, CFAP299, WDR38). Single PubMed hit identified it in airway cilia proteome. AlphaFold structure shows medium confidence (pLDDT 62.6). Likely functions as calcium-binding regulator in ciliary complexes.

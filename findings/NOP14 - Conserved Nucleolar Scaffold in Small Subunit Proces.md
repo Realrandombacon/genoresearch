@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-16T23:11:58.946830
 
-**Quality Score:** 5/10 (GOOD)
+**Quality Score:** 1.55/10  (E=2.3, D=0.8) [POOR]
 
 ## Description
 NOP14 encodes an 857aa nucleolar protein (UniProt P78316) belonging to the Nop14-like family (PF04147, aa 26-846; IPR007276) essential for pre-18S rRNA processing. AlphaFold predicts confident folded structure (pLDDT 73.1) across the full length
