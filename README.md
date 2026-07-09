@@ -8,21 +8,40 @@
 
 The agent runs autonomously in a **think → act → observe → learn** loop: it queries genomic databases, analyzes sequences, runs BLAST searches, and records novel findings — all without human intervention.
 
-## Status (June 2026)
+## Status (July 2026)
 
-The **dark-genome sweep is complete** — every protein-coding gene without GO annotation has been processed.
+The **dark-genome sweep is complete** — every protein-coding gene without GO
+annotation has been processed. The project is now a **multi-model bake-off**: the
+same pipeline is re-run with different LLMs to measure how model choice affects the
+quality of the hypotheses.
 
-| Metric | Value |
-|--------|-------|
-| Findings produced | **10,973** |
-| Dark genome coverage (no-GO set) | **~100%** |
-| Avg quality score (recent 5k cohort) | **6.27 / 10** (median 5.6) |
-| First finding | **March 12, 2026** (BRCA1) |
-| Pipeline status | Sweep complete; re-runs with other LLMs (GLM-5.2, …) in progress |
+| Run | LLM | Findings | State |
+|-----|-----|----------|-------|
+| **qwen3.5** (this repo) | `qwen3.5:cloud` | **10,973** | ✅ complete — reference run |
+| GLM-5.2 | `glm-5.2:cloud` | ~4,700 | ✅ complete |
+| DeepSeek-V4-Pro | `deepseek-v4-pro:cloud` | — | 🟢 starting |
 
-> **What the score measures:** tool-use coverage, evidence depth, and cross-domain
-> correlation — **not** lab-verified truth. Findings are **hypotheses to orient
-> researchers**, not proven claims.
+First finding: **March 12, 2026** (BRCA1). Dark-genome coverage: **~100%** of the
+no-GO set. All runs share one reference gene list and one pipeline — only the LLM
+changes, so the findings are directly comparable.
+
+## Philosophy — honest orientation, not a high score
+
+Findings are **hypotheses to orient a researcher**, never proven claims. As of the
+June 2026 rewrite, the agent no longer optimizes a quality score — it writes for
+*a researcher who has never heard of the gene*:
+
+- **Separates established facts from inference** — "suggests" for a leap, never a bare assertion.
+- **Calibrates confidence honestly** — thin or contradictory evidence is flagged LOW; *absence of data is itself a valid result*.
+- **Flags literature noise** — gene-symbol homonyms (e.g. `NOL8`, `MOB2`) that pollute automated searches.
+- **Ends on a testable step** — every finding names what would falsify or confirm it.
+- **Values good triage** — correctly *skipping* a well-studied gene counts as much as a finding.
+
+A numeric score (`tools/scoring.py`) is still computed, but it is **passive
+bookkeeping**, not the agent's objective — it saturates and can be gamed, so it is
+deliberately kept out of the agent's prompt. The real measure of quality is
+**validation**: does the hypothesis match the gene's true function, and does it beat
+a naive "guess-from-the-name" baseline?
 
 ## How It Works
 
@@ -186,16 +205,29 @@ Each gene goes through deep analysis using 6+ bioinformatics sources before a fi
 
 ## LLM Providers
 
-GenoResearch uses a **4-tier hybrid system** with automatic failover:
+GenoResearch runs on a **4-tier hybrid system** with automatic failover. Any tier
+can be swapped for another model — the T1 slot is just wherever you put your best
+LLM.
 
-| Tier | Provider | Model | When |
-|------|----------|-------|------|
-| T1 | Ollama (cloud) | qwen3.5:cloud | Best quality |
-| T2 | Cerebras | qwen-3-235b | Fast, free tier |
-| T3 | Groq | llama-4-scout | Backup, fast |
-| T4 | Ollama (local) | qwen3.5:4b | Always available |
+| Tier | Provider | Model (default) | When |
+|------|----------|-----------------|------|
+| T1 | Ollama (cloud) | `qwen3.5:cloud` | Best quality |
+| T2 | Cerebras | `qwen-3-235b` | Fast, free tier |
+| T3 | Groq | `llama-4-scout` | Backup, fast |
+| T4 | Ollama (local) | `qwen3.5:4b` | Always available |
 
-Zero downtime — cascades automatically on failure.
+Zero downtime — the cascade falls through to the next tier on any failure.
+
+### Run it anywhere — quality scales with the model
+
+Nothing requires the cloud. Set `LLM_PROVIDER=ollama` and point
+`OLLAMA_MODEL_PRIMARY` at any local model to run the whole pipeline **100%
+offline**. The tools, queue, and scoring are identical across every model — **the
+only thing that changes is the quality of the reasoning**, which scales directly
+with the LLM you give it. A 4B local model keeps the sweep running on a laptop; a
+frontier model (`qwen3.5`, `glm-5.2`, `deepseek-v4-pro`) produces sharper,
+better-calibrated hypotheses. Measuring that trade-off precisely is exactly what
+the bake-off in **[Status](#status-july-2026)** is for.
 
 ## Configuration
 
