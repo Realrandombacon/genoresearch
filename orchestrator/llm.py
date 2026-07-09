@@ -252,7 +252,7 @@ def _chat_ollama(messages: list[dict], model: str = None, temperature: float = 0
     max_attempts = 2 if model == OLLAMA_MODEL_PRIMARY else 1
     for attempt in range(max_attempts):
         try:
-            timeout = 30 if model == OLLAMA_MODEL_PRIMARY else 180
+            timeout = 60 if model == OLLAMA_MODEL_PRIMARY else 180
             resp = requests.post(OLLAMA_URL, json=payload, timeout=timeout)
             resp.raise_for_status()
             data = resp.json()
@@ -706,7 +706,7 @@ def build_system_prompt(context: str = "") -> dict:
         "  ncbi_search(query, db='gene', max_results=5)\n"
         "  uniprot_search(query, max_results=5)\n"
         "  uniprot_fetch(accession_id)  — get UniProt accession for deep tools\n\n"
-        "Deep analysis (these drive your score):\n"
+        "Deep analysis (core evidence — more independent sources = stronger orientation):\n"
         "  interpro_scan(uniprot_acc)  — protein domains/families\n"
         "  string_interactions(gene_symbol)  — interaction partners\n"
         "  hpa_expression(gene_symbol)  — tissue expression + localization\n"
@@ -715,6 +715,10 @@ def build_system_prompt(context: str = "") -> dict:
         "Findings:\n"
         "  save_finding(title, description, evidence)  — save your analysis\n"
         "  list_findings() / read_finding(number)\n\n"
+        "Literature (Semantic Scholar — use to validate findings and check novelty):\n"
+        "  gene_literature(gene_symbol)  — check if gene is studied in literature\n"
+        "  semantic_search(query, max_results=5)  — search academic papers\n"
+        "  semantic_fetch(paper_id)  — get full paper details\n\n"
         "Other:\n"
         "  blast_search(fasta_file, db='nt', evalue=0.01)\n"
         "  pubmed_search(query, max_results=5)\n"
@@ -726,7 +730,13 @@ def build_system_prompt(context: str = "") -> dict:
         "  - For string_interactions/hpa_expression/clinvar_search: use gene symbol.\n"
         "  - After save_finding, IMMEDIATELY call next_gene() for the next target.\n"
         "  - If a gene is well-characterized (not dark), call skip_gene(reason).\n"
-        "  - You choose your own strategy. The scoring system rewards thoroughness.\n"
+        "  - Use gene_literature(symbol) early to check if the gene is truly dark.\n"
+        "  - If gene_literature shows 0 papers, mention it — confirms genuine dark gene.\n"
+        "  - Write for a researcher who has never heard of the gene: separate established\n"
+        "    facts from inference ('suggests' for a leap), calibrate confidence honestly\n"
+        "    (thin/contradictory evidence = LOW; absence of data is a valid result), and\n"
+        "    end on what would test the hypothesis. Pass alt_hypotheses + confidence to\n"
+        "    save_finding. Correctly skipping a well-studied gene is as valuable as a finding.\n"
     )
     if context:
         base += f"\nCurrent research context:\n{context}\n"

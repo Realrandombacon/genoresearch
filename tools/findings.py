@@ -11,7 +11,7 @@ import logging
 
 from config import FINDINGS_FILE, FINDINGS_DIR
 from agent.memory import load_memory, save_memory, add_finding
-from tools.scoring import _compute_score
+from tools.scoring import _compute_score, _classify_clinvar
 
 log = logging.getLogger("genoresearch.findings")
 
@@ -36,7 +36,8 @@ def _extract_gene_from_title(title: str) -> str:
 
 
 def save_finding(*args, title: str = "", description: str = "",
-                  evidence: str = "", **kwargs) -> str:
+                  evidence: str = "", alt_hypotheses: str = "",
+                  confidence: str = "", **kwargs) -> str:
     """
     Log a research finding to memory and TSV.
 
@@ -76,6 +77,11 @@ def save_finding(*args, title: str = "", description: str = "",
         for key in ("source", "reference", "ref", "pmid", "accession"):
             if key in kwargs:
                 evidence = str(kwargs[key])
+                break
+    if not alt_hypotheses:
+        for key in ("alt_hypotheses", "alternatives", "alternative_hypotheses", "other_hypotheses"):
+            if key in kwargs:
+                alt_hypotheses = str(kwargs[key])
                 break
     if not title:
         title = "Untitled Finding"
@@ -191,11 +197,37 @@ def save_finding(*args, title: str = "", description: str = "",
         "LOW"
     )
 
+    # v2: Auto-compute confidence level based on score and evidence type
+    if not confidence:
+        text_lower = f"{title} {description} {evidence}".lower()
+        clinvar_type = _classify_clinvar(text_lower)
+        has_interpro = bool(re.search(r'IPR\d+|PF\d+|DUF\d+', f"{title} {description} {evidence}"))
+        has_string = bool(re.search(r'string|interact', text_lower))
+        has_hpa = bool(re.search(r'ntpm|enriched|specific', text_lower))
+
+        if score >= 8 and clinvar_type == 'snv' and has_interpro and has_string:
+            confidence = "HIGH"
+        elif score >= 7 and (has_interpro or has_string):
+            confidence = "MEDIUM-HIGH"
+        elif score >= 5:
+            confidence = "MEDIUM"
+        elif score >= 3:
+            confidence = "LOW-MEDIUM"
+        else:
+            confidence = "LOW"
+
+        # Downgrade CNV-only findings one level
+        if clinvar_type == 'cnv_only' and confidence in ('HIGH', 'MEDIUM-HIGH'):
+            confidence = 'MEDIUM'
+
     with open(detail_path, "w", encoding="utf-8") as f:
         f.write(f"# {title}\n\n")
         f.write(f"**Date:** {ts}\n\n")
         f.write(f"**Quality Score:** {score}/10 ({score_label})\n\n")
+        f.write(f"**Confidence:** {confidence}\n\n")
         f.write(f"## Description\n{description}\n\n")
+        if alt_hypotheses:
+            f.write(f"## Alternative Hypotheses\n{alt_hypotheses}\n\n")
         if evidence:
             f.write(f"## Evidence\n```\n{evidence}\n```\n")
 

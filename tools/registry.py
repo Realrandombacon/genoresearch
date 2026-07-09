@@ -59,6 +59,7 @@ class ToolRegistry:
         from tools.hpa import hpa_expression
         from tools.alphafold import alphafold_structure
         from tools.clinvar import clinvar_search
+        from tools.semantic_scholar import semantic_search, gene_literature, semantic_fetch
 
         self.register("ncbi_search", ncbi_search)
         self.register("ncbi_fetch", ncbi_fetch)
@@ -111,5 +112,15 @@ class ToolRegistry:
         self.register("tissue_expression", hpa_expression)
         self.register("protein_structure", alphafold_structure)
         self.register("clinical_variants", clinvar_search)
+
+        # Literature search — Semantic Scholar
+        self.register("semantic_search", semantic_search)
+        self.register("gene_literature", gene_literature)
+        self.register("semantic_fetch", semantic_fetch)
+        # Aliases — Qwen may use different names
+        self.register("search_papers", semantic_search)
+        self.register("literature_search", semantic_search)
+        self.register("paper_search", semantic_search)
+        self.register("check_literature", gene_literature)
 
         log.info("Registered %d tools", len(self._tools))

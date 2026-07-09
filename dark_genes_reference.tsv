@@ -88,7 +88,7 @@ C11orf98	102288414	11	11q12.3	chromosome 11 open reading frame 98	DONE
 C11orf98P1	106480289	9	9p22.1	C11orf98 pseudogene 1	TODO
 C11orf98P2	107986535	6	6q25.2	C11orf98 pseudogene 2	TODO
 C11orf98P3	127138860	3	3p24.3	C11orf98 pseudogene 3	TODO
-C12ORF3	57201			chromosome 12 open reading frame 3	TODO
+C12ORF3	57201			chromosome 12 open reading frame 3	DONE
 C12ORF4	57200			chromosome 12 open reading frame 4	DONE
 C12ORF5	57199			chromosome 12 open reading frame 5	TODO
 C12ORF6	57197			chromosome 12 open reading frame 6	TODO
@@ -101,8 +101,8 @@ C12orf54	121273	12	12q13.11	chromosome 12 open reading frame 54	DONE
 C12orf56	115749	12	12q14.2	chromosome 12 open reading frame 56	DONE
 C12orf57	113246	12	12p13.31	chromosome 12 open reading frame 57	DONE
 C12orf60	144608	12	12p12.3	chromosome 12 open reading frame 60	DONE
-C12orf63	374467	12	12q23.1	chromosome 12 open reading frame 63	TODO
-C12orf7	60453	12		chromosome 12 open reading frame 7	TODO
+C12orf63	374467	12	12q23.1	chromosome 12 open reading frame 63	DONE
+C12orf7	60453	12		chromosome 12 open reading frame 7	DONE
 C12orf71	728858	12	12p11.23	chromosome 12 open reading frame 71	DONE
 C12orf71BP	100506578	12	12p11.23	chromosome 12 open reading frame 71B, pseudogene	TODO
 C12orf74	338809	12	12q22	chromosome 12 open reading frame 74	DONE
@@ -163,7 +163,7 @@ C14orf39	317761	14	14q23.1	chromosome 14 open reading frame 39	DONE
 C14orf40	319109	14	14q24.3	chromosome 14 open reading frame 40	TODO
 C14orf41	440187	14	14q24.3	chromosome 14 open reading frame 41	TODO
 C14orf41	161378	14	14q24.1	chromosome 14 open reading frame 41	TODO
-C14orf42	161380	14	14q24.3	chromosome 14 open reading frame 42	TODO
+C14orf42	161380	14	14q24.3	chromosome 14 open reading frame 42	DONE
 C14orf45	319108	14		chromosome 14 open reading frame 45	TODO
 C14orf51	338000	14		chromosome 14 open reading frame 51	TODO
 C14orf53	122439	14	14q23.3	chromosome 14 open reading frame 53	DONE
@@ -271,13 +271,13 @@ C17orf2	8316	17	17p13.3	chromosome 17 open reading frame 2	TODO
 C17orf20	53386	17	17p13.3	chromosome 17 open reading frame 20	TODO
 C17orf21	53385	17	17p13.3	chromosome 17 open reading frame 21	TODO
 C17orf22	53384	17	17p13.3	chromosome 17 open reading frame 22	TODO
-C17orf26	79399			chromosome 17 open reading frame 26	TODO
-C17orf27	79398	17		chromosome 17 open reading frame 27	TODO
-C17orf28	80791	17	17q25.1	chromosome 17 open reading frame 28	TODO
-C17orf32	170473	17		chromosome 17 open reading frame 32	TODO
+C17orf26	79399			chromosome 17 open reading frame 26	DONE
+C17orf27	79398	17		chromosome 17 open reading frame 27	DONE
+C17orf28	80791	17	17q25.1	chromosome 17 open reading frame 28	DONE
+C17orf32	170473	17		chromosome 17 open reading frame 32	DONE
 C17orf33	170794	17		chromosome 17 open reading frame 33	TODO
 C17orf4	53402	17	17p13.3	chromosome 17 open reading frame 4	TODO
-C17orf47	284083	17	17q22	chromosome 17 open reading frame 47	TODO
+C17orf47	284083	17	17q22	chromosome 17 open reading frame 47	DONE
 C17orf5	53401	17	17p13.3	chromosome 17 open reading frame 5	TODO
 C17orf50	146853	17	17q12	chromosome 17 open reading frame 50	DONE
 C17orf58	284018	17	17q24.2	chromosome 17 open reading frame 58	DONE
@@ -328,7 +328,7 @@ C19orf81	342918	19	19q13.33	chromosome 19 open reading frame 81	DONE
 C19orf84	147646	19	19q13.41	chromosome 19 open reading frame 84	DONE
 C19orf85	111064650	19	19q13.42	chromosome 19 open reading frame 85	DONE
 C19orf9	199775	19	19p13.11	chromosome 19 open reading frame 9	DONE
-C1ORF9	22975			chromosome 1 open reading frame 9	TODO
+C1ORF9	22975			chromosome 1 open reading frame 9	DONE
 C1orf105	92346	1	1q24.3	chromosome 1 open reading frame 105	DONE
 C1orf115	79762	1	1q41	chromosome 1 open reading frame 115	DONE
 C1orf116	79098	1	1q32.1	chromosome 1 open reading frame 116	DONE
@@ -774,9 +774,9 @@ C9orf157	286220	9	9q34.3	chromosome 9 open reading frame 157	TODO
 C9orf163	158055	9	9q34.3	chromosome 9 putative open reading frame 163	DONE
 C9orf164	349236	9	9q22.2	chromosome 9 open reading frame 164	TODO
 C9orf18	170469	9		chromosome 9 open reading frame 18	DONE
-C9orf2	736			chromosome 9  open reading frame 2	TODO
-C9orf20	170477	9		chromosome 9 open reading frame 20	TODO
-C9orf3	23733	9	9q22	chromosome 9 open reading frame 3	TODO
+C9orf2	736			chromosome 9  open reading frame 2	DONE
+C9orf20	170477	9		chromosome 9 open reading frame 20	DONE
+C9orf3	23733	9	9q22	chromosome 9 open reading frame 3	DONE
 C9orf33	90477	9	9q22.1	chromosome 9 open reading frame 33	TODO
 C9orf35	414160	9	9p21.2	chromosome 9 open reading frame 35	DONE
 C9orf38	29044	9	9p24.1	chromosome 9 open reading frame 38	TODO

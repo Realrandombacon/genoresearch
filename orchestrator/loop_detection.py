@@ -12,19 +12,39 @@ def is_looping(recent_tool_calls: list[str], loop_threshold: int) -> bool:
 
     Two checks:
     1. Last N calls are strictly identical (immediate loop)
-    2. Same call appears 3+ times in the last 10 calls (spread-out loop,
+    2. Same call appears 4+ times in the last 10 calls (spread-out loop,
        e.g. search -> nudge -> search -> nudge -> search)
+
+    Navigation tools (next_gene, skip_gene, complete_gene, advance_seed)
+    are excluded from consecutive-identical detection because calling them
+    back-to-back is a normal workflow (e.g. skip -> next -> skip -> next).
     """
     if len(recent_tool_calls) < loop_threshold:
         return False
-    # Check 1: strictly consecutive identical calls
+
+    # Tools that are normal to call repeatedly during gene transitions
+    _NAVIGATION_TOOLS = {"next_gene", "skip_gene", "complete_gene", "advance_seed"}
+
+    last_call = recent_tool_calls[-1]
+    last_call_base = last_call.split("(")[0].strip() if "(" in last_call else last_call
+
+    # Check 1: strictly consecutive identical calls (skip navigation tools)
     last_n = recent_tool_calls[-loop_threshold:]
     if len(set(last_n)) == 1:
-        return True
-    # Check 2: same call appears 3+ times in last 10 (spread-out loop)
+        if last_call_base not in _NAVIGATION_TOOLS:
+            return True
+
+    # Check 2: same call appears 4+ times in last 10 (spread-out loop)
     counts = Counter(recent_tool_calls[-10:])
     for call, count in counts.items():
-        if call != "__NO_TOOL__" and count >= 3:
+        call_base = call.split("(")[0].strip() if "(" in call else call
+        if call == "__NO_TOOL__":
+            continue
+        # Spread threshold scales with loop_threshold; minimum 3 to avoid noise
+        threshold = max(3, loop_threshold)
+        if call_base in _NAVIGATION_TOOLS:
+            threshold = max(5, loop_threshold)
+        if count >= threshold:
             return True
     return False
 

@@ -33,6 +33,9 @@ FINDINGS_DIR = os.path.join(BASE_DIR, "findings")
 FINDINGS_FILE = os.path.join(BASE_DIR, "findings.tsv")
 REPORTS_DIR = os.path.join(BASE_DIR, "reports")
 RESEARCH_LOG = os.path.join(BASE_DIR, "research.log")
+# Optional: historical/archive log(s) — concatenated into dashboard reads.
+# If the file does not exist, the dashboard silently ignores it.
+RESEARCH_LOG_ARCHIVE = os.path.join(BASE_DIR, "research-archive.log")
 DASHBOARD_STATUS = os.path.join(BASE_DIR, "dashboard_status.json")
 MEMORY_FILE = os.path.join(BASE_DIR, "memory.json")
 
