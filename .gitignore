@@ -41,4 +41,11 @@ data/checkpoints/
 _tmp_*.py
 __tmp*.py
 *.tmp
-EOF
+
+# Manual backups — git history is the backup
+*_backup.py
+
+# Generated artifacts — regenerable from findings/, not shared
+reports/
+wiki/
+wiki_backups/
